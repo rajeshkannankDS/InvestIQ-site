@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HDFC Bank Ltd — Equity Research Journal | Sep 2026</title>
+<style>
+:root{--bg:#0f1420;--panel:#161d2e;--panel2:#1c2438;--ink:#e8ecf5;--muted:#9aa7bd;--line:#2a3450;--acc:#4da3ff;--good:#2ecc8f;--warn:#f5b83d;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:22px}
+header.rpt{background:linear-gradient(135deg,#101828,#1b2a4a);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:20px}
+header.rpt h1{margin:0 0 4px;font-size:27px}
+header.rpt .sub{color:var(--muted);font-size:14px}
+.badges{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{padding:4px 11px;border-radius:20px;font-size:12.5px;border:1px solid var(--line);background:var(--panel2)}
+.badge.buy{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.badge.risk{background:#3a1d1d;border-color:#7a3030;color:#ffb0b0}
+.badge.info{background:#123055;border-color:#24528f;color:#a8d1ff}
+h2{font-size:20px;margin:34px 0 6px;padding-bottom:7px;border-bottom:2px solid var(--line);color:#cfe1ff}
+h4{font-size:14.5px;margin:14px 0 6px;color:#a9c4ea}
+p{margin:8px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 6px;font-size:13.2px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+th{background:var(--panel2);color:#c6d6f0;font-weight:600;text-align:center}
+td:first-child,th:first-child{text-align:left;font-weight:600;color:#dbe6fa}
+tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.tblwrap table{border:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:13px 14px}
+.kpi .l{font-size:11.6px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.kpi .v{font-size:21px;font-weight:700;margin-top:3px}
+.kpi .n{font-size:11.6px;color:var(--muted);margin-top:2px}
+.good{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 17px;margin:13px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.tag{display:inline-block;font-size:10.6px;letter-spacing:.6px;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-right:6px;vertical-align:1.5px;border:1px solid}
+.t-fact{background:#123055;border-color:#2c5f9e;color:#a9d1ff}
+.t-calc{background:#2a2140;border-color:#5a4a8a;color:#cbb8ff}
+.t-mgmt{background:#14402e;border-color:#2c7a5a;color:#9df0cd}
+.t-view{background:#46340f;border-color:#8d6a1e;color:#ffd98a}
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:12px;font-weight:600}
+.p-g{background:#0d3a2c;color:#7ff0c3;border:1px solid #1c6b4f}
+.p-y{background:#3d3210;color:#ffd98a;border:1px solid #8d6a1e}
+.p-r{background:#3a1d1d;color:#ffb0b0;border:1px solid #7a3030}
+.note{font-size:12.4px;color:var(--muted);margin-top:6px}
+.src{font-size:12.2px;color:var(--muted)}
+.scorebar{height:9px;background:#0c111c;border-radius:6px;overflow:hidden;border:1px solid var(--line);min-width:110px}
+.scorebar>i{display:block;height:100%;background:linear-gradient(90deg,#4da3ff,#2ecc8f)}
+ul{margin:7px 0 7px 20px}li{margin:4px 0}
+.verdict-main{display:flex;flex-wrap:wrap;gap:16px;align-items:stretch}
+.verdict-big{flex:1 1 300px;background:linear-gradient(135deg,#2b1d0e,#3a2a12);border:1px solid #8d6a1e;border-radius:12px;padding:18px}
+.verdict-big .h{font-size:26px;font-weight:800;color:#ffd98a}
+a{color:var(--acc)}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12.4px}
+/* top nav + tabs */
+.topnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
+.topnav a.home{color:var(--acc);font-size:13px;text-decoration:none;font-weight:600}
+.topnav select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13.4px;font-weight:600;cursor:pointer}
+.tabbar{position:sticky;top:0;z-index:40;display:flex;flex-wrap:wrap;gap:6px;background:rgba(15,20,32,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:8px;margin-bottom:16px}
+.tabbtn{border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:12.6px;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;letter-spacing:.3px}
+.tabbtn:hover{color:#cfe1ff;border-color:#3b5f96}
+.tabbtn.on{background:#123055;border-color:#2c66ad;color:#a9d1ff;box-shadow:0 0 0 1px #2c66ad}
+.panel{display:none;animation:fadein .25s ease}
+.panel.on{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.viewbox{border-left:4px solid var(--acc);background:rgba(77,163,255,.07);border-radius:0 9px 9px 0;padding:10px 15px;margin:10px 0 14px}
+.viewbox .vh{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8fc4ff;font-weight:700;margin-bottom:5px}
+.viewbox ul{margin:4px 0 2px 18px}.viewbox li{font-size:13.6px;margin:5px 0}
+.viewbox li b{color:#dbe9ff}
+.viewbox li.imp{color:#ffe6a3}
+.viewbox li.imp::marker{content:"★ "}
+.important{display:inline-block;background:#4a3708;color:#ffd98a;border:1px solid #8d6a1e;font-size:10.3px;font-weight:700;letter-spacing:.7px;padding:1px 7px;border-radius:4px;vertical-align:1.5px;margin-left:6px}
+.kpi[data-explain]{cursor:pointer;transition:transform .12s,border-color .12s}
+.kpi[data-explain]:hover{border-color:#4da3ff;transform:translateY(-2px)}
+.kpi[data-explain]::after{content:"ⓘ what does this mean?";display:block;font-size:9.6px;color:#4da3ff;letter-spacing:.4px;margin-top:5px;text-transform:uppercase}
+.term{color:#7fc0ff;text-decoration:underline dotted;cursor:help}
+.term:hover{color:#bfe0ff}
+#modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(4,8,16,.72);padding:20px}
+#modal.on{display:flex;align-items:center;justify-content:center}
+.mbox{background:#141b2c;border:1px solid #2c66ad;border-radius:13px;max-width:640px;width:100%;max-height:82vh;overflow:auto;padding:20px 22px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.mbox .mt{font-size:16.5px;font-weight:700;color:#a9d1ff;margin-bottom:8px}
+.mbox .mb{font-size:14px;line-height:1.65;color:var(--ink)}
+.mbox .mb .why{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);color:#ffd98a;font-size:13.3px}
+.mbox .mclose{float:right;border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:7px;font-size:12px;padding:4px 10px;cursor:pointer}
+.mbox .mclose:hover{color:#fff;border-color:#4da3ff}
+.mgl{font-size:12.4px;color:var(--muted);margin-top:12px}
+/* Position status KPI cards (tab0) - accented left bar + coloured value so
+   this group never reads as a copy of the plain .kpi row at the top of tab0 */
+.pos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0 6px}@media (max-width:900px){.pos-grid{grid-template-columns:repeat(2,1fr)}}@media (max-width:540px){.pos-grid{grid-template-columns:1fr}}
+.posk{background:var(--panel2);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:9px;padding:9px 12px 10px}
+.posk .pk-l{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.posk .pk-v{font-size:20px;font-weight:700;margin-top:3px;color:var(--ink)}
+.posk .pk-n{font-size:11.2px;color:var(--muted);margin-top:3px}
+.posk.p-blue{border-left-color:#4da3ff}
+.posk.p-blue .pk-v{color:#8fc6ff}
+.posk.p-purple{border-left-color:#a78bfa}
+.posk.p-purple .pk-v{color:#cbb8ff}
+.posk.p-amber{border-left-color:#f5b83d}
+.posk.p-amber .pk-v{color:#ffd98a}
+.posk.p-teal{border-left-color:#2ecc8f}
+.posk.p-teal .pk-v{color:#5ee0b0}
+.posk.p-pos{border-left-color:#2ecc8f}
+.posk.p-pos .pk-v{color:#2ecc8f}
+.posk.p-neg{border-left-color:#ff6b6b}
+.posk.p-neg .pk-v{color:#ff6b6b}
+.posk.p-slate{border-left-color:#9aa7bd}
+.posk.p-slate .pk-v{color:#c9d3e6}
+@media print{body{background:#fff;color:#111}.wrap{max-width:none}header.rpt,.card,.kpi,table,.verdict-big{background:#fff;color:#111;border-color:#bbb}th{background:#eee;color:#111}td{color:#111}h2,h4{color:#111}.good{color:#087f4f}.warn{color:#9a6a00}.bad{color:#b00}.panel{display:block!important;page-break-before:always}.tabbar,#modal{display:none!important}.viewbox{background:#f4f8ff;color:#111}.viewbox li{color:#111}.term{color:#0b5ca8}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="rpt">
+  <h1>HDFC Bank Ltd — Deep-Dive Fundamental Report</h1>
+  <div class="sub">Quarterly Equity Research Journal &nbsp;•&nbsp; Entry #1 (Baseline Quarter) &nbsp;•&nbsp; Assessment as of <b>September 2026</b> (price data: <b>19-Oct-2026 close</b>; monthly run 20-Oct-2026)</div>
+  <div class="badges">
+    <span class="badge buy">Portfolio status: HOLDING — invested monthly</span>
+    <span class="badge buy">VERDICT: ACCUMULATE (staged buying near ₹700) · composite 6.9/10 · 12M horizon · re-affirmed 19-Oct-2026</span>
+    <span class="badge info">CMP ₹712 (19-Oct-2026 close) · −2.31% (day)</span>
+    <span class="badge info">Large Cap · Mcap ₹10,97,804 Cr (19-Oct-2026)</span>
+    <span class="badge">P/E 13.7 · ROE 13.6% · Div yield 1.83%</span>
+    <span class="badge">5Y profit CAGR 18.9% · price 1Y −25%</span>
+    <span class="badge">NSE: HDFCBANK · BSE: 500180 · F&amp;O</span>
+    <span class="badge">Sector: Financial Services → Banks → Private Sector Bank</span>
+  </div>
+  <p class="note" style="margin-top:12px">Primary source: Screener.in (consolidated, 01-Oct-2026 fundamentals; market data refreshed 19-Oct-2026). Corroborating: exchange announcements (Sep/Oct-2026), company annual reports 2012–2026 and concall transcripts listed on BSE/NSE. All figures in ₹ Crore unless stated. Research journal entry — not investment advice. Bank-format ratio rows (Gross/Net NPA, interest coverage, working-capital ratios) are blank or absent in the free source and are flagged VERIFY.</p>
+</header>
+
+<nav class="topnav">
+  <a class="home" href="../InvestIQ.html">⌂ InvestIQ</a>&nbsp; <a class="home" href="Equity_Forge.html">⌂ Back to Stock Hub</a>
+  <select id="stockSel">
+    <option value="">— go to stock —</option>
+    <option value="Reliance_Research_Report_Sep2026.html">RELIANCE | L | H</option>
+    <option value="RACE_Research_Report_Sep2026.html">RACE | S | H</option>
+    <option value="HDFCBANK_Research_Report_Sep2026.html" selected>HDFC BANK | L | H</option>
+    <option value="ITC_Research_Report_Sep2026.html">ITC | L | H</option>
+    <option value="CAPLIPOINT_Research_Report_Sep2026.html">CAPLIN POINT | S | H</option>
+    <option value="GANECOS_Research_Report_Sep2026.html">GANESHA ECOSPHERE | S | H</option>
+    <option value="TMPV_Research_Report_Sep2026.html">TATA MOTORS PV | L | H</option>
+    <option value="OLECTRA_Research_Report_Oct2026.html">OLECTRA | S | C</option>
+    <option value="KAYNES_Research_Report_Oct2026.html">KAYNES | S | C</option>
+    <option value="BEL_Research_Report_Oct2026.html">BEL | L | C</option>
+    <option value="JIO_Research_Report_Oct2026.html">JIO IPO | L | C</option>
+  </select>
+</nav>
+
+<nav class="tabbar" id="tabbar" aria-label="Report sections">
+  <button class="tabbtn on" data-t="tab0">0 · Dashboard</button>
+  <button class="tabbtn" data-t="tab1">1 · Metadata</button>
+  <button class="tabbtn" data-t="tab2">2 · Valuation</button>
+  <button class="tabbtn" data-t="tab3">3 · Growth</button>
+  <button class="tabbtn" data-t="tab4">4 · Profits</button>
+  <button class="tabbtn" data-t="tab5">5 · Balance Sheet</button>
+  <button class="tabbtn" data-t="tab6">6 · Cash Flow</button>
+  <button class="tabbtn" data-t="tab7">7 · Shareholders</button>
+  <button class="tabbtn" data-t="tab8">8 · News</button>
+  <button class="tabbtn" data-t="tab9">9 · Verdict &amp; Journal</button>
+  <button class="tabbtn" data-t="tabT">Transactions</button>
+  <button class="tabbtn" data-t="tabG">Glossary</button>
+</nav>
+<section class="panel on" id="tab0">
+<h2>0. Executive Dashboard — Sep 2026</h2>
+<div class="viewbox"><div class="vh">Section 0 — The View (plain English)</div>
+<ul>
+<li class="imp">One-line verdict: <b>ACCUMULATE (staged buying near ₹700) · composite 6.9/10 · 12M horizon.</b> India's largest private sector bank at 14.1x earnings, 1.85x book, 13.6% ROE and a 1.80% yield — after a 25% one-year price fall the risk/reward is positive, but buy it in tranches, not in one shot.<span class="important">IMPORTANT</span></li>
+<li class="imp">Three numbers that decide everything: P/E 14.1 (fair vs an 18.9% 5Y profit CAGR → PEG ≈0.75) · ROE 13.6% (healthy, but down from 17%) · deposits +14.3% YoY to ₹30,99,638 Cr.<span class="important">IMPORTANT</span></li>
+<li>The one trap in the data: Screener's bank format shows a negative "Financing Profit" and −2% to −34% "Financing Margin %" in most quarters — that is a format artefact of (Revenue − Interest − Expenses), not an operating loss. Headline PBT = Financing Profit + Other Income (explained plainly in Sections 3 and 4).</li>
+<li>Earnings-mix flag: TTM other income ₹1,43,700 Cr = 41% of TTM revenue and <b>133% of TTM pre-tax profit</b> — the post-HDFC Ltd merger (1-Jul-2024) P&amp;L carries large fee, fair-value and gain items. Stripping them out is the key VERIFY before sizing a position.</li>
+<li>Ownership flip over 12 quarters: FIIs 52.13% → 41.82% while DIIs 30.39% → 41.75% — foreign money selling, domestic money absorbing; promoter holding is 0.00% post-merger (Section 7).</li>
+<li>How to read this report: click any section tab above · click any blue info card for a plain-English meaning · click any blue dotted term for its glossary definition.</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Current Market Price — ₹712 at the 19-Oct-2026 close, down 2.31% that day. It sits 30% below the 52-week high of ₹1,020 and 4% above the 52-week low of ₹682, i.e. you are buying after a one-year fall."><div class="l">CMP</div><div class="v">₹712</div><div class="n">19 Oct'26 close · −2.31% (day)</div></div>
+  <div class="kpi" data-explain="Market capitalisation ₹10,97,804 Cr at the 19-Oct-2026 close — the total value of all shares. This is a Large Cap and a Nifty 50 / Sensex constituent: deep liquidity, heavy institutional ownership and no exit problem."><div class="l">Market Cap</div><div class="v">₹10,97,804 Cr</div><div class="n">Large Cap · 19-Oct-2026 (Screener)</div></div>
+  <div class="kpi" data-explain="Price-to-Earnings 13.7x at the 19-Oct-2026 close — you pay ₹13.7 for every ₹1 of yearly profit (TTM EPS ₹52.02, now including the Sep-2026 quarter). For the country's largest private bank compounding profits at 18.9% a year over five years, that is an undemanding multiple."><div class="l">Stock P/E (TTM)</div><div class="v good">13.7x</div><div class="n">EPS TTM ₹52.02 · 19-Oct-2026</div></div>
+  <div class="kpi" data-explain="Price-to-Book 1.82x (book value ₹391) at the 19-Oct-2026 close — the market pays ₹1.82 for every ₹1 of the bank's net assets. A bank is fairly valued near its ROE, so ~1.8x against a 13.6% ROE is reasonable as long as returns hold."><div class="l">P/B · Book Value</div><div class="v">1.82x · ₹391</div><div class="n">CMP 712 ÷ BV 391 · 19-Oct-2026</div></div>
+  <div class="kpi" data-explain="Return on Equity 13.6% and ROCE 7.02% — the bank earns ₹13.6 per ₹100 of shareholder money. Good, but ROE has drifted from 17% (FY24) to 14% (FY25/FY26), so the direction matters more than the level."><div class="l">ROE / ROCE</div><div class="v warn">13.6% / 7.02%</div><div class="n">ROE down from 17%</div></div>
+  <div class="kpi" data-explain="Dividend yield 1.83% at the 19-Oct-2026 close — cash dividend income at today's price, with 31% of FY26 profit paid out. It gives you a small income floor while you wait for the price to work."><div class="l">Dividend Yield</div><div class="v good">1.83%</div><div class="n">FY26 payout 31% · 19-Oct-2026</div></div>
+  <div class="kpi" data-explain="FY26 revenue ₹3,48,615 Cr, up 3.6% over FY25. Growth looks modest only because the huge FY24 jump was the HDFC Ltd merger (completed 1-Jul-2024) landing in the accounts."><div class="l">FY26 Revenue</div><div class="v">₹3,48,615 Cr</div><div class="n">YoY +3.6% · TTM ₹3,51,819 Cr</div></div>
+  <div class="kpi" data-explain="FY26 net profit ₹79,219 Cr, up 7.9% over FY25 (₹73,440 Cr), with TTM profit at ₹82,512 Cr. Steady compounding rather than a spike — exactly what you want in a core banking holding."><div class="l">FY26 Net Profit</div><div class="v good">₹79,219 Cr</div><div class="n">YoY +7.9% · EPS ₹49.39</div></div>
+  <div class="kpi" data-explain="Five-year profit CAGR 18.9% — profits have compounded at almost 19% a year. This is the single strongest number in the report and the main reason the verdict is accumulate rather than watch."><div class="l">5Y Profit CAGR</div><div class="v good">18.9%</div><div class="n">Screener 5Y basis</div></div>
+  <div class="kpi" data-explain="Share price is down 25% over one year (3-year CAGR −1%, 5-year −2%) while profits kept growing. That gap between earnings up and price down is what creates the 7.5/10 valuation score."><div class="l">Price 1Y</div><div class="v bad">−25%</div><div class="n">52W ₹1,020 / ₹682</div></div>
+  <div class="kpi" data-explain="Customer deposits of ₹30,99,638 Cr at Mar-2026, up 14.3% year on year. Deposits are a bank's raw material — double-digit deposit growth with falling borrowings is the healthiest funding signal a bank can show."><div class="l">Deposits (FY26)</div><div class="v good">₹30,99,638 Cr</div><div class="n">YoY +14.3% · 3Y CAGR 18%</div></div>
+  <div class="kpi" data-explain="Composite score 6.9 out of 10 — the average of the seven section scores. On our rubric, 6 to 8 means positive/acceptable, which maps to ACCUMULATE with staged buying."><div class="l">Composite Score</div><div class="v">6.9 / 10</div><div class="n">7 sections · rubric 6–8 positive</div></div>
+</div>
+<div class="card" style="border-color:#1c6b4f">
+<h4>Position status (personal) <span class="tag t-fact">Fact</span></h4>
+<p class="note" style="margin-top:0"><b>Status: HOLDING — this stock is invested in on a monthly basis.</b> The score verdict on this page drives the monthly action (continue the monthly buy / pause / add a tranche). The position figures below are <span class="tag t-calc">Calc</span> generated from your trade log (<code>Equity\Holding_stocks.xlsx</code>) by <code>Equity\code\holdings_calc.py</code> and refreshed at every monthly run — units held, average cost, value and P/L are never typed in by hand. Market prices are the 19-Oct-2026 close.</p>
+<div class="pos-grid">
+<!--HOLD_POS_START-->
+<div class="posk p-blue"><div class="pk-l">Units held</div><div class="pk-v">57</div><div class="pk-n"><span class="tag t-calc">Calc</span></div></div>
+<div class="posk p-purple"><div class="pk-l">Average cost</div><div class="pk-v">₹847.62</div><div class="pk-n"><span class="tag t-calc">Calc</span></div></div>
+<div class="posk p-amber"><div class="pk-l">Invested (contribution)</div><div class="pk-v">₹48,315</div><div class="pk-n">15.0% of ₹3,21,508 total</div></div>
+<div class="posk p-teal"><div class="pk-l">Current value</div><div class="pk-v">₹40,584</div><div class="pk-n">at CMP ₹712 on 19-Oct-2026</div></div>
+<div class="posk p-neg"><div class="pk-l">Profit / Loss</div><div class="pk-v">−₹7,731</div><div class="pk-n">−16.0% on ₹48,315 invested</div></div>
+<div class="posk p-slate"><div class="pk-l">Monthly buy / SIP amount</div><div class="pk-v">&mdash;</div><div class="pk-n">fill in</div></div>
+<!--HOLD_POS_END-->
+</div>
+<p class="note"><a class="tabbtn" data-t="tabT" href="#tabT">→ Full transaction log (Transactions tab)</a></p>
+</div>
+<div class="verdict-main">
+  <div class="verdict-big">
+    <div style="font-size:12.5px;color:#ffe0a3;letter-spacing:1px">STANDALONE VERDICT (analyst view, Sep 2026)</div>
+    <div class="h">ACCUMULATE (staged buying near ₹700) · 12M horizon</div>
+    <p style="margin-top:8px">HDFC Bank at ₹721 trades on 14.1x earnings and 1.85x book with a 13.6% ROE, a 1.80% dividend yield and an 18.9% five-year profit CAGR — after a 25% one-year fall the valuation finally makes sense for a franchise that holds ~15% of system advances and 37% of private-bank advances. What holds the composite to 6.9 rather than 8+ is quality and momentum, not scale: other income of ₹1,43,700 Cr is 133% of TTM pre-tax profit (a post-merger distortion that must be stripped out), ROE has drifted 17% → 13.6%, ROCE is only 7.02%, FII ownership has fallen 10.3 points in 12 quarters, and the price is still in a downtrend. Build the position in tranches near ₹700 instead of one lump sum, and let the 17-Oct-2026 Q2 results decide the next tranche.</p>
+    <p class="note">Re-entry triggers: Q2 FY27 results on <b>17 October 2026</b> · deposit growth ≥13% YoY · PAT growth ≥10% YoY · FII selling stops (Jun'26: 41.82%) · Gross/Net NPA from the quarterly fact sheet (blank in source → VERIFY) · add near ₹682–700; stop chasing above ₹780.</p>
+  </div>
+  <div class="card" style="flex:1 1 330px;margin:0">
+    <h4 style="margin-top:0">Section Scorecard (0–10)</h4>
+    <table>
+      <tr><th>Section</th><th>Score</th><th style="width:34%">Rating</th></tr>
+      <tr><td>1. Metadata &amp; Identity</td><td>7.0</td><td><div class="scorebar"><i style="width:70%"></i></div></td></tr>
+      <tr><td>2. Valuation</td><td>7.5</td><td><div class="scorebar"><i style="width:75%"></i></div></td></tr>
+      <tr><td>3. Growth</td><td>7.0</td><td><div class="scorebar"><i style="width:70%"></i></div></td></tr>
+      <tr><td>4. Profits &amp; Efficiency</td><td>6.5</td><td><div class="scorebar"><i style="width:65%"></i></div></td></tr>
+      <tr><td>5. Balance Sheet Strength</td><td>7.0</td><td><div class="scorebar"><i style="width:70%"></i></div></td></tr>
+      <tr><td>6. Cash Flow Quality</td><td>6.5</td><td><div class="scorebar"><i style="width:65%"></i></div></td></tr>
+      <tr><td>7. Shareholding &amp; Ownership</td><td>6.5</td><td><div class="scorebar"><i style="width:65%"></i></div></td></tr>
+      <tr><td><b>Composite</b></td><td><b>6.9</b></td><td><div class="scorebar"><i style="width:69%"></i></div></td></tr>
+    </table>
+    <p class="src">Rubric: 8–10 excellent · 6–8 positive/acceptable · 4–6 watchlist · &lt;4 avoid. Composite 6.9 = ACCUMULATE (staged buying near ₹700).</p>
+  </div>
+</div>
+</section>
+<section class="panel" id="tab1">
+<h2>1. Company / Stock Metadata</h2>
+<div class="viewbox"><div class="vh">Section 1 — The View (plain English)</div>
+<ul>
+<li class="imp">Scale is the story: <b>India's largest private sector bank by assets</b>, ~15% share of system advances and 37% of private-bank advances (FY24), and one of only three systemically important banks (D-SIB) in India — system-level franchise, not a cyclical punt.<span class="important">IMPORTANT</span></li>
+<li class="imp">Post-merger identity: HDFC Ltd was merged into the bank on 1-Jul-2024 — equity capital, borrowings and total assets all jumped, and <b>promoter holding now reads 0.00%</b>. Read Section 7 before judging the ownership table.<span class="important">IMPORTANT</span></li>
+<li>Quality of listing: Nifty 50, BSE Sensex, Nifty Bank and BSE Bankex constituent, F&amp;O-eligible, ₹11.12 lakh Cr market cap — institutional-grade liquidity in and out.</li>
+<li>Disclosure trail is dense: four rating-agency updates in 2026 (CARE, Fitch, ICRA, CRISIL), annual reports 2012–2026, latest concall Jul-2026 — far more information flow than a small cap.</li>
+<li>VERIFY (not machine-readable in the free export): credit-rating grades, ISIN, auditor name, promoter pledge (moot at 0%), and the exact accounting split of merger-related gains inside FY24–FY26 other income.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Identification &amp; Classification <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Field</th><th style="text-align:left">Value</th></tr>
+<tr><td>Company Name</td><td style="text-align:left">HDFC Bank Ltd</td></tr>
+<tr><td>NSE Symbol</td><td style="text-align:left">HDFCBANK</td></tr>
+<tr><td>BSE Symbol / Code</td><td style="text-align:left">HDFCBANK / 500180</td></tr>
+<tr><td>Derivatives</td><td style="text-align:left">F&amp;O (index + stock derivatives available)</td></tr>
+<tr><td>Sector (Screener)</td><td style="text-align:left">Financial Services → Banks → Private Sector Bank</td></tr>
+<tr><td>Business Type</td><td style="text-align:left">Banking &amp; financial services — India's largest private sector bank by assets; ~15% share of system advances, 37% of private-bank advances (FY24); one of India's 3 systemically important banks</td></tr>
+<tr><td>Market Cap</td><td style="text-align:left">₹11,11,989 Cr — <b>Large Cap</b></td></tr>
+<tr><td>Face Value</td><td style="text-align:left">₹1.00</td></tr>
+<tr><td>Book Value</td><td style="text-align:left">₹390</td></tr>
+<tr><td>52-Week High / Low</td><td style="text-align:left">₹1,020 / ₹682 (CMP ₹721 = −29% from high, +6% from low)</td></tr>
+<tr><td>Website</td><td style="text-align:left">hdfcbank.com</td></tr>
+<tr><td>Index Membership</td><td style="text-align:left">Nifty 50, BSE Sensex, Nifty Bank, BSE Bankex etc.</td></tr>
+<tr><td>Credit Ratings (2026)</td><td style="text-align:left">CARE 27-Aug-2026 · Fitch 19-Aug-2026 · ICRA 23-Jun-2026 · CRISIL 23-Jun-2026 — <span class="warn">grades not in free export (VERIFY)</span></td></tr>
+<tr><td>ISIN / Auditor / Pledge</td><td style="text-align:left"><span class="warn">VERIFY — not in free Screener export</span> (pledge moot: promoter 0%)</td></tr>
+</table>
+</div>
+<div class="card">
+<h4>Ownership Snapshot (as on 30-Jun-2026, Screener SHP) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Holding</th><th>%</th><th style="text-align:left">Remark</th></tr>
+<tr><td>Promoters</td><td>0.00</td><td style="text-align:left">Zero since the HDFC Ltd merger (was ~26% pre-merger)</td></tr>
+<tr><td>FIIs</td><td class="bad">41.82</td><td style="text-align:left">Down from 52.13% (Sep'23) — 10.3 pts sold</td></tr>
+<tr><td>DIIs</td><td class="good">41.75</td><td style="text-align:left">Up from 30.39% (Sep'23) — 11.4 pts bought</td></tr>
+<tr><td>Government</td><td>0.18</td><td style="text-align:left">Negligible</td></tr>
+<tr><td>Public / Retail</td><td>16.27</td><td style="text-align:left">Small free float; 45.33 lakh shareholders</td></tr>
+<tr><td>Institutional (FII+DII)</td><td class="good">83.57</td><td style="text-align:left">~84% of the register is professional money</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> <b>Why this earns 7.0, not 9:</b> identity, scale, index membership and disclosure are top-tier — but this is a mega-cap banking utility, not a compounder with scarce equity. The register is ~84% institutional and now effectively split evenly between FIIs and DIIs, which is healthy; the negatives are the negative price momentum (−25% 1Y), a zero-promoter structure (no promoter skin in the game to lean on) and merger-era accounting noise in FY24–FY26 earnings.</p>
+</div>
+</div>
+</section>
+
+<section class="panel" id="tab2">
+<h2>2. Valuation Metrics</h2>
+<div class="viewbox"><div class="vh">Section 2 — The View (plain English)</div>
+<ul>
+<li class="imp">Best section of the report (7.5/10): <b>P/E 14.1x against an 18.9% five-year profit CAGR → PEG ≈0.75</b>, with EPS now ₹51.35 (TTM) and rising every year. You are paying a below-market multiple for above-market profit growth.<span class="important">IMPORTANT</span></li>
+<li class="imp">Book check: P/B 1.85x on book value ₹390 with ROE 13.6% — you pay ₹1.85 for ₹1 of net assets earning 13.6%. That is fair-to-attractive <i>if</i> ROE holds near 14%; if ROE slides toward 10%, 1.85x book becomes expensive.<span class="important">IMPORTANT</span></li>
+<li>Income floor: 1.80% dividend yield with a rising payout (FY24 23% → FY26 31%) gives the price some support while you wait.</li>
+<li>Price evidence is on your side: −25% in 1 year, −1% 3-year CAGR, −2% 5-year CAGR — the de-rating has already happened, which is precisely why valuation scores highest here. CMP is only 6% above the ₹682 52-week low.</li>
+<li>Peer P/E table for private banks is not machine-readable in the free export, and enterprise-value style multiples are meaningless for a bank (deposits are raw material, not debt) — build the peer table manually before any relative-valuation call (VERIFY).</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Price-to-Earnings 14.1x — ₹14.1 paid per ₹1 of trailing profit (EPS ₹51.35). Bank valuations sit in the low-to-mid teens, so this is roughly fair, not a fire sale — but it is cheap relative to the bank's own profit growth rate."><div class="l">P/E (TTM)</div><div class="v good">14.1x</div><div class="n">EPS TTM ₹51.35</div></div>
+  <div class="kpi" data-explain="Price-to-Book 1.85x — ₹1.85 paid per ₹1 of net assets (book value ₹390). Banks are valued on book, so the real question is whether 13.6% ROE survives; 1.85x is a reasonable price for that ROE."><div class="l">P/B</div><div class="v">1.85x</div><div class="n">BV ₹390 · ROE 13.6%</div></div>
+  <div class="kpi" data-explain="PEG ≈0.75 (P/E 14.1 ÷ 18.9% five-year profit growth). Under 1.0 usually means growth is not fully priced in — for a large bank this is the clearest value signal in the report."><div class="l">PEG (est.)</div><div class="v good">≈0.75</div><div class="n">14.1 ÷ 18.9% 5Y CAGR</div></div>
+  <div class="kpi" data-explain="Dividend yield 1.80% — dividend income at ₹721, with payout rising from 23% (FY24) to 31% (FY26). It is a modest but real floor under the price."><div class="l">Dividend Yield</div><div class="v good">1.80%</div><div class="n">Payout 31% (FY26)</div></div>
+  <div class="kpi" data-explain="Earnings yield 7.1% — the profit you get per ₹100 of market cap (1 ÷ P/E 14.1). That is a solid cash earnings rate before any growth."><div class="l">Earnings Yield</div><div class="v">7.1%</div><div class="n">1 ÷ P/E 14.1</div></div>
+  <div class="kpi" data-explain="Price versus the 52-week range: ₹721 against ₹1,020 high and ₹682 low. You are buying in the bottom third of the year's range, which is where a staged entry near ₹700 makes sense."><div class="l">vs 52-Week Range</div><div class="v warn">₹1,020 / ₹682</div><div class="n">CMP in bottom third</div></div>
+  <div class="kpi" data-explain="One-year price change −25% while profits grew — a classic de-rating. The market has been cutting the multiple, not expanding it, which is what creates the opportunity."><div class="l">1Y Price</div><div class="v bad">−25%</div><div class="n">3Y −1% · 5Y −2%</div></div>
+  <div class="kpi" data-explain="Market capitalisation ₹11,11,989 Cr — a Large Cap. Position sizing is simple here: this is a core, liquid holding, not a trade."><div class="l">Market Cap</div><div class="v">₹11,11,989 Cr</div><div class="n">Large Cap · F&amp;O</div></div>
+</div>
+<div class="card">
+<h4>Current vs Context <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Comparison</th><th>Current</th><th>Reference</th><th>Verdict</th></tr>
+<tr><td>P/E vs own 5Y profit CAGR (18.9%)</td><td>14.1x</td><td>PEG ≈0.75</td><td><span class="pill p-g">Growth not fully priced in</span></td></tr>
+<tr><td>P/B vs own ROE</td><td>1.85x</td><td>ROE 13.6% · BV ₹390</td><td><span class="pill p-g">Fair if ROE holds ~14%</span></td></tr>
+<tr><td>Price vs 1 year ago</td><td>₹721</td><td>1Y CAGR −25%</td><td><span class="pill p-r">De-rated — momentum negative</span></td></tr>
+<tr><td>Price vs 52-week high</td><td>₹721</td><td>High ₹1,020</td><td><span class="pill p-y">−29% from high, +6% from low</span></td></tr>
+<tr><td>Dividend yield vs fixed income</td><td>1.80%</td><td>Payout 31% FY26</td><td><span class="pill p-g">Rising payout = income support</span></td></tr>
+<tr><td>Peer P/E table (private banks)</td><td class="warn">VERIFY</td><td>Not machine-readable in free export</td><td><span class="pill p-y">Build manually before use</span></td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> Valuation earns the report's top score (7.5) because all three anchors line up: earnings multiple below market, price below its own one-year range, and a dividend that keeps growing. The only thing that would take it to 8+ is proof (in the 17-Oct-2026 results) that other income is not carrying the profit — see Section 4.</p>
+</div>
+</section>
+<section class="panel" id="tab3">
+<h2>3. Growth Metrics</h2>
+<div class="viewbox"><div class="vh">Section 3 — The View (plain English)</div>
+<ul>
+<li class="imp">Score 7.0/10 — the topline has compounded hard: sales CAGR <b>27% (3Y) · 22% (5Y) · 19% (10Y)</b>, but TTM growth is only 3%. The FY24 step-up (revenue ₹1.71 lakh Cr → ₹2.84 lakh Cr) is the HDFC Ltd merger (1-Jul-2024), so 3-year rates are merger-inflated — read them as scale, not organic momentum.<span class="important">IMPORTANT</span></li>
+<li class="imp">Profit is the real engine: profit CAGR <b>19% (10Y) · 18.9% (5Y) · 18% (3Y) · 12% (TTM)</b>, FY26 PAT ₹79,219 Cr (+7.9%) and EPS ₹49.39. Steady double-digit compounding, not a spike.<span class="important">IMPORTANT</span></li>
+<li>Quarterly momentum is orderly: net profit rose from ₹17,090 Cr (Jun'25) to ₹20,383 Cr (Jun'26) — <b>+19.3% YoY</b> — with revenue up 3.7% and PBT up 30.4% YoY.</li>
+<li>Price has not followed: 1Y price CAGR −25%, 3Y −1%, 5Y −2%. Earnings up, price down = the source of the 7.5 valuation score and the reason "accumulate" beats "chase".</li>
+<li>Read the quarterly table with care: "Financing Profit / Financing Margin %" is a bank-format artefact (see Section 4) — judge growth on <b>Revenue, PBT, Net Profit and EPS</b>, and note Gross/Net NPA rows exist but are blank (VERIFY).</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Revenue CAGR of 27% over three years — but inflated by the HDFC Ltd merger in Jul-2024. On its own the bank grows high single digits to low double digits."><div class="l">Sales CAGR 3Y</div><div class="v good">27%</div><div class="n">5Y 22% · 10Y 19% · TTM 3%</div></div>
+  <div class="kpi" data-explain="Profit CAGR of 18.9% over five years (10Y 19%, 3Y 18%, TTM 12%) — the cleanest growth number in the report because it is sustained across every window."><div class="l">Profit CAGR 5Y</div><div class="v good">18.9%</div><div class="n">10Y 19% · 3Y 18% · TTM 12%</div></div>
+  <div class="kpi" data-explain="FY26 net profit ₹79,219 Cr, up 7.9% year on year; FY25 was ₹73,440 Cr and FY24 ₹65,446 Cr — a straight line of growth post-merger."><div class="l">FY26 Net Profit</div><div class="v good">₹79,219 Cr</div><div class="n">YoY +7.9%</div></div>
+  <div class="kpi" data-explain="TTM revenue ₹3,51,819 Cr, only 3% above the prior year — the merger base effect has faded, so future headline growth will look much slower than the 3-year CAGR."><div class="l">TTM Revenue Growth</div><div class="v warn">+3%</div><div class="n">Base effect has faded</div></div>
+  <div class="kpi" data-explain="EPS ₹49.39 in FY26 vs ₹46.26 in FY25 (+6.8%) and TTM ₹51.35 — per-share earnings keep grinding higher even as the share count changes."><div class="l">FY26 EPS</div><div class="v good">₹49.39</div><div class="n">YoY +6.8% · TTM ₹51.35</div></div>
+  <div class="kpi" data-explain="Stock price CAGR is negative across every window except 10 years (8%): 1Y −25%, 3Y −1%, 5Y −2%. Growth in the business has not been rewarded by the market."><div class="l">Price CAGR 1Y</div><div class="v bad">−25%</div><div class="n">3Y −1% · 5Y −2% · 10Y +8%</div></div>
+</div>
+<div class="card">
+<h4>Annual P&amp;L (Consolidated, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Line</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th><th>TTM</th></tr>
+<tr><td>Revenue</td><td>1,70,754</td><td class="good">2,83,649</td><td>3,36,367</td><td>3,48,615</td><td>3,51,819</td></tr>
+<tr><td>Revenue YoY %</td><td>—</td><td class="good">+66%</td><td class="good">+19%</td><td>+3.6%</td><td>3%</td></tr>
+<tr><td>Interest</td><td>77,780</td><td>1,54,139</td><td>1,83,894</td><td>1,85,491</td><td>1,85,408</td></tr>
+<tr><td>Expenses</td><td>63,042</td><td>1,74,196</td><td>1,86,974</td><td>2,03,635</td><td>2,01,625</td></tr>
+<tr><td>Financing Profit</td><td>29,932</td><td class="bad">−44,685</td><td class="bad">−34,501</td><td class="bad">−40,511</td><td class="bad">−35,215</td></tr>
+<tr><td>Financing Margin %</td><td>18</td><td class="bad">−16</td><td class="bad">−10</td><td class="bad">−12</td><td class="bad">−10</td></tr>
+<tr><td>Other Income</td><td>33,912</td><td class="warn">1,24,346</td><td class="warn">1,34,548</td><td class="warn">1,46,848</td><td class="warn">1,43,700</td></tr>
+<tr><td>Profit before tax</td><td>61,498</td><td>76,569</td><td>96,242</td><td class="good">1,02,141</td><td class="good">1,08,485</td></tr>
+<tr><td>Tax %</td><td>25</td><td>15</td><td>24</td><td>22</td><td>—</td></tr>
+<tr><td>Net Profit</td><td>46,149</td><td>65,446</td><td>73,440</td><td class="good">79,219</td><td class="good">82,512</td></tr>
+<tr><td>EPS (₹)</td><td>41.22</td><td>42.16</td><td>46.26</td><td class="good">49.39</td><td class="good">51.35</td></tr>
+<tr><td>Dividend Payout %</td><td>23</td><td>23</td><td>24</td><td class="good">31</td><td>—</td></tr>
+</table></div>
+<p class="src">Source: Screener consolidated P&amp;L, FY23–FY26 + TTM. Depreciation (memo): ₹2,345 / ₹3,092 / ₹3,805 / ₹4,195 Cr (FY23–FY26). TTM Tax % blank in source → VERIFY. Note the negative Financing Profit/OPM rows: they are a bank-format artefact, not a loss (Section 4).</p>
+</div>
+<div class="card">
+<h4>Growth scorecard <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>10Y CAGR</th><th>5Y CAGR</th><th>3Y CAGR</th><th>TTM / 1Y</th></tr>
+<tr><td>Sales / Revenue</td><td class="good">19%</td><td class="good">22%</td><td class="good">27%</td><td class="warn">3%</td></tr>
+<tr><td>Net Profit</td><td class="good">19%</td><td class="good">18.9%</td><td class="good">18%</td><td class="good">12%</td></tr>
+<tr><td>Stock Price CAGR</td><td>+8%</td><td class="bad">−2%</td><td class="bad">−1%</td><td class="bad">−25%</td></tr>
+<tr><td>Return on Equity</td><td>16%</td><td>15%</td><td>15%</td><td class="warn">14% (last year) · 13.6% now</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> Sales and profit CAGR sit comfortably above the P/E of 14.1 on every historical window; the only negative line is price. ROE of 14–16% is the swing factor — it is still above the bank's cost of equity, but it is the one metric moving the wrong way (17% → 14%).</p>
+</div>
+<div class="card">
+<h4>Quarterly Results — last 13 quarters (Screener, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Line</th><th>Jun'23</th><th>Sep'23</th><th>Dec'23</th><th>Mar'24</th><th>Jun'24</th><th>Sep'24</th><th>Dec'24</th><th>Mar'25</th><th>Jun'25</th><th>Sep'25</th><th>Dec'25</th><th>Mar'26</th><th>Jun'26</th></tr>
+<tr><td>Revenue</td><td>51,168</td><td>75,039</td><td>78,008</td><td>79,434</td><td>81,546</td><td>83,002</td><td>85,040</td><td>86,779</td><td>87,372</td><td>86,994</td><td>87,067</td><td>87,182</td><td class="good">90,575</td></tr>
+<tr><td>Financing Profit</td><td>6,744</td><td class="bad">−11,560</td><td class="bad">−15,764</td><td class="bad">−27,196</td><td class="bad">−12,723</td><td class="bad">−14,487</td><td class="bad">−3,181</td><td class="bad">−7,916</td><td class="bad">−24,833</td><td class="bad">−4,908</td><td class="bad">−12,899</td><td class="bad">−2,066</td><td class="bad">−15,342</td></tr>
+<tr><td>Financing Margin %</td><td>13</td><td class="bad">−15</td><td class="bad">−20</td><td class="bad">−34</td><td class="bad">−16</td><td class="bad">−17</td><td class="bad">−4</td><td class="bad">−9</td><td class="bad">−28</td><td class="bad">−6</td><td class="bad">−15</td><td class="bad">−2</td><td class="bad">−17</td></tr>
+<tr><td>Other Income</td><td>9,853</td><td>32,528</td><td>37,007</td><td>44,958</td><td>35,450</td><td>38,455</td><td>27,154</td><td>33,489</td><td>45,683</td><td>31,567</td><td>39,860</td><td>29,737</td><td>42,535</td></tr>
+<tr><td>PBT</td><td>16,597</td><td>20,967</td><td>21,243</td><td>17,761</td><td>22,727</td><td>23,968</td><td>23,973</td><td>25,573</td><td>20,850</td><td>26,659</td><td>26,961</td><td>27,672</td><td class="good">27,193</td></tr>
+<tr><td>Tax %</td><td>25</td><td>17</td><td>17</td><td>−1</td><td>24</td><td>22</td><td>24</td><td>25</td><td>18</td><td>24</td><td>23</td><td>24</td><td>25</td></tr>
+<tr><td>Net Profit</td><td>12,403</td><td>17,312</td><td>17,718</td><td>18,013</td><td>17,188</td><td>18,627</td><td>18,340</td><td>19,285</td><td>17,090</td><td>20,364</td><td>20,691</td><td>21,074</td><td class="good">20,383</td></tr>
+<tr><td>EPS (₹)</td><td>11.06</td><td>11.09</td><td>11.37</td><td>11.60</td><td>10.83</td><td>11.68</td><td>11.54</td><td>12.31</td><td>10.60</td><td>12.76</td><td>12.87</td><td>13.22</td><td class="good">12.50</td></tr>
+<tr><td>Gross / Net NPA</td><td colspan="13" style="text-align:center" class="warn">Rows exist in source but values are blank — VERIFY from the quarterly fact sheet</td></tr>
+</table></div>
+<p class="note"><span class="tag t-calc">Calc</span> Jun-2026 quarter: revenue ₹90,575 Cr <b>+3.7% YoY</b>, PBT ₹27,193 Cr <b>+30.4% YoY</b>, net profit ₹20,383 Cr <b>+19.3% YoY</b>, EPS ₹12.50. Note the jump from ₹51,168 Cr (Jun'23) to ₹75,039 Cr (Sep'23) onwards and the further step at Jun'24 — those are merger-period re-basing, not organic acceleration. Revenue has been flat at ₹87,000 Cr for four straight quarters before Jun'26, so watch whether ₹90,575 Cr is a new level or a one-off.</p>
+</div>
+</section>
+<section class="panel" id="tab4">
+<h2>4. Profitability &amp; Efficiency</h2>
+<div class="viewbox"><div class="vh">Section 4 — The View (plain English)</div>
+<ul>
+<li class="imp"><b>Read this first — the bank-format trap:</b> Screener computes Financing Profit = Revenue − Interest − Expenses. For HDFC that line is negative in every post-merger quarter (−₹2,066 Cr to −₹27,196 Cr) and −₹40,511 Cr in FY26, because ₹1.85 lakh Cr of interest plus ₹2.04 lakh Cr of expenses is deducted from the revenue line. <b>Headline PBT = Financing Profit + Other Income</b> — so the bank is not losing money; the export simply splits a bank's income and costs differently than a factory's P&amp;L.<span class="important">IMPORTANT</span></li>
+<li class="imp">Plain English: <b>do not read the −10% to −34% "Financing Margin %" as an operating margin.</b> A bank's real economics live in the spread between interest earned and interest paid, plus fee income — all of which this export spreads across Revenue / Interest / Other Income. Judged properly, FY26 net margin is 22.7% (₹79,219 Cr on ₹3,48,615 Cr).<span class="important">IMPORTANT</span></li>
+<li class="imp">Earnings-quality flag: TTM other income ₹1,43,700 Cr = <b>41% of TTM revenue and 133% of TTM PBT</b> — i.e. every rupee of pre-tax profit (and more) sits in the Other Income column while the financing line reads negative. Merger-related, fair-value and fee items post-1-Jul-2024 must be separated out → <b>VERIFY</b> from the annual report.<span class="important">IMPORTANT</span></li>
+<li>Returns are good but drifting: ROE 17% (FY24) → 14% (FY25) → 14% (FY26), currently 13.6%; ROCE 7.02% (for a bank, ROCE is not very meaningful — interest is a raw-material cost, not capital).</li>
+<li>The rest is clean: tax rate steady at 22–25%, dividend payout rising to 31% in FY26, EPS ₹49.39, and Screener's "low interest coverage ratio" con reflects interest-expense mechanics of the bank format rather than distress (interest of ₹1.85 lakh Cr is matched against a far larger interest-earning book → VERIFY against reported NIM).</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="FY26 net profit ₹79,219 Cr on revenue of ₹3,48,615 Cr — a net margin of 22.7%, which is a normal, healthy number for a large bank. The negative 'OPM' shown elsewhere is the bank-format artefact."><div class="l">FY26 Net Margin</div><div class="v good">22.7%</div><div class="n">79,219 ÷ 3,48,615</div></div>
+  <div class="kpi" data-explain="Return on Equity 13.6% — the bank earns ₹13.6 per ₹100 of shareholder funds. Still above cost of equity, but down from 17% a few years ago, which is why profits score 6.5 rather than 7."><div class="l">ROE</div><div class="v warn">13.6%</div><div class="n">10Y avg 16% · last year 14%</div></div>
+  <div class="kpi" data-explain="ROCE 7.02% — for a bank this is a weak headline number because 'capital employed' includes the huge deposit-funded asset base. Do not compare it with an industrial ROCE."><div class="l">ROCE</div><div class="v warn">7.02%</div><div class="n">Bank-format measure</div></div>
+  <div class="kpi" data-explain="Other income of ₹1,43,700 Cr (TTM) against PBT of ₹1,08,485 Cr — the other-income line alone is 133% of pre-tax profit. Large, merger-era gains/fees inflate this; it is the report's biggest VERIFY."><div class="l">Other income / PBT (TTM)</div><div class="v bad">133%</div><div class="n">₹1,43,700 ÷ ₹1,08,485 Cr</div></div>
+  <div class="kpi" data-explain="Tax rate 22% in FY26 (range 15–25% since FY23) — stable and unremarkable, so tax is not distorting the profit trend."><div class="l">Tax Rate FY26</div><div class="v">22%</div><div class="n">FY25 24% · FY24 15%</div></div>
+  <div class="kpi" data-explain="Dividend payout rose to 31% of FY26 profit (23% in FY24, 24% in FY25) — management is returning more cash as the merger integration settles."><div class="l">Dividend Payout</div><div class="v good">31%</div><div class="n">FY25 24% · FY24 23%</div></div>
+  <div class="kpi" data-explain="EPS ₹49.39 in FY26 versus ₹46.26 in FY25 — up 6.8%, with TTM EPS at ₹51.35. Per-share profit growth is slower than total profit growth because the share count also changed."><div class="l">FY26 EPS</div><div class="v good">₹49.39</div><div class="n">YoY +6.8% · TTM ₹51.35</div></div>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Return &amp; margin stack <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>Value</th><th style="text-align:left">Assessment</th></tr>
+<tr><td>Net Margin (FY26)</td><td class="good">22.7%</td><td style="text-align:left">79,219 ÷ 3,48,615 — the real margin for a bank</td></tr>
+<tr><td>Financing Margin % (FY26)</td><td class="bad">−12%</td><td style="text-align:left">Bank-format artefact — NOT an operating margin</td></tr>
+<tr><td>ROE (FY26 / current)</td><td class="warn">14% / 13.6%</td><td style="text-align:left">Was 17% in FY24 — drifting down</td></tr>
+<tr><td>ROCE</td><td class="warn">7.02%</td><td style="text-align:left">Not meaningful for a deposit-funded bank</td></tr>
+<tr><td>Other income / PBT (FY26)</td><td class="bad">144%</td><td style="text-align:left">1,46,848 ÷ 1,02,141 — all profit sits in other income</td></tr>
+<tr><td>Other income / PBT (TTM)</td><td class="bad">133%</td><td style="text-align:left">1,43,700 ÷ 1,08,485 — merger-gain distortion (VERIFY)</td></tr>
+<tr><td>Effective Tax Rate</td><td>22%</td><td style="text-align:left">Stable 22–25% band</td></tr>
+<tr><td>Interest Coverage</td><td class="warn">"Low" (Screener con)</td><td style="text-align:left">Bank-format artefact — compare NIM instead (VERIFY)</td></tr>
+<tr><td>Efficiency ratios</td><td class="warn">Not available</td><td style="text-align:left">Debtor days / inventory / CCC absent — bank-format ratios</td></tr>
+</table>
+</div>
+<div class="card">
+<h4>ROE by year (Screener, %) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Year</th><th>Mar'15</th><th>Mar'16</th><th>Mar'17</th><th>Mar'18</th><th>Mar'19</th><th>Mar'20</th><th>Mar'21</th><th>Mar'22</th><th>Mar'23</th><th>Mar'24</th><th>Mar'25</th><th>Mar'26</th></tr>
+<tr><td>ROE %</td><td class="good">20</td><td class="good">19</td><td class="good">18</td><td class="good">18</td><td>17</td><td>16</td><td>16</td><td>17</td><td>17</td><td>17</td><td class="warn">14</td><td class="warn">14</td></tr>
+</table></div>
+<p class="note"><span class="tag t-view">View</span> <b>Signature test (Revenue↑ + Margin↑ + ROCE↑):</b> <span class="pill p-y">NOT SATISFIED</span> — revenue is up massively (₹1.71 lakh Cr → ₹3.49 lakh Cr, FY23→FY26, but merger-driven), while returns are down (ROE 17% → 14% → 13.6%, ROCE 7.02%) and the reported financing margin is negative. Only one of the three legs points up, which is exactly why Profits is scored 6.5/10 rather than 7+: the bank is bigger, but each rupee of equity now earns less than it did in FY24.</p>
+</div>
+</div>
+</section>
+<section class="panel" id="tab5">
+<h2>5. Balance Sheet / Financial Strength</h2>
+<div class="viewbox"><div class="vh">Section 5 — The View (plain English)</div>
+<ul>
+<li class="imp">Scale plus growth: <b>deposits ₹18,82,663 Cr → ₹30,99,638 Cr over FY23–FY26</b> (+14.3% YoY in FY26, 18% 3-year CAGR) and total assets ₹49,07,701 Cr (+11.7% YoY). The balance sheet absorbed the HDFC Ltd merger (1-Jul-2024) and kept compounding — this is the strongest evidence behind the 7.0 score.<span class="important">IMPORTANT</span></li>
+<li class="imp">Deleveraging is working: borrowings peaked at <b>₹7,30,615 Cr in FY24</b> (merger legacy) and have fallen to ₹5,88,485 Cr in FY26 (−20% in two years); borrowings ÷ deposits is down from 30.7% to 19.0%. Funding quality is improving every year.<span class="important">IMPORTANT</span></li>
+<li>Asset side: investments ₹12,80,216 Cr (26% of assets) and other assets ₹36,10,993 Cr; fixed assets only ₹16,492 Cr — a bank is physically asset-light, all the risk sits in the loan and securities book.</li>
+<li><b>VERIFY flags:</b> contingent liabilities ₹35,61,957 Cr (Screener con) — equal to <b>72.6% of total assets</b>; equity capital jumped 765 → 1,539 in FY26 (+101%, bonus/rights or consolidation artefact); and "Earnings include other income Rs.1,43,700 Cr" (TTM) — the other-income/merger-gain distortion noted since the Jul-2024 merger.</li>
+<li>Asset quality is a blind spot: Gross/Net NPA rows exist but are <b>blank in the free source</b> — pull GNPA/NNPA from the quarterly fact sheet before acting; likewise the "low interest coverage ratio" con needs the reported NIM to interpret.</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Customer deposits of ₹30,99,638 Cr at Mar-2026, up 14.3% year on year. Deposits are the engine of a bank — growth here funds loan growth without borrowing."><div class="l">Deposits FY26</div><div class="v good">₹30,99,638 Cr</div><div class="n">YoY +14.3% · 3Y CAGR 18%</div></div>
+  <div class="kpi" data-explain="Total assets of ₹49,07,701 Cr, up 11.7% over FY25 — one of the largest balance sheets in Indian banking, and a systemically important institution because of it."><div class="l">Total Assets FY26</div><div class="v">₹49,07,701 Cr</div><div class="n">YoY +11.7%</div></div>
+  <div class="kpi" data-explain="Borrowings of ₹588,485 Cr, down 7.3% in FY26 and 20% from the FY24 peak of ₹7,30,615 Cr — the bank is replacing costly merger-era wholesale funding with deposits."><div class="l">Borrowings FY26</div><div class="v good">₹5,88,485 Cr</div><div class="n">YoY −7.3% · −20% vs FY24</div></div>
+  <div class="kpi" data-explain="Borrowings as a share of deposits: 19.0% now versus 30.7% at FY24 — a big improvement in funding quality and the single best structural trend in this section."><div class="l">Borrowings / Deposits</div><div class="v good">19.0%</div><div class="n">FY24 30.7% → FY25 23.4%</div></div>
+  <div class="kpi" data-explain="Net worth of ₹5,86,059 Cr (equity ₹1,539 Cr + reserves ₹5,84,520 Cr) with book value ₹390 per share — reserves, not paid-up capital, carry the net worth."><div class="l">Net Worth FY26</div><div class="v">₹5,86,059 Cr</div><div class="n">BV ₹390 / share</div></div>
+  <div class="kpi" data-explain="Contingent liabilities of ₹35,61,957 Cr — guarantees, letters of credit and off-balance-sheet exposures. They are 72.6% of total assets, normal for a large bank but a real tail risk, so it stays on the watch list."><div class="l">Contingent Liabilities</div><div class="v warn">₹35,61,957 Cr</div><div class="n">72.6% of total assets</div></div>
+  <div class="kpi" data-explain="Investments of ₹12,80,216 Cr — government bonds and securities, about a quarter of assets. They cushion the loan book but are sensitive to interest-rate moves."><div class="l">Investments FY26</div><div class="v">₹12,80,216 Cr</div><div class="n">26.1% of assets</div></div>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Balance sheet trajectory (Screener, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Line</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Equity Capital</td><td>558</td><td>760</td><td>765</td><td class="warn">1,539</td></tr>
+<tr><td>Reserves</td><td>2,88,880</td><td>4,55,636</td><td>5,21,024</td><td>5,84,520</td></tr>
+<tr><td>Deposits</td><td>18,82,663</td><td class="good">23,76,887</td><td class="good">27,10,898</td><td class="good">30,99,638</td></tr>
+<tr><td>Borrowings</td><td>2,56,549</td><td class="bad">7,30,615</td><td>6,34,606</td><td class="good">5,88,485</td></tr>
+<tr><td>Other Liabilities</td><td>1,01,783</td><td>4,66,296</td><td>5,24,817</td><td>6,33,519</td></tr>
+<tr><td>Total Liabilities</td><td>25,30,432</td><td>40,30,194</td><td>43,92,110</td><td>49,07,701</td></tr>
+<tr><td>Fixed Assets</td><td>8,431</td><td>12,604</td><td>15,258</td><td>16,492</td></tr>
+<tr><td>Investments</td><td>5,11,582</td><td>10,05,682</td><td>11,86,473</td><td>12,80,216</td></tr>
+<tr><td>Other Assets</td><td>20,10,419</td><td>30,11,909</td><td>31,90,379</td><td>36,10,993</td></tr>
+<tr><td>Total Assets</td><td>25,30,432</td><td>40,30,194</td><td>43,92,110</td><td>49,07,701</td></tr>
+<tr><td>CWIP</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+</table></div>
+<p class="src">Total Assets = Total Liabilities in every year. CWIP (capital work-in-progress) is nil throughout.</p>
+</div>
+<div class="card">
+<h4>Derived strength metrics <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>Value</th><th style="text-align:left">Basis / verdict</th></tr>
+<tr><td>Deposit growth FY26</td><td class="good">+14.3%</td><td style="text-align:left">FY25 +14.1% · FY24 +26.2% (merger) · 3Y CAGR 18%</td></tr>
+<tr><td>Borrowings trend</td><td class="good">−20% vs FY24</td><td style="text-align:left">2,56,549 → 7,30,615 → 6,34,606 → 5,88,485</td></tr>
+<tr><td>Borrowings / Deposits</td><td class="good">19.0%</td><td style="text-align:left">13.6% → 30.7% → 23.4% → 19.0% (merger spike unwinding)</td></tr>
+<tr><td>Investments / Assets</td><td>26.1%</td><td style="text-align:left">20.2% → 25.0% → 27.0% → 26.1% — large securities book</td></tr>
+<tr><td>Total asset growth FY26</td><td class="good">+11.7%</td><td style="text-align:left">43,92,110 → 49,07,701</td></tr>
+<tr><td>Contingent Liabilities</td><td class="warn">₹35,61,957 Cr</td><td style="text-align:left">Screener con — 72.6% of assets (VERIFY)</td></tr>
+<tr><td>Other income (TTM)</td><td class="warn">₹1,43,700 Cr</td><td style="text-align:left">"Earnings include other income" con — merger-gain distortion (VERIFY)</td></tr>
+<tr><td>Equity Capital FY26</td><td class="warn">765 → 1,539</td><td style="text-align:left">+101% jump — bonus/rights or consolidation artefact (VERIFY)</td></tr>
+<tr><td>Gross / Net NPA</td><td class="bad">BLANK in source</td><td style="text-align:left">Asset quality not visible in free export — get quarterly fact sheet</td></tr>
+<tr><td>Other ratios</td><td class="warn">Not available</td><td style="text-align:left">"Not available in free export (bank-format ratios)"</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> Structurally this is a <b>strong funding story</b>: deposits compounding at 14%+, wholesale borrowings falling every year since the merger, and a quarter of assets in liquid securities. The two things keeping it at 7.0 instead of 8 are (a) unverifiable asset quality — no NPA numbers in the free source — and (b) a contingent-liability book of ₹35.6 lakh Cr plus merger-era other income that make the headline profit harder to read than it looks.</p>
+</div>
+</div>
+</section>
+<section class="panel" id="tab6">
+<h2>6. Cash Flow Metrics</h2>
+<div class="viewbox"><div class="vh">Section 6 — The View (plain English)</div>
+<ul>
+<li class="imp">Cash generation looks enormous post-merger: <b>CFO +₹1,27,242 Cr (FY25) and +₹1,13,506 Cr (FY26)</b> against ₹20,814 / ₹19,069 Cr in FY23–FY24. For a bank, "operating cash flow" is largely deposit growth and changes in the loan book — read it as balance-sheet momentum, not margin quality.<span class="important">IMPORTANT</span></li>
+<li class="imp">CFO / Operating profit of <b>98% (FY25) and 94% (FY26)</b> versus 35–38% pre-merger. That jump is mechanical (the deposit base expanded by ₹7–11 lakh Cr), so do not treat it as a new efficiency regime — it is a funding-structure signal.<span class="important">IMPORTANT</span></li>
+<li>Financing cash flow is the mirror image: <b>CFF −₹1,02,478 Cr (FY25) and −₹59,005 Cr (FY26)</b> — the bank is repaying merger-era borrowings and paying dividends, switching from wholesale funding to deposits.</li>
+<li>Free cash flow is comfortably positive: +₹1,23,267 Cr (FY25) and +₹1,10,144 Cr (FY26); net cash +₹61,978 Cr in FY26 — no funding pressure at all.</li>
+<li>History is not a straight line: FY22 CFO was <b>−₹11,960 Cr</b> (FY21 +₹42,476 Cr) — two strong years do not make a trend, so keep this section at 6.5 until FY27 confirms. Detailed cash rows (cash balance, working-capital change) are absent from the free export → VERIFY.</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Cash from operations ₹1,13,506 Cr in FY26 — for a bank this mostly reflects deposit inflows and loan-book movement, so it signals strong franchise funding rather than cash profit conversion."><div class="l">FY26 CFO</div><div class="v good">+₹1,13,506 Cr</div><div class="n">FY25 +₹1,27,242 Cr</div></div>
+  <div class="kpi" data-explain="Free cash flow ₹1,10,144 Cr in FY26 (CFO minus capex-style outflows) — the bank funds growth entirely from internal cash."><div class="l">FY26 FCF</div><div class="v good">+₹1,10,144 Cr</div><div class="n">FY25 +₹1,23,267 Cr</div></div>
+  <div class="kpi" data-explain="CFO as a share of operating profit: 94% in FY26 and 98% in FY25 versus 35–38% before the merger. High, but it is driven by deposit growth, not by collections."><div class="l">CFO / Operating Profit</div><div class="v good">94%</div><div class="n">FY25 98% · FY24 38%</div></div>
+  <div class="kpi" data-explain="Financing cash flow −₹59,005 Cr in FY26 — money going out to repay borrowings and pay dividends, which is the healthy direction for a bank reducing leverage."><div class="l">FY26 Financing CF</div><div class="v good">−₹59,005 Cr</div><div class="n">FY25 −₹1,02,478 Cr</div></div>
+  <div class="kpi" data-explain="Investing cash flow +₹7,477 Cr in FY26 (after −₹3,651 Cr in FY25) — net inflow from the securities portfolio, a natural offset to a growing loan book."><div class="l">FY26 Investing CF</div><div class="v">+₹7,477 Cr</div><div class="n">FY25 −₹3,651 Cr</div></div>
+  <div class="kpi" data-explain="Net cash flow +₹61,978 Cr in FY26 — the bank's overall cash position improved even while repaying debt and paying dividends."><div class="l">FY26 Net Cash Flow</div><div class="v good">+₹61,978 Cr</div><div class="n">FY25 +₹21,113 Cr</div></div>
+</div>
+<div class="card">
+<h4>Cash flow statement (Screener, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Line</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Cash from Operating Activity (CFO)</td><td>20,814</td><td>19,069</td><td class="good">1,27,242</td><td class="good">1,13,506</td></tr>
+<tr><td>Cash from Investing Activity</td><td>−2,992</td><td>16,600</td><td>−3,651</td><td>7,477</td></tr>
+<tr><td>Cash from Financing Activity</td><td>23,941</td><td>−3,983</td><td class="good">−1,02,478</td><td class="good">−59,005</td></tr>
+<tr><td>Net Cash Flow</td><td>41,762</td><td>31,687</td><td>21,113</td><td class="good">61,978</td></tr>
+<tr><td>Free Cash Flow</td><td>17,390</td><td>14,882</td><td class="good">1,23,267</td><td class="good">1,10,144</td></tr>
+<tr><td>CFO / Operating Profit</td><td>35%</td><td>38%</td><td class="good">98%</td><td class="good">94%</td></tr>
+</table>
+<p class="src">Memo: FY21 CFO +₹42,476 Cr · FY22 CFO −₹11,960 Cr (pre-merger volatility). Negative CFF = repayments/dividends; positive CFF = net borrowing. Detailed cash &amp; balance rows are not in the free export → VERIFY.</p>
+<p class="note"><span class="tag t-view">View</span> Scored 6.5/10: the numbers on the page are excellent (positive FCF for two straight years, debt repaid, dividends paid) but they are structurally flattered by post-merger deposit growth. The real test is whether CFO stays above 80% of operating profit while deposit growth normalises to ~13% — that is the trigger to move this section to 7.5.</p>
+</div>
+</section>
+
+<section class="panel" id="tab7">
+<h2>7. Shareholding &amp; Ownership (quarterly)</h2>
+<div class="viewbox"><div class="vh">Section 7 — The View (plain English)</div>
+<ul>
+<li class="imp"><b>Promoter holding is 0.00% — explained plainly:</b> the yearly promoter column reads 26.00 / 25.60 / 26.50 / 26.14 / 25.97 / 25.78 / 25.59% in earlier years and then 0.00% from Mar-2024 onward (Mar'25, Mar'26, Jun'26 also 0.00%). HDFC Ltd was the parent/promoter holding ~26%; when HDFC Ltd merged into HDFC Bank (completed 1-Jul-2024) that parent stake ceased to exist — <b>the bank itself has no promoter</b>. There is no promoter pledge to worry about, but also no promoter buying to support the price.<span class="important">IMPORTANT</span></li>
+<li class="imp">The 12-quarter swing is the real story: <b>FIIs 52.13% → 41.82% (−10.3 pts)</b> while <b>DIIs 30.39% → 41.75% (+11.4 pts)</b> — foreign investors have been selling and Indian mutual funds/pension money has absorbed almost every share. DIIs have now all but caught up (41.75 vs 41.82).<span class="important">IMPORTANT</span></li>
+<li>Government is steady at 0.17–0.18% and public/retail float is 16.27% — with FII+DII at ~83.6%, this is an institution-owned large cap: deep liquidity, but global risk-off flows hit it directly (a big reason for the −25% 1Y price move).</li>
+<li>Retail participation is growing: shareholders rose from 30,58,659 (Sep'23) to 45,32,753 (Jun'26), with a sharp jump in the last two quarters (42,30,425 → 45,32,753) — more Indians are owning the stock at these lower prices.</li>
+<li>Scored 6.5, not higher: domestic absorption is a genuine positive, but FII selling has not stopped, the register has no promoter anchor, and both FII and DII columns must be re-checked after the 17-Oct-2026 results.</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Foreign institutional investors hold 41.82% — down from 52.13% three years ago. This is the largest single overhang in the stock: while foreign selling continues, rallies stay capped."><div class="l">FII Holding</div><div class="v bad">41.82%</div><div class="n">Was 52.13% (Sep'23)</div></div>
+  <div class="kpi" data-explain="Domestic institutional investors hold 41.75% — up from 30.39% in Sep'23. Indian funds have absorbed almost exactly what foreigners sold, which is why the stock has not fallen further."><div class="l">DII Holding</div><div class="v good">41.75%</div><div class="n">Was 30.39% (Sep'23)</div></div>
+  <div class="kpi" data-explain="Promoter holding 0.00% — HDFC Ltd, the former parent with ~26%, was merged into the bank, so there is no promoter left. The company is professionally owned by institutions."><div class="l">Promoter Holding</div><div class="v">0.00%</div><div class="n">0% since merger (was ~26%)</div></div>
+  <div class="kpi" data-explain="Public and retail hold 16.27% of the register — a small free float relative to the ₹11.12 lakh Cr market cap, so most trading is institution-to-institution."><div class="l">Public / Retail</div><div class="v">16.27%</div><div class="n">Government 0.18%</div></div>
+  <div class="kpi" data-explain="45,32,753 shareholders at Jun'26, up from 30,58,659 at Sep'23 — retail participation has grown about 48% over three years, with a sharp rise in the latest two quarters."><div class="l">No. of Shareholders</div><div class="v">45,32,753</div><div class="n">Sep'23: 30,58,659</div></div>
+  <div class="kpi" data-explain="Institutional ownership (FII + DII) is 83.57% — this is a professional register. It means better price discovery, but also that global and domestic fund flows drive every swing."><div class="l">Institutional (FII+DII)</div><div class="v">83.57%</div><div class="n">Institution-owned large cap</div></div>
+</div>
+<div class="card">
+<h4>Quarterly shareholding, Sep-2023 → Jun-2026 (%) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Class</th><th>Sep'23</th><th>Dec'23</th><th>Mar'24</th><th>Jun'24</th><th>Sep'24</th><th>Dec'24</th><th>Mar'25</th><th>Jun'25</th><th>Sep'25</th><th>Dec'25</th><th>Mar'26</th><th>Jun'26</th></tr>
+<tr><td>Promoters</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr>
+<tr><td>FIIs</td><td class="bad">52.13</td><td class="bad">52.31</td><td>47.83</td><td>47.17</td><td>48.02</td><td>49.21</td><td>48.30</td><td>48.84</td><td>48.38</td><td>47.67</td><td>44.05</td><td class="bad">41.82</td></tr>
+<tr><td>DIIs</td><td>30.39</td><td>30.54</td><td>33.33</td><td>35.20</td><td>35.05</td><td>34.37</td><td>35.68</td><td>35.77</td><td>36.07</td><td>37.00</td><td class="good">40.14</td><td class="good">41.75</td></tr>
+<tr><td>Government</td><td>0.17</td><td>0.17</td><td>0.18</td><td>0.18</td><td>0.18</td><td>0.18</td><td>0.18</td><td>0.18</td><td>0.18</td><td>0.18</td><td>0.18</td><td>0.18</td></tr>
+<tr><td>Public</td><td>17.30</td><td>16.98</td><td>18.64</td><td>17.44</td><td>16.75</td><td>16.23</td><td>15.84</td><td>15.19</td><td>15.33</td><td>15.11</td><td>15.64</td><td>16.27</td></tr>
+<tr><td>No. of Shareholders</td><td>30,58,659</td><td>30,18,247</td><td>41,21,815</td><td>36,64,325</td><td>39,21,910</td><td>39,24,442</td><td>38,29,146</td><td>37,25,911</td><td>37,01,272</td><td>36,50,087</td><td>42,30,425</td><td>45,32,753</td></tr>
+</table></div>
+<p class="note"><span class="tag t-fact">Fact</span> Promoter column by year: 26.00 · 25.60 · 26.50 · 26.14 · 25.97 · 25.78 · 25.59 (earlier years) → <b>0.00 from Mar-2024</b>, and 0.00 in Mar'25, Mar'26, Jun'26. <span class="tag t-calc">Calc</span> FII + DII = 83.57% (Jun'26) · FII:DII ratio has gone from 1.72 → 1.00 · FII selling over 12 quarters = −10.31 pts, DII buying = +11.36 pts — near-perfect substitution. <span class="tag t-view">View</span> The register has flipped from foreign-led to domestic-led; that is a structural positive for durability, but the transition is still in progress (score 6.5 until FII selling stops). Timing of the 0.00% promoter reading versus the 1-Jul-2024 merger completion should be cross-checked in the annual report → VERIFY.</p>
+</div>
+</section>
+<section class="panel" id="tab8">
+<h2>8. News &amp; Recent Developments (Sep/Oct-2026)</h2>
+<div class="viewbox"><div class="vh">Section 8 — The View (plain English)</div>
+<ul>
+<li class="imp">Leadership transition is the headline: <b>Anup Bagchi has been appointed Managing Director &amp; Chief Executive Officer for three years with effect from 27-Oct-2026</b> (announced 01-Oct-2026) — the first CEO change in a decade for India's largest private bank.<span class="important">IMPORTANT</span></li>
+<li class="imp"><b>Q2 FY27 printed on 17 October 2026</b> — PAT ₹21,537 Cr (+5.7% YoY, +5.7% QoQ), revenue ₹95,132 Cr (+9.4% YoY), EPS ₹13.43 (+5.2%). Headline is fine; the composition question stays open: PBT ₹28,663 Cr against other income ₹34,227 Cr in the quarter (Screener consolidated table, pulled 20-Oct-2026) → the monitorables in Section 9 are re-checked in Journal Entry #02.<span class="important">IMPORTANT</span></li>
+<li>Senior team reshuffle alongside it: <b>Sudhir Kumar Jha superannuated on 30-Sep-2026</b> (Jigar Shah takes over as General Counsel from 01-Oct-2026), and <b>V.N. Srivatsan becomes Chief Credit Officer from 04-Jan-2027</b> — several key seats changing at once.</li>
+<li>Capital/marketing items: <b>18,97,180 shares allotted under the ESOP on 25-Sep-2026</b>, and a newspaper publication on 29-Sep-2026 about a <b>special transaction window for holders of physical shares</b> — small items, but they confirm an active, well-documented disclosure trail.</li>
+<li>Credit ratings reviewed through 2026 — CARE (27-Aug), Fitch (19-Aug), ICRA (23-Jun), CRISIL (23-Jun) — with no negative action visible in the dates; actual grades are not in the free export → VERIFY. Annual reports 2012–2026 and the Jul-2026 concall are all available for the deep dive.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Announcements &amp; filings (Screener documents / exchange, Sep–Oct 2026) <span class="tag t-fact">Fact</span> <span class="tag t-mgmt">Mgmt</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Date</th><th style="text-align:left">Item</th><th style="text-align:left">Detail</th></tr>
+<tr><td>17-Oct-2026</td><td style="text-align:left"><b>Q2 FY27 results</b></td><td style="text-align:left"><b>PAT ₹21,537 Cr (+5.7% YoY / +5.7% QoQ), revenue ₹95,132 Cr (+9.4%), EPS ₹13.43 (+5.2%), PBT ₹28,663 Cr, other income ₹34,227 Cr</b> — first print under the transition window (Screener consolidated quarterly table, pulled 20-Oct-2026; NPA rows still blank → VERIFY)</td></tr>
+<tr><td>17-Oct-2026</td><td style="text-align:left">Deputy MD exits</td><td style="text-align:left">Kaizad Bharucha to cease as Deputy Managing Director on <b>31-Dec-2026</b>; Lily Vadera reappointed as Independent Director (announced with the results)</td></tr>
+<tr><td>01-Oct-2026</td><td style="text-align:left">MD &amp; CEO appointment</td><td style="text-align:left"><b>Anup Bagchi appointed Managing Director &amp; CEO for a 3-year term w.e.f. 27-Oct-2026</b></td></tr>
+<tr><td>30-Sep-2026</td><td style="text-align:left">Superannuation</td><td style="text-align:left">Sudhir Kumar Jha superannuated on 30-Sep-2026; Jigar Shah appointed General Counsel w.e.f. 01-Oct-2026</td></tr>
+<tr><td>30-Sep-2026</td><td style="text-align:left">Senior leadership change</td><td style="text-align:left"><b>V.N. Srivatsan</b> to take charge as Chief Credit Officer (CCO) <b>from 04-Jan-2027</b></td></tr>
+<tr><td>29-Sep-2026</td><td style="text-align:left">Newspaper publication</td><td style="text-align:left">Public notice re: special transaction window for holders of <b>physical shares</b></td></tr>
+<tr><td>25-Sep-2026</td><td style="text-align:left">ESOP allotment</td><td style="text-align:left"><b>18,97,180 equity shares allotted</b> under the Employee Stock Option Plan</td></tr>
+<tr><td>17-Oct-2026</td><td style="text-align:left">Upcoming results</td><td style="text-align:left">Q2 FY27 published 17-Oct-2026 (see top row); next print <b>Jan-2027</b> (Q3 FY27)</td></tr>
+</table></div>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Credit rating updates (2026) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Agency</th><th>Date</th><th>Grade</th></tr>
+<tr><td>CARE</td><td>27-Aug-2026</td><td class="warn">VERIFY (not in export)</td></tr>
+<tr><td>Fitch</td><td>19-Aug-2026</td><td class="warn">VERIFY (not in export)</td></tr>
+<tr><td>ICRA</td><td>23-Jun-2026</td><td class="warn">VERIFY (not in export)</td></tr>
+<tr><td>CRISIL</td><td>23-Jun-2026</td><td class="warn">VERIFY (not in export)</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> Four reviews in one year with no adverse-date signals — but with grades missing, this is a tick-mark, not a conclusion. Confirm the actual rating and outlook before relying on it.</p>
+</div>
+<div class="card">
+<h4>Information trail available <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Item</th><th style="text-align:left">Status</th></tr>
+<tr><td>Annual Reports</td><td style="text-align:left">2012 – 2026 (BSE)</td></tr>
+<tr><td>Concall transcripts</td><td style="text-align:left">Latest <b>Jul-2026</b> (PPT + transcript on BSE)</td></tr>
+<tr><td>Quarterly raw PDFs</td><td style="text-align:left">Available</td></tr>
+<tr><td>Next results</td><td style="text-align:left">Q2 FY27 <b>printed 17-Oct-2026</b>; next <b>Jan-2027</b></td></tr>
+<tr><td>Index/derivatives</td><td style="text-align:left">Nifty 50, Sensex, Nifty Bank, Bankex; F&amp;O</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> Disclosure quality is a genuine strength of a D-SIB large cap: filings, ratings, concalls and a decade of annual reports are all on record — far richer than anything available for the small caps in this journal. The gap is only in the free Screener export (NPA rows, rating grades), not in the company's own disclosures.</p>
+</div>
+</div>
+</section>
+<section class="panel" id="tab9">
+<h2>9. Verdict &amp; Journal (as of Sep 2026)</h2>
+<div class="viewbox"><div class="vh">Section 9 — The View (plain English)</div>
+<ul>
+<li class="imp">Composite <b>6.9/10 → ACCUMULATE (staged buying near ₹700) · 12M horizon</b>: valuation (7.5) and growth (7.0) lead; profits (6.5), cash flow (6.5) and shareholding (6.5) hold it back from an outright buy.<span class="important">IMPORTANT</span></li>
+<li class="imp">How to act: build the position in tranches near ₹700 (52-week low ₹682 is the reference/stop), do not chase above ₹780, and let the <b>Q2 FY27 print (17-Oct-2026: PAT +5.7%)</b> and the <b>27-Oct-2026 CEO handover</b> decide the next tranche.<span class="important">IMPORTANT</span></li>
+<li>Bull case in one line: 13.7x earnings for India's largest private bank, 18.9% five-year profit CAGR, 1.83% rising yield, deposits +14.3% and borrowings falling — the fundamentals finally justify the price after a 25% de-rating.</li>
+<li>Bear case in one line: other income is ~132% of TTM pre-tax profit (merger-gain distortion), ROE drifting 17% → 13.6%, FII still selling, contingent liabilities ₹35.6 lakh Cr, NPA data blank, and a CEO transition inside the same month as results.</li>
+<li>Journal routine: Entry #01 (01-Oct-2026) stays frozen as the baseline; <b>Entry #02 below</b> is the 20-Oct-2026 monthly run — scores re-affirmed, prices refreshed, monitorables re-checked against the Q2 print. Next review: Q3 FY27 results (Jan-2027).</li>
+</ul>
+</div>
+
+<div class="card">
+<h4>Section scorecard detail <span class="tag t-view">View</span></h4>
+<div class="tblwrap"><table>
+<tr><th>#</th><th>Section</th><th>Verdict</th><th>Score</th><th style="text-align:left">Evidence</th></tr>
+<tr><td>1</td><td>Metadata &amp; Identity</td><td><span class="pill p-g">SOLID</span></td><td>7.0</td><td style="text-align:left">Largest private bank by assets, D-SIB, Nifty 50/Bankex, F&amp;O, four 2026 rating reviews; zero promoter and merger-era accounting noise cap it</td></tr>
+<tr><td>2</td><td>Valuation</td><td><span class="pill p-g">ATTRACTIVE</span></td><td>7.5</td><td style="text-align:left">P/E 14.1x vs 5Y profit CAGR 18.9% (PEG ≈0.75), P/B 1.85x at 13.6% ROE, yield 1.80%, price −25% in 1Y</td></tr>
+<tr><td>3</td><td>Growth</td><td><span class="pill p-g">SOLID</span></td><td>7.0</td><td style="text-align:left">Sales CAGR 27%/22%/19% (3Y/5Y/10Y), profit 18–19%, PAT ₹79,219 Cr +7.9%, EPS ₹49.39; but TTM sales +3% and merger-inflated base</td></tr>
+<tr><td>4</td><td>Profits &amp; Efficiency</td><td><span class="pill p-y">ACCEPTABLE</span></td><td>6.5</td><td style="text-align:left">Net margin 22.7% and PAT +7.9%, yet other income = 144% of FY26 PBT, ROE 17%→13.6%, ROCE 7.02%, negative bank-format financing margin</td></tr>
+<tr><td>5</td><td>Balance Sheet</td><td><span class="pill p-g">SOLID</span></td><td>7.0</td><td style="text-align:left">Deposits ₹30,99,638 Cr +14.3%, borrowings/deposits 30.7%→19.0%, assets ₹49.08 lakh Cr; held back by blank NPA rows and ₹35,61,957 Cr contingents</td></tr>
+<tr><td>6</td><td>Cash Flow</td><td><span class="pill p-y">ACCEPTABLE</span></td><td>6.5</td><td style="text-align:left">CFO +₹1,13,506 Cr, FCF +₹1,10,144 Cr, CFO/OP 94%; but bank CFO is deposit-driven, FY22 CFO was −₹11,960 Cr, detail rows missing</td></tr>
+<tr><td>7</td><td>Shareholding</td><td><span class="pill p-y">ACCEPTABLE</span></td><td>6.5</td><td style="text-align:left">FII 52.13%→41.82% vs DII 30.39%→41.75%, promoter 0%, 45.33 lakh holders — domestic bid real, but foreign selling unfinished</td></tr>
+<tr><td></td><td><b>Composite</b></td><td><span class="pill p-g">ACCUMULATE</span></td><td><b>6.9</b></td><td style="text-align:left">Average of 7 sections = 6.86 → 6.9; rubric 6–8 = positive/acceptable, so staged accumulation rather than a one-shot buy</td></tr>
+</table></div>
+<p class="src">Rubric: 8–10 excellent · 6–8 positive/acceptable · 4–6 watchlist · &lt;4 avoid.</p>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Bull case <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>Cheap for the quality:</b> 14.1x earnings and 1.85x book for the country's largest private bank, with an 18.9% five-year profit CAGR (PEG ≈0.75) — priced like a utility, owned like a franchise.</li>
+<li><b>Deposit franchise compounding:</b> deposits ₹30,99,638 Cr, +14.3% YoY (18% 3-year CAGR), while borrowings fall from ₹7,30,615 Cr (FY24) to ₹5,88,485 Cr — funding quality improving every year.</li>
+<li><b>Cash and dividends:</b> CFO +₹1,13,506 Cr, FCF +₹1,10,144 Cr, payout raised to 31% and a 1.80% yield — the bank pays you to wait.</li>
+<li><b>Domestic bid:</b> DIIs have absorbed 11.4 points of stock over 12 quarters while FIIs sold 10.3 — Indian institutions clearly find ₹721 attractive.</li>
+<li><b>Technical setup:</b> ₹721 is only 6% above the ₹682 52-week low and 29% below the ₹1,020 high — staged buying near ₹700 has defined, close-by risk.</li>
+<li><b>Event catalyst:</b> new MD &amp; CEO from 27-Oct-2026 plus results on 17-Oct-2026 — a fresh strategy narrative could re-rate a derated large cap.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Bear case / Risks <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>Earnings quality:</b> TTM other income ₹1,43,700 Cr is 41% of revenue and 133% of PBT — strip out merger-era gains and the underlying picture may look thinner → VERIFY.</li>
+<li><b>Returns dilution:</b> ROE down from 17% (FY24) to 13.6% now and ROCE only 7.02%; the signature test (Revenue↑ + Margin↑ + ROCE↑) fails.</li>
+<li><b>Momentum:</b> price −25% in 1 year, −1% over 3 years; FIIs still cutting (41.82% and falling) with no promoter to anchor the register.</li>
+<li><b>Two unknowns in one month:</b> CEO transition (Anup Bagchi, 27-Oct) lands right after results (17-Oct) — strategy and guidance could shift.</li>
+<li><b>Hidden tail risk:</b> contingent liabilities ₹35,61,957 Cr (72.6% of assets) with Gross/Net NPA rows blank in the source — asset quality is unverifiable from the free data.</li>
+<li><b>Balance-sheet re-basing:</b> liabilities doubled FY23→FY24 (merger) and equity capital doubled 765→1,539 in FY26 — consolidation artefacts make year-on-year comparisons treacherous.</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<h4>Monitorables — checklist · Q2 FY27 read (printed 17-Oct-2026) → next check Q3 FY27 (Jan-2027) <span class="tag t-view">View</span></h4>
+<div class="tblwrap"><table>
+<tr><th>#</th><th>Indicator</th><th>What to check</th><th style="text-align:left">Green light</th><th style="text-align:left">Red light</th></tr>
+<tr><td>1</td><td>NIM / profit growth</td><td>Q2 FY27 PAT <b>₹21,537 Cr, +5.7% YoY</b> — amber (neither ≥10% green nor &lt;5% red)</td><td style="text-align:left">PAT growth ≥10% YoY sustained; NIM stable</td><td style="text-align:left">PAT growth &lt;5% or sequential fall</td></tr>
+<tr><td>2</td><td>Deposit growth</td><td>vs +14.3% YoY (₹30,99,638 Cr) · Mar-2026 base</td><td style="text-align:left">≥13% YoY with borrowings flat/down</td><td style="text-align:left">&lt;10% — franchise losing share</td></tr>
+<tr><td>3</td><td>Gross / Net NPA</td><td>Still blank in source after the Q2 print — <b>VERIFY</b> from the fact sheet</td><td style="text-align:left">GNPA stable or declining in fact sheet</td><td style="text-align:left">Any quarter-on-quarter jump</td></tr>
+<tr><td>4</td><td>Other income share</td><td>Q2 other income ₹34,227 Cr vs PBT ₹28,663 Cr → TTM ₹1,46,359 Cr ÷ TTM PBT ₹1,10,489 Cr ≈ <b>132%</b> — amber, still above the 130% red line</td><td style="text-align:left">Falls below 100% of PBT — core spread carries profit</td><td style="text-align:left">Stays above 130% / fresh one-off gains</td></tr>
+<tr><td>5</td><td>FII / DII flows</td><td>FII 41.82% · DII 41.75% (Jun'26) · Sep-26 split not yet extracted → <b>VERIFY</b></td><td style="text-align:left">FII selling stops or reverses</td><td style="text-align:left">FII below 40% with DII also stalling</td></tr>
+<tr><td>6</td><td>Anup Bagchi transition</td><td>MD &amp; CEO w.e.f. 27-Oct-2026 · Kaizad Bharucha ceases as Deputy MD 31-Dec-2026</td><td style="text-align:left">Clean handover, strategy continuity, no senior exits</td><td style="text-align:left">Further C-suite churn or abrupt strategy shift</td></tr>
+<tr><td>7</td><td>Price vs band</td><td>CMP <b>₹712</b> (19-Oct-2026) · 52W 682–1,020</td><td style="text-align:left">Accumulates ₹682–700 on volume with results support</td><td style="text-align:left">Breaks below ₹682 (52-week low)</td></tr>
+</table></div>
+</div>
+
+<div class="card" style="border-style:dashed">
+<h4>Journal Entry #01 — Baseline <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span> <span class="tag t-mgmt">Mgmt</span> <span class="tag t-view">View</span></h4>
+<p class="note" style="margin-bottom:8px"><b>Metadata:</b> period Q1 FY27 (Jun-2026 quarter) · assessed 01-Oct-2026 · price basis ₹721 (01-Oct close, +1.76%) · prior entry: none (baseline) · hub log: Oct-2026 row added.</p>
+<p style="font-size:13.6px"><b>Facts:</b> CMP ₹703; mcap ₹10,85,449 Cr; P/E 13.7; P/B 1.80x on BV ₹390; FV ₹1.00; div yield 1.85%; ROE 13.6%; ROCE 7.02%; 52W ₹1,020/₹682; FY26 revenue ₹3,48,615 Cr, PBT ₹1,02,141 Cr, PAT ₹79,219 Cr, EPS ₹49.39, payout 31%; TTM revenue ₹3,51,819 Cr, PAT ₹82,512 Cr, other income ₹1,43,700 Cr; deposits ₹30,99,638 Cr, borrowings ₹588,485 Cr, total assets ₹49,07,701 Cr; CFO ₹1,13,506 Cr, FCF ₹1,10,144 Cr; FII 41.82% / DII 41.75% / promoter 0.00% / public 16.27%; shareholders 45,32,753.<br>
+<b>Calculations:</b> PEG ≈0.72 (13.7 ÷ 18.9%); P/B 1.80 (703 ÷ 390); net margin FY26 22.7%; other income/PBT 144% (FY26) and 133% (TTM); deposit 3Y CAGR 18%; borrowings/deposits 19.0% (from 30.7% in FY24); revenue CAGR 27%/22%/19% (3Y/5Y/10Y); profit CAGR 18.9% (5Y); price CAGR −25% (1Y); composite (7.0+7.5+7.0+6.5+7.0+6.5+6.5) ÷ 7 = 6.86 → <b>6.9</b>.<br>
+<b>Management/filings:</b> Anup Bagchi appointed MD &amp; CEO for 3 years w.e.f. 27-Oct-2026 (01-Oct); Sudhir Kumar Jha superannuated 30-Sep with Jigar Shah as General Counsel from 01-Oct; V.N. Srivatsan CCO from 04-Jan-2027; 18,97,180 ESOP shares allotted 25-Sep; physical-share special-window notice 29-Sep; ratings CARE 27-Aug, Fitch 19-Aug, ICRA 23-Jun, CRISIL 23-Jun; next results 17-Oct-2026; latest concall Jul-2026.<br>
+<b>Interpretation:</b> a systemically important franchise trading below its own fundamentals — the price has de-rated 25% while profits compounded at 18.9%, deposits grew 14% and borrowings were repaid. What stops this from scoring 8+ is readability rather than robustness: post-merger other income dominates the P&amp;L, the bank-format export hides NPA and NIM, ROE is drifting down, and 10 points of FII stock are still looking for a buyer. For a core long-term holding that is an acceptable entry, provided it is staged near ₹700 and sized against the 17-Oct-2026 results.<br>
+<b>Verdict:</b> <span class="pill p-g">ACCUMULATE · staged near ₹700</span> score <b>6.9/10</b> · horizon 12M · stance: begin a staged position (first tranche ≤ ₹720, add ₹682–700) · next review: after Q2 FY27 results on 17-Oct-2026, entry #02.</p>
+</div>
+
+<div class="card" style="border-style:dashed">
+<h4>Journal Entry #02 — Monthly run (20-Oct-2026) <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span> <span class="tag t-mgmt">Mgmt</span> <span class="tag t-view">View</span></h4>
+<p class="note" style="margin-bottom:8px"><b>Metadata:</b> monthly cycle executed 20-Oct-2026 · price basis <b>₹712 (19-Oct-2026 close, −2.31% day)</b> — the 20-Oct close was not yet published by the source at run time, so the run is dated to the latest verified close · prior entry: #01 (01-Oct-2026) · hub log: 19-Oct-2026 row appended.</p>
+<p style="font-size:13.6px"><b>Facts:</b> CMP ₹712 (−0.50% vs the 07-Oct row); mcap ₹10,97,804 Cr; P/E 13.7; P/B 1.82x on BV ₹391; div yield 1.83%; ROE 13.6%; 52W ₹1,020/₹682 (unchanged). Q2 FY27 printed 17-Oct-2026: PAT ₹21,537 Cr (+5.7% YoY / +5.7% QoQ), revenue ₹95,132 Cr (+9.4%), EPS ₹13.43 (+5.2%), PBT ₹28,663 Cr, other income ₹34,227 Cr (Screener consolidated table, pulled 20-Oct-2026). Kaizad Bharucha ceases as Deputy MD on 31-Dec-2026; Lily Vadera reappointed Independent Director.<br>
+<b>Calculations:</b> PEG ≈0.72 (13.7 ÷ 18.9%) · other income ÷ PBT TTM ≈ 132% (₹1,46,359 ÷ ₹1,10,489) — down a point from 133% but still above the 130% red line · composite re-checked section by section: (7.0+7.5+7.0+6.5+7.0+6.5+6.5) ÷ 7 = 6.86 → <b>6.9</b>, unchanged; no section crosses a rubric band, so no re-weighting.<br>
+<b>Monitorables vs the Q2 print:</b> PAT growth +5.7% lands between the green (≥10%) and red (&lt;5%) thresholds → <b>amber</b>; other income share still amber; Gross/Net NPA rows remain blank after the print → <b>VERIFY</b> from the fact sheet; FII/DII Sep-26 split not yet extracted → <b>VERIFY</b>. None of these moves a section across a band.<br>
+<b>Interpretation:</b> the results were solid enough to hold the thesis and not strong enough to upgrade it. Prices are slightly better than on 07-Oct (₹712 vs ₹703) while the multiple has come down (14.1x → 13.7x) because TTM EPS now includes the Sep-2026 quarter — the de-rating argument is if anything a little stronger. The 52-week low ₹682 remains the reference level for the next tranche.<br>
+<b>Verdict:</b> <span class="pill p-g">ACCUMULATE · staged near ₹700</span> score <b>6.9/10</b> — <b>re-affirmed, unchanged</b> · horizon 12M · stance: continue staged buying, no change to the band · next review: Q3 FY27 results (Jan-2027), entry #03.</p>
+</div>
+</section>
+<section class="panel" id="tabT">
+<h2>Transactions — HDFC Bank</h2>
+<div class="viewbox"><div class="vh">Transactions — The View (plain English)</div>
+<ul>
+<li class="imp">Every trade for this stock exactly as recorded in <code>Equity\Holding_stocks.xlsx</code> — date, fund, action, quantity, price, invested. The last two columns are the <b>running</b> units held and average cost after that trade.<span class="important">IMPORTANT</span></li>
+<li>The <b>Price</b> column is what you paid on the day; the dashboard's current value uses the <b>19-Oct-2026 close</b> instead — two different things, don't mix them.</li>
+<li>After adding trades in Excel, re-run <code>python Equity\code\write_html.py</code> so this tab, the dashboard and the position card all agree.</li>
+</ul>
+</div>
+<div class="kpis">
+<div class="kpi" data-explain="Units held = total shares still held, counted as buys minus sells across every trade in Holding_stocks.xlsx."><div class="l">Units held</div><div class="v">57</div><div class="n">7 trades logged</div></div>
+<div class="kpi" data-explain="Average cost = total money invested in this stock divided by units held. It is what one share has effectively cost you across all buys."><div class="l">Average cost</div><div class="v">₹847.62</div><div class="n">vs CMP ₹712 on 19-Oct-2026</div></div>
+<div class="kpi" data-explain="Invested = every rupee put into this stock, shown with its share of the total invested across all holdings."><div class="l">Invested</div><div class="v">₹48,315</div><div class="n">15.0% of total invested</div></div>
+<div class="kpi" data-explain="Current value = units held times the 19-Oct-2026 close. P/L is that value minus the money invested."><div class="l">Current value</div><div class="v">₹40,584</div><div class="n"><span class="bad">P/L −₹7,731 (−16.0%)</span></div></div>
+</div>
+<!--HOLD_TXN_START-->
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Date</th><th style="text-align:left">Fund</th><th>Action</th><th>Qty</th><th>Price</th><th>Invested</th><th>Units held</th><th>Avg cost</th></tr>
+<tr><td>07-Jan-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>10</td><td>₹950.00</td><td>₹9,500.00</td><td>10</td><td>₹950.00</td></tr>
+<tr><td>10-Feb-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>16</td><td>₹938.00</td><td>₹15,008.00</td><td>26</td><td>₹942.62</td></tr>
+<tr><td>08-Apr-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>7</td><td>₹810.00</td><td>₹5,670.00</td><td>33</td><td>₹914.48</td></tr>
+<tr><td>05-May-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>5</td><td>₹765.00</td><td>₹3,825.00</td><td>38</td><td>₹894.82</td></tr>
+<tr><td>13-Jul-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>6</td><td>₹818.00</td><td>₹4,908.00</td><td>44</td><td>₹884.34</td></tr>
+<tr><td>07-Aug-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>7</td><td>₹733.00</td><td>₹5,131.00</td><td>51</td><td>₹863.57</td></tr>
+<tr><td>04-Sep-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>6</td><td>₹712.10</td><td>₹4,272.60</td><td>57</td><td>₹847.62</td></tr>
+</table></div>
+<!--HOLD_TXN_END-->
+<p class="src">Source: Equity\Holding_stocks.xlsx (sheet Sheet1, table Shadow_Buy_sell) &middot; recomputed by Equity\code\holdings_calc.py &rarr; code\data\holdings.json &middot; CMP dated 19-Oct-2026 close. Personal position data; not investment advice.</p>
+</section>
+
+<section class="panel" id="tabG">
+<h2>Glossary — jargons, metrics &amp; acronyms (click any blue dotted term anywhere)</h2>
+<div class="viewbox"><div class="vh">How to use the glossary</div>
+<ul>
+<li>Every metric/jargon term in this report is linked — <b>click the blue dotted word</b> to see its plain-English meaning in a pop-up.</li>
+<li class="imp">New to reading reports? Start with: CMP, P/E, EBITDA, ROE, ROCE, CFO, FCF, FII/DII, D/E, Small Cap.<span class="important">IMPORTANT</span></li>
+<li>Shared glossary (<code>glossary.js</code>) — same definitions as the Stock Hub and every other stock page; add a term once and it appears everywhere.</li>
+</ul>
+</div>
+<div class="card">
+<h4>All terms — definition, plain meaning, why it matters</h4>
+<div id="glossaryBody"><p class="note">Loading glossary… (requires JavaScript enabled)</p></div>
+</div>
+</section>
+
+<footer>
+  HDFC Bank Ltd — independent equity research journal entry. Data: Screener.in (fundamentals consolidated 01-Oct-2026; market data 19-Oct-2026; Q2 FY27 pull 20-Oct-2026), BSE/NSE announcements. Figures flagged VERIFY are unavailable in the free source. Not investment advice.
+</footer>
+
+</div>
+<script src="../../Equity/code/table_chart.js"></script>
+<script src="../shared/glossary.js"></script>
+<script>
+(function(){
+function show(id){
+ document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===id)});
+ document.querySelectorAll('.tabbtn').forEach(function(b){b.classList.toggle('on',b.dataset.t===id)});
+ window.scrollTo(0,0);
+}
+document.querySelectorAll('.tabbtn').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);try{history.replaceState(null,'','#'+b.dataset.t)}catch(e){}})});
+if(location.hash){try{var h=document.querySelector(location.hash+'.panel');if(h)show(location.hash.slice(1))}catch(e){}}
+document.getElementById('stockSel').addEventListener('change',function(){if(this.value){location.href=this.value}});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stock Research Hub — Monthly Journal</title>
+<style>
+:root{--bg:#0f1420;--panel:#161d2e;--panel2:#1c2438;--ink:#e8ecf5;--muted:#9aa7bd;--line:#2a3450;--acc:#4da3ff;--good:#2ecc8f;--warn:#f5b83d;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding:22px}
+header.rpt{background:linear-gradient(135deg,#101828,#1b2a4a);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:18px}
+header.rpt h1{margin:0 0 4px;font-size:27px}
+header.rpt .sub{color:var(--muted);font-size:14px}
+.badges{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{padding:4px 11px;border-radius:20px;font-size:12.5px;border:1px solid var(--line);background:var(--panel2)}
+.badge.buy{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.badge.risk{background:#3a1d1d;border-color:#7a3030;color:#ffb0b0}
+.badge.info{background:#123055;border-color:#24528f;color:#a8d1ff}
+.topnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;position:sticky;top:0;z-index:40;background:rgba(15,20,32,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:9px 12px;margin-bottom:16px}
+.topnav .lbl{font-size:12.4px;color:var(--muted);letter-spacing:.5px}
+.topnav select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13.4px;font-weight:600;cursor:pointer}
+.topnav a.home{color:var(--acc);font-size:13px;text-decoration:none;font-weight:600}
+h2{font-size:20px;margin:30px 0 6px;padding-bottom:7px;border-bottom:2px solid var(--line);color:#cfe1ff}
+h4{font-size:14.5px;margin:14px 0 6px;color:#a9c4ea}
+p{margin:8px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 6px;font-size:13.2px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+th{background:var(--panel2);color:#c6d6f0;font-weight:600;text-align:center}
+td:first-child,th:first-child{text-align:left;font-weight:600;color:#dbe6fa}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.tblwrap table{border:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 17px;margin:13px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:12px;font-weight:600}
+.p-g{background:#0d3a2c;color:#7ff0c3;border:1px solid #1c6b4f}
+.p-y{background:#3d3210;color:#ffd98a;border:1px solid #8d6a1e}
+.p-r{background:#3a1d1d;color:#ffb0b0;border:1px solid #7a3030}
+.note{font-size:12.4px;color:var(--muted);margin-top:6px}
+.src{font-size:12.2px;color:var(--muted)}
+.good{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+a{color:var(--acc)}
+/* stock cards */
+.stocks{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px;margin:16px 0}
+.scard{display:block;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:17px 18px;text-decoration:none;color:var(--ink);transition:transform .12s,border-color .12s;cursor:pointer}
+.scard:hover{transform:translateY(-3px);border-color:#4da3ff}
+.scard .nm{font-size:18px;font-weight:700;color:#cfe1ff}
+.scard .tk{font-size:12.3px;color:var(--muted);margin-top:1px}
+.scard .capb{display:inline-block;font-size:10.6px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-left:8px;vertical-align:2px;border:1px solid #2c5f9e;background:#123055;color:#a9d1ff}
+.stb{display:inline-block;font-size:10.6px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-left:6px;vertical-align:2px;border:1px solid}
+.stb.st-hold{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.stb.st-cand{background:#3d3210;border-color:#8d6a1e;color:#ffd98a}
+.scard .cmp{font-size:26px;font-weight:800;margin-top:10px}
+.scard .row{display:flex;justify-content:space-between;gap:10px;font-size:12.8px;color:var(--muted);margin-top:7px}
+.scard .dec{font-size:13.2px;color:#dbe6fa;background:rgba(255,255,255,.03);border-left:3px solid var(--acc);padding:7px 10px;border-radius:0 7px 7px 0;margin-top:11px}
+.scard .go{margin-top:11px;font-size:12.6px;color:var(--acc);font-weight:700;letter-spacing:.4px}
+.viewbox{border-left:4px solid var(--acc);background:rgba(77,163,255,.07);border-radius:0 9px 9px 0;padding:10px 15px;margin:10px 0 14px}
+.viewbox .vh{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8fc4ff;font-weight:700;margin-bottom:5px}
+.viewbox ul{margin:4px 0 2px 18px}.viewbox li{font-size:13.6px;margin:5px 0}
+.viewbox li.imp{color:#ffe6a3}.viewbox li.imp::marker{content:"★ "}
+.important{display:inline-block;background:#4a3708;color:#ffd98a;border:1px solid #8d6a1e;font-size:10.3px;font-weight:700;letter-spacing:.7px;padding:1px 7px;border-radius:4px;vertical-align:1.5px;margin-left:6px}
+.acc{border:1px solid var(--line);border-radius:11px;background:var(--panel);margin:13px 0;overflow:hidden}
+.acc-head{cursor:pointer;padding:12px 16px;background:var(--panel2);font-weight:700;font-size:14.5px;color:#cfe1ff;display:flex;gap:10px;align-items:center;flex-wrap:wrap;user-select:none}
+.acc-head:hover{background:#222c46}
+.acc-head .chev{color:var(--acc);width:15px;display:inline-block;transition:transform .15s}
+.acc-head .accmeta{margin-left:auto;font-size:12.2px;color:var(--muted);font-weight:400}
+.acc-body{display:none;padding:4px 14px 12px}
+.acc.open .acc-body{display:block}
+.tag{display:inline-block;font-size:10.6px;letter-spacing:.6px;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-right:6px;vertical-align:1.5px;border:1px solid}
+.t-fact{background:#123055;border-color:#2c5f9e;color:#a9d1ff}
+.t-view{background:#46340f;border-color:#8d6a1e;color:#ffd98a}
+.term{color:#7fc0ff;text-decoration:underline dotted;cursor:help}
+.term:hover{color:#bfe0ff}
+/* tabs */
+.tabbar{position:sticky;top:0;z-index:40;display:flex;flex-wrap:wrap;gap:6px;background:rgba(15,20,32,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:8px;margin-bottom:16px}
+.tabbtn{border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:12.6px;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;letter-spacing:.3px;text-decoration:none;display:inline-block}
+.tabbtn:hover{color:#cfe1ff;border-color:#3b5f96}
+.tabbtn.on{background:#123055;border-color:#2c66ad;color:#a9d1ff;box-shadow:0 0 0 1px #2c66ad}
+.panel{display:none;animation:fadein .25s ease}
+.panel.on{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+/* journal subtabs - inside the Journal panel (button label "4 · Journal"): same .tabbar/.tabbtn look, but not sticky
+   (the main tabbar above is the sticky one) */
+.subbar{position:static;z-index:auto}
+.jview{display:none}
+.jview.on{display:block;animation:fadein .25s ease}
+@media print{.jview{display:block!important}}
+/* KPI cards (portfolio dashboard) */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:13px 14px}
+.kpi .l{font-size:11.6px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.kpi .v{font-size:21px;font-weight:700;margin-top:3px}
+.kpi .n{font-size:11.6px;color:var(--muted);margin-top:2px}
+.kpi[data-explain]{cursor:pointer;transition:transform .12s,border-color .12s}
+.kpi[data-explain]:hover{border-color:#4da3ff;transform:translateY(-2px)}
+.kpi[data-explain]::after{content:"ⓘ what does this mean?";display:block;font-size:9.6px;color:#4da3ff;letter-spacing:.4px;margin-top:5px;text-transform:uppercase}
+.t-calc{background:#2a2140;border-color:#5a4a8a;color:#cbb8ff}
+.sel-lbl{font-size:12.4px;color:var(--muted);letter-spacing:.5px;margin-right:8px;font-weight:600}
+select.filter{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13.4px;font-weight:600;cursor:pointer}
+.txngrp{margin:16px 0 4px}
+.txngrp h4{margin:14px 0 4px}
+/* ---- premium portfolio dashboard (Dashboard tab) ---- */
+.dash-head{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap;margin:2px 0 15px}
+.dash-title{margin:0;font-size:25px;font-weight:800;letter-spacing:.2px;color:#f4f8ff}
+.dash-sub{font-size:13.4px;color:var(--muted);margin-top:3px}
+.dash-meta{display:flex;gap:8px;flex-wrap:wrap}
+.dash-chip{border:1px solid #2c66ad;background:#123055;color:#a9d1ff;font-size:12.2px;font-weight:600;padding:5px 13px;border-radius:15px;white-space:nowrap}
+.dash-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:0 0 16px}
+.dash-kpi{display:flex;gap:13px;align-items:center;min-width:0;background:linear-gradient(160deg,#141d33,#101728);border:1px solid #22345a;border-radius:13px;padding:15px 16px;transition:transform .12s,border-color .12s}
+.dash-kpi[data-explain]{cursor:pointer}
+.dash-kpi:hover{transform:translateY(-2px);border-color:#4da3ff}
+.dash-kpi.s-blue{border-color:#2c66ad}
+.dash-kpi.s-green{border-color:#1c6b4f}
+.dash-kpi.s-red{border-color:#7a3030}
+.dash-kpi.s-purple{border-color:#5a4a8a}
+.kpi-icon{flex:0 0 auto;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:21px;line-height:1}
+.kpi-info{min-width:0}
+.dash-kpi .kpi-label{font-size:12.3px;color:var(--muted);letter-spacing:.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dash-kpi .kpi-value{font-size:25px;font-weight:800;margin-top:2px;letter-spacing:.3px;white-space:nowrap}
+.kpi-value.c-blue{color:#8cc4ff}
+.kpi-value.c-green{color:#3ddfa5}
+.kpi-value.good{color:#3ddfa5}
+.kpi-value.bad{color:#ff6b85}
+.dash-kpi .kpi-sub{font-size:11.6px;color:var(--muted);margin-top:2px}
+@media(max-width:1000px){.dash-kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.dash-kpis{grid-template-columns:1fr}}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 16px}
+@media(max-width:1000px){.dash-grid{grid-template-columns:1fr}}
+.chart-box{background:linear-gradient(165deg,#141d33,#111827);border:1px solid #22345a;border-radius:13px;padding:15px 17px 15px;min-width:0}
+.chart-title{font-size:16px;font-weight:700;color:#d6e6ff}
+.chart-subtitle{font-size:12.2px;color:var(--muted);margin:2px 0 10px}
+.chart-body{display:flex;gap:14px;align-items:stretch}
+.chart-canvas{position:relative;flex:1 1 auto;min-width:0;height:300px}
+.chart-legend{flex:0 0 238px;display:flex;flex-direction:column;gap:7px;justify-content:center;font-size:12.2px}
+@media(max-width:780px){.chart-body{flex-direction:column}.chart-legend{flex:0 0 auto}}
+.cl-row{display:grid;grid-template-columns:12px minmax(0,1fr) 54px 92px;gap:8px;align-items:center;padding:3px 0}
+.cl-row+.cl-row{border-top:1px solid rgba(42,52,80,.55)}
+.cl-dot{width:11px;height:11px;border-radius:50%}
+.cl-name{color:#cddcf2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cl-pct{color:#e8ecf5;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.cl-amt{color:var(--muted);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.chart-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;text-align:center}
+.chart-center b{font-size:21px;font-weight:800;color:#f4f8ff}
+.chart-center span{font-size:11.4px;color:var(--muted);margin-top:2px}
+.chart-na{height:300px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--warn);font-size:13.4px;font-weight:600;padding:0 18px;background:rgba(245,184,61,.05);border:1px dashed #8d6a1e;border-radius:9px}
+.holdings-title{font-size:17px;font-weight:700;color:#d6e6ff;margin:4px 0 9px;border:0;padding:0}
+.pbar-wrap{display:flex;align-items:center;gap:9px;justify-content:flex-end}
+.pbar{flex:1 1 auto;min-width:70px;max-width:170px;height:11px;background:#0c1322;border:1px solid #26314c;border-radius:6px;overflow:hidden}
+.pbar-fill{height:100%;border-radius:5px;min-width:2px}
+.pbar-pct{min-width:46px;text-align:right;font-weight:700;color:#dbe6fa;font-variant-numeric:tabular-nums}
+/* sortable columns - Holdings Details table only */
+#holdingsTable th{cursor:pointer;user-select:none;white-space:nowrap}
+#holdingsTable th:hover{color:#8fd0ff}
+#holdingsTable th.sorted-asc::after{content:" \25B2";font-size:9px;color:#4da3ff}
+#holdingsTable th.sorted-desc::after{content:" \25BC";font-size:9px;color:#4da3ff}
+@media print{.chart-box,.dash-kpi{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+/* modal (used by glossary.js) */
+#modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(4,8,16,.72);padding:20px}
+#modal.on{display:flex;align-items:center;justify-content:center}
+.mbox{background:#141b2c;border:1px solid #2c66ad;border-radius:13px;max-width:640px;width:100%;max-height:82vh;overflow:auto;padding:20px 22px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.mbox .mt{font-size:16.5px;font-weight:700;color:#a9d1ff;margin-bottom:8px}
+.mbox .mb{font-size:14px;line-height:1.65;color:var(--ink)}
+.mbox .mb .why{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);color:#ffd98a;font-size:13.3px}
+.mbox .mclose{float:right;border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:7px;font-size:12px;padding:4px 10px;cursor:pointer}
+.mbox .mclose:hover{color:#fff;border-color:#4da3ff}
+.mgl{font-size:12.4px;color:var(--muted);margin-top:12px}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12.4px}
+@media print{body{background:#fff;color:#111}.scard,table,header.rpt,.card{background:#fff;color:#111;border-color:#bbb}th{background:#eee;color:#111}td{color:#111}h2,h4{color:#111}.topnav,.tabbar,#modal{display:none!important}.panel{display:block!important;page-break-before:always}.acc-body{display:block!important}.viewbox{background:#f4f8ff}.viewbox li{color:#111}.term{color:#0b5ca8}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="rpt">
+  <h1>📊 Stock Research Hub — Monthly Journal</h1>
+  <div class="sub">Master dashboard for all tracked stocks &nbsp;•&nbsp; Monthly decision log &nbsp;•&nbsp; Current cycle: <b>October 2026</b> (monthly run 20-Oct-2026, prices as of 19-Oct-2026 close)</div>
+  <div class="badges">
+    <span class="badge buy" id="badgeCount">Stocks tracked</span>
+    <span class="badge" id="badgeStatus">Status mix</span>
+    <span class="badge info">Cycle: Oct 2026 · run 20-Oct</span>
+    <span class="badge risk">Prices: 19-Oct-2026 close</span>
+    <span class="badge" id="badgeCaps">Cap mix</span>
+  </div>
+</header>
+
+<nav class="topnav">
+  <a class="home" href="../InvestIQ.html">🏠 InvestIQ</a>
+  <span class="lbl">GO TO STOCK ▸</span>
+  <select id="stockSel">
+    <option value="">— select stock —</option>
+    <option value="Reliance_Research_Report_Sep2026.html">RELIANCE | L | H</option>
+    <option value="RACE_Research_Report_Sep2026.html">RACE | S | H</option>
+    <option value="HDFCBANK_Research_Report_Sep2026.html">HDFC BANK | L | H</option>
+    <option value="ITC_Research_Report_Sep2026.html">ITC | L | H</option>
+    <option value="CAPLIPOINT_Research_Report_Sep2026.html">CAPLIN POINT | S | H</option>
+    <option value="GANECOS_Research_Report_Sep2026.html">GANESHA ECOSPHERE | S | H</option>
+    <option value="TMPV_Research_Report_Sep2026.html">TATA MOTORS PV | L | H</option>
+    <option value="OLECTRA_Research_Report_Oct2026.html">OLECTRA | S | C</option>
+    <option value="KAYNES_Research_Report_Oct2026.html">KAYNES | S | C</option>
+    <option value="BEL_Research_Report_Oct2026.html">BEL | L | C</option>
+    <option value="JIO_Research_Report_Oct2026.html">JIO IPO | L | C</option>
+  </select>
+  <a class="home" href="Portfolio_Plan.html">📊 Portfolio Plan</a>
+</nav>
+
+<nav class="tabbar" id="tabbar" aria-label="Hub sections">
+  <button class="tabbtn on" data-t="tab0">1 · Stocks</button>
+  <button class="tabbtn" data-t="tabRank">2 · Rankings</button>
+  <button class="tabbtn" data-t="tabNews">3 · Key News</button>
+  <button class="tabbtn" data-t="tab1">4 · Journal</button>
+  <button class="tabbtn" data-t="tab2">5 · Dashboard</button>
+  <button class="tabbtn" data-t="tab3">6 · Transactions</button>
+  <button class="tabbtn" data-t="tab4">7 · Glossary</button>
+</nav>
+
+<section class="panel on" id="tab0">
+<h2>1. Stock List — Latest Snapshot (Oct 2026)</h2>
+<div class="viewbox"><div class="vh">Hub — The View (plain English)</div>
+<ul>
+<li class="imp">Monthly run <b>20-Oct-2026</b> complete, plus <b>three new candidate baselines built the same day</b>. Across 11 tracked stocks: <b>ACCUMULATE</b> — ITC 7.2, JIO IPO 7.1 (candidate, pre-IPO), RELIANCE 7.0, HDFC BANK 6.9, BEL 6.9 (candidate), CAPLIN POINT 6.6, OLECTRA 6.1 (candidate) · <b>WATCHLIST</b> — KAYNES 5.3 (candidate), TATA MOTORS PV 5.1, RACE 4.9 (high risk) · <b>AVOID</b> — GANESHA ECOSPHERE 3.1. <b>No existing stock's score changed at this run</b> — see the 19-Oct-2026 rows in the Journal; KAYNES, BEL and JIO carry their own 20-Oct-2026 baseline rows.<span class="important">IMPORTANT</span></li>
+<li class="imp">Two axes, don't mix them: <b>Status</b> (personal — <span class="stb st-hold">HOLDING</span> invested monthly vs <span class="stb st-cand">CANDIDATE</span> under analysis, no position) and <b>Verdict</b> (score 0–10 → ACCUMULATE / WATCHLIST / AVOID). 7 stocks here are status HOLDING; candidates start with no position — <b>four now: OLECTRA, KAYNES, BEL (listed, 19-Oct-2026 close prices) and JIO (Jio Platforms IPO — pre-listing, no CMP yet)</b>, all added Oct 2026, no trades yet. WATCHLIST is verdict-only. Dropdown uses short codes: <code>NAME | CAP | STATUS</code> (S/M/L · H/C).<span class="important">IMPORTANT</span></li>
+<li>All listed prices are the <b>19-Oct-2026 close</b> (latest close published by the source when this run executed on 20-Oct-2026; the 20-Oct close was not yet out at run time). <b>JIO has no market price</b> — it is the Jio Platforms IPO (bid 21–23 Oct-2026, band ₹1,065–1,119, listing expected ~28-Oct). Verdicts are this month's decisions and stay fixed until the next journal entry.</li>
+<li class="imp">Biggest moves since the 07-Oct ad-hoc refresh: <b>CAPLIN POINT −14.7%</b> (₹2,649 → ₹2,259, now inside the preferred buy band) and <b>RACE +14.4%</b> (₹104 → ₹119, a bounce with no thesis change). Everything else moved less than 4%.<span class="important">IMPORTANT</span></li>
+<li class="imp">Next catalysts: <b>Jio Platforms IPO opens 21-Oct-2026, closes 23-Oct, lists ~28-Oct</b> (JIO + RELIANCE) · <b>HDFC Bank CEO transition 27-Oct-2026</b> (Q2 FY27 already out, 17-Oct) · <b>BEL Q2 FY27 on 30-Oct-2026</b> · <b>ITC Q2 on 02-Nov-2026</b> · <b>KAYNES Q2 FY27 on 04-Nov-2026</b> · Q2 still pending for RELIANCE, RACE, CAPLIN POINT, GANESHA ECOSPHERE, TMPV and OLECTRA. The full dated list — with why each item does or does not move a score — is on <b>3 · Key News</b>.<span class="important">IMPORTANT</span></li>
+</ul>
+</div>
+
+<div class="stocks">
+  <a class="scard" href="Reliance_Research_Report_Sep2026.html" data-code="RELIANCE" data-cap="L" data-status="H" data-score="7.0" data-verdict="ACCUMULATE">
+    <div class="nm">Reliance Industries Ltd<span class="capb">Large Cap</span><span class="stb st-hold">HOLDING</span></div>
+    <div class="tk">NSE: RELIANCE · BSE: 500325 · Oil, Gas &amp; Consumable Fuels</div>
+    <div class="cmp">₹1,202 <span style="font-size:13px" class="bad">−0.76%</span></div>
+    <div class="row"><span>P/E 21.8x · P/B 1.80x</span><span>Mcap ₹16.27 L Cr</span></div>
+    <div class="row"><span>Verdict</span><span><span class="pill p-g">ACCUMULATE</span> &nbsp;score <b>7.0</b>/10</span></div>
+    <div class="dec"><b>Decision (20-Oct-2026 run):</b> Re-affirmed ACCUMULATE 7.0 — Q2 FY27 still not published, so nothing to re-score. First tranche ₹1,150–1,180 still unfilled (CMP ₹1,202 is above the band); do not chase. Live catalyst: <b>Jio Platforms IPO opens 21-Oct</b> (band ₹1,065–1,119, RIL-shareholder reservation). Review after Q2 results.</div>
+    <div class="go">Open full report →</div>
+  </a>
+  <a class="scard" href="RACE_Research_Report_Sep2026.html" data-code="RACE" data-cap="S" data-status="H" data-score="4.9" data-verdict="WATCHLIST · HIGH RISK">
+    <div class="nm">Race Eco Chain Ltd<span class="capb">Small Cap</span><span class="stb st-hold">HOLDING</span></div>
+    <div class="tk">NSE: RACE · BSE: 537785 · Utilities → Waste Management</div>
+    <div class="cmp">₹119 <span style="font-size:13px" class="good">+0.36%</span></div>
+    <div class="row"><span>P/E 27.4x · P/B 2.77x</span><span>Mcap ₹206 Cr</span></div>
+    <div class="row"><span>Verdict</span><span><span class="pill p-y">WATCHLIST · HIGH RISK</span> &nbsp;score <b>4.9</b>/10</span></div>
+    <div class="dec"><b>Decision (20-Oct-2026 run):</b> Re-affirmed 4.9. The +14.4% bounce (₹104 → ₹119) is price, not thesis — Q2 FY27 still not filed and the demerger scheme is still unsanctioned. <b>Do not add</b> at ₹119. Revisit below ₹90, or after two quarters of OPM ≥2.5% with falling borrowings.</div>
+    <div class="go">Open full report →</div>
+  </a>
+  <a class="scard" href="HDFCBANK_Research_Report_Sep2026.html" data-code="HDFCBANK" data-cap="L" data-status="H" data-score="6.9" data-verdict="ACCUMULATE">
+    <div class="nm">HDFC Bank Ltd<span class="capb">Large Cap</span><span class="stb st-hold">HOLDING</span></div>
+    <div class="tk">NSE: HDFCBANK · BSE: 500180 · Banks → Private Sector Bank</div>
+    <div class="cmp">₹712 <span style="font-size:13px" class="bad">−2.31%</span></div>
+    <div class="row"><span>P/E 13.7x · ROE 13.6%</span><span>Mcap ₹10.98 L Cr</span></div>
+    <div class="row"><span>Verdict</span><span><span class="pill p-g">ACCUMULATE</span> &nbsp;score <b>6.9</b>/10</span></div>
+    <div class="dec"><b>Decision (20-Oct-2026 run):</b> Re-affirmed ACCUMULATE 6.9 <b>after the 17-Oct Q2 FY27 print</b> — PAT ₹21,537 Cr +5.7% YoY, EPS ₹13.43, revenue +9.4%. That lands between the green (≥10%) and red (&lt;5%) monitorables, so no section moves a notch. Continue staged buying near ₹700 (first tranche ≤₹720; add ₹682–700). Next trigger: <b>Bagchi MD &amp; CEO w.e.f. 27-Oct</b>.</div>
+    <div class="go">Open full report →</div>
+  </a>
+  <a class="scard" href="ITC_Research_Report_Sep2026.html" data-code="ITC" data-cap="L" data-status="H" data-score="7.2" data-verdict="ACCUMULATE">
+    <div class="nm">ITC Ltd<span class="capb">Large Cap</span><span class="stb st-hold">HOLDING</span></div>
+    <div class="tk">NSE: ITC · BSE: 500875 · FMCG → Diversified FMCG</div>
+    <div class="cmp">₹261 <span style="font-size:13px" class="bad">−1.02%</span></div>
+    <div class="row"><span>P/E 16.6x · Yield 5.56%</span><span>Mcap ₹3.27 L Cr</span></div>
+    <div class="row"><span>Verdict</span><span><span class="pill p-g">ACCUMULATE</span> &nbsp;score <b>7.2</b>/10</span></div>
+    <div class="dec"><b>Decision (20-Oct-2026 run):</b> Re-affirmed 7.2. CMP ₹261 sits <b>inside the ₹255–260 core-entry band</b> (52-week low ₹253) with a 5.56% yield, 29% ROE and almost no debt — continue the small core position. Q2 date is now fixed: <b>board meets 02-Nov-2026</b>.</div>
+    <div class="go">Open full report →</div>
+  </a>
+  <a class="scard" href="CAPLIPOINT_Research_Report_Sep2026.html" data-code="CAPLIPOINT" data-cap="S" data-status="H" data-score="6.6" data-verdict="ACCUMULATE">
+    <div class="nm">Caplin Point Laboratories<span class="capb">Small Cap</span><span class="stb st-hold">HOLDING</span></div>
+    <div class="tk">NSE: CAPLIPOINT · BSE: 524742 · Healthcare → Pharmaceuticals</div>
+    <div class="cmp">₹2,259 <span style="font-size:13px" class="bad">−1.85%</span></div>
+    <div class="row"><span>P/E 25.8x · ROCE 24.2%</span><span>Mcap ₹17,170 Cr</span></div>
+    <div class="row"><span>Verdict</span><span><span class="pill p-g">ACCUMULATE</span> &nbsp;score <b>6.6</b>/10</span></div>
+    <div class="dec"><b>Decision (20-Oct-2026 run, band changed):</b> Re-affirmed 6.6 — but the <b>−14.7% fall (₹2,649 → ₹2,259) puts CMP below the ₹2,400–2,550 preferred band</b>, i.e. inside the buy zone, not above it (P/E 30.3x → 25.8x). Tranches only at <b>₹2,250–2,400</b>; Q2 FY27 still unpublished and the ROCE drift (68% → 24%) / debtor days (138) watch stays on. Review with Q2 (Nov-2026).</div>
+    <div class="go">Open full report →</div>
+  </a>
+  <a class="scard" href="GANECOS_Research_Report_Sep2026.html" data-code="GANECOS" data-cap="S" data-status="H" data-score="3.1" data-verdict="AVOID">
+    <div class="nm">Ganesha Ecosphere Ltd<span class="capb">Small Cap</span><span class="stb st-hold">HOLDING</span></div>
+    <div class="tk">NSE: GANECOS · BSE: 514167 · Textiles → PET Recycling / RPSF</div>
+    <div class="cmp">₹997 <span style="font-size:13px" class="bad">−2.93%</span></div>
+    <div class="row"><span>P/E 47.3x · ROE 3.3%</span><span>Mcap ₹2,671 Cr</span></div>
+    <div class="row"><span>Verdict</span><span><span class="pill p-r">AVOID</span> &nbsp;score <b>3.1</b>/10</span></div>
+    <div class="dec"><b>Decision (20-Oct-2026 run):</b> Re-affirmed AVOID 3.1 — do NOT buy. The <b>16-Oct FSSAI approval for Ganesha Ecopet's 4th rPET line</b> (valid Oct-2026 → Oct-2028) is a genuine operational positive but touches neither of the two score drivers: promoter pledge 31.9% and ROE 3.3% at P/E 47x. Revisit only if the pledge falls and ROE recovers above 10%.</div>
+    <div class="go">Open full report →</div>
+  </a>
+  <a class="scard" href="TMPV_Research_Report_Sep2026.html" data-code="TMPV" data-cap="L" data-status="H" data-score="5.1" data-verdict="WATCHLIST">
+    <div class="nm">Tata Motors Passenger Vehicles<span class="capb">Large Cap</span><span class="stb st-hold">HOLDING</span></div>
+    <div class="tk">NSE: TMPV · BSE: 500570 (FV ₹2) · Automobiles → Passenger Cars</div>
+    <div class="cmp">₹278 <span style="font-size:13px" class="bad">−3.09%</span></div>
+    <div class="row"><span>P/B 0.91x · P/E 103*</span><span>Mcap ₹1.02 L Cr</span></div>
+    <div class="row"><span>Verdict</span><span><span class="pill p-y">WATCHLIST</span> &nbsp;score <b>5.1</b>/10</span></div>
+    <div class="dec"><b>Decision (20-Oct-2026 run):</b> Re-affirmed 5.1 — no entry. The <b>12-Oct Stellantis technology &amp; product agreement</b> is strategically interesting but answers neither open question (post-demerger earnings quality, free cash flow). CMP ₹278 is 2% above the ₹272 52-week low; P/E 103 and ROE 75.7% remain one-off distorted. Two clean quarters first.</div>
+    <div class="go">Open full report →</div>
+  </a>
+  <a class="scard" href="OLECTRA_Research_Report_Oct2026.html" data-code="OLECTRA" data-cap="S" data-status="C" data-score="6.1" data-verdict="ACCUMULATE">
+    <div class="nm">Olectra Greentech Ltd<span class="capb">Small Cap</span><span class="stb st-cand">CANDIDATE</span></div>
+    <div class="tk">NSE: OLECTRA · BSE: 532439 · Automobiles → Electric Buses</div>
+    <div class="cmp">₹1,044 <span style="font-size:13px" class="bad">−2.07%</span></div>
+    <div class="row"><span>P/E 48.3x · ROCE 21%</span><span>Mcap ₹8,571 Cr</span></div>
+    <div class="row"><span>Verdict</span><span><span class="pill p-g">ACCUMULATE</span> &nbsp;score <b>6.1</b>/10</span></div>
+    <div class="dec"><b>Decision (20-Oct-2026 run):</b> Re-affirmed 6.1 — CANDIDATE, <b>no position</b>. CMP ₹1,044 (−3.7% vs 07-Oct) is closing on the ₹950–1,000 first-tranche trigger and Q2 FY27 is still unpublished (window closed 29-Sep). Buy only if Q2 confirms OPM ≥14%, interest ≤ ₹25 Cr/qtr, borrowings ≤ ~₹420 Cr, pledge nil (VERIFY) and a readable order book (VERIFY). 15-Oct: new COO, Energy Division. Review Nov 2026.</div>
+    <div class="go">Open full report →</div>
+  </a>
+  <a class="scard" href="KAYNES_Research_Report_Oct2026.html" data-code="KAYNES" data-cap="S" data-status="C" data-score="5.3" data-verdict="WATCHLIST">
+    <div class="nm">Kaynes Technology India Ltd<span class="capb">Small Cap</span><span class="stb st-cand">CANDIDATE</span></div>
+    <div class="tk">NSE: KAYNES · BSE: 543664 · Industrials → Electronics Manufacturing (EMS)</div>
+    <div class="cmp">₹3,250 <span style="font-size:13px" class="bad">−0.94%</span></div>
+    <div class="row"><span>P/E 62.9x · ROCE 12.7%</span><span>Mcap ₹21,847 Cr</span></div>
+    <div class="row"><span>Verdict</span><span><span class="pill p-y">WATCHLIST</span> &nbsp;score <b>5.3</b>/10</span></div>
+    <div class="dec"><b>Decision (20-Oct-2026 baseline):</b> CANDIDATE, <b>no position</b>. WATCHLIST 5.3 — growth is the story (5Y sales CAGR 54%, profit 104%) but the price and cash quality are not: P/E 62.9x, P/B 4.59x, FY26 CFO −₹600 Cr, FCF −₹1,841 Cr, promoter −10% over 3Y, FII 10.7% → 6.1%, price −53% in 1Y. First tranche only at <b>₹2,950–3,050</b> (near the ₹2,995 52W low) and only if Q2 FY27 (due 04-Nov) shows OPM ≥16% with PAT not down YoY, CFO direction improving, debtor days &lt;120, promoter ≥53.3% with pledge nil (VERIFY) and order book ≥ ~₹8,900 Cr. Cap note: Small Cap by index membership (Nifty Smallcap 50); ₹21,847 Cr mcap sits near the mid-cap boundary.</div>
+    <div class="go">Open full report →</div>
+  </a>
+  <a class="scard" href="BEL_Research_Report_Oct2026.html" data-code="BEL" data-cap="L" data-status="C" data-score="6.9" data-verdict="ACCUMULATE">
+    <div class="nm">Bharat Electronics Ltd<span class="capb">Large Cap</span><span class="stb st-cand">CANDIDATE</span></div>
+    <div class="tk">NSE: BEL · BSE: 500049 · Industrials → Aerospace &amp; Defence (defence electronics PSU)</div>
+    <div class="cmp">₹377 <span style="font-size:13px" class="good">+0.09%</span></div>
+    <div class="row"><span>P/E 44.9x · ROCE 36.4%</span><span>Mcap ₹2.76 L Cr</span></div>
+    <div class="row"><span>Verdict</span><span><span class="pill p-g">ACCUMULATE</span> &nbsp;score <b>6.9</b>/10</span></div>
+    <div class="dec"><b>Decision (20-Oct-2026 baseline):</b> CANDIDATE, <b>no position</b>. ACCUMULATE 6.9 on quality (ROE 27.4%, ROCE 36.4%, near debt-free, order book ₹75,000+ Cr) vs price (44.9x P/E, 11.5x book; −20% from the 52W high). Do <b>not</b> initiate at ₹377 before Q2 FY27 (board 30-Oct). First tranche <b>₹360–375 only after Q2 confirms</b> revenue ≈+12% YoY, EBITDA margin ≥26%, order inflow re-accelerating vs the ₹55,000 Cr FY27 target and WC days ≤135; add-on ₹335–350.</div>
+    <div class="go">Open full report →</div>
+  </a>
+  <a class="scard" href="JIO_Research_Report_Oct2026.html" data-code="JIO" data-cap="L" data-status="C" data-score="7.1" data-verdict="ACCUMULATE">
+    <div class="nm">Jio Platforms Ltd (IPO)<span class="capb">Large Cap</span><span class="stb st-cand">CANDIDATE</span></div>
+    <div class="tk">PRE-IPO · Jio Platforms Ltd · BSE + NSE listing expected ~28-Oct-2026 · Telecom &amp; Digital (Reliance group)</div>
+    <div class="cmp">Pre-IPO <span style="font-size:13px" class="warn">no CMP</span></div>
+    <div class="row"><span>Band ₹1,065–1,119 · P/E ~32–33x FY26</span><span>Implied Mcap ₹9.8–10.3 L Cr</span></div>
+    <div class="row"><span>Verdict</span><span><span class="pill p-g">ACCUMULATE</span> &nbsp;score <b>7.1</b>/10</span></div>
+    <div class="dec"><b>Decision (20-Oct-2026 baseline):</b> CANDIDATE, <b>not yet listed</b>. ACCUMULATE 7.1 — <b>subscribe at ≤ ₹1,119</b> in the 21–23 Oct issue (one lot 12 shares ≈ ₹13,428 at the cap; eligible for the ₹2,500 Cr RIL-shareholder quota — the portfolio holds RIL, verify your demat as of the 14-Oct record date). <b>No chase above ₹1,119</b>; first aftermarket tranche ≤ ₹1,000 (≤30x FY26 earnings) around listing + 10 sessions. Anchor book ₹8,110 Cr at 30x (19-Oct) is real demand; GMP ~₹245 is <b>unofficial</b>.</div>
+    <div class="go">Open full report →</div>
+  </a>
+</div>
+
+</section>
+
+<section class="panel" id="tabRank">
+<h2>2. Rankings — every tracked stock ordered by verdict score</h2>
+<div class="viewbox"><div class="vh">Rankings — The View (plain English)</div>
+<ul>
+<li class="imp">One table, both axes at once: <b>holdings and candidates ranked together by composite score /10</b> (the 7-section scorecard). Rank 1 = strongest analysis at today's price — it is <b>not</b> an instruction on how much money to put anywhere.<span class="important">IMPORTANT</span></li>
+<li class="imp">Two axes, don't mix them: <b>score/verdict</b> answers "how good is this company at this price?" · <b>status</b> answers "do I already own it?" (<span class="stb st-hold">HOLDING</span> vs <span class="stb st-cand">CANDIDATE</span>). A candidate can outrank a holding and vice versa — today JIO (candidate, 7.1) ranks above every holding except ITC (7.2), BEL (6.9) matches HDFC BANK, and KAYNES (5.3) sits near the bottom.<span class="important">IMPORTANT</span></li>
+<li class="imp">The table is <b>built by JavaScript from the stock cards on tab 1 · Stocks</b> — rank, name, cap, status, score, verdict and CMP are read off each card's data attributes, so this tab can never disagree with the cards and nothing here is typed in by hand. Re-score → update the cards → this ranking follows automatically.<span class="important">IMPORTANT</span></li>
+<li>"Action per analysis" is derived from the score band + status only (e.g. ACCUMULATE + HOLDING → continue SIP / add tranches). <b>Position sizing, SIP split and exit decisions are not decided here</b> — that is allocation work, owned by <a href="Portfolio_Plan.html">Portfolio Plan</a>.</li>
+<li>Verdict bands: <b>8–10 excellent · 6–8 ACCUMULATE · 4–6 WATCHLIST · &lt;4 AVOID</b>. Prices are the <b>19-Oct-2026 close</b>; scores are the 20-Oct-2026 monthly-run re-affirmations.</li>
+</ul>
+</div>
+
+<div class="tblwrap"><table id="rankTable" data-vt="off">
+<tr><th>Rank</th><th style="text-align:left">Stock</th><th style="text-align:left">Cap</th><th>Status</th><th>Score</th><th>Verdict</th><th>CMP (19-Oct-2026)</th><th style="text-align:left">Action per analysis</th></tr>
+<tbody id="rankBody"><tr><td colspan="8">Building the ranking… (requires JavaScript)</td></tr></tbody>
+</table></div>
+
+<div class="grid2">
+<div class="card">
+<h4>Band summary <span class="tag t-calc">Calc</span></h4>
+<div class="tblwrap"><table id="rankBands" data-vt="off">
+<tr><th style="text-align:left">Verdict band</th><th>Stocks</th><th>Holding</th><th>Candidate</th></tr>
+<tbody id="bandBody"><tr><td colspan="4">Counting…</td></tr></tbody>
+</table></div>
+<p class="note">Counts are computed from the same card attributes as the table above — the same never-hardcode rule as the header badges.</p>
+</div>
+<div class="card">
+<h4>How to read a rank <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>Rank moves only when the analysis moves</b>, not when the price moves. A 15% fall that leaves the score unchanged does not change the rank.</li>
+<li><b>HIGH SCORE ≠ BUY NOW.</b> Candidates illustrate the point: JIO scores 7.1 but the decision is an IPO subscription call at a fixed band, not "buy at any price"; BEL scores 6.9 and still waits for the 30-Oct Q2 print; CAPLIN POINT is mid-table at 6.6 yet sits inside its buy band. Price vs band is in each card's decision line, not in the rank.</li>
+<li><b>AVOID at the bottom does not mean "sell" either</b> — GANESHA ECOSPHERE is AVOID for new money; whether to exit a held position is a personal call the planner helps with.</li>
+<li>Next re-rank: the Nov 2026 monthly run, or earlier if a Q2 FY27 print lands that moves a section score.</li>
+</ul>
+</div>
+</div>
+
+<p class="src">Scores: the 7-section scorecard in each report's tab 9 (composite = mean of 7 section scores, /10). CMP: Screener consolidated close 19-Oct-2026, cross-checked against Yahoo Finance same-day closes. Status: from the <code>NAME | CAP | STATUS</code> codes in the hub dropdown. Not investment advice.</p>
+</section>
+
+<section class="panel" id="tabNews">
+<h2>3. Key News — filings, results &amp; events across all 11 stocks</h2>
+<div class="viewbox"><div class="vh">Key News — The View (plain English)</div>
+<ul>
+<li class="imp">One tab for everything <b>dated and material</b> that landed since the last cycle — results, appointments, approvals, corporate actions — sorted newest first across all 11 tracked stocks. Every row comes from the announcements/filings section of that stock's own report (tab 8), pulled <b>20-Oct-2026</b>; this tab is the index, the report is the detail.<span class="important">IMPORTANT</span></li>
+<li class="imp">Read the last column before reacting: <b>news moves a verdict only if it crosses a scorecard band</b>. At this run no existing score moved — all 8 prior scores and verdicts were re-affirmed unchanged; the three new candidates (KAYNES, BEL, JIO) open with their 20-Oct-2026 baselines.<span class="important">IMPORTANT</span></li>
+<li class="imp">The one event that could change scores is still missing: <b>Q2 FY27 results are unpublished for RELIANCE, RACE, CAPLIN POINT, GANESHA ECOSPHERE, TMPV and OLECTRA</b> (dates <span class="warn">VERIFY</span> on BSE/NSE); dated: <b>ITC 02-Nov · BEL 30-Oct · KAYNES 04-Nov</b>. JIO lists ~28-Oct — its first quarterly comes only after listing.<span class="important">IMPORTANT</span></li>
+<li>Prices everywhere on this hub are the <b>19-Oct-2026 close</b> (latest published when the 20-Oct-2026 run executed). Dated rows are appended, never rewritten — this tab gets its older items pushed down by newer ones, and each stock's own report keeps the full history.</li>
+</ul>
+</div>
+
+<div class="tblwrap"><table>
+<tr><th>Date</th><th style="text-align:left">Stock</th><th style="text-align:left">Item</th><th style="text-align:left">Why it matters</th></tr>
+<tr><td>20-Oct-2026</td><td style="text-align:left"><a href="JIO_Research_Report_Oct2026.html#tab8">JIO IPO</a></td><td style="text-align:left"><b>Anchor book disclosed</b> (allotted 19-Oct): 212 investors, 7.25 Cr shares at ₹1,119 = <b>₹8,110 Cr</b> (26.8% of the issue); bids ~₹2.5 lakh Cr (&gt;30x). Top: LIC ₹500 Cr, GIC ₹341 Cr, SBI Focused ₹315 Cr</td><td style="text-align:left">First hard demand print — institutional appetite at the band cap. Supports the baseline <b>SUBSCRIBE at ≤ ₹1,119</b> call; GMP ~₹245 stays unofficial. <b>Baseline score 7.1 ACCUMULATE.</b></td></tr>
+<tr><td>19-Oct-2026</td><td style="text-align:left"><a href="JIO_Research_Report_Oct2026.html#tab8">JIO IPO</a></td><td style="text-align:left"><b>Anchor investor bidding completed</b> (RHP 14-Oct-2026; anchor allotment at ₹1,119)</td><td style="text-align:left">Public bid opens 21-Oct, closes 23-Oct; listing expected ~28-Oct. The event is live — this candidate has no CMP until listing day.</td></tr>
+<tr><td>16-Oct-2026</td><td style="text-align:left"><a href="BEL_Research_Report_Oct2026.html#tab8">BEL</a></td><td style="text-align:left"><b>Board meeting called for 30-Oct-2026</b> — Q2/H1 FY27 results (standalone + consolidated)</td><td style="text-align:left">Dates the Entry Plan's review gate. <b>Baseline score 6.9 ACCUMULATE</b> — no initiation before this print.</td></tr>
+<tr><td>14-Oct-2026</td><td style="text-align:left"><a href="BEL_Research_Report_Oct2026.html#tab8">BEL</a></td><td style="text-align:left">Macquarie reiterates <b>Outperform, TP ₹550</b>; FY27 order inflows ₹7,400 Cr till date (−53% YoY); backlog ~₹72,300 Cr</td><td style="text-align:left">Broker bullish on the price, but the inflow slowdown vs the ₹55,000 Cr FY27 target is the key monitorable — the baseline waits for Q2 either way.</td></tr>
+<tr><td>13-Oct-2026</td><td style="text-align:left"><a href="BEL_Research_Report_Oct2026.html#tab8">BEL</a></td><td style="text-align:left">Additional orders <b>₹533 Cr</b> (communication, avionics, cyber, drones, jammers); <b>FY27 order book crosses ₹75,000 Cr</b></td><td style="text-align:left">Record order book keeps the growth runway intact; execution and inflow pace vs guidance remain the scored questions.</td></tr>
+<tr><td>13-Oct-2026</td><td style="text-align:left"><a href="KAYNES_Research_Report_Oct2026.html#tab8">KAYNES</a></td><td style="text-align:left">MarketsMojo cuts to <b>Strong Sell</b>; close near the 52-week low ₹2,995</td><td style="text-align:left">Confirms the weak momentum already scored (price −53% in 1Y). Entry only at ₹2,950–3,050 with Q2 FY27 confirmation. <b>Baseline score 5.3 WATCHLIST.</b></td></tr>
+<tr><td>07-Aug-2026</td><td style="text-align:left"><a href="KAYNES_Research_Report_Oct2026.html#tab8">KAYNES</a></td><td style="text-align:left"><b>Q1 FY27 results:</b> revenue ₹946 Cr +40% YoY, EBITDA ₹147.6 Cr (15.6%), PAT ₹56.4 Cr <b>−24% YoY</b>, order book ₹8,904 Cr (vs ₹7,401 Cr YoY)</td><td style="text-align:left">The baseline's core tension in one print: 40% growth with falling profit and stretched working capital. Q2 FY27 due 04-Nov-2026 is the Entry Plan gate.</td></tr>
+<tr><td>06-Oct-2026</td><td style="text-align:left"><a href="KAYNES_Research_Report_Oct2026.html#tab8">KAYNES</a></td><td style="text-align:left">JPMorgan <b>Hold, TP cut ₹3,600 → ₹3,150</b> (BNP Paribas Exane Sell TP ₹3,180 on 01-Oct)</td><td style="text-align:left">Broker targets cluster below the ₹3,250 CMP — do not chase; the ₹2,950–3,050 trigger already sits near them.</td></tr>
+<tr><td>17-Oct-2026</td><td style="text-align:left"><a href="HDFCBANK_Research_Report_Sep2026.html#tab8">HDFC BANK</a></td><td style="text-align:left"><b>Q2 FY27 results printed</b> — PAT ₹21,537 Cr (+5.7% YoY/QoQ), revenue ₹95,132 Cr (+9.4%), EPS ₹13.43 (+5.2%); other income ₹34,227 Cr vs PBT ₹28,663 Cr; NPA rows blank → <span class="warn">VERIFY</span></td><td style="text-align:left">Lands between the green (≥10%) and red (&lt;5%) monitorables — amber, not a notch. <b>Score/verdict: re-affirmed, unchanged.</b></td></tr>
+<tr><td>17-Oct-2026</td><td style="text-align:left"><a href="HDFCBANK_Research_Report_Sep2026.html#tab8">HDFC BANK</a></td><td style="text-align:left">Kaizad Bharucha to cease as <b>Deputy MD on 31-Dec-2026</b>; Lily Vadera reappointed Independent Director (announced with results)</td><td style="text-align:left">Part of the wider leadership transition — with Bagchi as MD &amp; CEO from 27-Oct, several key seats change at once. Watch execution continuity, not the numbers.</td></tr>
+<tr><td>16-Oct-2026</td><td style="text-align:left"><a href="GANECOS_Research_Report_Sep2026.html#tab8">GANESHA ECOSPHERE</a></td><td style="text-align:left"><b>FSSAI approval — 4th rPET production line</b>, valid Oct-2026 to Oct-2028</td><td style="text-align:left">Real capacity headroom for recycled PET, but it touches none of the four AVOID re-entry conditions (pledge, returns, debt, margins). <b>No score change.</b></td></tr>
+<tr><td>15-Oct-2026</td><td style="text-align:left"><a href="OLECTRA_Research_Report_Oct2026.html#tab8">OLECTRA</a></td><td style="text-align:left"><b>Surender Nath appointed COO — Energy Division</b></td><td style="text-align:left">Senior operational capacity in the legacy insulator business (14% of revenue). Not a scored input. <b>Score/verdict: re-affirmed, unchanged.</b></td></tr>
+<tr><td>14-Oct-2026</td><td style="text-align:left"><a href="Reliance_Research_Report_Sep2026.html#tab8">RELIANCE</a></td><td style="text-align:left"><b>Jio Platforms Ltd (JPL) filed its IPO red-herring prospectus</b> — price band <b>₹1,065–1,119</b>, issue opens <b>21-Oct-2026</b>, reservation for eligible RIL shareholders</td><td style="text-align:left">The group's consumer-segment value unlock goes to market; how JPL lists against the band is the single most relevant event for this holding in Q3 FY27. <b>Score unchanged</b> — Q2 FY27 still awaited.</td></tr>
+<tr><td>12-Oct-2026</td><td style="text-align:left"><a href="TMPV_Research_Report_Sep2026.html#tab8">TMPV</a></td><td style="text-align:left"><b>Definitive agreement with Stellantis</b> — advanced-technology and product collaboration</td><td style="text-align:left">Strategically interesting, financially unquantified — no revenue, margin or order-book number attached, so the score cannot move on it.</td></tr>
+<tr><td>06-Oct-2026</td><td style="text-align:left"><a href="TMPV_Research_Report_Sep2026.html#tab8">TMPV</a></td><td style="text-align:left">SIAM Jul–Sep 2026 quarterly industry report published</td><td style="text-align:left">Industry context only; housekeeping row in the report.</td></tr>
+<tr><td>01-Oct-2026</td><td style="text-align:left"><a href="HDFCBANK_Research_Report_Sep2026.html#tab8">HDFC BANK</a></td><td style="text-align:left"><b>Anup Bagchi appointed MD &amp; CEO</b> for a 3-year term w.e.f. <b>27-Oct-2026</b></td><td style="text-align:left">First CEO change in a decade for India's largest private bank — the next personal trigger after the Q2 print. <b>No score change.</b></td></tr>
+<tr><td>01-Oct-2026</td><td style="text-align:left"><a href="TMPV_Research_Report_Sep2026.html#tab8">TMPV</a></td><td style="text-align:left"><b>Q2 FY27 volume press release</b> — 201,723 units sold, <b>+40% YoY</b>; September sales crossed 70,000</td><td style="text-align:left">Bullish operational data point — but the quarterly <i>financial</i> print has not appeared (→ <span class="warn">VERIFY</span>), and only that print can move the score.</td></tr>
+<tr><td>01-Oct-2026</td><td style="text-align:left"><a href="Reliance_Research_Report_Sep2026.html#tab8">RELIANCE</a></td><td style="text-align:left">Allotted <b>₹13,008.6 Cr unsecured NCDs at 7.90%</b>, maturing 1-Oct-2036</td><td style="text-align:left">Refinancing at 7.9% signals continued strong debt access; balance-sheet signal stays positive.</td></tr>
+<tr><td>29-Sep-2026</td><td style="text-align:left"><a href="RACE_Research_Report_Sep2026.html#tab8">RACE</a></td><td style="text-align:left">Reg 30 — invested <b>₹1.02 Cr in subsidiary Ganesha Recycling Chain</b>, stake retained at 51%</td><td style="text-align:left">Group is consolidating its recycling chain; micro-cap scale, immaterial to the balance sheet. <b>No score change.</b></td></tr>
+<tr><td>29-Sep-2026</td><td style="text-align:left"><a href="OLECTRA_Research_Report_Oct2026.html#tab8">OLECTRA</a></td><td style="text-align:left">Trading window closed pending Q2 FY27 results</td><td style="text-align:left">Window reopens 48 hrs after the print — still unpublished at the 20-Oct run → <span class="warn">VERIFY</span>. This print is the Entry Plan's review gate.</td></tr>
+<tr><td>28-Sep-2026</td><td style="text-align:left"><a href="ITC_Research_Report_Sep2026.html#tab8">ITC</a></td><td style="text-align:left">Bought the remaining <b>Sproutlife shares for ₹645 Cr</b> — now a wholly owned subsidiary</td><td style="text-align:left">Consolidation of health/wellness foods: 0.2% of market cap (financially immaterial), strategically relevant. <b>No score change.</b></td></tr>
+<tr><td>28-Sep-2026</td><td style="text-align:left"><a href="CAPLIPOINT_Research_Report_Sep2026.html#tab8">CAPLIN POINT</a></td><td style="text-align:left">Trading window closed ahead of quarterly results; the 25-Sep exchange query on the volume spike was answered same-day — "volume spike is market-driven, no material information withheld"</td><td style="text-align:left">Nothing undisclosed, but Q2 FY27 is still unpublished at the 20-Oct run → <span class="warn">VERIFY</span>. The −14.7% fall into the buy band is price, not news.</td></tr>
+<tr><td>21-Sep-2026</td><td style="text-align:left"><a href="RACE_Research_Report_Sep2026.html#tab8">RACE</a></td><td style="text-align:left">BSE &amp; NSE issued <b>no-objection letters for the demerger scheme</b> with Geoeco Green Energy &amp; Race Gateway</td><td style="text-align:left">Watch item: post-sanction, all FY26 valuation numbers in the report must be re-struck. Still unsanctioned → no score move.</td></tr>
+<tr><td>02-Nov-2026 <span class="src">(scheduled)</span></td><td style="text-align:left"><a href="ITC_Research_Report_Sep2026.html#tab8">ITC</a></td><td style="text-align:left"><b>Q2 FY27 board meeting date announced</b> — results due 02-Nov-2026 (window reopens 48 hrs after the print)</td><td style="text-align:left">The next dated catalyst for ITC; the mid/late-October expectation had slipped. <b>Upcoming, not yet news.</b></td></tr>
+</table></div>
+
+<div class="grid2">
+<div class="card">
+<h4>Upcoming catalysts (dated) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Date</th><th style="text-align:left">Event</th></tr>
+<tr><td>23-Oct-2026</td><td style="text-align:left">JIO IPO closes (JIO + RELIANCE) — last day of subscription</td></tr>
+<tr><td>~28-Oct-2026</td><td style="text-align:left">JIO expected listing on BSE + NSE (first CMP row lands in the CMP Updates log)</td></tr>
+<tr><td>27-Oct-2026</td><td style="text-align:left">Anup Bagchi takes charge as MD &amp; CEO, HDFC BANK</td></tr>
+<tr><td>30-Oct-2026</td><td style="text-align:left">BEL Q2 FY27 results (board meeting 16-Oct-2026)</td></tr>
+<tr><td>02-Nov-2026</td><td style="text-align:left">ITC Q2 FY27 results</td></tr>
+<tr><td>04-Nov-2026</td><td style="text-align:left">KAYNES Q2 FY27 results (Entry Plan review gate)</td></tr>
+<tr><td><span class="warn">VERIFY</span></td><td style="text-align:left">Q2 FY27 results still unpublished for <b>RELIANCE, RACE, CAPLIN POINT, GANESHA ECOSPHERE, TMPV, OLECTRA</b> — exact dates to confirm on BSE/NSE</td></tr>
+</table>
+<p class="note">When a print lands it is captured in the report's tab 8 first, then a dated row is appended here — and only a scorecard band change re-rates anything.</p>
+</div>
+<div class="card">
+<h4>How to use this tab <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>Index, not archive.</b> Each row links straight to the source stock's tab 8 (News &amp; Recent Developments), where the filings table, concall quotes and rating rows live.</li>
+<li><b>Scored vs unscored news.</b> Appointments, approvals and industry reports are context; only results and financial-metric changes can move the 7-section scorecard — and this run, none did.</li>
+<li><b>VERIFY means unpublished</b>, never estimated: six Q2 FY27 prints are missing from the source, so their dates and numbers are flagged rather than filled in.</li>
+<li>Next refresh: the Nov 2026 monthly run (28th → 2nd), or immediately after any Q2 print that lands earlier.</li>
+</ul>
+</div>
+</div>
+
+<p class="src">Source: Screener announcements/documents section + exchange filings, as consolidated in each stock report's tab 8 (pulled 20-Oct-2026). Sorted newest first; scheduled dates marked as such. Not investment advice.</p>
+</section>
+
+<section class="panel" id="tab1">
+<nav class="tabbar subbar" id="journalSub" aria-label="Journal views">
+  <button class="tabbtn on" data-s="jMonthly">Monthly Updates</button>
+  <button class="tabbtn" data-s="jCMP">CMP Updates</button>
+</nav>
+<div class="jview on" id="jMonthly">
+<h2>4. Monthly Decision Log — one timeline per stock</h2>
+<div class="viewbox"><div class="vh">Monthly log — The View (plain English)</div>
+<ul>
+<li class="imp">One <b>monthly timeline per stock</b>. Each row is one journal entry: <b>Date · CMP · Δ vs prev entry · Verdict · Score · Decision of the month · Next review</b>. Every row is dated <code>dd-Mmm-yyyy</code>, so several runs in one month each append their own row.<span class="important">IMPORTANT</span></li>
+<li class="imp">Append-only: every new run <b>appends one dated row at the bottom</b> of each stock's table. Past rows are never edited, re-ordered or deleted — that is what makes the log usable as a record of what was decided, when, and at what price.<span class="important">IMPORTANT</span></li>
+<li>Rows so far: <b>01-Oct-2026</b> (cycle baseline for the original 8; OLECTRA analysed 05-Oct) · <b>19-Oct-2026</b> (monthly run executed 20-Oct-2026 — prices are the 19-Oct close, the latest the source had published at run time; <b>all 8 prior scores re-affirmed unchanged</b>, only CAPLIN POINT's entry band changed to ₹2,250–2,400) · <b>20-Oct-2026</b> (new-candidate baselines: KAYNES WATCHLIST 5.3, BEL ACCUMULATE 6.9, JIO ACCUMULATE 7.1 — report build day).</li>
+<li>Price-only refreshes (no re-score) live in the <b>CMP Updates</b> subtab next door — this log is where judgement is recorded.</li>
+</ul>
+</div>
+
+<div class="acc open" id="accRELIANCE">
+<div class="acc-head" data-acc="accRELIANCE"><span class="chev">▾</span> RELIANCE — monthly timeline <span class="stb st-hold">HOLDING</span> <span class="pill p-g">ACCUMULATE · 7.0</span> <span class="accmeta">latest: 19-Oct-2026 · ₹1,202 · Large Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev entry</th><th>Verdict</th><th>Score</th><th style="text-align:left">Decision of the month</th><th>Next review</th></tr>
+<tr><td>01-Oct-2026</td><td>₹1,168</td><td>— <span class="src">(baseline)</span></td><td><span class="pill p-g">ACCUMULATE</span></td><td>7.0</td><td style="text-align:left">Accumulate in tranches (₹1,150–1,180 / ₹1,050–1,080); avoid lump sum near 52W low; FII line + Retail margin are the swing indicators</td><td>Nov 2026 (Q2 FY27 results, mid-Oct)</td></tr>
+<tr><td>19-Oct-2026</td><td>₹1,202</td><td class="good">+₹34 <span class="src">(+2.91%)</span></td><td><span class="pill p-g">ACCUMULATE</span></td><td>7.0</td><td style="text-align:left"><b>Re-affirmed 7.0</b> — Q2 FY27 still unpublished at the 20-Oct run, so nothing new to score. Live catalyst is the <b>Jio Platforms IPO</b>: RHP 14-Oct, band ₹1,065–1,119, subscription opens 21-Oct, reservation for eligible RIL shareholders. First tranche band ₹1,150–1,180 still unfilled (CMP above it) — do not chase.</td><td>Nov 2026 (Q2 FY27 results)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accRACE">
+<div class="acc-head" data-acc="accRACE"><span class="chev">▾</span> RACE (Race Eco Chain) — monthly timeline <span class="stb st-hold">HOLDING</span> <span class="pill p-y">WATCHLIST · 4.9</span> <span class="accmeta">latest: 19-Oct-2026 · ₹119 · Small Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev entry</th><th>Verdict</th><th>Score</th><th style="text-align:left">Decision of the month</th><th>Next review</th></tr>
+<tr><td>01-Oct-2026</td><td>₹113</td><td>— <span class="src">(baseline)</span></td><td><span class="pill p-y">WATCHLIST · HIGH RISK</span></td><td>4.9</td><td style="text-align:left">No entry. Earnings quality thin (other income ≈ half of PBT), D/E 1.22x, stock −50% in 1Y. Revisit &lt;₹90 or after 2 quarters of OPM ≥2.5% + demerger clarity</td><td>Nov 2026 (Q2 FY27 results)</td></tr>
+<tr><td>19-Oct-2026</td><td>₹119</td><td class="good">+₹6 <span class="src">(+5.31%)</span></td><td><span class="pill p-y">WATCHLIST · HIGH RISK</span></td><td>4.9</td><td style="text-align:left"><b>Re-affirmed 4.9</b> — the +14.4% bounce since 07-Oct (₹104 → ₹119, peak ₹128 on 15-Oct) is price, not thesis: Q2 FY27 still unfiled (window closed 01-Oct) and the demerger scheme still unsanctioned. Promoter encumbrance disclosures re-filed 05-Oct. <b>No entry</b>; revisit &lt;₹90 or after two quarters of OPM ≥2.5% with falling borrowings.</td><td>Nov 2026 (Q2 FY27 results, still pending)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accHDFCBANK">
+<div class="acc-head" data-acc="accHDFCBANK"><span class="chev">▾</span> HDFC BANK — monthly timeline <span class="stb st-hold">HOLDING</span> <span class="pill p-g">ACCUMULATE · 6.9</span> <span class="accmeta">latest: 19-Oct-2026 · ₹712 · Large Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev entry</th><th>Verdict</th><th>Score</th><th style="text-align:left">Decision of the month</th><th>Next review</th></tr>
+<tr><td>01-Oct-2026</td><td>₹721</td><td>— <span class="src">(baseline)</span></td><td><span class="pill p-g">ACCUMULATE</span></td><td>6.9</td><td style="text-align:left">Staged buying near ₹700 in 25% tranches (52W low ₹682); gated on 17-Oct Q2 results + CEO transition 27-Oct; FII selling vs DII buying is the swing</td><td>Nov 2026 (Q2 results 17-Oct)</td></tr>
+<tr><td>19-Oct-2026</td><td>₹712</td><td class="bad">−₹9 <span class="src">(−1.25%)</span></td><td><span class="pill p-g">ACCUMULATE</span></td><td>6.9</td><td style="text-align:left"><b>Re-affirmed 6.9 after the 17-Oct-2026 Q2 FY27 print</b> (the gate the Oct-01 row set): PAT <b>₹21,537 Cr, +5.7% YoY</b> (vs ₹20,364 Cr) and +5.7% QoQ, EPS ₹13.43 (+5.2%), revenue ₹95,132 Cr (+9.4%), PBT ₹28,663 Cr. That is amber against the monitorables (green ≥10% / red &lt;5% PAT growth), and other income is still ~132% of TTM PBT — neither trigger fires, so <b>no section score moves</b>. Also on the feed: Kaizad Bharucha ceases as Deputy MD 31-Dec-2026; Lily Vadera reappointed ID for 3 years. Continue staged buying near ₹700.</td><td>Nov 2026 (Bagchi MD &amp; CEO w.e.f. 27-Oct; next print Q1 FY28)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accITC">
+<div class="acc-head" data-acc="accITC"><span class="chev">▾</span> ITC — monthly timeline <span class="stb st-hold">HOLDING</span> <span class="pill p-g">ACCUMULATE · 7.2</span> <span class="accmeta">latest: 19-Oct-2026 · ₹261 · Large Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev entry</th><th>Verdict</th><th>Score</th><th style="text-align:left">Decision of the month</th><th>Next review</th></tr>
+<tr><td>01-Oct-2026</td><td>₹256</td><td>— <span class="src">(baseline)</span></td><td><span class="pill p-g">ACCUMULATE</span></td><td>7.2</td><td style="text-align:left">Start small core position at 52-week low (₹255–260); yield 5.67% + ROE 29% + almost debt free; slow 5Y sales growth (9.9%) caps re-rating</td><td>Nov 2026 (Q2 results)</td></tr>
+<tr><td>19-Oct-2026</td><td>₹261</td><td class="good">+₹5 <span class="src">(+1.95%)</span></td><td><span class="pill p-g">ACCUMULATE</span></td><td>7.2</td><td style="text-align:left"><b>Re-affirmed 7.2.</b> CMP ₹261 sits <b>inside the ₹255–260 core-entry band</b> (52W range now ₹426/₹253), yield 5.56%, P/E 16.6x — the entry case is intact. <b>Q2 date now fixed: board meets 02-Nov-2026</b> (announced 16-Oct); ESOP allotment 15-Oct. Continue the small core position; review after the 02-Nov print.</td><td>Nov 2026 (Q2 FY27 results, 02-Nov)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accCAPLIPOINT">
+<div class="acc-head" data-acc="accCAPLIPOINT"><span class="chev">▾</span> CAPLIN POINT — monthly timeline <span class="stb st-hold">HOLDING</span> <span class="pill p-g">ACCUMULATE · 6.6</span> <span class="accmeta">latest: 19-Oct-2026 · ₹2,259 · Small Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev entry</th><th>Verdict</th><th>Score</th><th style="text-align:left">Decision of the month</th><th>Next review</th></tr>
+<tr><td>01-Oct-2026</td><td>₹2,632</td><td>— <span class="src">(baseline)</span></td><td><span class="pill p-g">ACCUMULATE</span></td><td>6.6</td><td style="text-align:left">Tranche buying only, ₹2,400–2,550 preferred; track debtor days (138, rising) and ROCE drift (68% → 24%) — quality compounder but working capital stretched</td><td>Nov 2026 (Q2 concall)</td></tr>
+<tr><td>19-Oct-2026</td><td>₹2,259</td><td class="bad">−₹373 <span class="src">(−14.17%)</span></td><td><span class="pill p-g">ACCUMULATE</span></td><td>6.6</td><td style="text-align:left"><b>Re-affirmed 6.6 — entry band changed.</b> The −14.7% fall since 07-Oct (₹2,649 → ₹2,259, a straight slide ₹2,679 on 06-Oct → ₹2,259) puts CMP <b>below the ₹2,400–2,550 preferred band, i.e. inside the buy zone</b>; P/E 30.3x → 25.8x, Mcap ₹17,170 Cr. No re-score: the working-capital story (debtor days 138, ROCE 68% → 24%) is unchanged and Q2 FY27 is still unpublished (window closed 28-Sep). <b>Tranches at ₹2,250–2,400 only</b> — no lump sum into a falling small cap before results.</td><td>Nov 2026 (Q2 FY27 concall)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accGANECOS">
+<div class="acc-head" data-acc="accGANECOS"><span class="chev">▾</span> GANESHA ECOSPHERE — monthly timeline <span class="stb st-hold">HOLDING</span> <span class="pill p-r">AVOID · 3.1</span> <span class="accmeta">latest: 19-Oct-2026 · ₹997 · Small Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev entry</th><th>Verdict</th><th>Score</th><th style="text-align:left">Decision of the month</th><th>Next review</th></tr>
+<tr><td>01-Oct-2026</td><td>₹976</td><td>— <span class="src">(baseline)</span></td><td><span class="pill p-r">AVOID</span></td><td>3.1</td><td style="text-align:left">No entry — P/E 46.3x vs ROE 3.3%, promoter pledge 31.9%, 3Y profit CAGR −16%, borrowings ₹496 Cr; revisit only if pledge drops and ROE &gt;10%</td><td>Nov 2026 (Q2 results)</td></tr>
+<tr><td>19-Oct-2026</td><td>₹997</td><td class="good">+₹21 <span class="src">(+2.15%)</span></td><td><span class="pill p-r">AVOID</span></td><td>3.1</td><td style="text-align:left"><b>Re-affirmed AVOID 3.1.</b> The <b>16-Oct FSSAI approval for Ganesha Ecopet's 4th rPET line</b> (valid 15-Oct-2026 → 14-Oct-2028) is a real operational positive, but it moves neither score driver — promoter pledge 31.9% and ROE 3.3% at P/E 47.3x. Quarterly results still unpublished (window closed 26-Sep). <b>No new money</b>; revisit only if the pledge falls and ROE recovers above 10%.</td><td>Nov 2026 (quarterly results, still pending)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accTMPV">
+<div class="acc-head" data-acc="accTMPV"><span class="chev">▾</span> TATA MOTORS PV (TMPV) — monthly timeline <span class="stb st-hold">HOLDING</span> <span class="pill p-y">WATCHLIST · 5.1</span> <span class="accmeta">latest: 19-Oct-2026 · ₹278 · Large Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev entry</th><th>Verdict</th><th>Score</th><th style="text-align:left">Decision of the month</th><th>Next review</th></tr>
+<tr><td>01-Oct-2026</td><td>₹279</td><td>— <span class="src">(baseline)</span></td><td><span class="pill p-y">WATCHLIST</span></td><td>5.1</td><td style="text-align:left">No entry — post-demerger earnings settling (P/E 103 &amp; ROE 75.7% distorted by ₹86k Cr one-off); need 2 clean quarters; volumes +40% YoY but OPM 6%, FCF −₹23k Cr</td><td>Nov 2026 (Q2 results)</td></tr>
+<tr><td>19-Oct-2026</td><td>₹278</td><td class="bad">−₹1 <span class="src">(−0.36%)</span></td><td><span class="pill p-y">WATCHLIST</span></td><td>5.1</td><td style="text-align:left"><b>Re-affirmed 5.1.</b> Two new data points and neither changes the score: the <b>12-Oct-2026 definitive agreement with Stellantis</b> for advanced-technology and product collaboration (strategically interesting, financially unquantified), and the SIAM Jul–Sep 2026 industry report (06-Oct). CMP ₹278 is 2% above the ₹272 52-week low; P/E 103 and ROE 75.7% remain distorted by the ₹86k Cr one-off. <b>No entry</b> — two clean quarters of OPM and FCF first.</td><td>Nov 2026 (Q2 FY27 results)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accOLECTRA">
+<div class="acc-head" data-acc="accOLECTRA"><span class="chev">▾</span> OLECTRA (Olectra Greentech) — monthly timeline <span class="stb st-cand">CANDIDATE</span> <span class="pill p-g">ACCUMULATE · 6.1</span> <span class="accmeta">latest: 19-Oct-2026 · ₹1,044 · Small Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev entry</th><th>Verdict</th><th>Score</th><th style="text-align:left">Decision of the month</th><th>Next review</th></tr>
+<tr><td>01-Oct-2026</td><td>₹1,096</td><td>— <span class="src">(baseline)</span></td><td><span class="pill p-g">ACCUMULATE</span></td><td>6.1</td><td style="text-align:left">CANDIDATE — no position. First tranche only at ₹950–1,000 after Q2 FY27 confirms OPM ≥14% (interest ≤ ₹25 Cr/qtr); buy only if borrowings ≤ ~₹420 Cr + pledge nil (VERIFY) + order book visible (VERIFY). Analysis run 05-Oct-2026 (close ₹1,078)</td><td>Nov 2026 (Q2 FY27 results)</td></tr>
+<tr><td>19-Oct-2026</td><td>₹1,044</td><td class="bad">−₹52 <span class="src">(−4.74%)</span></td><td><span class="pill p-g">ACCUMULATE</span></td><td>6.1</td><td style="text-align:left"><b>Re-affirmed 6.1 — still CANDIDATE, no position.</b> CMP ₹1,044 (−3.7% vs 07-Oct) is <b>closing on the ₹950–1,000 first-tranche trigger</b> but has not reached it; Q2 FY27 still unpublished (window closed 29-Sep). P/E 48.3x, Mcap ₹8,571 Cr. 15-Oct: Surender Nath appointed COO, Energy Division. Buy only if Q2 confirms OPM ≥14% with interest ≤ ₹25 Cr/qtr, borrowings ≤ ~₹420 Cr, pledge nil (VERIFY) and a readable order book (VERIFY).</td><td>Nov 2026 (Q2 FY27 results — date VERIFY)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accKAYNES">
+<div class="acc-head" data-acc="accKAYNES"><span class="chev">▾</span> KAYNES (Kaynes Technology) — monthly timeline <span class="stb st-cand">CANDIDATE</span> <span class="pill p-y">WATCHLIST · 5.3</span> <span class="accmeta">latest: 20-Oct-2026 baseline · ₹3,250 (19-Oct close) · Small Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev entry</th><th>Verdict</th><th>Score</th><th style="text-align:left">Decision of the month</th><th>Next review</th></tr>
+<tr><td>20-Oct-2026</td><td>₹3,250</td><td>— <span class="src">(baseline)</span></td><td><span class="pill p-y">WATCHLIST</span></td><td>5.3</td><td style="text-align:left">CANDIDATE — report built, <b>no position</b>. WATCHLIST 5.3: growth 8.0 (5Y sales CAGR 54%, profit 104%) vs valuation 4.0 (P/E 62.9x, P/B 4.59x), cash flow 3.0 (FY26 CFO −₹600 Cr, FCF −₹1,841 Cr), shareholding 4.5 (promoter −10% over 3Y, FII 10.7%→6.1%), price −53% in 1Y (52W low ₹2,995). First tranche only <b>₹2,950–3,050</b> if Q2 FY27 (04-Nov) confirms OPM ≥16%, PAT not down YoY, CFO improving, debtor days &lt;120, promoter ≥53.3% + pledge nil (VERIFY), order book ≥ ~₹8,900 Cr. Price = 19-Oct-2026 close (Screener); no 01-Oct baseline — report built 20-Oct.</td><td>04-Nov-2026 (Q2 FY27), then Nov 2026 run</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accBEL">
+<div class="acc-head" data-acc="accBEL"><span class="chev">▾</span> BEL (Bharat Electronics) — monthly timeline <span class="stb st-cand">CANDIDATE</span> <span class="pill p-g">ACCUMULATE · 6.9</span> <span class="accmeta">latest: 20-Oct-2026 baseline · ₹377 (19-Oct close) · Large Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev entry</th><th>Verdict</th><th>Score</th><th style="text-align:left">Decision of the month</th><th>Next review</th></tr>
+<tr><td>20-Oct-2026</td><td>₹377</td><td>— <span class="src">(baseline)</span></td><td><span class="pill p-g">ACCUMULATE</span></td><td>6.9</td><td style="text-align:left">CANDIDATE — report built, <b>no position</b>. ACCUMULATE 6.9 on quality (ROE 27.4%, ROCE 36.4%, near debt-free, order book ₹75,000+ Cr after the 13-Oct ₹533 Cr orders) vs price (P/E 44.9x, 11.5x book, −20% from the ₹481 52W high). Do <b>not</b> initiate at ₹377 before Q2 FY27 (board 30-Oct, announced 16-Oct). First tranche <b>₹360–375 only after Q2 confirms</b> revenue ≈+12% YoY, EBITDA margin ≥26%, inflow re-accelerating vs the ₹55,000 Cr FY27 target, WC days ≤135; add-on ₹335–350. Price = 19-Oct-2026 close (Screener); no 01-Oct baseline — report built 20-Oct.</td><td>30-Oct-2026 (Q2 FY27), then Nov 2026 run</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accJIO">
+<div class="acc-head" data-acc="accJIO"><span class="chev">▾</span> JIO (Jio Platforms IPO) — monthly timeline <span class="stb st-cand">CANDIDATE</span> <span class="pill p-g">ACCUMULATE · 7.1</span> <span class="accmeta">latest: 20-Oct-2026 baseline · pre-IPO (band ₹1,065–1,119) · Large Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev entry</th><th>Verdict</th><th>Score</th><th style="text-align:left">Decision of the month</th><th>Next review</th></tr>
+<tr><td>20-Oct-2026</td><td>n/a <span class="src">(pre-IPO)</span></td><td>— <span class="src">(baseline)</span></td><td><span class="pill p-g">ACCUMULATE</span></td><td>7.1</td><td style="text-align:left">CANDIDATE — <b>not yet listed</b>, no CMP. ACCUMULATE 7.1: <b>SUBSCRIBE at ≤ ₹1,119</b> in the 21–23 Oct issue (one lot 12 sh ≈ ₹13,428 at the cap; RIL-shareholder reservation ₹2,500 Cr — the portfolio holds RIL, verify demat as of the 14-Oct record date). Anchor book ₹8,110 Cr at 30x (212 investors, 19-Oct; LIC ₹500 Cr top) is real demand; GMP ~₹245 unofficial. <b>No chase above ₹1,119</b>; first aftermarket tranche ≤ ₹1,000 (≤30x FY26 P/E ~32–33x) around listing + 10 sessions. Implied mcap ₹9.8–10.3 L Cr at the band. Listing expected ~28-Oct-2026.</td><td>23-Oct (issue close), ~28-Oct (listing), Nov 2026 run</td></tr>
+</table></div>
+</div>
+</div>
+</div>
+
+<div class="jview" id="jCMP">
+<h2>4b. CMP Updates — one CMP timeline per stock</h2>
+<div class="viewbox"><div class="vh">CMP log — The View (plain English)</div>
+<ul>
+<li class="imp">One <b>CMP timeline per stock</b>, in the same accordion format as Monthly Updates above: every row is a dated price observation — <b>Date · CMP · Δ vs prev row · Δ% · Day% · Note/Source</b>. Day% is filled only where a verified daily change exists, otherwise <b>—</b>. <b>Price only: verdicts, scores and decisions are never re-run here</b> — the Monthly Updates view owns those.<span class="important">IMPORTANT</span></li>
+<li class="imp">Append-only, exactly like the monthly timelines: each future refresh <b>appends one dated row (<code>dd-Mmm-yyyy</code>) at the bottom of each stock's table</b>. Never edit, re-order or delete a past row — the next run adds its own row below the existing ones.<span class="important">IMPORTANT</span></li>
+<li>Seeded rows: <b>01-Oct-2026</b> monthly-run baseline for the original 8 stocks · <b>05-Oct-2026</b> OLECTRA report analysis close · <b>07-Oct-2026</b> ad-hoc CMP refresh <span class="pill p-y">PRICE ONLY · NO RE-SCORE</span> · <b>19-Oct-2026</b> monthly-run close (run executed 20-Oct-2026) · <b>20-Oct-2026</b> report baselines for the three new candidates (KAYNES ₹3,250 and BEL ₹377 = 19-Oct closes; JIO pre-IPO, no price yet). Baseline rows show <b>(baseline)</b> in Δ, same as the monthly tables.</li>
+<li>No verified close exists for 02-, 03-, 04- or 06-Oct-2026 anywhere in this site, so those dates get no row — a missing date is never filled with an estimate. Same rule at this run: the market closed at 15:30 IST on <b>20-Oct-2026</b> but Screener had not yet published the 20-Oct close when the run executed (polled to 15:54 IST), so <b>the 19-Oct-2026 close is the latest verified price</b> and every row is dated to it rather than guessed forward. Every CMP carries its date; each row's Note names its source.</li>
+</ul>
+</div>
+
+<div class="acc open" id="accCMPREL">
+<div class="acc-head" data-acc="accCMPREL"><span class="chev">▾</span> RELIANCE — CMP timeline <span class="stb st-hold">HOLDING</span> <span class="pill p-y">PRICE ONLY · NO RE-SCORE</span> <span class="accmeta">latest: 19-Oct-2026 · ₹1,202 · Large Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev row</th><th>Δ%</th><th>Day%</th><th style="text-align:left">Note / Source</th></tr>
+<tr><td>01-Oct-2026</td><td>₹1,168</td><td>— <span class="src">(baseline)</span></td><td>—</td><td>—</td><td style="text-align:left">monthly run baseline</td></tr>
+<tr><td>07-Oct-2026</td><td>₹1,208</td><td class="good">+₹40</td><td class="good">+3.42%</td><td class="bad">−0.85%</td><td style="text-align:left">ad-hoc CMP refresh · price only, no re-score</td></tr>
+<tr><td>19-Oct-2026</td><td>₹1,202</td><td class="bad">−₹6</td><td class="bad">−0.50%</td><td class="bad">−0.76%</td><td style="text-align:left">monthly run 20-Oct-2026 · close for the monthly cycle (verdict handled in Monthly Updates; score 7.0 unchanged)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accCMPRACE">
+<div class="acc-head" data-acc="accCMPRACE"><span class="chev">▾</span> RACE (Race Eco Chain) — CMP timeline <span class="stb st-hold">HOLDING</span> <span class="pill p-y">PRICE ONLY · NO RE-SCORE</span> <span class="accmeta">latest: 19-Oct-2026 · ₹119 · Small Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev row</th><th>Δ%</th><th>Day%</th><th style="text-align:left">Note / Source</th></tr>
+<tr><td>01-Oct-2026</td><td>₹113</td><td>— <span class="src">(baseline)</span></td><td>—</td><td>—</td><td style="text-align:left">monthly run baseline</td></tr>
+<tr><td>07-Oct-2026</td><td>₹104</td><td class="bad">−₹9</td><td class="bad">−7.96%</td><td class="bad">−4.60%</td><td style="text-align:left">ad-hoc CMP refresh · price only, no re-score</td></tr>
+<tr><td>19-Oct-2026</td><td>₹119</td><td class="good">+₹15</td><td class="good">+14.42%</td><td class="good">+0.36%</td><td style="text-align:left">monthly run 20-Oct-2026 · close for the monthly cycle (verdict handled in Monthly Updates; score 4.9 unchanged; intraperiod peak ₹128 on 15-Oct per Yahoo)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accCMPHDFCBANK">
+<div class="acc-head" data-acc="accCMPHDFCBANK"><span class="chev">▾</span> HDFC BANK — CMP timeline <span class="stb st-hold">HOLDING</span> <span class="pill p-y">PRICE ONLY · NO RE-SCORE</span> <span class="accmeta">latest: 19-Oct-2026 · ₹712 · Large Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev row</th><th>Δ%</th><th>Day%</th><th style="text-align:left">Note / Source</th></tr>
+<tr><td>01-Oct-2026</td><td>₹721</td><td>— <span class="src">(baseline)</span></td><td>—</td><td class="good">+1.76%</td><td style="text-align:left">monthly run baseline · day% per report metadata</td></tr>
+<tr><td>07-Oct-2026</td><td>₹703</td><td class="bad">−₹18</td><td class="bad">−2.50%</td><td class="bad">−1.22%</td><td style="text-align:left">ad-hoc CMP refresh · price only, no re-score</td></tr>
+<tr><td>19-Oct-2026</td><td>₹712</td><td class="good">+₹9</td><td class="good">+1.28%</td><td class="bad">−2.31%</td><td style="text-align:left">monthly run 20-Oct-2026 · close for the monthly cycle (Q2 FY27 printed 17-Oct; verdict handled in Monthly Updates, score 6.9 unchanged)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accCMPITC">
+<div class="acc-head" data-acc="accCMPITC"><span class="chev">▾</span> ITC — CMP timeline <span class="stb st-hold">HOLDING</span> <span class="pill p-y">PRICE ONLY · NO RE-SCORE</span> <span class="accmeta">latest: 19-Oct-2026 · ₹261 · Large Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev row</th><th>Δ%</th><th>Day%</th><th style="text-align:left">Note / Source</th></tr>
+<tr><td>01-Oct-2026</td><td>₹256</td><td>— <span class="src">(baseline)</span></td><td>—</td><td>—</td><td style="text-align:left">monthly run baseline</td></tr>
+<tr><td>07-Oct-2026</td><td>₹266</td><td class="good">+₹10</td><td class="good">+3.91%</td><td class="bad">−0.37%</td><td style="text-align:left">ad-hoc CMP refresh · price only, no re-score</td></tr>
+<tr><td>19-Oct-2026</td><td>₹261</td><td class="bad">−₹5</td><td class="bad">−1.88%</td><td class="bad">−1.02%</td><td style="text-align:left">monthly run 20-Oct-2026 · close for the monthly cycle (verdict handled in Monthly Updates; score 7.2 unchanged)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accCMPCAPLIPOINT">
+<div class="acc-head" data-acc="accCMPCAPLIPOINT"><span class="chev">▾</span> CAPLIN POINT — CMP timeline <span class="stb st-hold">HOLDING</span> <span class="pill p-y">PRICE ONLY · NO RE-SCORE</span> <span class="accmeta">latest: 19-Oct-2026 · ₹2,259 · Small Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev row</th><th>Δ%</th><th>Day%</th><th style="text-align:left">Note / Source</th></tr>
+<tr><td>01-Oct-2026</td><td>₹2,632</td><td>— <span class="src">(baseline)</span></td><td>—</td><td class="bad">−3.11%</td><td style="text-align:left">monthly run baseline · day% per report metadata</td></tr>
+<tr><td>07-Oct-2026</td><td>₹2,649</td><td class="good">+₹17</td><td class="good">+0.65%</td><td class="bad">−1.14%</td><td style="text-align:left">ad-hoc CMP refresh · price only, no re-score</td></tr>
+<tr><td>19-Oct-2026</td><td>₹2,259</td><td class="bad">−₹390</td><td class="bad">−14.72%</td><td class="bad">−1.85%</td><td style="text-align:left">monthly run 20-Oct-2026 · close for the monthly cycle — largest move of the cycle; entry band revised to ₹2,250–2,400 in Monthly Updates (score 6.6 unchanged)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accCMPGANECOS">
+<div class="acc-head" data-acc="accCMPGANECOS"><span class="chev">▾</span> GANESHA ECOSPHERE — CMP timeline <span class="stb st-hold">HOLDING</span> <span class="pill p-y">PRICE ONLY · NO RE-SCORE</span> <span class="accmeta">latest: 19-Oct-2026 · ₹997 · Small Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev row</th><th>Δ%</th><th>Day%</th><th style="text-align:left">Note / Source</th></tr>
+<tr><td>01-Oct-2026</td><td>₹976</td><td>— <span class="src">(baseline)</span></td><td>—</td><td>—</td><td style="text-align:left">monthly run baseline</td></tr>
+<tr><td>07-Oct-2026</td><td>₹999</td><td class="good">+₹23</td><td class="good">+2.36%</td><td class="good">+0.89%</td><td style="text-align:left">ad-hoc CMP refresh · price only, no re-score</td></tr>
+<tr><td>19-Oct-2026</td><td>₹997</td><td class="bad">−₹2</td><td class="bad">−0.20%</td><td class="bad">−2.93%</td><td style="text-align:left">monthly run 20-Oct-2026 · close for the monthly cycle (verdict handled in Monthly Updates; score 3.1 unchanged)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accCMPTMPV">
+<div class="acc-head" data-acc="accCMPTMPV"><span class="chev">▾</span> TATA MOTORS PV (TMPV) — CMP timeline <span class="stb st-hold">HOLDING</span> <span class="pill p-y">PRICE ONLY · NO RE-SCORE</span> <span class="accmeta">latest: 19-Oct-2026 · ₹278 · Large Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev row</th><th>Δ%</th><th>Day%</th><th style="text-align:left">Note / Source</th></tr>
+<tr><td>01-Oct-2026</td><td>₹279</td><td>— <span class="src">(baseline)</span></td><td>—</td><td>—</td><td style="text-align:left">monthly run baseline</td></tr>
+<tr><td>07-Oct-2026</td><td>₹283</td><td class="good">+₹4</td><td class="good">+1.43%</td><td class="bad">−0.98%</td><td style="text-align:left">ad-hoc CMP refresh · price only, no re-score</td></tr>
+<tr><td>19-Oct-2026</td><td>₹278</td><td class="bad">−₹5</td><td class="bad">−1.77%</td><td class="bad">−3.09%</td><td style="text-align:left">monthly run 20-Oct-2026 · close for the monthly cycle (verdict handled in Monthly Updates; score 5.1 unchanged)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accCMPOLECTRA">
+<div class="acc-head" data-acc="accCMPOLECTRA"><span class="chev">▾</span> OLECTRA (Olectra Greentech) — CMP timeline <span class="stb st-cand">CANDIDATE</span> <span class="pill p-y">PRICE ONLY · NO RE-SCORE</span> <span class="accmeta">latest: 19-Oct-2026 · ₹1,044 · Small Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev row</th><th>Δ%</th><th>Day%</th><th style="text-align:left">Note / Source</th></tr>
+<tr><td>01-Oct-2026</td><td>₹1,096</td><td>— <span class="src">(baseline)</span></td><td>—</td><td>—</td><td style="text-align:left">monthly run baseline</td></tr>
+<tr><td>05-Oct-2026</td><td>₹1,078</td><td class="bad">−₹18</td><td class="bad">−1.64%</td><td>—</td><td style="text-align:left">report analysis date · source: OLECTRA report</td></tr>
+<tr><td>07-Oct-2026</td><td>₹1,084</td><td class="good">+₹6</td><td class="good">+0.56%</td><td class="bad">−1.70%</td><td style="text-align:left">ad-hoc CMP refresh · price only, no re-score</td></tr>
+<tr><td>19-Oct-2026</td><td>₹1,044</td><td class="bad">−₹40</td><td class="bad">−3.69%</td><td class="bad">−2.07%</td><td style="text-align:left">monthly run 20-Oct-2026 · close for the monthly cycle — now 4.4% above the ₹950–1,000 first-tranche trigger (verdict handled in Monthly Updates; score 6.1 unchanged)</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accCMPKAYNES">
+<div class="acc-head" data-acc="accCMPKAYNES"><span class="chev">▾</span> KAYNES (Kaynes Technology) — CMP timeline <span class="stb st-cand">CANDIDATE</span> <span class="pill p-y">PRICE ONLY · NO RE-SCORE</span> <span class="accmeta">latest: 20-Oct-2026 baseline · ₹3,250 (19-Oct close) · Small Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev row</th><th>Δ%</th><th>Day%</th><th style="text-align:left">Note / Source</th></tr>
+<tr><td>20-Oct-2026</td><td>₹3,250</td><td>— <span class="src">(baseline)</span></td><td>—</td><td class="bad">−0.94%</td><td style="text-align:left">report baseline · price = 19-Oct-2026 close (Screener consolidated); day% vs previous close. No earlier CMP row — report built 20-Oct-2026.</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accCMPBEL">
+<div class="acc-head" data-acc="accCMPBEL"><span class="chev">▾</span> BEL (Bharat Electronics) — CMP timeline <span class="stb st-cand">CANDIDATE</span> <span class="pill p-y">PRICE ONLY · NO RE-SCORE</span> <span class="accmeta">latest: 20-Oct-2026 baseline · ₹377 (19-Oct close) · Large Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev row</th><th>Δ%</th><th>Day%</th><th style="text-align:left">Note / Source</th></tr>
+<tr><td>20-Oct-2026</td><td>₹377</td><td>— <span class="src">(baseline)</span></td><td>—</td><td class="good">+0.09%</td><td style="text-align:left">report baseline · price = 19-Oct-2026 close (Screener consolidated); day% vs previous close. No earlier CMP row — report built 20-Oct-2026.</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="acc open" id="accCMPJIO">
+<div class="acc-head" data-acc="accCMPJIO"><span class="chev">▾</span> JIO (Jio Platforms IPO) — CMP timeline <span class="stb st-cand">CANDIDATE</span> <span class="pill p-y">PRICE ONLY · NO RE-SCORE</span> <span class="accmeta">latest: 20-Oct-2026 · pre-IPO (band ₹1,065–1,119) · Large Cap</span></div>
+<div class="acc-body">
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev row</th><th>Δ%</th><th>Day%</th><th style="text-align:left">Note / Source</th></tr>
+<tr><td>20-Oct-2026</td><td>n/a</td><td>— <span class="src">(pre-IPO)</span></td><td>—</td><td>—</td><td style="text-align:left">pre-IPO baseline — no listed price yet. Issue 21–23 Oct-2026, band ₹1,065–1,119 (RHP 14-Oct-2026); first CMP row lands on listing day (~28-Oct-2026). Source: RHP / exchange filing.</td></tr>
+</table></div>
+</div>
+</div>
+
+<p class="note"><b>Event types in this log:</b> (1) an <b>ad-hoc price refresh</b> (Task C style) — latest close + Δ vs the stock's previous CMP row, recorded by explicit user request on 07-Oct-2026, a deliberate exception to the "no journal row" rule for price-only runs; and (2) a <b>monthly-run close</b> — the same price row written as part of the month-end cycle, which <i>also</i> appends a decision row in Monthly Updates and may re-affirm or change a score there. This subtab never carries the judgement itself, only the price.</p>
+<p class="note">OLECTRA baseline footnote: its Monthly Updates row is dated <b>01-Oct-2026 at ₹1,096 — not a 05-Oct ₹1,103 row</b>. The 05-Oct-2026 analysis close (₹1,078) is carried here as its own CMP row, so OLECTRA's 07-Oct Δ is measured from ₹1,078 (05-Oct row), while the monthly table keeps its single 01-Oct-2026 baseline row at ₹1,096.</p>
+<p class="src">Source: Screener consolidated closes 01-Oct-2026, 07-Oct-2026 and 19-Oct-2026 (the 19-Oct closes were cross-checked ticker by ticker against Yahoo Finance daily bars — all eight then-tracked stocks matched, at the time of that run); OLECTRA 05-Oct-2026 close from its report analysis; 01-Oct day% (HDFC BANK, CAPLIN POINT) from each report's metadata line; KAYNES/BEL baseline closes (19-Oct-2026) and day% from the Screener consolidated pulls used in their 20-Oct reports; JIO band from the 14-Oct-2026 RHP. Not investment advice.</p>
+<p class="note">Next CMP refresh appends a new dated row at the bottom of each stock's table — this log is append-only, exactly like the monthly timelines.</p>
+</div>
+
+</section>
+
+<section class="panel" id="tab2">
+<h2>5. Portfolio Dashboard — units held, average cost, value &amp; P/L</h2>
+<div class="viewbox"><div class="vh">Dashboard — The View (plain English)</div>
+<ul>
+<li class="imp">Every figure in this tab is <b>calculated from your transaction file</b> <code>Equity\Holding_stocks.xlsx</code> — units held, average cost, money invested, current value, P/L and each stock's share of the total. Nothing here is typed in by hand.<span class="important">IMPORTANT</span></li>
+<li class="imp">Values use the <b>19-Oct-2026 close</b>. P/L = current value − money invested. "% of total" = that stock's invested amount ÷ total invested across all 7 holdings. Bars use a <b>dynamic scale = highest value + 5 points</b> (e.g. top row 18.6% &rarr; scale max 23.6%), so bars nearly fill the track and rows are easy to compare - hover a bar for its exact share. <b>Click a column header to sort</b> (asc &rarr; desc &rarr; original order; the TOTAL row always stays last).<span class="important">IMPORTANT</span></li>
+<li>The four charts (market-cap allocation, contribution by stock, unrealized P/L %, invested vs current value) and the coloured %-of-total bars are drawn <b>from the same table below</b> - the page reads the table live, so chart, legend and table can never disagree.</li>
+<li>After adding trades, refresh everything with <code>python Equity\code\write_html.py</code> (the Excel <b>Calc</b> sheet recalculates itself).</li>
+</ul>
+</div>
+<!--HOLD_DASH_START-->
+<div class="dash-head"><div class="dash-head-txt"><div class="dash-title">Portfolio Overview</div><div class="dash-sub">Investment allocation, performance and key insights</div></div><div class="dash-meta"><span class="dash-chip">As on 19-Oct-2026</span><span class="dash-chip">7 stocks</span></div></div>
+<div class="dash-kpis">
+<div class="dash-kpi s-blue" data-explain="Total invested = every rupee put into these 7 stocks (buy value of all 49 trades in Holding_stocks.xlsx). It is the base that profit/loss and the %-of-total column are measured against."><div class="kpi-icon" style="background:rgba(59,130,246,.15)">💰</div><div class="kpi-info"><div class="kpi-label">Total Invested</div><div class="kpi-value c-blue">₹3,21,508</div><div class="kpi-sub">49 trades &middot; 7 stocks</div></div></div>
+<div class="dash-kpi s-green" data-explain="Current market value = units held times the market price on 19-Oct-2026. It moves with the price every day; the invested amount does not."><div class="kpi-icon" style="background:rgba(52,211,153,.15)">📈</div><div class="kpi-info"><div class="kpi-label">Current Market Value</div><div class="kpi-value c-green">₹2,56,773</div><div class="kpi-sub">at 19-Oct-2026 close</div></div></div>
+<div class="dash-kpi s-red" data-explain="Unrealized profit / loss = current market value minus money invested. A negative figure only means the market is below your average cost today - check each stock verdict before reacting."><div class="kpi-icon" style="background:rgba(239,68,68,.15)">📉</div><div class="kpi-info"><div class="kpi-label">Unrealized P/L</div><div class="kpi-value bad">−₹64,735</div><div class="kpi-sub">−20.1% on invested</div></div></div>
+<div class="dash-kpi s-purple" data-explain="Portfolio return = total profit / loss divided by total money invested, in percent. Green while the portfolio is above cost, red when below."><div class="kpi-icon" style="background:rgba(168,85,247,.15)">&#37;</div><div class="kpi-info"><div class="kpi-label">Portfolio Return</div><div class="kpi-value bad">−20.1%</div><div class="kpi-sub">overall return</div></div></div>
+</div>
+<div class="dash-grid">
+<div class="chart-box"><div class="chart-title">Portfolio Allocation by Market Capitalization</div><div class="chart-subtitle">Share of total invested, by cap class</div><div class="chart-canvas"><canvas id="chartCap"></canvas></div></div>
+<div class="chart-box"><div class="chart-title">Contribution by Stock</div><div class="chart-subtitle">Each stock&rsquo;s share of total invested capital</div><div class="chart-canvas"><canvas id="chartContrib"></canvas></div></div>
+<div class="chart-box"><div class="chart-title">Unrealized P/L by Stock (%)</div><div class="chart-subtitle">Losses left of zero, gains right &middot; sorted worst to best</div><div class="chart-canvas"><canvas id="chartPL"></canvas></div></div>
+<div class="chart-box"><div class="chart-title">Invested vs Current Value</div><div class="chart-subtitle">Money put in vs value today (&rupee;)</div><div class="chart-canvas"><canvas id="chartVs"></canvas></div></div>
+</div>
+<h3 class="holdings-title">Holdings Details</h3>
+<div class="tblwrap"><table id="holdingsTable" data-vt="off">
+<tr><th style="text-align:left">Stock</th><th>Units held</th><th>Avg cost (&rupee;)</th><th>Invested (&rupee;)</th><th>% of total</th><th>CMP (&rupee;)</th><th>Current value (&rupee;)</th><th>P / L (&rupee;)</th><th>P / L %</th></tr>
+<tr data-cap="Large Cap" data-color="#ec4899"><td>Reliance Industries <span class="src">REL</span></td><td>22</td><td>₹1,346.09</td><td>₹29,614</td><td><div class="pbar-wrap" title="9.2% of total invested (bar scale max 23.6%)"><div class="pbar"><div class="pbar-fill" style="width:39.0%;background:#ec4899"></div></div><span class="pbar-pct">9.2%</span></div></td><td>₹1,202</td><td>₹26,444</td><td class="bad">−₹3,170</td><td class="bad">−10.7%</td></tr>
+<tr data-cap="Small Cap" data-color="#3b82f6"><td>Race Eco Chain <span class="src">RACE</span></td><td>262</td><td>₹222.81</td><td>₹58,377</td><td><div class="pbar-wrap" title="18.2% of total invested (bar scale max 23.6%)"><div class="pbar"><div class="pbar-fill" style="width:76.9%;background:#3b82f6"></div></div><span class="pbar-pct">18.2%</span></div></td><td>₹119</td><td>₹31,178</td><td class="bad">−₹27,199</td><td class="bad">−46.6%</td></tr>
+<tr data-cap="Large Cap" data-color="#f97316"><td>HDFC Bank <span class="src">HDFCBANK</span></td><td>57</td><td>₹847.62</td><td>₹48,315</td><td><div class="pbar-wrap" title="15.0% of total invested (bar scale max 23.6%)"><div class="pbar"><div class="pbar-fill" style="width:63.7%;background:#f97316"></div></div><span class="pbar-pct">15.0%</span></div></td><td>₹712</td><td>₹40,584</td><td class="bad">−₹7,731</td><td class="bad">−16.0%</td></tr>
+<tr data-cap="Large Cap" data-color="#8b5cf6"><td>ITC <span class="src">ITC</span></td><td>162</td><td>₹369.20</td><td>₹59,810</td><td><div class="pbar-wrap" title="18.6% of total invested (bar scale max 23.6%)"><div class="pbar"><div class="pbar-fill" style="width:78.8%;background:#8b5cf6"></div></div><span class="pbar-pct">18.6%</span></div></td><td>₹261</td><td>₹42,282</td><td class="bad">−₹17,528</td><td class="bad">−29.3%</td></tr>
+<tr data-cap="Small Cap" data-color="#38bdf8"><td>Caplin Point Laboratories <span class="src">CAPLIPOINT</span></td><td>22</td><td>₹1,844.64</td><td>₹40,582</td><td><div class="pbar-wrap" title="12.6% of total invested (bar scale max 23.6%)"><div class="pbar"><div class="pbar-fill" style="width:53.5%;background:#38bdf8"></div></div><span class="pbar-pct">12.6%</span></div></td><td>₹2,259</td><td>₹49,698</td><td class="good">₹9,116</td><td class="good">+22.5%</td></tr>
+<tr data-cap="Small Cap" data-color="#10b981"><td>Ganesha Ecosphere <span class="src">GANECOS</span></td><td>35</td><td>₹1,239.85</td><td>₹43,395</td><td><div class="pbar-wrap" title="13.5% of total invested (bar scale max 23.6%)"><div class="pbar"><div class="pbar-fill" style="width:57.2%;background:#10b981"></div></div><span class="pbar-pct">13.5%</span></div></td><td>₹997</td><td>₹34,895</td><td class="bad">−₹8,500</td><td class="bad">−19.6%</td></tr>
+<tr data-cap="Large Cap" data-color="#eab308"><td>Tata Motors Passenger Vehicles <span class="src">TMPV</span></td><td>114</td><td>₹363.30</td><td>₹41,416</td><td><div class="pbar-wrap" title="12.9% of total invested (bar scale max 23.6%)"><div class="pbar"><div class="pbar-fill" style="width:54.6%;background:#eab308"></div></div><span class="pbar-pct">12.9%</span></div></td><td>₹278</td><td>₹31,692</td><td class="bad">−₹9,724</td><td class="bad">−23.5%</td></tr>
+<tr><td><b>TOTAL</b></td><td><b>674</b></td><td>&mdash;</td><td><b>₹3,21,508</b></td><td><b>100.0%</b></td><td>&mdash;</td><td><b>₹2,56,773</b></td><td class="bad"><b>−₹64,735</b></td><td class="bad"><b>−20.1%</b></td></tr>
+</table></div>
+<!--HOLD_DASH_END-->
+<p class="src">Source: Equity\Holding_stocks.xlsx (sheet Sheet1, table Shadow_Buy_sell) · recomputed by Equity\code\holdings_calc.py → code\data\holdings.json · market prices dated 19-Oct-2026 close. Personal position data; not investment advice.</p>
+</section>
+
+<section class="panel" id="tab3">
+<h2>6. Transactions — full trade log, all stocks</h2>
+<div class="viewbox"><div class="vh">Transactions — The View (plain English)</div>
+<ul>
+<li class="imp">Every trade recorded in <code>Equity\Holding_stocks.xlsx</code>: <b>date · fund · action · quantity · price · invested</b>, grouped stock by stock. The last two columns are the <b>running</b> units held and average cost after that trade.<span class="important">IMPORTANT</span></li>
+<li>Use the filter to show one stock, or leave it on All to see the whole book in date order.</li>
+<li>Trades are never edited here — fix them in the Excel file, then re-run <code>python Equity\code\write_html.py</code> so this tab, the dashboard and the report cards all agree.</li>
+</ul>
+</div>
+<!--HOLD_TXN_START-->
+<div class="card">
+<span class="sel-lbl">FILTER BY STOCK ▸</span>
+<select id="txnFilter" class="filter"><option value="all">— all stocks (49 trades) —</option>
+<option value="REL">Reliance Industries (5)</option>
+<option value="RACE">Race Eco Chain (12)</option>
+<option value="HDFCBANK">HDFC Bank (7)</option>
+<option value="ITC">ITC (7)</option>
+<option value="CAPLIPOINT">Caplin Point Laboratories (5)</option>
+<option value="GANECOS">Ganesha Ecosphere (7)</option>
+<option value="TMPV">Tata Motors Passenger Vehicles (6)</option>
+</select><span class="note" id="txnCount"></span></div>
+<div class="txngrp" data-stock="REL" data-n="5">
+<h4>Reliance Industries (REL) — 5 trades &middot; units held 22 &middot; avg cost ₹1,346.09</h4>
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Date</th><th style="text-align:left">Fund</th><th>Action</th><th>Qty</th><th>Price</th><th>Invested</th><th>Units held</th><th>Avg cost</th></tr>
+<tr><td>08-Apr-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>4</td><td>₹1,347.00</td><td>₹5,388.00</td><td>4</td><td>₹1,347.00</td></tr>
+<tr><td>05-May-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>4</td><td>₹1,453.00</td><td>₹5,812.00</td><td>8</td><td>₹1,400.00</td></tr>
+<tr><td>13-Jul-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>5</td><td>₹1,298.00</td><td>₹6,490.00</td><td>13</td><td>₹1,360.77</td></tr>
+<tr><td>07-Aug-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>5</td><td>₹1,324.00</td><td>₹6,620.00</td><td>18</td><td>₹1,350.56</td></tr>
+<tr><td>04-Sep-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>4</td><td>₹1,326.00</td><td>₹5,304.00</td><td>22</td><td>₹1,346.09</td></tr>
+</table></div>
+</div>
+<div class="txngrp" data-stock="RACE" data-n="12">
+<h4>Race Eco Chain (RACE) — 12 trades &middot; units held 262 &middot; avg cost ₹222.81</h4>
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Date</th><th style="text-align:left">Fund</th><th>Action</th><th>Qty</th><th>Price</th><th>Invested</th><th>Units held</th><th>Avg cost</th></tr>
+<tr><td>01-Jan-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>14</td><td>₹339.80</td><td>₹4,757.20</td><td>14</td><td>₹339.80</td></tr>
+<tr><td>01-Feb-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>2</td><td>₹327.90</td><td>₹655.80</td><td>16</td><td>₹338.31</td></tr>
+<tr><td>01-Feb-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>3</td><td>₹329.00</td><td>₹987.00</td><td>19</td><td>₹336.84</td></tr>
+<tr><td>01-Feb-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>10</td><td>₹328.00</td><td>₹3,280.00</td><td>29</td><td>₹333.79</td></tr>
+<tr><td>14-May-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>44</td><td>₹263.00</td><td>₹11,572.00</td><td>73</td><td>₹291.12</td></tr>
+<tr><td>23-May-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>43</td><td>₹267.00</td><td>₹11,481.00</td><td>116</td><td>₹282.18</td></tr>
+<tr><td>11-Jun-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>19</td><td>₹255.00</td><td>₹4,845.00</td><td>135</td><td>₹278.36</td></tr>
+<tr><td>13-Aug-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>3</td><td>₹235.00</td><td>₹705.00</td><td>138</td><td>₹277.41</td></tr>
+<tr><td>13-Aug-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>21</td><td>₹235.00</td><td>₹4,935.00</td><td>159</td><td>₹271.81</td></tr>
+<tr><td>29-Oct-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>36</td><td>₹220.60</td><td>₹7,941.60</td><td>195</td><td>₹262.36</td></tr>
+<tr><td>13-Jul-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>45</td><td>₹111.00</td><td>₹4,995.00</td><td>240</td><td>₹233.98</td></tr>
+<tr><td>28-Aug-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>22</td><td>₹101.00</td><td>₹2,222.00</td><td>262</td><td>₹222.81</td></tr>
+</table></div>
+</div>
+<div class="txngrp" data-stock="HDFCBANK" data-n="7">
+<h4>HDFC Bank (HDFCBANK) — 7 trades &middot; units held 57 &middot; avg cost ₹847.62</h4>
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Date</th><th style="text-align:left">Fund</th><th>Action</th><th>Qty</th><th>Price</th><th>Invested</th><th>Units held</th><th>Avg cost</th></tr>
+<tr><td>07-Jan-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>10</td><td>₹950.00</td><td>₹9,500.00</td><td>10</td><td>₹950.00</td></tr>
+<tr><td>10-Feb-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>16</td><td>₹938.00</td><td>₹15,008.00</td><td>26</td><td>₹942.62</td></tr>
+<tr><td>08-Apr-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>7</td><td>₹810.00</td><td>₹5,670.00</td><td>33</td><td>₹914.48</td></tr>
+<tr><td>05-May-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>5</td><td>₹765.00</td><td>₹3,825.00</td><td>38</td><td>₹894.82</td></tr>
+<tr><td>13-Jul-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>6</td><td>₹818.00</td><td>₹4,908.00</td><td>44</td><td>₹884.34</td></tr>
+<tr><td>07-Aug-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>7</td><td>₹733.00</td><td>₹5,131.00</td><td>51</td><td>₹863.57</td></tr>
+<tr><td>04-Sep-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>6</td><td>₹712.10</td><td>₹4,272.60</td><td>57</td><td>₹847.62</td></tr>
+</table></div>
+</div>
+<div class="txngrp" data-stock="ITC" data-n="7">
+<h4>ITC (ITC) — 7 trades &middot; units held 162 &middot; avg cost ₹369.20</h4>
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Date</th><th style="text-align:left">Fund</th><th>Action</th><th>Qty</th><th>Price</th><th>Invested</th><th>Units held</th><th>Avg cost</th></tr>
+<tr><td>23-Apr-2025</td><td style="text-align:left">Direct Fund</td><td>Buy</td><td>42</td><td>₹433.00</td><td>₹18,186.00</td><td>42</td><td>₹433.00</td></tr>
+<tr><td>14-May-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>36</td><td>₹429.75</td><td>₹15,471.00</td><td>78</td><td>₹431.50</td></tr>
+<tr><td>04-Jul-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>12</td><td>₹413.00</td><td>₹4,956.00</td><td>90</td><td>₹429.03</td></tr>
+<tr><td>07-Apr-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>35</td><td>₹298.00</td><td>₹10,430.00</td><td>125</td><td>₹392.34</td></tr>
+<tr><td>05-May-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>12</td><td>₹311.00</td><td>₹3,732.00</td><td>137</td><td>₹385.22</td></tr>
+<tr><td>13-Jul-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>18</td><td>₹280.00</td><td>₹5,040.00</td><td>155</td><td>₹373.00</td></tr>
+<tr><td>07-Aug-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>7</td><td>₹285.00</td><td>₹1,995.00</td><td>162</td><td>₹369.20</td></tr>
+</table></div>
+</div>
+<div class="txngrp" data-stock="CAPLIPOINT" data-n="5">
+<h4>Caplin Point Laboratories (CAPLIPOINT) — 5 trades &middot; units held 22 &middot; avg cost ₹1,844.64</h4>
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Date</th><th style="text-align:left">Fund</th><th>Action</th><th>Qty</th><th>Price</th><th>Invested</th><th>Units held</th><th>Avg cost</th></tr>
+<tr><td>23-Apr-2025</td><td style="text-align:left">Direct Fund</td><td>Buy</td><td>5</td><td>₹1,880.00</td><td>₹9,400.00</td><td>5</td><td>₹1,880.00</td></tr>
+<tr><td>29-Dec-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>4</td><td>₹1,900.00</td><td>₹7,600.00</td><td>9</td><td>₹1,888.89</td></tr>
+<tr><td>08-Apr-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>9</td><td>₹1,662.00</td><td>₹14,958.00</td><td>18</td><td>₹1,775.44</td></tr>
+<tr><td>05-May-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>2</td><td>₹1,742.00</td><td>₹3,484.00</td><td>20</td><td>₹1,772.10</td></tr>
+<tr><td>07-Aug-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>2</td><td>₹2,570.00</td><td>₹5,140.00</td><td>22</td><td>₹1,844.64</td></tr>
+</table></div>
+</div>
+<div class="txngrp" data-stock="GANECOS" data-n="7">
+<h4>Ganesha Ecosphere (GANECOS) — 7 trades &middot; units held 35 &middot; avg cost ₹1,239.85</h4>
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Date</th><th style="text-align:left">Fund</th><th>Action</th><th>Qty</th><th>Price</th><th>Invested</th><th>Units held</th><th>Avg cost</th></tr>
+<tr><td>01-Mar-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>4</td><td>₹1,334.05</td><td>₹5,336.20</td><td>4</td><td>₹1,334.05</td></tr>
+<tr><td>14-May-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>5</td><td>₹1,556.82</td><td>₹7,784.10</td><td>9</td><td>₹1,457.81</td></tr>
+<tr><td>23-May-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>5</td><td>₹1,593.00</td><td>₹7,965.00</td><td>14</td><td>₹1,506.09</td></tr>
+<tr><td>05-May-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>3</td><td>₹1,041.86</td><td>₹3,125.58</td><td>17</td><td>₹1,424.17</td></tr>
+<tr><td>13-Jul-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>7</td><td>₹1,126.00</td><td>₹7,882.00</td><td>24</td><td>₹1,337.20</td></tr>
+<tr><td>07-Aug-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>5</td><td>₹1,076.00</td><td>₹5,380.00</td><td>29</td><td>₹1,292.17</td></tr>
+<tr><td>04-Sep-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>6</td><td>₹987.00</td><td>₹5,922.00</td><td>35</td><td>₹1,239.85</td></tr>
+</table></div>
+</div>
+<div class="txngrp" data-stock="TMPV" data-n="6">
+<h4>Tata Motors Passenger Vehicles (TMPV) — 6 trades &middot; units held 114 &middot; avg cost ₹363.30</h4>
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Date</th><th style="text-align:left">Fund</th><th>Action</th><th>Qty</th><th>Price</th><th>Invested</th><th>Units held</th><th>Avg cost</th></tr>
+<tr><td>29-Oct-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>24</td><td>₹412.00</td><td>₹9,888.00</td><td>24</td><td>₹412.00</td></tr>
+<tr><td>04-Dec-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>25</td><td>₹355.00</td><td>₹8,875.00</td><td>49</td><td>₹382.92</td></tr>
+<tr><td>05-May-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>16</td><td>₹341.00</td><td>₹5,456.00</td><td>65</td><td>₹372.60</td></tr>
+<tr><td>24-Jun-2026</td><td style="text-align:left">Direct Fund</td><td>Buy</td><td>16</td><td>₹388.00</td><td>₹6,208.00</td><td>81</td><td>₹375.64</td></tr>
+<tr><td>07-Aug-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>20</td><td>₹346.00</td><td>₹6,920.00</td><td>101</td><td>₹369.77</td></tr>
+<tr><td>04-Sep-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>13</td><td>₹313.00</td><td>₹4,069.00</td><td>114</td><td>₹363.30</td></tr>
+</table></div>
+</div>
+<!--HOLD_TXN_END-->
+<p class="src">Source: Equity\Holding_stocks.xlsx (sheet Sheet1, table Shadow_Buy_sell) · recomputed by Equity\code\holdings_calc.py. Personal trade history; not investment advice.</p>
+</section>
+
+<section class="panel" id="tab4">
+<h2>7. Glossary — all jargons, metrics &amp; acronyms used across stock reports</h2>
+<div class="card">
+<h4>All terms — definition, plain meaning, why it matters</h4>
+<div id="glossaryBody"><p class="note">Loading glossary… (requires JavaScript enabled)</p></div>
+</div>
+</section>
+
+<footer>
+  Stock Research Hub — personal equity research journal. Data: Screener.in (consolidated, closes cross-checked against Yahoo Finance), exchange filings and company releases. Prices are 19-Oct-2026 closes; monthly run executed 20-Oct-2026. Not investment advice; verify flagged figures before acting.
+</footer>
+
+</div>
+<script src="../../Equity/code/chart.umd.min.js"></script>
+<script src="../../Equity/code/table_chart.js"></script>
+<script src="../shared/glossary.js"></script>
+<script>
+document.getElementById('stockSel').addEventListener('change',function(){if(this.value){location.href=this.value}});
+(function(){var n=0,caps={},st={H:0,C:0},sep='\u00b7',CAPS={S:'Small Cap',M:'Mid Cap',L:'Large Cap'};document.querySelectorAll('#stockSel option').forEach(function(o){if(!o.value)return;n++;var p=o.textContent.split('|');if(p.length<3)return;var c=(p[1]||'').trim().toUpperCase(),s=(p[2]||'').trim().toUpperCase();if(CAPS[c])caps[CAPS[c]]=(caps[CAPS[c]]||0)+1;if(s==='H')st.H++;else if(s==='C')st.C++});var arr=[];for(var k in caps)arr.push(caps[k]+' '+k);document.getElementById('badgeCount').textContent=n+' stocks tracked';document.getElementById('badgeCaps').textContent=arr.length?arr.join(' '+sep+' '):'cap mix TBC';var t2=[];if(st.H)t2.push(st.H+' holding');if(st.C)t2.push(st.C+' candidate');document.getElementById('badgeStatus').textContent=t2.length?t2.join(' '+sep+' '):'status TBC';})();
+document.querySelectorAll('.acc-head').forEach(function(h){
+ h.addEventListener('click',function(e){
+  if(e.target.closest('.term'))return;
+  var box=document.getElementById(h.dataset.acc);
+  box.classList.toggle('open');
+  h.querySelector('.chev').textContent=box.classList.contains('open')?'▾':'▸';
+ });
+});
+/* ---- hub tabs ---- */
+ function show(id){
+ document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===id)});
+ document.querySelectorAll('.tabbtn[data-t]').forEach(function(b){b.classList.toggle('on',b.dataset.t===id)});
+ window.scrollTo(0,0);
+ if(id==='tab2'&&window.renderDash)window.renderDash();
+}
+document.querySelectorAll('.tabbtn[data-t]').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);try{history.replaceState(null,'','#'+b.dataset.t)}catch(e){}})});
+/* ---- journal subtabs (inside the Journal panel - button label "4 · Journal": Monthly Updates / CMP Updates) ---- */
+(function(){var bar=document.getElementById('journalSub');if(!bar)return;
+ bar.querySelectorAll('.tabbtn').forEach(function(b){b.addEventListener('click',function(){
+  var id=b.getAttribute('data-s');if(!id)return;
+  document.querySelectorAll('#tab1 .jview').forEach(function(v){v.classList.toggle('on',v.id===id)});
+  bar.querySelectorAll('.tabbtn').forEach(function(x){x.classList.toggle('on',x.getAttribute('data-s')===id)});
+ })});
+})();
+(function(){var h=location.hash.slice(1);if(!h)return;
+ if(h==='glossaryBody'||h==='tab4'){show('tab4');var el=document.getElementById('glossaryBody');if(el)setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'})},60);return}
+ var p=document.getElementById(h);if(p&&p.classList.contains('panel'))show(h);
+})();
+/* ---- transactions filter ---- */
+(function(){var sel=document.getElementById('txnFilter');if(!sel)return;
+ var total=0;document.querySelectorAll('.txngrp').forEach(function(g){total+=(+g.dataset.n||0)});
+ function apply(){var v=sel.value,n=0;
+  document.querySelectorAll('.txngrp').forEach(function(g){var on=(v==='all'||g.dataset.stock===v);g.style.display=on?'':'none';if(on)n+=(+g.dataset.n||0)});
+  var c=document.getElementById('txnCount');if(c)c.textContent='showing '+n+' of '+total+' trades'}
+ sel.addEventListener('change',apply);apply();
+})();
+/* ---- rankings table (tab 2 · Rankings) - built from the tab 1 · Stocks cards ---- */
+(function(){
+ var body=document.getElementById('rankBody'),bands=document.getElementById('bandBody');
+ if(!body)return;
+ var cards=document.querySelectorAll('#tab0 .scard'),rows=[],i;
+ function bandOf(v){v=(v||'').toUpperCase();
+  if(v.indexOf('AVOID')===0)return 'AVOID';
+  if(v.indexOf('WATCH')===0)return 'WATCHLIST';
+  if(v.indexOf('ACCU')===0)return 'ACCUMULATE';
+  return 'UNCLASSIFIED';}
+ function pillClass(v){var b=bandOf(v);return b==='ACCUMULATE'?'p-g':(b==='WATCHLIST'?'p-y':(b==='AVOID'?'p-r':''));}
+ function action(st,v){var b=bandOf(v);
+  if(b==='ACCUMULATE')return st==='H'?'Holding — continue the monthly buy / add tranches':'Candidate — entry only on the Entry-Plan trigger';
+  if(b==='WATCHLIST')return st==='H'?'Holding — hold only, no new buys':'Candidate — wait for the review trigger';
+  if(b==='AVOID')return st==='H'?'Holding — no new money (exit is a personal call)':'Candidate — drop from the list';
+  return '—';}
+ for(i=0;i<cards.length;i++){
+  var c=cards[i],nmEl=c.querySelector('.nm'),cmpEl=c.querySelector('.cmp'),sc=parseFloat(c.getAttribute('data-score'));
+  var name=(nmEl&&nmEl.firstChild&&nmEl.firstChild.nodeValue)?nmEl.firstChild.nodeValue.replace(/\s+$/,''):(c.getAttribute('data-code')||'');
+  var cmp=(cmpEl&&cmpEl.firstChild&&cmpEl.firstChild.nodeValue)?cmpEl.firstChild.nodeValue.replace(/\s+$/,''):'—';
+  rows.push({href:c.getAttribute('href')||'#',name:name,code:c.getAttribute('data-code')||'',
+   cap:c.getAttribute('data-cap')||'',st:c.getAttribute('data-status')||'',
+   score:(isNaN(sc)?0:sc),scoreTxt:(isNaN(sc)?'—':sc.toFixed(1)),
+   verdict:c.getAttribute('data-verdict')||'—',cmp:cmp});
+ }
+ rows.sort(function(a,b){return b.score-a.score});
+ var CAPS={S:'Small',M:'Mid',L:'Large'},STB={H:'<span class="stb st-hold">HOLDING</span>',C:'<span class="stb st-cand">CANDIDATE</span>'};
+ var html='';
+ for(i=0;i<rows.length;i++){
+  var r=rows[i];
+  html+='<tr><td><b>#'+(i+1)+'</b></td>'+
+   '<td style="text-align:left"><a href=\''+r.href+'\' style="color:inherit"><b>'+r.name+'</b></a> <span class="src">'+r.code+'</span></td>'+
+   '<td style="text-align:left">'+(CAPS[r.cap]||r.cap)+'</td>'+
+   '<td>'+(STB[r.st]||r.st)+'</td>'+
+   '<td><b>'+r.scoreTxt+'</b><span class="src">/10</span></td>'+
+   '<td><span class="pill '+pillClass(r.verdict)+'">'+r.verdict+'</span></td>'+
+   '<td>'+r.cmp+'</td>'+
+   '<td style="text-align:left">'+action(r.st,r.verdict)+'</td></tr>';
+ }
+ body.innerHTML=html;
+ if(bands){
+  var order=['ACCUMULATE','WATCHLIST','AVOID'],map={},bh='',j;
+  for(i=0;i<rows.length;i++){var key=bandOf(rows[i].verdict);if(!map[key])map[key]={n:0,H:0,C:0};map[key].n++;if(rows[i].st==='H')map[key].H++;else if(rows[i].st==='C')map[key].C++;}
+  for(j=0;j<order.length;j++){var k=order[j],e=map[k]||{n:0,H:0,C:0};
+   bh+='<tr><td style="text-align:left"><span class="pill '+pillClass(k)+'">'+k+'</span></td><td>'+e.n+'</td><td>'+e.H+'</td><td>'+e.C+'</td></tr>';}
+  bands.innerHTML=bh;
+ }
+})();
+</script>
+<script>
+/* ==== Dashboard charts - "Portfolio Overview" (Dashboard tab, tab2) ====
+   Every series is READ from the generated #holdingsTable + .dash-kpis block on
+   each render, so the charts, the legends and the holdings table can never
+   drift apart. Library: Chart.js 4.4.1 (vendored at ../../Equity/code/chart.umd.min.js).
+   ES5 only (this block is syntax-checked by qa_check.py via cscript). */
+(function () {
+  'use strict';
+  var built = false, charts = [];
+  var PALETTE = ['#4da3ff', '#2ecc8f', '#f5b83d', '#ff6b6b', '#cbb8ff', '#7fc0ff', '#ffd98a', '#f472b6'];
+  var CAP_ORDER = ['Large Cap', 'Mid Cap', 'Small Cap'];
+  var CAP_COLORS = { 'Large Cap': '#3b82f6', 'Mid Cap': '#f5b83d', 'Small Cap': '#8b5cf6' };
+
+  function byId(id) { return document.getElementById(id); }
+
+  /* "₹3,21,508" / "−18.6%" / "9.2%" / "—" -> number | null (never throws) */
+  function num(v) {
+    if (v === null || v === undefined) return null;
+    var s = String(v).replace(/\u20b9/g, '').replace(/,/g, '').replace(/%/g, '')
+      .replace(/\s/g, '').replace(/\u2212/g, '-');
+    if (!s) return null;
+    var n = parseFloat(s);
+    return isNaN(n) ? null : n;
+  }
+  function grp(s) { return s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function rs(n, dp) {
+    if (n === null || n === undefined || isNaN(n)) return '\u2014';
+    dp = dp || 0;
+    var p = Math.abs(n).toFixed(dp).split('.');
+    return (n < 0 ? '\u2212' : '') + '\u20b9' + grp(p[0]) + (p[1] ? '.' + p[1] : '');
+  }
+  function pctS(n, dp) {
+    if (n === null || n === undefined || isNaN(n)) return '\u2014';
+    dp = (dp === undefined ? 1 : dp);
+    return (n < 0 ? '\u2212' : '') + Math.abs(n).toFixed(dp) + '%';
+  }
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function safeColor(c, fb) {
+    if (typeof c === 'string') {
+      var t = c.replace(/^\s+|\s+$/g, '');
+      if (/^#[0-9a-fA-F]{3,8}$/.test(t)) return t;
+    }
+    return fb;
+  }
+
+  /* ---------- read the generated holdings table (the single source of truth) ---------- */
+  function readRows() {
+    var table = byId('holdingsTable');
+    if (!table) return null;
+    var trs = table.querySelectorAll('tr'), rows = [], i;
+    for (i = 1; i < trs.length; i++) {
+      var tr = trs[i], c = tr.querySelectorAll('td');
+      if (c.length < 9) continue;
+      var cl = c[0].cloneNode(true), sp = cl.querySelector('.src');
+      if (sp && sp.parentNode) sp.parentNode.removeChild(sp);
+      var nm = cl.textContent.replace(/\s+/g, ' ').replace(/^\s+|\s+$/g, '');
+      if (!nm || /^total/i.test(nm)) continue;
+      var src = c[0].querySelector('.src');
+      var pc = c[4], pe = pc.querySelector('.pbar-pct'), fl = pc.querySelector('.pbar-fill');
+      rows.push({
+        name: nm,
+        ticker: src ? src.textContent.replace(/^\s+|\s+$/g, '') : '',
+        inv: num(c[3].textContent),
+        pct: num(pe ? pe.textContent : pc.textContent),
+        cv: num(c[6].textContent),
+        pl: num(c[7].textContent),
+        plPct: num(c[8].textContent),
+        cap: tr.getAttribute('data-cap') || '',
+        color: tr.getAttribute('data-color') || (fl ? (fl.style.backgroundColor || '') : '')
+      });
+    }
+    return rows.length ? rows : null;
+  }
+
+  function totalInvested(rows) {
+    var kp = document.querySelectorAll('.dash-kpis .dash-kpi'), i;
+    if (kp.length) {
+      var v = kp[0].querySelector('.kpi-value');
+      var n = v ? num(v.textContent) : null;
+      if (n !== null && n > 0) return n;
+    }
+    var s = 0, ok = false;
+    for (i = 0; i < rows.length; i++) if (rows[i].inv !== null) { s += rows[i].inv; ok = true; }
+    return (ok && s > 0) ? s : null;
+  }
+
+  /* market-cap class: row data-cap first, hub stock-card capb badge as fallback */
+  var cardCaps = null;
+  function capCards() {
+    if (cardCaps) return cardCaps;
+    cardCaps = [];
+    var els = document.querySelectorAll('#tab0 .scard'), i, j;
+    for (i = 0; i < els.length; i++) {
+      var nmEl = els[i].querySelector('.nm'), capEl = els[i].querySelector('.capb');
+      if (!nmEl || !capEl) continue;
+      var cl = nmEl.cloneNode(true);
+      var bs = cl.querySelectorAll('.capb,.stb');
+      for (j = 0; j < bs.length; j++) if (bs[j].parentNode) bs[j].parentNode.removeChild(bs[j]);
+      cardCaps.push({
+        name: cl.textContent.replace(/\s+/g, ' ').replace(/^\s+|\s+$/g, '').toLowerCase(),
+        cap: capEl.textContent.replace(/^\s+|\s+$/g, '')
+      });
+    }
+    return cardCaps;
+  }
+  function capOf(r) {
+    if (r.cap) return r.cap;
+    var n = (r.name || '').toLowerCase(), cs = capCards(), i;
+    for (i = 0; i < cs.length; i++) {
+      if (n && cs[i].name && (cs[i].name.indexOf(n) === 0 || n.indexOf(cs[i].name) === 0)) return cs[i].cap;
+    }
+    return '';
+  }
+
+  /* ---------- panel helpers ---------- */
+  function legendHTML(items) {
+    var h = '', i;
+    for (i = 0; i < items.length; i++) {
+      var it = items[i];
+      h += '<div class="cl-row" title="' + esc(it.name) + '">'
+        + '<span class="cl-dot" style="background:' + esc(it.color) + '"></span>'
+        + '<span class="cl-name">' + esc(it.name) + '</span>'
+        + '<span class="cl-pct">' + esc(it.pct) + '</span>'
+        + '<span class="cl-amt">' + esc(it.amt) + '</span></div>';
+    }
+    return h;
+  }
+  function wrapWithLegend(cv, html) {
+    var w = cv.parentNode;
+    var body = document.createElement('div');
+    body.className = 'chart-body';
+    w.parentNode.insertBefore(body, w);
+    body.appendChild(w);
+    var leg = document.createElement('div');
+    leg.className = 'chart-legend';
+    leg.innerHTML = html;
+    body.appendChild(leg);
+  }
+  function centerOverlay(cv, amount) {
+    var ctr = document.createElement('div');
+    ctr.className = 'chart-center';
+    ctr.innerHTML = '<b>' + esc(amount) + '</b><span>Total Invested</span>';
+    cv.parentNode.appendChild(ctr);
+  }
+  function setNA(id, msg) {
+    var cv = byId(id);
+    if (!cv || cv.style.display === 'none') return;
+    cv.style.display = 'none';
+    var na = document.createElement('div');
+    na.className = 'chart-na';
+    na.appendChild(document.createTextNode(msg));
+    cv.parentNode.appendChild(na);
+  }
+  function naAll(msg) {
+    setNA('chartCap', msg); setNA('chartContrib', msg);
+    setNA('chartPL', msg); setNA('chartVs', msg);
+  }
+
+  /* ---------- Chart.js plugins (value labels) ---------- */
+  function arcPctPlugin(pcts) {
+    return {
+      afterDatasetsDraw: function (chart) {
+        var meta = chart.getDatasetMeta(0);
+        if (!meta || !meta.data) return;
+        var ctx = chart.ctx;
+        ctx.save();
+        ctx.font = '700 11.5px "Segoe UI",Roboto,Helvetica,Arial,sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        for (var i = 0; i < meta.data.length && i < pcts.length; i++) {
+          var v = pcts[i];
+          if (v === null || v === undefined || isNaN(v) || v <= 0) continue;
+          var arc = meta.data[i];
+          if (!arc || arc.innerRadius === undefined) continue;
+          var mid = (arc.startAngle + arc.endAngle) / 2;
+          var span = arc.endAngle - arc.startAngle;
+          var r = arc.innerRadius + (arc.outerRadius - arc.innerRadius) * 0.62;
+          var txt = pctS(v);
+          var w = ctx.measureText(txt).width;
+          if (span * r < w + 7) continue; /* segment too thin for its label */
+          var x = arc.x + Math.cos(mid) * r, y = arc.y + Math.sin(mid) * r;
+          ctx.shadowColor = 'rgba(0,0,0,.55)';
+          ctx.shadowBlur = 3;
+          ctx.fillStyle = '#ffffff';
+          ctx.fillText(txt, x, y);
+          ctx.shadowBlur = 0;
+        }
+        ctx.restore();
+      }
+    };
+  }
+  function barEndLabels(fmt, colorFor) {
+    return {
+      afterDatasetsDraw: function (chart) {
+        var ca = chart.chartArea, ctx = chart.ctx, i, j;
+        if (!ca) return;
+        ctx.save();
+        ctx.font = '700 10.5px "Segoe UI",Roboto,Helvetica,Arial,sans-serif';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        for (i = 0; i < chart.data.datasets.length; i++) {
+          var ds = chart.data.datasets[i];
+          var meta = chart.getDatasetMeta(i);
+          if (!meta || meta.hidden || !meta.data) continue;
+          for (j = 0; j < meta.data.length; j++) {
+            var v = ds.data[j];
+            if (v === null || v === undefined || isNaN(v)) continue;
+            var bar = meta.data[j];
+            if (!bar || bar.x === undefined || bar.y === undefined) continue;
+            var txt = fmt(v);
+            var w = ctx.measureText(txt).width;
+            var x;
+            if (v >= 0) {
+              x = bar.x + 6;
+              if (x + w > ca.right) x = Math.max(ca.left, bar.x - 6 - w);
+            } else {
+              x = bar.x - 6 - w;
+              if (x < ca.left) x = bar.x + 6;
+            }
+            ctx.fillStyle = colorFor(v, i, ds);
+            ctx.fillText(txt, x, bar.y);
+          }
+        }
+        ctx.restore();
+      }
+    };
+  }
+
+  /* symmetric, "nice" axis around zero for the diverging P/L chart */
+  function axisSpec(maxAbs) {
+    var target = maxAbs * 1.2;
+    var steps = [1, 2, 5, 10, 20, 25, 50, 100], i, st, m;
+    for (i = 0; i < steps.length; i++) {
+      st = steps[i];
+      m = Math.ceil(target / st) * st;
+      if ((2 * m) / st <= 8) return { m: m, st: st };
+    }
+    m = Math.ceil(target / 100) * 100 || 100;
+    return { m: m, st: 100 };
+  }
+
+  function tooltipBase() {
+    return {
+      backgroundColor: '#1c2438', titleColor: '#e8ecf5', bodyColor: '#e8ecf5',
+      borderColor: '#2a3450', borderWidth: 1, padding: 9, displayColors: true,
+      boxWidth: 9, boxHeight: 9
+    };
+  }
+
+  function doughnutCfg(labels, data, colors, pcts, centerTotal) {
+    var tip = tooltipBase();
+    tip.callbacks = {
+      label: function (ct) {
+        var d = ct.dataset.data[ct.dataIndex];
+        var p = pcts[ct.dataIndex];
+        if (p === null || p === undefined || isNaN(p)) {
+          p = (centerTotal && centerTotal > 0) ? (d / centerTotal * 100) : null;
+        }
+        return ' ' + pctS(p) + ' \u00b7 ' + rs(d);
+      }
+    };
+    return {
+      type: 'doughnut',
+      data: { labels: labels, datasets: [{ data: data, backgroundColor: colors, borderColor: '#111827', borderWidth: 2, hoverOffset: 5 }] },
+      options: {
+        responsive: true, maintainAspectRatio: false, cutout: '66%', layout: { padding: 2 },
+        plugins: { legend: { display: false }, tooltip: tip },
+        animation: { animateRotate: true, duration: 750 }
+      },
+      plugins: [arcPctPlugin(pcts)]
+    };
+  }
+
+  /* ---------- the four charts ---------- */
+  function chartCap(rows, tot) {
+    var sums = {}, i, unknown = 0, cap;
+    for (i = 0; i < CAP_ORDER.length; i++) sums[CAP_ORDER[i]] = 0;
+    for (i = 0; i < rows.length; i++) {
+      cap = capOf(rows[i]);
+      if (CAP_ORDER.indexOf(cap) >= 0) sums[cap] += (rows[i].inv || 0);
+      else unknown++;
+    }
+    if (unknown > 0) {
+      setNA('chartCap', 'Market-cap classification unavailable for ' + unknown
+        + ' holding' + (unknown > 1 ? 's' : '') + ' \u2014 add the cap class to the holdings data');
+      return;
+    }
+    if (!tot) { setNA('chartCap', 'Total invested unavailable (VERIFY)'); return; }
+    var labels = [], data = [], colors = [], pcts = [], items = [];
+    for (i = 0; i < CAP_ORDER.length; i++) {
+      var amt = sums[CAP_ORDER[i]];
+      var p = (tot > 0) ? (amt / tot * 100) : 0;
+      labels.push(CAP_ORDER[i]);
+      data.push(Math.round(amt * 100) / 100);
+      colors.push(CAP_COLORS[CAP_ORDER[i]]);
+      pcts.push(p);
+      items.push({
+        name: CAP_ORDER[i], color: CAP_COLORS[CAP_ORDER[i]],
+        pct: pctS(p), amt: rs(Math.round(amt))
+      });
+    }
+    var cv = byId('chartCap');
+    wrapWithLegend(cv, legendHTML(items));
+    centerOverlay(cv, rs(Math.round(tot)));
+    charts.push(new Chart(cv.getContext('2d'), doughnutCfg(labels, data, colors, pcts, tot)));
+  }
+
+  function chartContrib(rows, tot) {
+    if (!tot) { setNA('chartContrib', 'Total invested unavailable (VERIFY)'); return; }
+    var labels = [], data = [], colors = [], pcts = [], items = [], i, any = false;
+    for (i = 0; i < rows.length; i++) {
+      var r = rows[i];
+      if (r.inv === null) continue;
+      any = true;
+      var col = safeColor(r.color, PALETTE[i % PALETTE.length]);
+      labels.push(r.name);
+      data.push(Math.round(r.inv * 100) / 100);
+      colors.push(col);
+      pcts.push(r.pct);
+      items.push({ name: r.name, color: col, pct: pctS(r.pct), amt: rs(Math.round(r.inv)) });
+    }
+    if (!any) { setNA('chartContrib', 'No holdings data available'); return; }
+    var cv = byId('chartContrib');
+    wrapWithLegend(cv, legendHTML(items));
+    centerOverlay(cv, rs(Math.round(tot)));
+    charts.push(new Chart(cv.getContext('2d'), doughnutCfg(labels, data, colors, pcts, tot)));
+  }
+
+  function chartPL(rows) {
+    var list = [], i;
+    for (i = 0; i < rows.length; i++) {
+      if (rows[i].plPct !== null && rows[i].plPct !== undefined) list.push(rows[i]);
+    }
+    if (!list.length) { setNA('chartPL', 'No P/L data available'); return; }
+    /* worst loss first -> renders at the top of a horizontal bar chart */
+    list.sort(function (a, b) { return a.plPct - b.plPct; });
+    var labels = [], data = [], maxAbs = 0;
+    for (i = 0; i < list.length; i++) {
+      labels.push(list[i].name);
+      data.push(list[i].plPct);
+      if (Math.abs(list[i].plPct) > maxAbs) maxAbs = Math.abs(list[i].plPct);
+    }
+    var ax = axisSpec(maxAbs || 1);
+    var tip = tooltipBase();
+    tip.callbacks = {
+      label: function (ct) {
+        var r = list[ct.dataIndex];
+        return ' ' + pctS(ct.raw) + (r && r.pl !== null ? ' \u00b7 P/L ' + rs(r.pl) : '');
+      }
+    };
+    var cv = byId('chartPL');
+    charts.push(new Chart(cv.getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'P / L %', data: data,
+          backgroundColor: function (c) { return c.raw >= 0 ? '#2ecc8f' : '#ff6b6b'; },
+          hoverBackgroundColor: function (c) { return c.raw >= 0 ? '#3ddfa5' : '#ff8090'; },
+          borderWidth: 0, borderSkipped: false, barPercentage: 0.7, categoryPercentage: 0.82
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+        layout: { padding: { right: 4 } },
+        plugins: { legend: { display: false }, tooltip: tip },
+        animation: { duration: 750 },
+        scales: {
+          x: {
+            min: -ax.m, max: ax.m,
+            grid: {
+              color: function (c) { return (c.tick && c.tick.value === 0) ? '#9dbbe4' : 'rgba(42,52,80,.5)'; },
+              lineWidth: function (c) { return (c.tick && c.tick.value === 0) ? 2 : 1; }
+            },
+            border: { display: false },
+            ticks: {
+              stepSize: ax.st, font: { size: 10.5 },
+              color: function (c) { return (c.tick && c.tick.value === 0) ? '#dbe6fa' : '#9aa7bd'; },
+              callback: function (v) { return v + '%'; }
+            }
+          },
+          y: {
+            grid: { display: false }, border: { display: false },
+            ticks: { color: '#c9d6ec', font: { size: 11 } }
+          }
+        }
+      },
+      plugins: [barEndLabels(
+        function (v) { return pctS(v); },
+        function (v) { return v >= 0 ? '#2ecc8f' : '#ff6b6b'; }
+      )]
+    }));
+  }
+
+  function chartVs(rows) {
+    var labels = [], inv = [], cur = [], maxV = 0, i, any = false;
+    for (i = 0; i < rows.length; i++) {
+      var r = rows[i];
+      if (r.inv === null && r.cv === null) continue;
+      any = true;
+      var a = r.inv || 0, b = r.cv || 0;
+      labels.push(r.name);
+      inv.push(a);
+      cur.push(b);
+      if (a > maxV) maxV = a;
+      if (b > maxV) maxV = b;
+    }
+    if (!any) { setNA('chartVs', 'No holdings data available'); return; }
+    var target = (maxV || 1) * 1.25;
+    var unit = target > 50000 ? 10000 : (target > 10000 ? 5000 : (target > 2000 ? 1000 : 500));
+    var suggestedMax = Math.ceil(target / unit) * unit;
+    var tip = tooltipBase();
+    tip.callbacks = {
+      label: function (ct) { return ' ' + ct.dataset.label + ': ' + rs(ct.raw); }
+    };
+    var cv = byId('chartVs');
+    charts.push(new Chart(cv.getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Invested (\u20b9)', data: inv,
+            backgroundColor: '#38bdf8', hoverBackgroundColor: '#67d3fd',
+            borderWidth: 0, borderSkipped: false, barPercentage: 0.86, categoryPercentage: 0.72
+          },
+          {
+            label: 'Current Value (\u20b9)', data: cur,
+            backgroundColor: '#fbbf24', hoverBackgroundColor: '#fcd34d',
+            borderWidth: 0, borderSkipped: false, barPercentage: 0.86, categoryPercentage: 0.72
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+        layout: { padding: { right: 4 } },
+        plugins: {
+          legend: {
+            position: 'top', align: 'end',
+            labels: {
+              color: '#c9d6ec', usePointStyle: true, pointStyle: 'circle',
+              boxWidth: 9, boxHeight: 9, font: { size: 11 }, padding: 12
+            }
+          },
+          tooltip: tip
+        },
+        animation: { duration: 750 },
+        scales: {
+          x: {
+            min: 0, suggestedMax: suggestedMax,
+            grid: { color: 'rgba(42,52,80,.5)' },
+            border: { display: false },
+            ticks: {
+              color: '#9aa7bd', font: { size: 10.5 },
+              callback: function (v) { return v === 0 ? '0' : '\u20b9' + Number(v).toLocaleString('en-IN'); }
+            }
+          },
+          y: {
+            grid: { display: false }, border: { display: false },
+            ticks: { color: '#c9d6ec', font: { size: 11 } }
+          }
+        }
+      },
+      plugins: [barEndLabels(
+        function (v) { return rs(Math.round(v)); },
+        function (v, di) { return di === 0 ? '#38bdf8' : '#fbbf24'; }
+      )]
+    }));
+  }
+
+  /* ---------- sortable columns (Holdings Details) ----------
+     Click a header: ascending -> descending -> original order.
+     Numeric columns (units, money, %) sort numerically (₹ / commas / − parsed
+     by num()); the Stock column sorts A..Z by name. The TOTAL row is never
+     sorted - it stays pinned at the bottom. */
+  function initSort() {
+    var table = byId('holdingsTable');
+    if (!table) return;
+    var ths = table.querySelectorAll('th');
+    if (!ths.length) return;
+    var tbody = table.tBodies[0] || table;
+    var trs = tbody.rows, orig = [], total = null, i;
+    for (i = 0; i < trs.length; i++) {
+      var c0 = trs[i].cells[0];
+      if (!c0) continue;
+      if (c0.tagName === 'TH') continue;                    /* header row */
+      if (/^\s*TOTAL\s*$/i.test(c0.textContent)) total = trs[i];   /* first cell is exactly "TOTAL" */
+      else orig.push(trs[i]);
+    }
+    if (!orig.length) return;
+    var col = -1, mode = 0; /* mode: 0 original, 1 asc, 2 desc */
+    function keyFor(tr, c) {
+      var td = tr.cells[c];
+      if (!td) return null;
+      if (c === 0) return td.textContent.replace(/\s+/g, ' ')
+        .replace(/^\s+|\s+$/g, '').toLowerCase();
+      return num(td.textContent);
+    }
+    function cmp(a, b) {
+      var ka = keyFor(a, col), kb = keyFor(b, col);
+      if (ka === null && kb === null) return 0;
+      if (ka === null) return 1;   /* empties last */
+      if (kb === null) return -1;
+      if (ka < kb) return -1;
+      if (ka > kb) return 1;
+      return 0;
+    }
+    function apply() {
+      var k, rows = orig.slice();
+      for (k = 0; k < ths.length; k++) {
+        ths[k].className = String(ths[k].className)
+          .replace(/\s*sorted-(asc|desc)\b/g, '');
+      }
+      if (mode !== 0) {
+        rows.sort(cmp);
+        if (mode === 2) rows.reverse();
+        ths[col].className += (mode === 1 ? ' sorted-asc' : ' sorted-desc');
+      }
+      for (k = 0; k < orig.length; k++) tbody.removeChild(orig[k]);
+      for (k = 0; k < rows.length; k++) {
+        if (total) tbody.insertBefore(rows[k], total);
+        else tbody.appendChild(rows[k]);
+      }
+    }
+    for (i = 0; i < ths.length; i++) {
+      ths[i].title = 'Click to sort (asc / desc / original order)';
+      (function (idx) {
+        ths[idx].addEventListener('click', function () {
+          if (col !== idx) { col = idx; mode = 1; }
+          else { mode = (mode === 1) ? 2 : ((mode === 2) ? 0 : 1); }
+          apply();
+        });
+      })(i);
+    }
+  }
+
+  /* ---------- entry point ---------- */
+  function loadLib(cb) {
+    if (typeof Chart !== 'undefined') { cb(true); return; }
+    var sc = document.createElement('script');
+    sc.src = '../../Equity/code/chart.umd.min.js';
+    sc.onload = function () { cb(typeof Chart !== 'undefined'); };
+    sc.onerror = function () { cb(false); };
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(sc);
+  }
+  function renderDash() {
+    if (built) {
+      for (var i = 0; i < charts.length; i++) {
+        if (charts[i]) { try { charts[i].resize(); } catch (e) {} }
+      }
+      return;
+    }
+    if (typeof Chart === 'undefined') {
+      loadLib(function (ok) {
+        if (ok) { built = false; renderDash(); }
+        else naAll('Chart library unavailable (Equity\\code\\chart.umd.min.js)');
+      });
+      return;
+    }
+    built = true;
+    var rows = readRows();
+    if (!rows) { naAll('Holdings data unavailable'); return; }
+    var tot = totalInvested(rows);
+    try {
+      chartCap(rows, tot);
+      chartContrib(rows, tot);
+      chartPL(rows);
+      chartVs(rows);
+    } catch (e) {
+      if (window.console) window.console.error('dashboard charts:', e);
+    }
+  }
+  window.renderDash = renderDash;
+  initSort();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderDash);
+  else renderDash();
+})();
+</script>
+</body>
+</html>

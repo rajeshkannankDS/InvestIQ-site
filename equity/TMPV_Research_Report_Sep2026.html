@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tata Motors Passenger Vehicles Ltd — Equity Research Journal | Sep 2026</title>
+<style>
+:root{--bg:#0f1420;--panel:#161d2e;--panel2:#1c2438;--ink:#e8ecf5;--muted:#9aa7bd;--line:#2a3450;--acc:#4da3ff;--good:#2ecc8f;--warn:#f5b83d;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:22px}
+header.rpt{background:linear-gradient(135deg,#101828,#1b2a4a);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:20px}
+header.rpt h1{margin:0 0 4px;font-size:27px}
+header.rpt .sub{color:var(--muted);font-size:14px}
+.badges{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{padding:4px 11px;border-radius:20px;font-size:12.5px;border:1px solid var(--line);background:var(--panel2)}
+.badge.buy{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.badge.risk{background:#3a1d1d;border-color:#7a3030;color:#ffb0b0}
+.badge.info{background:#123055;border-color:#24528f;color:#a8d1ff}
+h2{font-size:20px;margin:34px 0 6px;padding-bottom:7px;border-bottom:2px solid var(--line);color:#cfe1ff}
+h4{font-size:14.5px;margin:14px 0 6px;color:#a9c4ea}
+p{margin:8px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 6px;font-size:13.2px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+th{background:var(--panel2);color:#c6d6f0;font-weight:600;text-align:center}
+td:first-child,th:first-child{text-align:left;font-weight:600;color:#dbe6fa}
+tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.tblwrap table{border:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:13px 14px}
+.kpi .l{font-size:11.6px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.kpi .v{font-size:21px;font-weight:700;margin-top:3px}
+.kpi .n{font-size:11.6px;color:var(--muted);margin-top:2px}
+.good{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 17px;margin:13px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.tag{display:inline-block;font-size:10.6px;letter-spacing:.6px;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-right:6px;vertical-align:1.5px;border:1px solid}
+.t-fact{background:#123055;border-color:#2c5f9e;color:#a9d1ff}
+.t-calc{background:#2a2140;border-color:#5a4a8a;color:#cbb8ff}
+.t-mgmt{background:#14402e;border-color:#2c7a5a;color:#9df0cd}
+.t-view{background:#46340f;border-color:#8d6a1e;color:#ffd98a}
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:12px;font-weight:600}
+.p-g{background:#0d3a2c;color:#7ff0c3;border:1px solid #1c6b4f}
+.p-y{background:#3d3210;color:#ffd98a;border:1px solid #8d6a1e}
+.p-r{background:#3a1d1d;color:#ffb0b0;border:1px solid #7a3030}
+.note{font-size:12.4px;color:var(--muted);margin-top:6px}
+.src{font-size:12.2px;color:var(--muted)}
+.scorebar{height:9px;background:#0c111c;border-radius:6px;overflow:hidden;border:1px solid var(--line);min-width:110px}
+.scorebar>i{display:block;height:100%;background:linear-gradient(90deg,#4da3ff,#2ecc8f)}
+ul{margin:7px 0 7px 20px}li{margin:4px 0}
+.verdict-main{display:flex;flex-wrap:wrap;gap:16px;align-items:stretch}
+.verdict-big{flex:1 1 300px;background:linear-gradient(135deg,#2b1d0e,#3a2a12);border:1px solid #8d6a1e;border-radius:12px;padding:18px}
+.verdict-big .h{font-size:26px;font-weight:800;color:#ffd98a}
+a{color:var(--acc)}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12.4px}
+/* top nav + tabs */
+.topnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
+.topnav a.home{color:var(--acc);font-size:13px;text-decoration:none;font-weight:600}
+.topnav select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13.4px;font-weight:600;cursor:pointer}
+.tabbar{position:sticky;top:0;z-index:40;display:flex;flex-wrap:wrap;gap:6px;background:rgba(15,20,32,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:8px;margin-bottom:16px}
+.tabbtn{border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:12.6px;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;letter-spacing:.3px}
+.tabbtn:hover{color:#cfe1ff;border-color:#3b5f96}
+.tabbtn.on{background:#123055;border-color:#2c66ad;color:#a9d1ff;box-shadow:0 0 0 1px #2c66ad}
+.panel{display:none;animation:fadein .25s ease}
+.panel.on{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.viewbox{border-left:4px solid var(--acc);background:rgba(77,163,255,.07);border-radius:0 9px 9px 0;padding:10px 15px;margin:10px 0 14px}
+.viewbox .vh{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8fc4ff;font-weight:700;margin-bottom:5px}
+.viewbox ul{margin:4px 0 2px 18px}.viewbox li{font-size:13.6px;margin:5px 0}
+.viewbox li b{color:#dbe9ff}
+.viewbox li.imp{color:#ffe6a3}
+.viewbox li.imp::marker{content:"★ "}
+.important{display:inline-block;background:#4a3708;color:#ffd98a;border:1px solid #8d6a1e;font-size:10.3px;font-weight:700;letter-spacing:.7px;padding:1px 7px;border-radius:4px;vertical-align:1.5px;margin-left:6px}
+.kpi[data-explain]{cursor:pointer;transition:transform .12s,border-color .12s}
+.kpi[data-explain]:hover{border-color:#4da3ff;transform:translateY(-2px)}
+.kpi[data-explain]::after{content:"ⓘ what does this mean?";display:block;font-size:9.6px;color:#4da3ff;letter-spacing:.4px;margin-top:5px;text-transform:uppercase}
+.term{color:#7fc0ff;text-decoration:underline dotted;cursor:help}
+.term:hover{color:#bfe0ff}
+#modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(4,8,16,.72);padding:20px}
+#modal.on{display:flex;align-items:center;justify-content:center}
+.mbox{background:#141b2c;border:1px solid #2c66ad;border-radius:13px;max-width:640px;width:100%;max-height:82vh;overflow:auto;padding:20px 22px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.mbox .mt{font-size:16.5px;font-weight:700;color:#a9d1ff;margin-bottom:8px}
+.mbox .mb{font-size:14px;line-height:1.65;color:var(--ink)}
+.mbox .mb .why{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);color:#ffd98a;font-size:13.3px}
+.mbox .mclose{float:right;border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:7px;font-size:12px;padding:4px 10px;cursor:pointer}
+.mbox .mclose:hover{color:#fff;border-color:#4da3ff}
+.mgl{font-size:12.4px;color:var(--muted);margin-top:12px}
+/* Position status KPI cards (tab0) - accented left bar + coloured value so
+   this group never reads as a copy of the plain .kpi row at the top of tab0 */
+.pos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0 6px}@media (max-width:900px){.pos-grid{grid-template-columns:repeat(2,1fr)}}@media (max-width:540px){.pos-grid{grid-template-columns:1fr}}
+.posk{background:var(--panel2);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:9px;padding:9px 12px 10px}
+.posk .pk-l{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.posk .pk-v{font-size:20px;font-weight:700;margin-top:3px;color:var(--ink)}
+.posk .pk-n{font-size:11.2px;color:var(--muted);margin-top:3px}
+.posk.p-blue{border-left-color:#4da3ff}
+.posk.p-blue .pk-v{color:#8fc6ff}
+.posk.p-purple{border-left-color:#a78bfa}
+.posk.p-purple .pk-v{color:#cbb8ff}
+.posk.p-amber{border-left-color:#f5b83d}
+.posk.p-amber .pk-v{color:#ffd98a}
+.posk.p-teal{border-left-color:#2ecc8f}
+.posk.p-teal .pk-v{color:#5ee0b0}
+.posk.p-pos{border-left-color:#2ecc8f}
+.posk.p-pos .pk-v{color:#2ecc8f}
+.posk.p-neg{border-left-color:#ff6b6b}
+.posk.p-neg .pk-v{color:#ff6b6b}
+.posk.p-slate{border-left-color:#9aa7bd}
+.posk.p-slate .pk-v{color:#c9d3e6}
+@media print{body{background:#fff;color:#111}.wrap{max-width:none}header.rpt,.card,.kpi,table,.verdict-big{background:#fff;color:#111;border-color:#bbb}th{background:#eee;color:#111}td{color:#111}h2,h4{color:#111}.good{color:#087f4f}.warn{color:#9a6a00}.bad{color:#b00}.panel{display:block!important;page-break-before:always}.tabbar,#modal{display:none!important}.viewbox{background:#f4f8ff;color:#111}.viewbox li{color:#111}.term{color:#0b5ca8}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="rpt">
+  <h1>Tata Motors Passenger Vehicles Ltd — Deep-Dive Fundamental Report</h1>
+  <div class="sub">Quarterly Equity Research Journal &nbsp;•&nbsp; Entry #1 (Baseline Quarter) &nbsp;•&nbsp; Assessment as of <b>September 2026</b> (price data: <b>19-Oct-2026 close</b>; monthly run 20-Oct-2026)</div>
+  <div class="badges">
+    <span class="badge buy">Portfolio status: HOLDING — invested monthly</span>
+    <span class="badge risk">VERDICT: WATCHLIST — post-demerger earnings base still settling · composite 5.1/10 · re-affirmed 19-Oct-2026</span>
+    <span class="badge info">CMP ₹278 (19-Oct-2026 close) · −3.09% (day)</span>
+    <span class="badge info">Large Cap · Mcap ₹1,02,387 Cr (19-Oct-2026)</span>
+    <span class="badge risk">52W ₹419 / ₹272 (19-Oct-2026) — about −34% from high, 2% above the low · price 1Y −36%</span>
+    <span class="badge">NSE: TMPV · BSE: 500570 (FV ₹2) · F and O listed</span>
+    <span class="badge">Sector: Consumer Discretionary → Automobiles → Passenger Cars &amp; Utility Vehicles</span>
+    <span class="badge info">Indices: Nifty 50 · BSE 500 · Nifty Auto · BSE Sensex 50</span>
+    <span class="badge risk">P/E 103 (distorted) · P/B 0.91× book (BV ₹304) · ROCE 2.73% · sales TTM −6% · price 1Y −36%</span>
+  </div>
+  <p class="note" style="margin-top:12px">Primary source: Screener.in (fundamentals consolidated 01-Oct-2026; market data 19-Oct-2026). Corroborating: exchange announcements (Sep/Oct-2026), company concalls and annual reports listed on BSE/NSE. All figures in ₹ Crore unless stated. Research journal entry — not investment advice. <b>Read the first:</b> this is the post-demerger passenger-vehicles entity carved out of Tata Motors Ltd (Oct-2025); historical FY15–FY25 annual figures are legacy Tata Motors consolidated <i>incl. JLR</i>, while FY26/TTM carry a one-off demerger gain (Other Income ₹86,291 Cr booked in the Sep-2025 quarter). Several data points unavailable in the free source (pledge %, exact cash balance, credit-rating grades, peer table) are flagged VERIFY.</p>
+</header>
+
+<nav class="topnav">
+  <a class="home" href="../InvestIQ.html">⌂ InvestIQ</a>&nbsp; <a class="home" href="Equity_Forge.html">⌂ Back to Stock Hub</a>
+  <select id="stockSel">
+    <option value="">— go to stock —</option>
+    <option value="Reliance_Research_Report_Sep2026.html">RELIANCE | L | H</option>
+    <option value="RACE_Research_Report_Sep2026.html">RACE | S | H</option>
+    <option value="HDFCBANK_Research_Report_Sep2026.html">HDFC BANK | L | H</option>
+    <option value="ITC_Research_Report_Sep2026.html">ITC | L | H</option>
+    <option value="CAPLIPOINT_Research_Report_Sep2026.html">CAPLIN POINT | S | H</option>
+    <option value="GANECOS_Research_Report_Sep2026.html">GANESHA ECOSPHERE | S | H</option>
+    <option value="TMPV_Research_Report_Sep2026.html" selected>TATA MOTORS PV | L | H</option>
+    <option value="OLECTRA_Research_Report_Oct2026.html">OLECTRA | S | C</option>
+    <option value="KAYNES_Research_Report_Oct2026.html">KAYNES | S | C</option>
+    <option value="BEL_Research_Report_Oct2026.html">BEL | L | C</option>
+    <option value="JIO_Research_Report_Oct2026.html">JIO IPO | L | C</option>
+  </select>
+</nav>
+
+<nav class="tabbar" id="tabbar" aria-label="Report sections">
+  <button class="tabbtn on" data-t="tab0">0 · Dashboard</button>
+  <button class="tabbtn" data-t="tab1">1 · Metadata</button>
+  <button class="tabbtn" data-t="tab2">2 · Valuation</button>
+  <button class="tabbtn" data-t="tab3">3 · Growth</button>
+  <button class="tabbtn" data-t="tab4">4 · Profits</button>
+  <button class="tabbtn" data-t="tab5">5 · Balance Sheet</button>
+  <button class="tabbtn" data-t="tab6">6 · Cash Flow</button>
+  <button class="tabbtn" data-t="tab7">7 · Shareholders</button>
+  <button class="tabbtn" data-t="tab8">8 · News</button>
+  <button class="tabbtn" data-t="tab9">9 · Verdict &amp; Journal</button>
+  <button class="tabbtn" data-t="tabT">Transactions</button>
+  <button class="tabbtn" data-t="tabG">Glossary</button>
+</nav>
+
+<section class="panel on" id="tab0">
+<h2>0. Executive Dashboard — Sep 2026</h2>
+<div class="viewbox"><div class="vh">Section 0 — The View (plain English)</div>
+<ul>
+<li class="imp">One-line verdict: <b>WATCHLIST — post-demerger earnings base still settling. Composite 5.1/10, 12-month horizon. The headline P/E 103x and ROE 75.7% are distorted by the one-off demerger gain and the post-restructuring equity base — anchor on P/B 0.92× book, OPM 6% and price −36% in 1Y instead.</b><span class="important">IMPORTANT</span></li>
+<li class="imp">Three numbers that decide everything: <b>P/B 0.92× (BV ₹304) · OPM 6% in FY26 (down from 13% in FY24/FY25) · CWIP ₹1,02,654 Cr (capex in overdrive, not yet earning).</b><span class="important">IMPORTANT</span></li>
+<li>The one-off to memorise: the Sep-2025 quarter booked Other Income ₹81,507 Cr from the demerger — that quarter shows Net Profit ₹76,248 Cr and EPS ₹206.85 while operating margin went <b>−1.9%</b>. The clean read is the Dec-2025 quarter: Net Profit <b>−₹3,483 Cr</b> (EPS −9.47).</li>
+<li>What is genuinely working: Q2 FY27 volumes of <b>201,723 units, +40% YoY</b>, with September sales crossing 70,000 — operations are accelerating even while reported profits are not comparable year to year.</li>
+<li>The balance-sheet trade-off: gross debt is down about 43% from the FY23 peak (₹1,34,113 → ₹79,109 Cr) and interest fell to ₹2,827 Cr, but free cash flow turned <b>−₹23,195 Cr</b> in FY26 — deleveraging and capex are happening together.</li>
+<li>How to read this report: click any section tab above · click any blue info card for a plain-English meaning · click any blue dotted term for its glossary definition.</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Current Market Price — last traded price ₹278 on 19-Oct-2026, down 3.09% that day (−₹5 / −1.77% vs the 07-Oct-2026 row of ₹283). The 52-week range is ₹419 to ₹272, so the stock is about 34% below its high and only ~2% above its 52-week low — a falling stock sitting on its floor."><div class="l">CMP</div><div class="v">₹278</div><div class="n">19 Oct'26 close · −3.09% (day) · −1.77% vs 07-Oct</div></div>
+  <div class="kpi" data-explain="Market capitalisation ₹1,02,387 Cr at the 19-Oct-2026 close — a genuine Large Cap and a Nifty 50 constituent, so liquidity, coverage and index support are institutional-grade (very different from a micro-cap)."><div class="l">Market Cap</div><div class="v warn">₹1,02,387 Cr</div><div class="n">Large Cap · Nifty 50 constituent · 19-Oct-2026</div></div>
+  <div class="kpi" data-explain="Price-to-Earnings 103x as displayed by the source. It is distorted twice over: TTM profit includes the ₹86,291 Cr one-off demerger gain, and the ratio blends the post-demerger price with a legacy earnings series (reported TTM EPS is ₹215.18, which would give 1.3x, not 103x). Discard this number entirely — use P/B instead."><div class="l">P/E (headline)</div><div class="v bad">103x</div><div class="n">Distorted — do not use</div></div>
+  <div class="kpi" data-explain="Price-to-Book 0.91x at the 19-Oct-2026 close — you pay 91 paise for every ₹1 of net assets (book value ₹304). This is the reliable valuation anchor for TMPV: below book value, i.e. the market is not paying any premium for the brand or franchises."><div class="l">P/B · Book Value</div><div class="v good">0.91x · ₹304</div><div class="n">Trading below book value · 19-Oct-2026</div></div>
+  <div class="kpi" data-explain="ROCE 2.73% is the honest operating return and it is poor — the company earns under ₹3 per ₹100 of capital employed. ROE 75.7% looks spectacular only because FY26 net profit (₹82,645 Cr) was inflated by the one-off demerger gain and the equity base is post-restructuring."><div class="l">ROCE / ROE</div><div class="v bad">2.73% / 75.7%</div><div class="n">ROE one-off-flattered · ROCE real</div></div>
+  <div class="kpi" data-explain="FY26 revenue ₹3,35,582 Cr, down 8% from FY25 (₹366,094 Cr) and down from the FY24 peak of ₹4,34,016 Cr. TTM sales are ₹3,43,703 Cr, about 6% lower than the prior TTM — the top line is shrinking, not growing."><div class="l">FY26 Sales</div><div class="v warn">₹3,35,582 Cr</div><div class="n">YoY −8% · TTM −6%</div></div>
+  <div class="kpi" data-explain="FY26 net profit ₹82,645 Cr looks like a record, but Other Income of ₹86,291 Cr — essentially all of it the one-off demerger gain — sits inside it. Strip the one-off out and pre-tax profit from the remaining lines is roughly −₹3,892 Cr. This is why headline profit, P/E and ROE cannot be trusted this year."><div class="l">FY26 Net Profit</div><div class="v bad">₹82,645 Cr</div><div class="n">Carries ₹86,291 Cr one-off</div></div>
+  <div class="kpi" data-explain="Operating margin 6% in FY26 versus 13% in FY24 and FY25, and 6% again in the Jun-2026 quarter. Half the operating margin disappeared in the restructuring year — this is the single most important operating trend in the report."><div class="l">FY26 OPM</div><div class="v bad">6%</div><div class="n">From 13% FY24 / FY25</div></div>
+  <div class="kpi" data-explain="Borrowings ₹79,109 Cr at FY26 end, down about 43% from the FY23 peak of ₹1,34,113 Cr (FY24 ₹1,07,264, FY25 ₹71,540). Debt-to-equity is about 0.66x on a net worth of ₹1,12,068 Cr — manageable but still very large in absolute terms."><div class="l">Borrowings · D/E</div><div class="v warn">₹79,109 Cr · 0.66x</div><div class="n">Down ~43% from FY23 peak</div></div>
+  <div class="kpi" data-explain="Cash from operations collapsed to ₹13,041 Cr in FY26 from ₹63,102 Cr in FY25 (−79%), and free cash flow went negative at −₹23,195 Cr. Read together with CWIP of ₹1,02,654 Cr: this is an aggressive capacity-investment phase, not simply deterioration."><div class="l">FY26 CFO / FCF</div><div class="v bad">₹13,041 / −₹23,195</div><div class="n">CFO −79% YoY · first neg. FCF since FY23</div></div>
+  <div class="kpi" data-explain="Capital work-in-progress ₹1,02,654 Cr at FY26 end — up 7.2× from ₹14,274 Cr in FY23. Money is being spent on plants and capacity that are not yet producing revenue; conversion of this WIP into earning assets is the key thing to watch."><div class="l">CWIP</div><div class="v warn">₹1,02,654 Cr</div><div class="n">7.2× in 3 years · 27% of assets</div></div>
+  <div class="kpi" data-explain="Promoter holding 42.51% at Jun-2026, down from 46.38% at Sep-2023 — the 3.78-point step at Sep-2024 is the demerger share issuance, not a market sale. Dividend yield is 1.09% at the 19-Oct-2026 close with about a 1% payout, so income support under the price is small."><div class="l">Promoter · Div Yield</div><div class="v">42.51% · 1.09%</div><div class="n">Step-down at Sep-24 = demerger · yield at ₹278</div></div>
+</div>
+
+<div class="card" style="border-color:#1c6b4f">
+<h4>Position status (personal) <span class="tag t-fact">Fact</span></h4>
+<p class="note" style="margin-top:0"><b>Status: HOLDING — this stock is invested in on a monthly basis.</b> The score verdict on this page drives the monthly action (continue the monthly buy / pause / add a tranche). The position figures below are <span class="tag t-calc">Calc</span> generated from your trade log (<code>Equity\Holding_stocks.xlsx</code>) by <code>Equity\code\holdings_calc.py</code> and refreshed at every monthly run — units held, average cost, value and P/L are never typed in by hand. Market prices are the 19-Oct-2026 close.</p>
+<div class="pos-grid">
+<!--HOLD_POS_START-->
+<div class="posk p-blue"><div class="pk-l">Units held</div><div class="pk-v">114</div><div class="pk-n"><span class="tag t-calc">Calc</span></div></div>
+<div class="posk p-purple"><div class="pk-l">Average cost</div><div class="pk-v">₹363.30</div><div class="pk-n"><span class="tag t-calc">Calc</span></div></div>
+<div class="posk p-amber"><div class="pk-l">Invested (contribution)</div><div class="pk-v">₹41,416</div><div class="pk-n">12.9% of ₹3,21,508 total</div></div>
+<div class="posk p-teal"><div class="pk-l">Current value</div><div class="pk-v">₹31,692</div><div class="pk-n">at CMP ₹278 on 19-Oct-2026</div></div>
+<div class="posk p-neg"><div class="pk-l">Profit / Loss</div><div class="pk-v">−₹9,724</div><div class="pk-n">−23.5% on ₹41,416 invested</div></div>
+<div class="posk p-slate"><div class="pk-l">Monthly buy / SIP amount</div><div class="pk-v">&mdash;</div><div class="pk-n">fill in</div></div>
+<!--HOLD_POS_END-->
+</div>
+<p class="note"><a class="tabbtn" data-t="tabT" href="#tabT">→ Full transaction log (Transactions tab)</a></p>
+</div>
+<div class="verdict-main">
+  <div class="verdict-big">
+    <div style="font-size:12.5px;color:#ffe0a3;letter-spacing:1px">STANDALONE VERDICT (analyst view, Sep 2026)</div>
+    <div class="h">WATCHLIST — post-demerger earnings base still settling · 12M horizon</div>
+    <p style="margin-top:8px">A Large Cap with world-class brands (India PV plus JLR legacy and a 40% stack in TMCV) trading <b>below book at 0.92×</b> — but you cannot value it off FY26 earnings, because ₹86,291 Cr of one-off other income makes P/E 103x and ROE 75.7% meaningless. Stripping the one-off out, FY26 shows an operating margin halved to 6%, ROCE down to 3%, a roughly flat-to-shrinking top line (TTM −6%), negative free cash flow of −₹23,195 Cr and a stock 38% below its 52-week high. Volumes are re-accelerating (+40% YoY in Q2 FY27) and the balance sheet has been de-risked (debt −43%, interest −63%), which is exactly why this belongs on a <b>watchlist</b> and not in the avoid bin.</p>
+    <p class="note">Re-entry / upgrade triggers: two consecutive quarters of OPM ≥10% · PAT positive <i>excluding</i> other income · Q2 FY27 volume trend holding ≥25% YoY · CWIP converting into fixed assets and sales · borrowings staying at or below ₹79,109 Cr.</p>
+  </div>
+  <div class="card" style="flex:1 1 330px;margin:0">
+    <h4 style="margin-top:0">Section Scorecard (0–10)</h4>
+    <table>
+      <tr><th>Section</th><th>Score</th><th style="width:34%">Rating</th></tr>
+      <tr><td>1. Metadata</td><td>6.5</td><td><div class="scorebar"><i style="width:65%"></i></div></td></tr>
+      <tr><td>2. Valuation</td><td>5.0</td><td><div class="scorebar"><i style="width:50%"></i></div></td></tr>
+      <tr><td>3. Growth</td><td>4.0</td><td><div class="scorebar"><i style="width:40%"></i></div></td></tr>
+      <tr><td>4. Profits</td><td>4.0</td><td><div class="scorebar"><i style="width:40%"></i></div></td></tr>
+      <tr><td>5. Balance Sheet</td><td>5.5</td><td><div class="scorebar"><i style="width:55%"></i></div></td></tr>
+      <tr><td>6. Cash Flow</td><td>5.5</td><td><div class="scorebar"><i style="width:55%"></i></div></td></tr>
+      <tr><td>7. Shareholding</td><td>5.0</td><td><div class="scorebar"><i style="width:50%"></i></div></td></tr>
+      <tr><td><b>Composite</b></td><td><b>5.1</b></td><td><div class="scorebar"><i style="width:51%"></i></div></td></tr>
+    </table>
+    <p class="src">Rubric: 8–10 excellent · 6–8 positive/acceptable · 4–6 watchlist · under 4 avoid. Composite 5.1 = plain WATCHLIST (average of 6.5, 5.0, 4.0, 4.0, 5.5, 5.5, 5.0).</p>
+  </div>
+</div>
+</section>
+<section class="panel" id="tab1">
+<h2>1. Company / Stock Metadata</h2>
+<div class="viewbox"><div class="vh">Section 1 — The View (plain English)</div>
+<ul>
+<li class="imp">Identity: this is the <b>post-demerger passenger-vehicles entity carved out of Tata Motors Ltd in Oct-2025</b> — listed as NSE: TMPV / BSE: 500570 (FV ₹2), F and O listed, a Nifty 50 constituent. Historical FY15–FY25 annual figures are legacy Tata Motors consolidated <i>incl. JLR</i>.<span class="important">IMPORTANT</span></li>
+<li class="imp">Because of that split, <b>FY23–FY25 and FY26 are not the same company on the same basis</b>. Every trend in this report is flagged either "legacy (incl. JLR)" or "restructuring-era" — never compare them as a like-for-like series.<span class="important">IMPORTANT</span></li>
+<li>Business: a global automobile manufacturer part of the Tata group with a wide portfolio of cars and SUVs, operating in India, UK, South Korea, South Africa, China, Brazil, Austria and Slovakia — including Jaguar Land Rover in the UK and a 40% stack in TMCV.</li>
+<li>Unlike a small cap, information flow is deep: F and O listed, six credit-rating updates in 12 months, concalls (latest Aug-2026) and annual reports from 2013 to 2026.</li>
+<li>VERIFY items (not in free source): promoter pledge %, ISIN, auditor, exact cash balance, credit-rating <i>grades</i> (dates are known), and the peer comparison table.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Identification &amp; Classification <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Field</th><th style="text-align:left">Value</th></tr>
+<tr><td>Company Name</td><td style="text-align:left">Tata Motors Passenger Vehicles Ltd</td></tr>
+<tr><td>NSE Symbol</td><td style="text-align:left">TMPV</td></tr>
+<tr><td>BSE Symbol / Code</td><td style="text-align:left">TMPV / 500570 (Face Value ₹2)</td></tr>
+<tr><td>Derivatives</td><td style="text-align:left">F and O listed</td></tr>
+<tr><td>Sector (Screener)</td><td style="text-align:left">Consumer Discretionary → Automobiles → Passenger Cars and Utility Vehicles</td></tr>
+<tr><td>Index Membership</td><td style="text-align:left">Nifty 50 · BSE 500 · Nifty Auto · BSE Sensex 50</td></tr>
+<tr><td>Business Type</td><td style="text-align:left">Global auto manufacturer (Tata group): cars and SUVs; operations in India, UK, South Korea, South Africa, China, Brazil, Austria, Slovakia — incl. Jaguar Land Rover (UK) and a 40% stack in TMCV</td></tr>
+<tr><td>Market Cap</td><td style="text-align:left">₹1,02,903 Cr — <b>Large Cap</b></td></tr>
+<tr><td>Face Value</td><td style="text-align:left">₹2.00</td></tr>
+<tr><td>Book Value</td><td style="text-align:left">₹304</td></tr>
+<tr><td>52-Week High / Low</td><td style="text-align:left">₹447 / ₹272 (CMP ₹279 = about −38% from high, near the low)</td></tr>
+<tr><td>Corporate History</td><td style="text-align:left">Passenger-vehicles entity carved out of Tata Motors Ltd, Oct-2025 (demerger)</td></tr>
+<tr><td>Website</td><td style="text-align:left">tatamotors.com</td></tr>
+<tr><td>ISIN / Pledge % / Auditor</td><td style="text-align:left"><span class="warn">VERIFY — not in free Screener export</span></td></tr>
+<tr><td>Ratings (dates only)</td><td style="text-align:left">CRISIL 12-Aug-2026 · ICRA 31-Jul-2026 · CRISIL 27-Nov-2025 · ICRA 25-Nov-2025 · CRISIL 20-Oct-2025 · ICRA 16-Oct-2025 — <span class="warn">grades VERIFY</span></td></tr>
+</table>
+</div>
+<div class="card">
+<h4>Ownership Snapshot (as on 30-Jun-2026, Screener SHP) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Holding</th><th>%</th><th>Remark</th></tr>
+<tr><td>Promoters</td><td>42.51</td><td>Down from 46.38% (Sep'23) — step-down at Sep-24 = demerger issuance</td></tr>
+<tr><td>FIIs</td><td>17.11</td><td>18.40% → 17.11% over 12 quarters — steady</td></tr>
+<tr><td>DIIs</td><td>16.97</td><td>17.37% → 16.97% — steady, no exit</td></tr>
+<tr><td>Government</td><td>0.31</td><td>Tiny; up from 0.14%</td></tr>
+<tr><td>Public / Retail &amp; Others</td><td>23.09</td><td>Up from 17.70% — float broadening post-demerger</td></tr>
+<tr><td>No. of Shareholders</td><td>62,15,151</td><td>From 37,73,314 (Sep'23); peak 67,52,775 (Jun'25)</td></tr>
+<tr><td>Promoter Pledge</td><td class="warn">VERIFY</td><td>Not disclosed in free export</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> <b>Read the structure first:</b> pre-demerger this was Tata Motors Ltd (India PV + JLR + CV). Post-demerger, TMPV is the passenger-vehicle carve-out with a 40% associate stake in TMCV. Institutional ownership of 34%+ (FII 17.11 + DII 16.97) plus index membership means the stock is priced by professional money — the low P/B of 0.92× is therefore a <i>judgement</i>, not an oversight.</p>
+</div>
+</div>
+<div class="card">
+<h4>About &amp; Screener Pros / Cons <span class="tag t-fact">Fact</span> <span class="tag t-view">View</span></h4>
+<table>
+<tr><th style="text-align:left">About (source text)</th><th style="text-align:left">Machine flags</th></tr>
+<tr>
+<td style="text-align:left">Tata Motors Group is a global automobile manufacturer, part of the Tata group, offering a wide portfolio of cars and SUVs. Operations in India, UK, South Korea, South Africa, China, Brazil, Austria and Slovakia — including Jaguar Land Rover in the UK and a 40% stack in TMCV.</td>
+<td style="text-align:left">
+<b>Pros:</b>
+<ul>
+<li>Trading at 0.92 times book value</li>
+<li>Profit growth 101% CAGR over the last 5 years</li>
+<li>3Y ROE 52.4%</li>
+</ul>
+<b>Cons:</b>
+<ul>
+<li>Low interest coverage ratio</li>
+<li>Poor sales growth 6.08% over the past five years</li>
+<li>Tax rate seems low</li>
+<li>Might be capitalizing interest cost</li>
+<li>Earnings include other income of ₹84,536 Cr</li>
+<li>Promoter holding decreased over last 3 years −3.87%</li>
+</ul>
+</td>
+</tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> The machine flags confirm this report's thesis: the "pros" (101% profit CAGR, 52.4% ROE) are exactly the <b>one-off-flattered</b> numbers, while the "cons" (sales 6.08%, other income ₹84,536 Cr, promoter −3.87%) are the <b>clean</b> ones. Note also an internal contradiction to VERIFY: Screener flags "low interest coverage", yet FY26 operating profit ₹18,719 Cr against interest ₹2,827 Cr is roughly 6.6× cover — the flag likely derives from the legacy (pre-demerger) series.</p>
+</div>
+</section>
+
+<section class="panel" id="tab2">
+<h2>2. Valuation Metrics</h2>
+<div class="viewbox"><div class="vh">Section 2 — The View (plain English)</div>
+<ul>
+<li class="imp"><b>The headline P/E of 103x is not usable.</b> TTM earnings include the ₹86,291 Cr one-off demerger gain, and the ratio blends the post-demerger price with a legacy earnings series (reported TTM EPS ₹215.18 would give 1.3x, not 103x). Judge this stock on <b>P/B 0.92× book (BV ₹304)</b> and operating trends instead.<span class="important">IMPORTANT</span></li>
+<li class="imp">0.92× book is genuinely cheap in absolute terms — you pay 92 paise for ₹1 of net assets — <b>but book value only matters if it earns</b>, and ROCE of 2.73% says today it does not. Cheap-but-unproductive is the classic value-trap setup.<span class="important">IMPORTANT</span></li>
+<li>Price evidence agrees with the fundamentals: price CAGR −36% in 1 year and −9% over 3 years — the market has been cutting the multiple, not expanding it.</li>
+<li>There is a small income floor: dividend yield 1.07% on a ~1% payout — real, but too thin to support the price on its own.</li>
+<li>Enterprise value ≈ ₹1,82,012 Cr (mcap + gross borrowings; cash balance not disclosed = VERIFY) → EV/Sales ≈0.53× TTM and EV/Operating profit ≈10.8× — debt adds about 77% to the true cost of the company.</li>
+<li>Peer comparison table was not machine-readable in the source — build it manually before relying on any relative valuation (flagged VERIFY).</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Price-to-Earnings 103x exactly as shown by the source. Distorted by the ₹86,291 Cr one-off demerger gain inside TTM profit and by a legacy-basis earnings series that does not reconcile with the post-demerger price. Never use this multiple to judge TMPV."><div class="l">P/E (headline)</div><div class="v bad">103x</div><div class="n">Distorted — unusable</div></div>
+  <div class="kpi" data-explain="Price-to-Book 0.92x — below book value. This is the most trustworthy headline multiple in the report because book value (₹304 per share) is a stock figure that the one-off gain cannot fully distort the way a flow figure like profit can."><div class="l">P/B</div><div class="v good">0.92x</div><div class="n">BV ₹304 · below book</div></div>
+  <div class="kpi" data-explain="Book value ₹304 per share = net worth ₹1,12,068 Cr (equity capital ₹737 Cr + reserves ₹1,11,331 Cr) across the share count. The market price of ₹279 is under this number."><div class="l">Book Value</div><div class="v">₹304</div><div class="n">Net worth ₹1,12,068 Cr</div></div>
+  <div class="kpi" data-explain="Price-to-Sales about 0.30x — the market values ₹1 of annual sales at 30 paise (TTM sales ₹3,43,703 Cr). Low P/S is normal for a low-margin, capital-heavy manufacturer: sales of ₹3.36 lakh Cr only converted to 6% operating margin in FY26."><div class="l">P/S (TTM)</div><div class="v">≈0.30x</div><div class="n">Mcap 1,02,903 ÷ sales 3,43,703</div></div>
+  <div class="kpi" data-explain="Estimated Enterprise Value ≈₹1,82,012 Cr = market cap ₹1,02,903 Cr + gross borrowings ₹79,109 Cr (cash balance not disclosed, so this is a gross-debt EV — VERIFY cash before using it in any model)."><div class="l">EV (est.)</div><div class="v warn">≈₹1,82,012 Cr</div><div class="n">Mcap + gross debt · cash VERIFY</div></div>
+  <div class="kpi" data-explain="EV/Operating profit ≈10.8× on TTM operating profit of ₹16,910 Cr, and EV/Sales ≈0.53×. Since OPM is only 4.9% TTM, 10.8× EBIT looks rich until margins recover — the multiple only works if 10%+ margins come back."><div class="l">EV / EBIT (est.)</div><div class="v warn">≈10.8×</div><div class="n">EV/Sales ≈0.53× · cash VERIFY</div></div>
+  <div class="kpi" data-explain="Return on capital employed 2.73% — the true operating return. Compare it with any reasonable cost of capital (10–12%) and the gap explains why the market applies a below-book multiple: the assets currently earn far less than they cost to fund."><div class="l">ROCE</div><div class="v bad">2.73%</div><div class="n">Far below cost of capital</div></div>
+  <div class="kpi" data-explain="Dividend yield 1.07% with a FY26 payout of about 1% — a genuine but small income floor. For context, a 1.07% yield is meaningful only if earnings are clean, which in FY26 they are not (one-off inflated)."><div class="l">Dividend Yield</div><div class="v">1.07%</div><div class="n">Payout ~1%</div></div>
+</div>
+<div class="card">
+<h4>Current vs Context <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Comparison</th><th>Current</th><th>Reference</th><th>Verdict</th></tr>
+<tr><td>P/E vs reported TTM EPS ₹215.18</td><td>103x displayed</td><td>279 ÷ 215.18 = 1.3x</td><td><span class="pill p-r">Different bases — unusable</span></td></tr>
+<tr><td>P/E vs own profit quality</td><td>103x</td><td>TTM PAT carries ₹84,536 Cr other income</td><td><span class="pill p-r">Distorted by one-off</span></td></tr>
+<tr><td>P/B vs own book</td><td class="good">0.92x</td><td>₹304 BV · net worth ₹1,12,068 Cr</td><td><span class="pill p-g">Below book — key support</span></td></tr>
+<tr><td>ROCE vs cost of capital</td><td class="bad">2.73%</td><td>~10–12% typical hurdle</td><td><span class="pill p-r">Value trap risk</span></td></tr>
+<tr><td>Price vs 1 year ago</td><td>₹279</td><td>1Y CAGR −36%</td><td><span class="pill p-r">Falling — momentum negative</span></td></tr>
+<tr><td>Price vs 52-week range</td><td>₹279</td><td>₹447 / ₹272 (near low)</td><td><span class="pill p-y">−38% from high, 3% above low</span></td></tr>
+<tr><td>Dividend yield vs peers</td><td>1.07%</td><td>Payout ~1%</td><td><span class="pill p-y">Thin income floor</span></td></tr>
+<tr><td>Peer table (auto OEMs)</td><td class="warn">VERIFY</td><td>Peers table not machine-readable</td><td><span class="pill p-y">Build manually before use</span></td></tr>
+</table>
+<p class="src">Consistency rule applied throughout this report: wherever P/E, ROE or net margin appear, they are labelled as one-off-flattered and cross-checked against P/B, OPM and ROCE.</p>
+</div>
+</section>
+<section class="panel" id="tab3">
+<h2>3. Growth Metrics</h2>
+<div class="viewbox"><div class="vh">Section 3 — The View (plain English)</div>
+<ul>
+<li class="imp">The top line is not growing: sales CAGR <b>10Y 2% · 5Y 6% · 3Y −1% · TTM −6%</b>. FY26 revenue of ₹3,35,582 Cr is below FY24 (₹4,34,016 Cr) and barely above FY23 — this is a flat-to-shrinking business at the headline level.<span class="important">IMPORTANT</span></li>
+<li class="imp">Profit CAGR (10Y 21% · 5Y 101% · 3Y 232%) and ROE (last year 76%) look spectacular but are <b>one-off-flattered</b> by the ₹86,291 Cr demerger gain; TTM profit is already running at −94% CAGR as that gain rolls off. Never extrapolate the 101%/232% lines.<span class="important">IMPORTANT</span></li>
+<li>Restructuring-era warning: <b>FY26 is the carve-out year and FY23–FY25 are legacy Tata Motors consolidated incl. JLR</b>. The annual series below is context, not a like-for-like trend — the quarterly series (post-restatement) is the cleaner read.</li>
+<li>The quarterly pattern makes the point: Sep-2025 shows Other Income ₹81,507 Cr, Net Profit ₹76,248 Cr, EPS ₹206.85 and OPM <b>−1.9%</b> (the demerger one-off), while Dec-2025 shows a net loss of ₹3,483 Cr (EPS −9.47) — the clean quarter.</li>
+<li>The genuine positive: Q2 FY27 volumes of 201,723 units, +40% YoY (Section 8) — operations are re-accelerating ahead of the reported-profit recovery.</li>
+<li>Price and fundamentals are pointing the same way: stock 1Y CAGR −36% against TTM sales −6% — the de-rating is explained, not mysterious.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Annual P&amp;L (consolidated, ₹ Cr) — FY23 to FY26 + TTM <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Line</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th><th>TTM</th></tr>
+<tr><td>Sales</td><td>345,967</td><td class="good">434,016</td><td>366,094</td><td>335,582</td><td>343,703</td></tr>
+<tr><td>Sales YoY %</td><td>—</td><td class="good">+25%</td><td class="bad">−16%</td><td class="bad">−8%</td><td class="warn">+2% (vs FY26)</td></tr>
+<tr><td>Expenses</td><td>314,151</td><td>376,207</td><td>318,101</td><td>316,863</td><td>326,793</td></tr>
+<tr><td>Operating Profit (EBITDA)</td><td>31,816</td><td class="good">57,809</td><td>47,993</td><td class="bad">18,719</td><td>16,910</td></tr>
+<tr><td>OPM %</td><td>9</td><td class="good">13</td><td class="good">13</td><td class="bad">6</td><td class="bad">4.9</td></tr>
+<tr><td>Other Income</td><td>6,664</td><td>4,807</td><td>14,219</td><td class="bad">86,291</td><td class="bad">84,536</td></tr>
+<tr><td>Interest</td><td>10,225</td><td>7,594</td><td>3,901</td><td class="good">2,827</td><td>2,970</td></tr>
+<tr><td>Depreciation</td><td>24,860</td><td>27,239</td><td>21,102</td><td>19,784</td><td>19,812</td></tr>
+<tr><td>Profit before tax</td><td>3,394</td><td>27,783</td><td>37,209</td><td class="warn">82,399</td><td class="warn">78,664</td></tr>
+<tr><td>Tax %</td><td>21</td><td>−14</td><td>24</td><td>−0</td><td>—</td></tr>
+<tr><td>Net Profit</td><td>2,690</td><td>31,807</td><td>28,149</td><td class="bad">82,645</td><td class="bad">79,502</td></tr>
+<tr><td>EPS (₹)</td><td>7.27</td><td>94.47</td><td>75.60</td><td class="bad">223.74</td><td class="bad">215.18</td></tr>
+<tr><td>Dividend Payout %</td><td>32</td><td>7</td><td>8</td><td>1</td><td>—</td></tr>
+</table></div>
+<p class="note"><span class="tag t-view">View</span> <b>Reading note — this table is not a like-for-like series.</b> FY23–FY25 are legacy Tata Motors consolidated figures <i>including Jaguar Land Rover</i>; FY26 is the first restructuring-era year of the passenger-vehicles carve-out and contains the one-off demerger gain of ₹86,291 Cr in Other Income. FY26 profit before tax excluding that other income is roughly <b>−₹3,892 Cr</b> — i.e. the remaining lines were around break-even-to-negative at the pre-tax level. Treat FY26's ₹82,645 Cr net profit, ₹223.74 EPS and 24.6% net margin as accounting artefacts, not performance. <span class="tag t-calc">Calc</span></p>
+</div>
+<div class="card">
+<h4>Growth scorecard (Screener CAGRs) <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>10Y</th><th>5Y</th><th>3Y</th><th>TTM / 1Y</th></tr>
+<tr><td>Sales CAGR</td><td class="good">2%</td><td class="good">6%</td><td class="bad">−1%</td><td class="bad">−6%</td></tr>
+<tr><td>Net Profit CAGR <span class="tag t-view">one-off flattered</span></td><td class="warn">21%</td><td class="warn">101%</td><td class="warn">232%</td><td class="bad">−94%</td></tr>
+<tr><td>Stock Price CAGR</td><td class="bad">−2%</td><td class="good">7%</td><td class="bad">−9%</td><td class="bad">−36%</td></tr>
+<tr><td>Return on Equity <span class="tag t-view">one-off flattered</span></td><td>20%</td><td class="warn">37%</td><td class="warn">52%</td><td class="bad">76% (last year)</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> The clean lines are sales (flat) and price (negative). The spectacular lines — 101% profit CAGR, 232% 3-year profit CAGR, 76% last-year ROE — are all built on the demerger gain and the post-restructuring equity base; they collapse the moment the one-off rolls off (TTM profit CAGR already −94%). Screener's own flag "poor sales growth 6.08% over past five years" is the honest summary of the top line.</p>
+</div>
+<div class="card">
+<h4>Quarterly Results — last 13 quarters (Jun'23 → Jun'26, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Line</th><th>Jun'23</th><th>Sep'23</th><th>Dec'23</th><th>Mar'24</th><th>Jun'24</th><th>Sep'24</th><th>Dec'24</th><th>Mar'25</th><th>Jun'25</th><th>Sep'25</th><th>Dec'25</th><th>Mar'26</th><th>Jun'26</th></tr>
+<tr><td>Sales</td><td>102,236</td><td>105,129</td><td>110,577</td><td>119,033</td><td>107,102</td><td>83,656</td><td>94,472</td><td>98,377</td><td>87,677</td><td>72,349</td><td>70,108</td><td>105,447</td><td class="good">95,799</td></tr>
+<tr><td>Operating Profit</td><td>13,217</td><td>13,767</td><td>15,418</td><td>16,685</td><td>15,248</td><td>9,914</td><td>10,402</td><td>14,387</td><td>8,162</td><td class="bad">−1,404</td><td>879</td><td>11,259</td><td>6,176</td></tr>
+<tr><td>OPM %</td><td>13</td><td>13</td><td>14</td><td>14</td><td>14</td><td>12</td><td>11</td><td>15</td><td>9</td><td class="bad">−1.9</td><td class="bad">1.2</td><td class="good">11</td><td class="bad">6</td></tr>
+<tr><td>Other Income</td><td>895</td><td>1,557</td><td>1,604</td><td>1,412</td><td>6,553</td><td>1,920</td><td>2,730</td><td>2,361</td><td>2,690</td><td class="bad">81,507</td><td>39</td><td>1,877</td><td>1,113</td></tr>
+<tr><td>Interest</td><td>2,615</td><td>2,652</td><td>2,485</td><td>1,645</td><td>1,471</td><td>1,094</td><td>843</td><td>828</td><td>692</td><td>686</td><td>682</td><td>767</td><td>835</td></tr>
+<tr><td>Depreciation</td><td>6,633</td><td>6,637</td><td>6,850</td><td>7,143</td><td>6,565</td><td>5,467</td><td>4,863</td><td>4,717</td><td>4,851</td><td>4,871</td><td>4,969</td><td>5,092</td><td>4,880</td></tr>
+<tr><td>PBT</td><td>4,864</td><td>6,035</td><td>7,687</td><td>9,309</td><td>13,765</td><td>5,273</td><td>7,426</td><td>11,203</td><td>5,309</td><td class="bad">74,546</td><td class="bad">−4,733</td><td>7,277</td><td>1,574</td></tr>
+<tr><td>Tax %</td><td>32</td><td>36</td><td>7</td><td>−88</td><td>23</td><td>33</td><td>26</td><td>24</td><td>25</td><td>−2</td><td>−26</td><td>19</td><td>45</td></tr>
+<tr><td>Net Profit</td><td>3,301</td><td>3,832</td><td>7,145</td><td>17,528</td><td>10,587</td><td>3,521</td><td>5,484</td><td>8,556</td><td>4,003</td><td class="bad">76,248</td><td class="bad">−3,483</td><td>5,878</td><td class="bad">859</td></tr>
+<tr><td>EPS (₹)</td><td>9.64</td><td>11.33</td><td>21.14</td><td>52.37</td><td>31.63</td><td>9.36</td><td>14.69</td><td>23.01</td><td>10.66</td><td class="bad">206.85</td><td class="bad">−9.47</td><td>15.70</td><td class="bad">2.10</td></tr>
+</table></div>
+<p class="note"><span class="tag t-calc">Calc</span> <b>Sep-2025 column = the demerger one-off:</b> Other Income 81,507 · Net Profit 76,248 · EPS 206.85 · OPM −1.9% — profit that came from a balance-sheet event, not from selling cars. <b>Dec-2025 = the clean read:</b> net loss −3,483 (EPS −9.47) on sales of 70,108 with OPM 1.2%. Jun-2026 (latest): sales 95,799 <b>+9.3% YoY</b> on 87,677, operating profit 6,176, OPM 6%, net profit 859 (EPS 2.10) after a 45% tax rate. Note that reported quarterly sums tie exactly to FY26 (335,581) but to FY25/FY24 only approximately — the annual comparatives were restated for the demerger carve-out, another reason to read quarters, not the annual bridge.</p>
+</div>
+</section>
+<section class="panel" id="tab4">
+<h2>4. Profitability &amp; Efficiency</h2>
+<div class="viewbox"><div class="vh">Section 4 — The View (plain English)</div>
+<ul>
+<li class="imp">The operating engine weakened in the restructuring year: OPM was <b>13% in FY24 and 13% in FY25, then 6% in FY26 — and 6% again in the Jun-2026 quarter</b>. Half the operating margin disappeared and has not come back.<span class="important">IMPORTANT</span></li>
+<li class="imp">ROCE fell <b>19% → 16% → 3%</b> across FY24–FY26 (2.73% TTM). A company earning 3% on capital employed against a 10–12% cost of capital is destroying value at the operating level — that is why the stock trades below book.<span class="important">IMPORTANT</span></li>
+<li class="imp">Net margin and ROE are distorted: FY26 net margin of ~24.6% and ROE 75.7% are artefacts of the ₹86,291 Cr demerger gain sitting in other income. Ex-one-off, FY26 pre-tax profit is roughly <b>−₹3,892 Cr</b>.<span class="important">IMPORTANT</span></li>
+<li>The genuine improvement is the interest line: <b>₹7,594 Cr (FY24) → ₹3,901 Cr (FY25) → ₹2,827 Cr (FY26)</b>, down 63% in two years — deleveraging is flowing straight to the P&amp;L, giving roughly 6.6× interest cover on FY26 operating profit.</li>
+<li>This is a working-capital-negative model: cash conversion cycle of −45 / −48 / −69 / −59 days and working-capital days of −63 to −81 — suppliers and dealers fund the inventory, which is structurally favourable for an OEM.</li>
+<li>Signature test (Revenue up? Margin up? ROCE up?): <b>✗ / ✗ / ✗</b> — all three legs fail. This section scores 4.0/10.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Return &amp; margin stack <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>Value</th><th style="text-align:left">Assessment</th></tr>
+<tr><td>OPM FY24 / FY25</td><td class="good">13% / 13%</td><td style="text-align:left">Healthy base for an OEM before the carve-out</td></tr>
+<tr><td>OPM FY26</td><td class="bad">6%</td><td style="text-align:left">Halved in the restructuring year</td></tr>
+<tr><td>OPM Jun-26 quarter</td><td class="bad">6%</td><td style="text-align:left">No recovery yet (Mar-26 was 11%)</td></tr>
+<tr><td>ROCE FY24 → FY25 → FY26</td><td class="bad">19 → 16 → 3%</td><td style="text-align:left">Collapse; TTM 2.73% is far below cost of capital</td></tr>
+<tr><td>Interest (₹ Cr)</td><td class="good">2,827</td><td style="text-align:left">Down from ₹7,594 Cr FY24 and ₹10,225 Cr FY23 (−63% in 2 yrs)</td></tr>
+<tr><td>Interest coverage (FY26)</td><td class="good">≈6.6×</td><td style="text-align:left">OP 18,719 ÷ interest 2,827 — comfortable now</td></tr>
+<tr><td>Net margin (FY26)</td><td class="bad">24.6% ⚠ distorted</td><td style="text-align:left">₹82,645 ÷ ₹335,582 — inflated by the one-off</td></tr>
+<tr><td>ROE (headline)</td><td class="bad">75.7% ⚠ distorted</td><td style="text-align:left">One-off gain + post-restructuring equity base</td></tr>
+<tr><td>Asset turnover (FY26)</td><td>0.89×</td><td style="text-align:left">Sales 335,582 ÷ assets 379,189 — heavy-asset manufacturer</td></tr>
+<tr><td>Net Worth (FY26)</td><td>₹1,12,068 Cr</td><td style="text-align:left">Equity 737 + reserves 1,11,331 → BV ₹304</td></tr>
+</table>
+</div>
+<div class="card">
+<h4>Efficiency ratios (Screener) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Ratio</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Debtor Days</td><td>17</td><td>14</td><td>13</td><td>14</td></tr>
+<tr><td>Inventory Days</td><td>66</td><td>64</td><td>78</td><td class="warn">85</td></tr>
+<tr><td>Days Payable</td><td>128</td><td>126</td><td>160</td><td>158</td></tr>
+<tr><td>Cash Conversion Cycle</td><td class="good">−45</td><td class="good">−48</td><td class="good">−69</td><td class="good">−59</td></tr>
+<tr><td>Working Capital Days</td><td class="good">−63</td><td class="good">−55</td><td class="good">−75</td><td class="good">−81</td></tr>
+<tr><td>ROCE %</td><td>6</td><td class="good">19</td><td>16</td><td class="bad">3</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> <b>Signature test (Revenue↑? Margin↑? ROCE↑?):</b> Revenue ✗ (3Y CAGR −1%, TTM −6%) · Margin ✗ (13% → 6%) · ROCE ✗ (19% → 3%). Three failures, so the score stays at 4.0. The <i>structure</i> is still sound, though: negative cash conversion cycle (−59 days) and negative working-capital days (−81) mean the business self-funds its inventory — inventory days creeping 66 → 85 is worth watching, but suppliers are carrying the load (payable 158 days). The problem is not working capital; it is that the assets stopped earning (ROCE 3%) while the margin halved.</p>
+</div>
+</div>
+</section>
+
+<section class="panel" id="tab5">
+<h2>5. Balance Sheet / Financial Strength</h2>
+<div class="viewbox"><div class="vh">Section 5 — The View (plain English)</div>
+<ul>
+<li class="imp">Deleveraging is real: borrowings <b>₹1,34,113 → ₹1,07,264 → ₹71,540 → ₹79,109 Cr</b> (FY23→FY26) — down about 43% from the FY23 peak, with debt-to-equity about <b>0.66×</b> on a net worth of ₹1,12,068 Cr.<span class="important">IMPORTANT</span></li>
+<li class="imp">But ₹79,109 Cr of gross debt is still an enormous absolute number, and FY26 shows a slight uptick (from ₹71,540 Cr) — the deleveraging stalled in the year the capex stepped up.<span class="important">IMPORTANT</span></li>
+<li class="imp">The other side of the same coin: <b>CWIP exploded ₹14,274 → ₹35,698 → ₹65,806 → ₹1,02,654 Cr (7.2× in three years)</b> while fixed assets actually fell (₹132,080 → ₹1,04,656 Cr). Nearly 27% of total assets are plants under construction that earn nothing yet.<span class="important">IMPORTANT</span></li>
+<li>Equity base: equity capital ₹737 Cr and reserves ₹1,11,331 Cr (down from ₹1,15,408 Cr after the carve-out adjustments) → book value ₹304 per share, which the ₹279 price sits below.</li>
+<li>Total assets are essentially flat at ₹3,76,973 → ₹3,79,189 Cr over FY25–FY26 — the balance sheet is being <i>rearranged</i> (more WIP, less fixed asset, more debt), not grown.</li>
+<li>VERIFY: cash balance row is missing from the free export (needed for net debt) · credit-rating <i>grades</i> (six dated updates exist) · Screener's "low interest coverage / might be capitalizing interest cost" flags conflict with the 6.6× cover computed on FY26 numbers.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Balance sheet trajectory (Screener, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Line</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Equity Capital</td><td>766</td><td>767</td><td>736</td><td>737</td></tr>
+<tr><td>Reserves</td><td>44,556</td><td>84,151</td><td class="good">1,15,408</td><td>1,11,331</td></tr>
+<tr><td>Borrowings</td><td class="bad">1,34,113</td><td>1,07,264</td><td class="good">71,540</td><td class="warn">79,109</td></tr>
+<tr><td>Other Liabilities</td><td>1,55,239</td><td>1,77,339</td><td>1,89,289</td><td>1,88,012</td></tr>
+<tr><td>Total Liabilities / Assets</td><td>3,34,674</td><td>3,69,521</td><td>3,76,973</td><td>3,79,189</td></tr>
+<tr><td>Fixed Assets</td><td>1,32,080</td><td>1,21,285</td><td>1,15,697</td><td class="warn">1,04,656</td></tr>
+<tr><td>Capital Work-in-Progress</td><td>14,274</td><td>35,698</td><td>65,806</td><td class="bad">1,02,654</td></tr>
+<tr><td>Investments</td><td>26,379</td><td>22,971</td><td>35,656</td><td>26,313</td></tr>
+<tr><td>Other Assets</td><td>1,61,941</td><td>1,89,567</td><td>1,59,814</td><td>1,45,566</td></tr>
+<tr><td>Cash &amp; Balances</td><td colspan="4" style="text-align:center" class="warn">NOT in free export — VERIFY from annual report</td></tr>
+</table></div>
+</div>
+<div class="card">
+<h4>Derived strength metrics <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>Value</th><th style="text-align:left">Basis / verdict</th></tr>
+<tr><td>Gross debt FY26</td><td class="warn">₹79,109 Cr</td><td style="text-align:left">Down about 43% from FY23 peak ₹1,34,113 Cr — but still very large</td></tr>
+<tr><td>Debt / Equity (FY26)</td><td>0.66×</td><td style="text-align:left">On net worth ₹1,12,068 Cr — below 1.0×, acceptable for an OEM</td></tr>
+<tr><td>Debt path FY25 → FY26</td><td class="bad">+10.6%</td><td style="text-align:left">71,540 → 79,109 — deleveraging stalled as capex stepped up</td></tr>
+<tr><td>CWIP / Total assets</td><td class="warn">27.1%</td><td style="text-align:left">1,02,654 ÷ 3,79,189 — over a quarter of the asset base is not yet earning</td></tr>
+<tr><td>Net Worth</td><td>₹1,12,068 Cr</td><td style="text-align:left">Equity 737 + reserves 1,11,331 → BV ₹304 vs CMP ₹283</td></tr>
+<tr><td>Interest coverage (FY26)</td><td class="good">≈6.6×</td><td style="text-align:left">OP 18,719 ÷ interest 2,827 — sharp improvement</td></tr>
+<tr><td>Gross debt ÷ TTM operating profit</td><td class="bad">≈4.7×</td><td style="text-align:left">79,109 ÷ 16,910 — net debt needs the cash balance (VERIFY)</td></tr>
+<tr><td>Asset turnover</td><td>0.89×</td><td style="text-align:left">335,582 ÷ 3,79,189 — heavy-asset manufacturer, not asset-light</td></tr>
+<tr><td>Ratings</td><td class="warn">6 dated updates</td><td style="text-align:left">CRISIL 12-Aug-26 / ICRA 31-Jul-26 and four in 2025 — grades VERIFY</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> Score 5.5/10 — the balance sheet has genuinely improved (debt down ~43% from peak, D/E 0.66×, interest −63%, cover 6.6×) but it has not finished the job: gross debt of ₹79,109 Cr is still large, the FY26 uptick shows the trend reversed, and ₹1,02,654 Cr of CWIP is being funded while free cash flow is −₹23,195 Cr. The single biggest question for the next four quarters: <i>does the WIP convert into revenue faster than new debt is required to finish it?</i></p>
+</div>
+</div>
+</section>
+
+<section class="panel" id="tab6">
+<h2>6. Cash Flow Metrics</h2>
+<div class="viewbox"><div class="vh">Section 6 — The View (plain English)</div>
+<ul>
+<li class="imp">FY26 cash generation collapsed: <b>CFO ₹13,041 Cr vs ₹63,102 Cr in FY25 (−79%)</b>, and free cash flow turned negative at <b>−₹23,195 Cr</b> — the first negative FCF since FY23.<span class="important">IMPORTANT</span></li>
+<li class="imp">Read that collapse together with <b>CWIP of ₹1,02,654 Cr</b>: this is an aggressive capacity-investment phase, not simply a deteriorating core. CFO/OP of 87% still shows the operations converting most of their profit into cash.<span class="important">IMPORTANT</span></li>
+<li>Cash conversion was actually excellent before the capex step-up: CFO/OP of <b>121% / 125% / 140%</b> in FY23–FY25 — a working-capital-negative model that consistently threw off more cash than operating profit.</li>
+<li>Investing outflow every year (−₹15,417 / −₹22,781 / −₹49,982 / −₹23,166 Cr) and financing outflow every year (−₹26,243 / −₹37,006 / −₹18,786 / −₹1,344 Cr) — the company has been repaying debt and investing at the same time.</li>
+<li>Net cash flow was negative in three of four years (−₹6,272 / +₹8,128 / −₹5,666 / −₹11,469 Cr) — the balance sheet is being funded from operations and the existing cash pile, not from fresh borrowing.</li>
+<li>What would upgrade this section: CFO staying above ~₹40,000 Cr while CWIP declines — i.e. the capex phase completing without a funding gap.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Cash flow statement (Screener, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Line</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Cash from Operating Activity (CFO)</td><td class="good">35,388</td><td class="good">67,915</td><td class="good">63,102</td><td class="bad">13,041</td></tr>
+<tr><td>Cash from Investing Activity</td><td class="bad">−15,417</td><td class="bad">−22,781</td><td class="bad">−49,982</td><td class="bad">−23,166</td></tr>
+<tr><td>Cash from Financing Activity</td><td class="bad">−26,243</td><td class="bad">−37,006</td><td class="bad">−18,786</td><td class="bad">−1,344</td></tr>
+<tr><td>Net Cash Flow</td><td class="bad">−6,272</td><td class="good">8,128</td><td class="bad">−5,666</td><td class="bad">−11,469</td></tr>
+<tr><td>Free Cash Flow</td><td class="good">16,443</td><td class="good">36,732</td><td class="good">26,034</td><td class="bad">−23,195</td></tr>
+<tr><td>CFO / Operating Profit</td><td class="good">121%</td><td class="good">125%</td><td class="good">140%</td><td class="warn">87%</td></tr>
+</table>
+<p class="note"><span class="tag t-calc">Calc</span> Cumulative FY23–26 CFO = <b>+₹1,79,446 Cr</b> against cumulative free cash flow of <b>+₹56,014 Cr</b> — over four years the business did generate cash, but FY26 alone consumed it: CFO fell 79% while FCF went to −₹23,195 Cr. The bridge is entirely capital expenditure: with CWIP at ₹1,02,654 Cr (up ₹36,848 Cr in FY26 alone), the company is spending on future capacity ahead of the revenue it will produce. FY26 CFO/OP of 87% says operations still convert profit to cash reasonably well; the missing cash went into the ground. Cash-conversion test: reported PAT ₹82,645 Cr (one-off inflated) vs CFO ₹13,041 Cr gives a meaningless 0.16× — another reason to strip the demerger gain before testing quality of earnings.</p>
+</div>
+</section>
+<section class="panel" id="tab7">
+<h2>7. Shareholding &amp; Ownership (quarterly)</h2>
+<div class="viewbox"><div class="vh">Section 7 — The View (plain English)</div>
+<ul>
+<li class="imp">Promoter holding fell from <b>46.38% (Sep-2023) to 42.51% (Jun-2026) — down 3.87% over three years</b>, with a single 3.78-point step-down at Sep-2024 that is the <b>demerger share issuance</b>, not a market sale (Screener lists it as a con anyway).<span class="important">IMPORTANT</span></li>
+<li class="imp">The public float is rising post-demerger: <b>17.70% → 23.09%</b> and shareholder count up from 37,73,314 to <b>62,15,151</b> (peak 67,52,775 at Jun-2025) — ownership has broadened to a much wider base.<span class="important">IMPORTANT</span></li>
+<li>Institutions held their ground: FIIs 18.40% → 17.11% and DIIs 17.37% → 16.97% over 12 quarters — about 34% combined professional ownership, no exit despite the −36% price move.</li>
+<li>Government holding is negligible (0.14% → 0.31%); it is the public category that absorbed the demerger share issuance.</li>
+<li>Structural read: the promoter drop is an artefact of the corporate action, not promoter selling — but confirm against SHP filings before treating it as neutral.</li>
+<li>VERIFY: promoter pledge % is not in the free source — for a Large Cap this is usually low, but it should still be checked every quarter.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Quarterly shareholding, Sep-2023 → Jun-2026 (%) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Class</th><th>Sep'23</th><th>Dec'23</th><th>Mar'24</th><th>Jun'24</th><th>Sep'24</th><th>Dec'24</th><th>Mar'25</th><th>Jun'25</th><th>Sep'25</th><th>Dec'25</th><th>Mar'26</th><th>Jun'26</th></tr>
+<tr><td>Promoters</td><td>46.38</td><td>46.37</td><td>46.36</td><td>46.36</td><td class="bad">42.58</td><td>42.58</td><td>42.58</td><td>42.57</td><td>42.57</td><td>42.56</td><td>42.56</td><td>42.51</td></tr>
+<tr><td>FIIs</td><td>18.40</td><td>18.62</td><td>19.20</td><td>18.18</td><td>20.54</td><td>18.66</td><td>17.84</td><td>17.17</td><td>17.13</td><td>17.88</td><td>17.29</td><td>17.11</td></tr>
+<tr><td>DIIs</td><td>17.37</td><td>17.25</td><td>16.01</td><td>15.93</td><td>16.08</td><td>16.54</td><td>16.88</td><td>16.93</td><td>17.03</td><td>15.08</td><td>16.79</td><td>16.97</td></tr>
+<tr><td>Government</td><td>0.14</td><td>0.14</td><td>0.14</td><td>0.14</td><td>0.29</td><td>0.31</td><td>0.31</td><td>0.31</td><td>0.31</td><td>0.31</td><td>0.31</td><td>0.31</td></tr>
+<tr><td>Public</td><td>17.70</td><td>17.60</td><td>18.31</td><td>19.39</td><td class="good">20.49</td><td>21.91</td><td>22.39</td><td>23.01</td><td>22.97</td><td>24.14</td><td>23.06</td><td>23.09</td></tr>
+<tr><td>No. of Shareholders</td><td>37,73,314</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="warn">67,52,775</td><td>—</td><td>—</td><td>—</td><td class="good">62,15,151</td></tr>
+</table></div>
+<p class="note"><span class="tag t-calc">Calc</span> Promoter + FII + DII = <b>76.59%</b> at Jun-2026 · public float 23.09% · FII:DII ratio 1.01 (balanced). The promoter line moves in exactly one place — Sep-2024, 46.36 → 42.58 (−3.78 points) — which is the demerger share issuance; every other change is rounding. Over the full 12 quarters the promoter is down <b>3.87 points</b> and the public is up 5.39 points. Shareholder register widened by 64.7% (37,73,314 → 62,15,151) before easing back from the Jun-2025 peak of 67,52,775 — consistent with a demerger record-date redistribution. <span class="tag t-view">View</span> Score 5.0/10: stable institutions, structural (not voluntary) promoter dilution, broadening retail base — and no pledge data (VERIFY).</p>
+</div>
+</section>
+
+<section class="panel" id="tab8">
+<h2>8. News &amp; Recent Developments (Sep-2026)</h2>
+<div class="viewbox"><div class="vh">Section 8 — The View (plain English)</div>
+<ul>
+<li class="imp">The headline is operational and bullish: the <b>1-Oct-2026 press release — 201,723 units sold in Q2 FY27, up 40% YoY, with September sales crossing 70,000.</b> Volume recovery is real and it is happening now.<span class="important">IMPORTANT</span></li>
+<li class="imp">The headline risk is a rumour: on <b>29-Sep-2026 the company ran a verification exercise on a Moneycontrol report and stated there were no negotiations and no undisclosed information</b> — the exchange had sought a clarification the same day.<span class="important">IMPORTANT</span></li>
+<li class="imp">Two filings land in the 07–19 Oct window and neither is financial: a <b>12-Oct-2026 definitive agreement with Stellantis</b> for advanced-technology and product collaboration, and the <b>SIAM Jul–Sep 2026 industry report (06-Oct-2026)</b>. Strategically interesting, financially unquantified — no revenue, margin or order-book number attached, so the score cannot move on them.<span class="important">IMPORTANT</span></li>
+<li>Housekeeping filings are orderly: trading window closed 22-Sep-2026 ahead of results; <b>SES ESG reaffirmed a score of 77.9 (Adjusted), rating B+ for FY2025-26</b> on 21-Sep-2026.</li>
+<li>The <b>quarterly financial print itself has not appeared</b> — only the volume press release has. As of the 20-Oct-2026 run no Q2 FY27 result table is in the source → <span class="warn">VERIFY</span> the date on BSE/NSE; that print (with a clean post-one-off P&amp;L) is still the single input that can move this score.</li>
+<li>Ratings activity is heavy — six updates in twelve months (CRISIL 12-Aug-2026, ICRA 31-Jul-2026, CRISIL 27-Nov-2025, ICRA 25-Nov-2025, CRISIL 20-Oct-2025, ICRA 16-Oct-2025) — but the <i>grades</i> are not in the free export = VERIFY.</li>
+<li>Information flow is deep: latest concall Aug-2026, annual reports 2013–2026. One anomaly to check: a "Right Issue" corporate-action link exists with empty content = VERIFY.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Announcements &amp; filings (from Screener documents section) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Date</th><th style="text-align:left">Item</th><th style="text-align:left">Detail</th></tr>
+<tr><td>12-Oct-2026</td><td style="text-align:left"><b>Definitive agreement — Stellantis</b></td><td style="text-align:left">Agreement with Stellantis for advanced-technology and product collaboration (pulled 20-Oct-2026) — strategic only, no financials disclosed</td></tr>
+<tr><td>06-Oct-2026</td><td style="text-align:left">SIAM industry report</td><td style="text-align:left">SIAM Jul–Sep 2026 quarterly industry publication</td></tr>
+<tr><td>01-Oct-2026</td><td style="text-align:left">Press release — Q2 FY27 volumes</td><td style="text-align:left"><b class="good">201,723 units sold in Q2 FY27, up 40% YoY; September sales crossed 70,000</b> — bullish operational data point</td></tr>
+<tr><td>29-Sep-2026</td><td style="text-align:left">Rumour verification (Reg 30)</td><td style="text-align:left">Re: Moneycontrol report — company stated <b>no negotiations and no undisclosed information</b></td></tr>
+<tr><td>29-Sep-2026</td><td style="text-align:left">Exchange clarification sought</td><td style="text-align:left">BSE/NSE sought clarification from the company (paired with the rumour verification)</td></tr>
+<tr><td>22-Sep-2026</td><td style="text-align:left">Trading window closure</td><td style="text-align:left">Insider trading window closed ahead of the quarterly results</td></tr>
+<tr><td>21-Sep-2026</td><td style="text-align:left">SES ESG rating</td><td style="text-align:left">Reaffirmed score <b>77.9 (Adjusted)</b>, rating <b>B+</b> for FY2025-26</td></tr>
+<tr><td>12-Aug-2026</td><td style="text-align:left">CRISIL rating update</td><td style="text-align:left">Grade not in free export — <span class="warn">VERIFY</span></td></tr>
+<tr><td>31-Jul-2026</td><td style="text-align:left">ICRA rating update</td><td style="text-align:left">Grade not in free export — <span class="warn">VERIFY</span></td></tr>
+<tr><td>27-Nov-2025</td><td style="text-align:left">CRISIL rating update</td><td style="text-align:left">Grade not in free export — <span class="warn">VERIFY</span></td></tr>
+<tr><td>25-Nov-2025</td><td style="text-align:left">ICRA rating update</td><td style="text-align:left">Grade not in free export — <span class="warn">VERIFY</span></td></tr>
+<tr><td>20-Oct-2025</td><td style="text-align:left">CRISIL rating update</td><td style="text-align:left">Grade not in free export — <span class="warn">VERIFY</span></td></tr>
+<tr><td>16-Oct-2025</td><td style="text-align:left">ICRA rating update</td><td style="text-align:left">Grade not in free export — <span class="warn">VERIFY</span></td></tr>
+<tr><td>Aug-2026</td><td style="text-align:left">Concall</td><td style="text-align:left">Latest earnings call (transcript/PPT on BSE/NSE)</td></tr>
+<tr><td>2013–2026</td><td style="text-align:left">Annual reports</td><td style="text-align:left">Full archive 2013 to 2026 available</td></tr>
+<tr><td>undated</td><td style="text-align:left">Right Issue — corporate action link</td><td style="text-align:left">Link exists with <b>empty content</b> — <span class="warn">VERIFY</span> before assuming any equity raise</td></tr>
+</table></div>
+<p class="note"><span class="tag t-view">View</span> The news mix supports the watchlist stance rather than either extreme: on the operational side +40% YoY volumes and a B+ ESG reaffirmation are genuine positives, while on the disclosure side the rumour verification, the exchange clarification and the empty "Right Issue" link mean the corporate-action picture is not fully documented yet. For a ₹1.03 lakh crore Large Cap with six rating updates a year, coverage and disclosure are adequate — the gaps flagged above are source limitations, not company silence.</p>
+</div>
+</section>
+<section class="panel" id="tab9">
+<h2>9. Verdict &amp; Journal (as of Sep 2026)</h2>
+<div class="viewbox"><div class="vh">Section 9 — The View (plain English)</div>
+<ul>
+<li class="imp">Composite <b>5.1/10 → WATCHLIST — post-demerger earnings base still settling</b>. Only metadata (6.5) clears the 6.0 bar; growth (4.0) and profits (4.0) are the drags, balance sheet and cash flow sit at 5.5, valuation 5.0 and shareholding 5.0.<span class="important">IMPORTANT</span></li>
+<li class="imp">Do not anchor on P/E 103x or ROE 75.7% — both are distorted by the ₹86,291 Cr one-off and the post-restructuring equity. <b>Anchor on P/B 0.91× (19-Oct-2026), OPM 6%, ROCE 3%, price −36% in 1Y.</b><span class="important">IMPORTANT</span></li>
+<li>The bull case is real: 0.91× book, Q2 FY27 volumes +40% YoY, gross debt down ~43% from peak, interest cost down 63%, ~34% institutional ownership, ESG B+ reaffirmed.</li>
+<li>The bear case is equally real: ex-one-off pre-tax ≈ −₹3,892 Cr, OPM halved to 6%, free cash flow −₹23,195 Cr, ₹1,02,654 Cr of CWIP earning nothing yet, price 2% above its 52-week low (₹272 at the 19-Oct-2026 close).</li>
+<li>Journal routine: Entry #01 (01-Oct-2026) stays frozen as the baseline; <b>Entry #02 below</b> is the 20-Oct-2026 monthly run. Next review: Q2 FY27 quarterly print (still awaited → <span class="warn">VERIFY</span>), entry #03.</li>
+</ul>
+</div>
+
+<div class="card">
+<h4>Section scorecard detail <span class="tag t-view">View</span></h4>
+<div class="tblwrap"><table>
+<tr><th>#</th><th>Section</th><th>Verdict</th><th>Score</th><th style="text-align:left">Evidence</th></tr>
+<tr><td>1</td><td>Metadata</td><td><span class="pill p-g">ACCEPTABLE</span></td><td>6.5</td><td style="text-align:left">Large Cap, Nifty 50 / Nifty Auto, F and O, six rating updates, deep filings — but the entity was carved out in Oct-2025 and legacy FY15–FY25 data is Tata Motors incl. JLR</td></tr>
+<tr><td>2</td><td>Valuation</td><td><span class="pill p-y">MIXED</span></td><td>5.0</td><td style="text-align:left">P/B 0.92× (below ₹304 book) and 1.07% yield support the price; P/E 103 unusable, ROCE 2.73%, price −36% in 1Y, −38% from 52W high</td></tr>
+<tr><td>3</td><td>Growth</td><td><span class="pill p-r">WEAK</span></td><td>4.0</td><td style="text-align:left">Sales CAGR 10Y 2% / 5Y 6% / 3Y −1% / TTM −6%; profit CAGR 101% (5Y) and ROE 76% are one-off-flattered; Q2 FY27 volumes +40% is the one green shoot</td></tr>
+<tr><td>4</td><td>Profits</td><td><span class="pill p-r">WEAK</span></td><td>4.0</td><td style="text-align:left">OPM 13% → 6%, ROCE 19% → 3%, ex-one-off FY26 pre-tax ≈ −₹3,892 Cr; offset by interest ₹7,594 → ₹2,827 Cr (−63%) and cover ≈6.6×</td></tr>
+<tr><td>5</td><td>Balance Sheet</td><td><span class="pill p-y">ACCEPTABLE</span></td><td>5.5</td><td style="text-align:left">Gross debt down about 43% from the ₹1,34,113 Cr FY23 peak to ₹79,109 Cr, D/E ≈0.66× — but a FY26 uptick and CWIP ₹1,02,654 Cr (27% of assets)</td></tr>
+<tr><td>6</td><td>Cash Flow</td><td><span class="pill p-y">ACCEPTABLE</span></td><td>5.5</td><td style="text-align:left">CFO/OP 121% / 125% / 140% in FY23–25, still 87% in FY26 — but CFO fell to ₹13,041 Cr (−79%) and FCF turned −₹23,195 Cr</td></tr>
+<tr><td>7</td><td>Shareholding</td><td><span class="pill p-y">STABLE</span></td><td>5.0</td><td style="text-align:left">Promoter −3.87% over 3 years is the Sep-24 demerger issuance; FII 17.11% + DII 16.97% steady; public float 17.70% → 23.09%; pledge VERIFY</td></tr>
+<tr><td></td><td><b>Composite</b></td><td><span class="pill p-y">WATCHLIST</span></td><td><b>5.1</b></td><td style="text-align:left">Below the 6.0 positive/acceptable threshold — observation only, no initiation</td></tr>
+</table></div>
+</div>
+
+<div class="grid2">
+<div class="card">
+<h4>Bull case <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>Below book:</b> 0.92× P/B against BV ₹304 — a Large Cap with global brands and JLR-quality assets priced at 92 paise per rupee of net worth.</li>
+<li><b>Volumes are re-accelerating:</b> 201,723 units in Q2 FY27, +40% YoY, September sales over 70,000 — the top-line engine is restarting ahead of the reported profits.</li>
+<li><b>Balance sheet de-risked:</b> gross debt down about 43% from the FY23 peak, D/E ≈0.66×, interest cost down 63% (₹7,594 → ₹2,827 Cr) with ~6.6× cover.</li>
+<li><b>Cash-conversion model works:</b> negative cash conversion cycle (−59 days) and CFO/OP of 121–140% in FY23–25 — when the capex phase ends, cash generation should snap back.</li>
+<li><b>Owned by professionals:</b> FII 17.11% + DII 16.97%, Nifty 50 / Nifty Auto membership, F and O liquidity, SES ESG B+ (77.9) reaffirmed.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Bear case / Risks <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>The clean numbers are bad:</b> strip the one-off out and FY26 pre-tax profit is roughly −₹3,892 Cr; TTM sales −6% and TTM profit CAGR −94%.</li>
+<li><b>Margins halved:</b> OPM 13% → 6% (FY26 and Jun-26 quarter) with ROCE down from 19% to 3% — the assets earn far less than the cost of funding them.</li>
+<li><b>Cash burn during capex:</b> CFO −79% to ₹13,041 Cr, FCF −₹23,195 Cr, funded while debt still ticked up to ₹79,109 Cr.</li>
+<li><b>WIP risk:</b> ₹1,02,654 Cr of capital work-in-progress earns nothing until commissioned — delay or cost overrun would hit both returns and the balance sheet.</li>
+<li><b>No margin of safety on quality:</b> the cheapness is only on book value; on any earnings-based or operating measure the stock is not demonstrably cheap, and price is already −36% in a year (near the ₹272 low).</li>
+<li><b>Event/documentation risk:</b> rumour verification on 29-Sep-2026 and an empty "Right Issue" corporate-action link (VERIFY) mean the corporate-action trail is incomplete.</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<h4>Monitorables — next-quarter checklist (Q2 FY27 results, after the 22-Sep window closure) <span class="tag t-view">View</span></h4>
+<div class="tblwrap"><table>
+<tr><th>#</th><th>Indicator</th><th>What to check</th><th style="text-align:left">Green light</th><th style="text-align:left">Red light</th></tr>
+<tr><td>1</td><td>Q2 FY27 volumes</td><td>vs 201,723 units, +40% YoY</td><td style="text-align:left">Sustained ≥25% YoY growth with September &gt;70,000 run-rate</td><td style="text-align:left">Growth falls below 10% or turns negative</td></tr>
+<tr><td>2</td><td>Operating margin</td><td>vs 6% (FY26 and Jun-26 quarter)</td><td style="text-align:left">OPM recovers to ≥10% for two straight quarters</td><td style="text-align:left">OPM stays &lt;6% — margin story dead</td></tr>
+<tr><td>3</td><td>Net profit quality (ex-one-off)</td><td>PAT excluding other income</td><td style="text-align:left">Positive pre-tax profit excluding other income</td><td style="text-align:left">Operating/pre-tax loss ex-other-income persists (FY26 ≈ −₹3,892 Cr)</td></tr>
+<tr><td>4</td><td>CWIP conversion</td><td>vs ₹1,02,654 Cr (FY26)</td><td style="text-align:left">CWIP falls as fixed assets rise and sales grow</td><td style="text-align:left">CWIP keeps climbing with flat sales — capital stuck in the ground</td></tr>
+<tr><td>5</td><td>Borrowings</td><td>vs ₹79,109 Cr (FY26)</td><td style="text-align:left">Flat or down while capex completes</td><td style="text-align:left">Crosses ₹90,000 Cr to fund the capex</td></tr>
+<tr><td>6</td><td>Price</td><td>CMP <b>₹278</b> (19-Oct-2026) / 52W low ₹272</td><td style="text-align:left">Holds above ₹272 and reclaims ₹350 with volume news</td><td style="text-align:left">Breaks below ₹272 (52-week low)</td></tr>
+<tr><td>7</td><td>ESG / ratings</td><td>SES ESG score 77.9 (B+) and rating grades</td><td style="text-align:left">Score ≥77.9 or rating improved at next review</td><td style="text-align:left">Downgrade of ESG score or credit rating (grades VERIFY)</td></tr>
+</table></div>
+</div>
+
+<div class="card" style="border-style:dashed">
+<h4>Journal Entry #01 — Baseline <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span> <span class="tag t-view">View</span></h4>
+<p class="note" style="margin-bottom:8px"><b>Metadata:</b> period Q1 FY27 (Jun-2026 quarter) · assessed 01-Oct-2026 · price basis ₹279 (01-Oct close) · prior entry: none (baseline) · hub log: Oct-2026 row added.</p>
+<p style="font-size:13.6px"><b>Facts:</b> CMP ₹283 (−0.98% day); mcap ₹1,04,119 Cr (Large Cap); P/E 104 (distorted); P/B 0.93×; BV ₹304; Div yield 1.06%; ROCE 2.73%; ROE 75.7%; FY26 sales ₹3,35,582 Cr, operating profit ₹18,719 Cr (OPM 6%), net profit ₹82,645 Cr (EPS ₹223.74) including Other Income ₹86,291 Cr; borrowings ₹79,109 Cr; CWIP ₹1,02,654 Cr; CFO ₹13,041 Cr, FCF −₹23,195 Cr; promoter 42.51% / FII 17.11% / DII 16.97%; shareholders 62,15,151; 52W ₹447/₹272.<br>
+<b>Calculations:</b> composite 5.1 = average of 6.5, 5.0, 4.0, 4.0, 5.5, 5.5, 5.0; sales CAGR 10Y 2% / 5Y 6% / 3Y −1% / TTM −6%; profit CAGR 5Y 101% (one-off-flattered), TTM −94%; D/E ≈0.66× on net worth ₹1,12,068 Cr; gross debt down about 43% from FY23 peak; interest −63% from FY24 to FY26; interest cover ≈6.6×; CWIP 7.2× in 3 years = 27.1% of assets; FY26 PBT ex-other-income ≈ −₹3,892 Cr; P/S ≈0.30× TTM; EV ≈₹1,83,228 Cr (gross debt, cash VERIFY); EV/OP ≈10.9×; CFO −79% YoY.<br>
+<b>Management/filings:</b> 01-Oct-2026 press release — 201,723 units in Q2 FY27, +40% YoY, September &gt;70,000; 29-Sep-2026 rumour verification (Moneycontrol report: no negotiations, no undisclosed information) after the exchange sought clarification; trading window closed 22-Sep-2026; SES ESG reaffirmed 77.9 (Adjusted) / B+ for FY2025-26 on 21-Sep-2026; six rating updates (grades VERIFY); concall Aug-2026; annual reports 2013–2026.<br>
+<b>Interpretation:</b> a structurally sound, professionally owned Large Cap whose reported FY26 numbers are dominated by an accounting event — the demerger gain — while the operating picture (6% OPM, 3% ROCE, −6% TTM sales, negative FCF) is weak. Cheapness exists on book (0.92×) and the balance sheet has been meaningfully de-risked, but the earnings base has not yet re-based on a post-demerger, post-capex footing. The right posture is to hold the watchlist, verify the flagged data points, and let two more quarters of volume-and-margin data decide.<br>
+<b>Verdict:</b> <span class="pill p-y">WATCHLIST — post-demerger earnings base still settling</span> score <b>5.1/10</b> · stance: 0% position, active monitoring · next review: after Q2 FY27 results, entry #02.</p>
+</div>
+
+<div class="card" style="border-style:dashed">
+<h4>Journal Entry #02 — Monthly run (20-Oct-2026) <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span> <span class="tag t-view">View</span></h4>
+<p class="note" style="margin-bottom:8px"><b>Metadata:</b> monthly cycle executed 20-Oct-2026 · price basis <b>₹278 (19-Oct-2026 close, −3.09% day)</b> — the 20-Oct close was not yet published by the source at run time · prior entry: #01 (01-Oct-2026) · hub log: 19-Oct-2026 row appended.</p>
+<p style="font-size:13.6px"><b>Facts:</b> CMP ₹278 — <b>−₹5 / −1.77% vs the 07-Oct-2026 row (₹283)</b>; day move −3.09%. Mcap ₹1,02,387 Cr; P/E 103 (still distorted, discard); P/B 0.91× on BV ₹304; dividend yield 1.09%; ROCE 2.73%; 52-week range now <b>₹419/₹272</b> (high rolled down from ₹447) → CMP is 33.6% below the high and only 2.2% above the low. New filings in the 07–19 Oct window: <b>12-Oct-2026 Stellantis definitive agreement</b> (advanced-technology and product collaboration, no financials disclosed) and the <b>SIAM Jul–Sep 2026 report (06-Oct)</b>. Q2 FY27 financial print still absent → <span class="warn">VERIFY</span>.<br>
+<b>Calculations:</b> composite re-checked section by section — (6.5+5.0+4.0+4.0+5.5+5.5+5.0) ÷ 7 = 5.07 → <b>5.1, unchanged</b>. The Stellantis agreement carries no revenue, margin, order-book or capex figure, so it cannot touch growth (4.0), profits (4.0) or cash flow (5.5); the scorecard's inputs (OPM 6%, ROCE 2.73%, FCF −₹23,195 Cr, CWIP ₹1,02,654 Cr) are all still the FY26/Jun-26 values. The 52-week high rolling from ₹447 to ₹419 is calendar drift, not new evidence — valuation stays 5.0. P/B to 0.91× is arithmetic on the price.<br>
+<b>Interpretation:</b> two weeks of mild drift on a ₹1.02 lakh crore Nifty 50 name is noise. What matters is that the required clean quarterly print still has not landed: without it there is no post-one-off earnings base to score against, which is precisely why this remains a WATCHLIST rather than either a buy or a discard. The volume release (+40% YoY) keeps the bull case alive; the balance sheet and book keep the floor in place.<br>
+<b>Verdict:</b> <span class="pill p-y">WATCHLIST — post-demerger earnings base still settling</span> score <b>5.1/10</b> — <b>re-affirmed, unchanged</b> · stance: continue the existing monthly buy as a held position only; <b>no entry for new money</b> until two consecutive quarters show the post-demerger earnings base (OPM and FCF) is real · next review: Q2 FY27 quarterly print, entry #03.</p>
+</div>
+</section>
+
+<section class="panel" id="tabT">
+<h2>Transactions — Tata Motors Passenger Vehicles</h2>
+<div class="viewbox"><div class="vh">Transactions — The View (plain English)</div>
+<ul>
+<li class="imp">Every trade for this stock exactly as recorded in <code>Equity\Holding_stocks.xlsx</code> — date, fund, action, quantity, price, invested. The last two columns are the <b>running</b> units held and average cost after that trade.<span class="important">IMPORTANT</span></li>
+<li>The <b>Price</b> column is what you paid on the day; the dashboard's current value uses the <b>19-Oct-2026 close</b> instead — two different things, don't mix them.</li>
+<li>After adding trades in Excel, re-run <code>python Equity\code\write_html.py</code> so this tab, the dashboard and the position card all agree.</li>
+</ul>
+</div>
+<div class="kpis">
+<div class="kpi" data-explain="Units held = total shares still held, counted as buys minus sells across every trade in Holding_stocks.xlsx."><div class="l">Units held</div><div class="v">114</div><div class="n">6 trades logged</div></div>
+<div class="kpi" data-explain="Average cost = total money invested in this stock divided by units held. It is what one share has effectively cost you across all buys."><div class="l">Average cost</div><div class="v">₹363.30</div><div class="n">vs CMP ₹278 on 19-Oct-2026</div></div>
+<div class="kpi" data-explain="Invested = every rupee put into this stock, shown with its share of the total invested across all holdings."><div class="l">Invested</div><div class="v">₹41,416</div><div class="n">12.9% of total invested</div></div>
+<div class="kpi" data-explain="Current value = units held times the 19-Oct-2026 close. P/L is that value minus the money invested."><div class="l">Current value</div><div class="v">₹31,692</div><div class="n"><span class="bad">P/L −₹9,724 (−23.5%)</span></div></div>
+</div>
+<!--HOLD_TXN_START-->
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Date</th><th style="text-align:left">Fund</th><th>Action</th><th>Qty</th><th>Price</th><th>Invested</th><th>Units held</th><th>Avg cost</th></tr>
+<tr><td>29-Oct-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>24</td><td>₹412.00</td><td>₹9,888.00</td><td>24</td><td>₹412.00</td></tr>
+<tr><td>04-Dec-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>25</td><td>₹355.00</td><td>₹8,875.00</td><td>49</td><td>₹382.92</td></tr>
+<tr><td>05-May-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>16</td><td>₹341.00</td><td>₹5,456.00</td><td>65</td><td>₹372.60</td></tr>
+<tr><td>24-Jun-2026</td><td style="text-align:left">Direct Fund</td><td>Buy</td><td>16</td><td>₹388.00</td><td>₹6,208.00</td><td>81</td><td>₹375.64</td></tr>
+<tr><td>07-Aug-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>20</td><td>₹346.00</td><td>₹6,920.00</td><td>101</td><td>₹369.77</td></tr>
+<tr><td>04-Sep-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>13</td><td>₹313.00</td><td>₹4,069.00</td><td>114</td><td>₹363.30</td></tr>
+</table></div>
+<!--HOLD_TXN_END-->
+<p class="src">Source: Equity\Holding_stocks.xlsx (sheet Sheet1, table Shadow_Buy_sell) &middot; recomputed by Equity\code\holdings_calc.py &rarr; code\data\holdings.json &middot; CMP dated 19-Oct-2026 close. Personal position data; not investment advice.</p>
+</section>
+
+<section class="panel" id="tabG">
+<h2>Glossary — jargons, metrics &amp; acronyms (click any blue dotted term anywhere)</h2>
+<div class="viewbox"><div class="vh">How to use the glossary</div>
+<ul>
+<li>Every metric/jargon term in this report is linked — <b>click the blue dotted word</b> to see its plain-English meaning in a pop-up.</li>
+<li class="imp">New to reading reports? Start with: CMP, P/E, EBITDA, ROE, ROCE, CFO, FCF, FII/DII, D/E, Small Cap.<span class="important">IMPORTANT</span></li>
+<li>Shared glossary (<code>glossary.js</code>) — same definitions as the Stock Hub and every other stock page; add a term once and it appears everywhere.</li>
+</ul>
+</div>
+<div class="card">
+<h4>All terms — definition, plain meaning, why it matters</h4>
+<div id="glossaryBody"><p class="note">Loading glossary… (requires JavaScript enabled)</p></div>
+</div>
+</section>
+
+<footer>
+  Tata Motors Passenger Vehicles Ltd — independent equity research journal entry. Data: Screener.in (consolidated, 01-Oct-2026), BSE/NSE announcements. Figures flagged VERIFY are unavailable in the free source. Not investment advice.
+</footer>
+
+</div>
+<script src="../../Equity/code/table_chart.js"></script>
+<script src="../shared/glossary.js"></script>
+<script>
+(function(){
+function show(id){
+ document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===id)});
+ document.querySelectorAll('.tabbtn').forEach(function(b){b.classList.toggle('on',b.dataset.t===id)});
+ window.scrollTo(0,0);
+}
+document.querySelectorAll('.tabbtn').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);try{history.replaceState(null,'','#'+b.dataset.t)}catch(e){}})});
+if(location.hash){try{var h=document.querySelector(location.hash+'.panel');if(h)show(location.hash.slice(1))}catch(e){}}
+document.getElementById('stockSel').addEventListener('change',function(){if(this.value){location.href=this.value}});
+})();
+</script>
+</body>
+</html>

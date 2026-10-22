@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bharat Electronics Ltd — Equity Research Journal | Oct 2026</title>
+<style>
+:root{--bg:#0f1420;--panel:#161d2e;--panel2:#1c2438;--ink:#e8ecf5;--muted:#9aa7bd;--line:#2a3450;--acc:#4da3ff;--good:#2ecc8f;--warn:#f5b83d;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:22px}
+header.rpt{background:linear-gradient(135deg,#101828,#1b2a4a);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:20px}
+header.rpt h1{margin:0 0 4px;font-size:27px}
+header.rpt .sub{color:var(--muted);font-size:14px}
+.badges{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{padding:4px 11px;border-radius:20px;font-size:12.5px;border:1px solid var(--line);background:var(--panel2)}
+.badge.buy{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.badge.risk{background:#3a1d1d;border-color:#7a3030;color:#ffb0b0}
+.badge.info{background:#123055;border-color:#24528f;color:#a8d1ff}
+h2{font-size:20px;margin:34px 0 6px;padding-bottom:7px;border-bottom:2px solid var(--line);color:#cfe1ff}
+h4{font-size:14.5px;margin:14px 0 6px;color:#a9c4ea}
+p{margin:8px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 6px;font-size:13.2px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+th{background:var(--panel2);color:#c6d6f0;font-weight:600;text-align:center}
+td:first-child,th:first-child{text-align:left;font-weight:600;color:#dbe6fa}
+tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.tblwrap table{border:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:13px 14px}
+.kpi .l{font-size:11.6px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.kpi .v{font-size:21px;font-weight:700;margin-top:3px}
+.kpi .n{font-size:11.6px;color:var(--muted);margin-top:2px}
+.good{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 17px;margin:13px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.tag{display:inline-block;font-size:10.6px;letter-spacing:.6px;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-right:6px;vertical-align:1.5px;border:1px solid}
+.t-fact{background:#123055;border-color:#2c5f9e;color:#a9d1ff}
+.t-calc{background:#2a2140;border-color:#5a4a8a;color:#cbb8ff}
+.t-mgmt{background:#14402e;border-color:#2c7a5a;color:#9df0cd}
+.t-view{background:#46340f;border-color:#8d6a1e;color:#ffd98a}
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:12px;font-weight:600}
+.p-g{background:#0d3a2c;color:#7ff0c3;border:1px solid #1c6b4f}
+.p-y{background:#3d3210;color:#ffd98a;border:1px solid #8d6a1e}
+.p-r{background:#3a1d1d;color:#ffb0b0;border:1px solid #7a3030}
+.note{font-size:12.4px;color:var(--muted);margin-top:6px}
+.src{font-size:12.2px;color:var(--muted)}
+.scorebar{height:9px;background:#0c111c;border-radius:6px;overflow:hidden;border:1px solid var(--line);min-width:110px}
+.scorebar>i{display:block;height:100%;background:linear-gradient(90deg,#4da3ff,#2ecc8f)}
+ul{margin:7px 0 7px 20px}li{margin:4px 0}
+.verdict-main{display:flex;flex-wrap:wrap;gap:16px;align-items:stretch}
+.verdict-big{flex:1 1 300px;background:linear-gradient(135deg,#1d2b16,#26360f);border:1px solid #4a7a2e;border-radius:12px;padding:18px}
+.verdict-big .h{font-size:26px;font-weight:800;color:#b9f0a3}
+a{color:var(--acc)}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12.4px}
+/* top nav + tabs */
+.topnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
+.topnav a.home{color:var(--acc);font-size:13px;text-decoration:none;font-weight:600}
+.topnav select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13.4px;font-weight:600;cursor:pointer}
+.tabbar{position:sticky;top:0;z-index:40;display:flex;flex-wrap:wrap;gap:6px;background:rgba(15,20,32,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:8px;margin-bottom:16px}
+.tabbtn{border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:12.6px;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;letter-spacing:.3px}
+.tabbtn:hover{color:#cfe1ff;border-color:#3b5f96}
+.tabbtn.on{background:#123055;border-color:#2c66ad;color:#a9d1ff;box-shadow:0 0 0 1px #2c66ad}
+.panel{display:none;animation:fadein .25s ease}
+.panel.on{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.viewbox{border-left:4px solid var(--acc);background:rgba(77,163,255,.07);border-radius:0 9px 9px 0;padding:10px 15px;margin:10px 0 14px}
+.viewbox .vh{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8fc4ff;font-weight:700;margin-bottom:5px}
+.viewbox ul{margin:4px 0 2px 18px}.viewbox li{font-size:13.6px;margin:5px 0}
+.viewbox li b{color:#dbe9ff}
+.viewbox li.imp{color:#ffe6a3}
+.viewbox li.imp::marker{content:"★ "}
+.important{display:inline-block;background:#4a3708;color:#ffd98a;border:1px solid #8d6a1e;font-size:10.3px;font-weight:700;letter-spacing:.7px;padding:1px 7px;border-radius:4px;vertical-align:1.5px;margin-left:6px}
+.kpi[data-explain]{cursor:pointer;transition:transform .12s,border-color .12s}
+.kpi[data-explain]:hover{border-color:#4da3ff;transform:translateY(-2px)}
+.kpi[data-explain]::after{content:"ⓘ what does this mean?";display:block;font-size:9.6px;color:#4da3ff;letter-spacing:.4px;margin-top:5px;text-transform:uppercase}
+.term{color:#7fc0ff;text-decoration:underline dotted;cursor:help}
+.term:hover{color:#bfe0ff}
+#modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(4,8,16,.72);padding:20px}
+#modal.on{display:flex;align-items:center;justify-content:center}
+.mbox{background:#141b2c;border:1px solid #2c66ad;border-radius:13px;max-width:640px;width:100%;max-height:82vh;overflow:auto;padding:20px 22px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.mbox .mt{font-size:16.5px;font-weight:700;color:#a9d1ff;margin-bottom:8px}
+.mbox .mb{font-size:14px;line-height:1.65;color:var(--ink)}
+.mbox .mb .why{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);color:#ffd98a;font-size:13.3px}
+.mbox .mclose{float:right;border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:7px;font-size:12px;padding:4px 10px;cursor:pointer}
+.mbox .mclose:hover{color:#fff;border-color:#4da3ff}
+.mgl{font-size:12.4px;color:var(--muted);margin-top:12px}
+/* Position status KPI cards (tab0) - accented left bar + coloured value so
+   this group never reads as a copy of the plain .kpi row at the top of tab0 */
+.pos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0 6px}@media (max-width:900px){.pos-grid{grid-template-columns:repeat(2,1fr)}}@media (max-width:540px){.pos-grid{grid-template-columns:1fr}}
+.posk{background:var(--panel2);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:9px;padding:9px 12px 10px}
+.posk .pk-l{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.posk .pk-v{font-size:20px;font-weight:700;margin-top:3px;color:var(--ink)}
+.posk .pk-n{font-size:11.2px;color:var(--muted);margin-top:3px}
+.posk.p-blue{border-left-color:#4da3ff}
+.posk.p-blue .pk-v{color:#8fc6ff}
+.posk.p-purple{border-left-color:#a78bfa}
+.posk.p-purple .pk-v{color:#cbb8ff}
+.posk.p-amber{border-left-color:#f5b83d}
+.posk.p-amber .pk-v{color:#ffd98a}
+.posk.p-teal{border-left-color:#2ecc8f}
+.posk.p-teal .pk-v{color:#5ee0b0}
+.posk.p-pos{border-left-color:#2ecc8f}
+.posk.p-pos .pk-v{color:#2ecc8f}
+.posk.p-neg{border-left-color:#ff6b6b}
+.posk.p-neg .pk-v{color:#ff6b6b}
+.posk.p-slate{border-left-color:#9aa7bd}
+.posk.p-slate .pk-v{color:#c9d3e6}
+@media print{body{background:#fff;color:#111}.wrap{max-width:none}header.rpt,.card,.kpi,table,.verdict-big{background:#fff;color:#111;border-color:#bbb}th{background:#eee;color:#111}td{color:#111}h2,h4{color:#111}.good{color:#087f4f}.warn{color:#9a6a00}.bad{color:#b00}.panel{display:block!important;page-break-before:always}.tabbar,#modal{display:none!important}.viewbox{background:#f4f8ff;color:#111}.viewbox li{color:#111}.term{color:#0b5ca8}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="rpt">
+  <h1>Bharat Electronics Ltd — Deep-Dive Fundamental Report</h1>
+  <div class="sub">Quarterly Equity Research Journal &nbsp;•&nbsp; Entry #1 (Baseline Quarter) &nbsp;•&nbsp; Assessment as of <b>October 2026</b> (price data: <b>19-Oct-2026 close ₹377</b>; report built 20-Oct-2026)</div>
+  <div class="badges">
+    <span class="badge risk">Portfolio status: CANDIDATE — no position, under analysis</span>
+    <span class="badge buy">VERDICT: ACCUMULATE — composite 6.9/10 (quality high, price full — enter only after Q2 FY27)</span>
+    <span class="badge info">CMP ₹377 (19-Oct-2026 close) · +0.09% (day) · −9% 1Y</span>
+    <span class="badge info">Large Cap · Mcap ₹2,75,725 Cr (19-Oct-2026, Screener)</span>
+    <span class="badge risk">52W ₹473 / ₹360 · −20% from high</span>
+    <span class="badge">NSE: BEL · BSE: 500049 (FV ₹1)</span>
+    <span class="badge">Sector (Screener): Industrials → Capital Goods → Aerospace &amp; Defence — defence electronics PSU</span>
+    <span class="badge info">Indices: Nifty 50 · BSE Sensex · Nifty India Defence · Nifty PSE · BSE PSU · Nifty 100 · BSE 100</span>
+    <span class="badge risk">P/E 44.9x · P/B 11.5x book (BV ₹32.8) · ROCE 36.4% · ROE 27.4% · DY 0.66%</span>
+  </div>
+  <p class="note" style="margin-top:12px">Primary source: Screener.in (consolidated — pulled 20-Oct-2026 for the 19-Oct-2026 close ₹377). Fundamentals, ratios and shareholding are Screener consolidated; results, orders, guidance and broker items in Section 8 are dated company/news sources (all 2026). All figures in ₹ Crore unless stated. Research journal entry — not investment advice. Several data points unavailable in the free source (pledge %, ISIN, auditor, credit-rating grades, cash balance row, peer table, and any order-book display on Screener itself) are flagged VERIFY — never invented; every order-book number below is cited to its dated company/broker source.</p>
+</header>
+
+<nav class="topnav">
+  <a class="home" href="../InvestIQ.html">⌂ InvestIQ</a>&nbsp; <a class="home" href="Equity_Forge.html">⌂ Back to Stock Hub</a>
+  <select id="stockSel">
+    <option value="">— go to stock —</option>
+    <option value="Reliance_Research_Report_Sep2026.html">RELIANCE | L | H</option>
+    <option value="RACE_Research_Report_Sep2026.html">RACE | S | H</option>
+    <option value="HDFCBANK_Research_Report_Sep2026.html">HDFC BANK | L | H</option>
+    <option value="ITC_Research_Report_Sep2026.html">ITC | L | H</option>
+    <option value="CAPLIPOINT_Research_Report_Sep2026.html">CAPLIN POINT | S | H</option>
+    <option value="GANECOS_Research_Report_Sep2026.html">GANESHA ECOSPHERE | S | H</option>
+    <option value="TMPV_Research_Report_Sep2026.html">TATA MOTORS PV | L | H</option>
+    <option value="OLECTRA_Research_Report_Oct2026.html">OLECTRA | S | C</option>
+    <option value="KAYNES_Research_Report_Oct2026.html">KAYNES | S | C</option>
+    <option value="BEL_Research_Report_Oct2026.html" selected>BEL | L | C</option>
+    <option value="JIO_Research_Report_Oct2026.html">JIO IPO | L | C</option>
+  </select>
+</nav>
+
+<nav class="tabbar" id="tabbar" aria-label="Report sections">
+  <button class="tabbtn on" data-t="tab0">0 · Dashboard</button>
+  <button class="tabbtn" data-t="tab1">1 · Metadata</button>
+  <button class="tabbtn" data-t="tab2">2 · Valuation</button>
+  <button class="tabbtn" data-t="tab3">3 · Growth</button>
+  <button class="tabbtn" data-t="tab4">4 · Profits</button>
+  <button class="tabbtn" data-t="tab5">5 · Balance Sheet</button>
+  <button class="tabbtn" data-t="tab6">6 · Cash Flow</button>
+  <button class="tabbtn" data-t="tab7">7 · Shareholders</button>
+  <button class="tabbtn" data-t="tab8">8 · News</button>
+  <button class="tabbtn" data-t="tab9">9 · Verdict &amp; Journal</button>
+  <button class="tabbtn" data-t="tabT">Transactions</button>
+  <button class="tabbtn" data-t="tabG">Glossary</button>
+</nav>
+
+<section class="panel on" id="tab0">
+<h2>0. Executive Dashboard — Oct 2026</h2>
+<div class="viewbox"><div class="vh">Section 0 — The View (plain English)</div>
+<ul>
+<li class="imp">One-line verdict: <b>ACCUMULATE (6.9/10) — a Navratna defence-electronics PSU with top-tier economics (OPM 29%, ROCE 36.4%, ROE 27.4%, ₹65 Cr debt, order book ₹75,000+ Cr ≈ 2.6x TTM sales) that is still priced at 44.9x earnings and 11.5x book; do not initiate before the 30-Oct-2026 Q2 — take the first tranche only on Q2 confirmation.</b><span class="important">IMPORTANT</span></li>
+<li class="imp">Three numbers that decide everything: P/E 44.9x and P/B 11.5x on book ₹32.8 (19-Oct-2026); OPM 29% FY26 with ROCE 36.4% / ROE 27.4% (Screener); working-capital days 79.4 → 135 with FY27 order inflows ₹7,400 Cr, −53% YoY (14-Oct-2026).<span class="important">IMPORTANT</span></li>
+<li>Price context: ₹377 (19-Oct-2026 close, +0.09% that day) is −20% below the 52-week high of ₹473 and only +4.7% above the 52-week low of ₹360 — the de-rating is far along, but the multiple is still full.</li>
+<li class="imp">Portfolio status is <b>CANDIDATE</b> — no position today. The Entry Plan card below carries the trigger price, the buy-only-if conditions and the first-tranche rule; the verdict decides <i>if/when to enter</i>, not how to manage a holding.<span class="important">IMPORTANT</span></li>
+<li>How to read this report: click any section tab above · click any blue info card for a plain-English meaning · click any blue dotted term for its glossary definition.</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Current Market Price — ₹377 on 19-Oct-2026 (+0.09% that day; Screener consolidated, pulled 20-Oct-2026). From the 52-week high of ₹473 the stock is down 20%; it still trades 4.7% above the 52-week low of ₹360. Screener 1-year price CAGR is −9%."><div class="l">CMP</div><div class="v">₹377</div><div class="n">19 Oct'26 close · +0.09% (day) · −9% 1Y</div></div>
+  <div class="kpi" data-explain="Market capitalisation ₹2,75,725 Cr at the 19-Oct-2026 close (Screener consolidated). Large Cap by the hub's buckets — Nifty 50 and BSE Sensex constituent."><div class="l">Market Cap</div><div class="v">₹2,75,725 Cr</div><div class="n">Large Cap · 19-Oct-2026 (Screener)</div></div>
+  <div class="kpi" data-explain="Price-to-Earnings 44.9x at the 19-Oct-2026 close (Screener consolidated; TTM EPS ₹8.40). You pay ~₹44.90 for every ₹1 of trailing yearly profit — a premium multiple, even for a 27% ROE compounder."><div class="l">Stock P/E (TTM)</div><div class="v warn">44.9x</div><div class="n">19-Oct-2026 (Screener)</div></div>
+  <div class="kpi" data-explain="Price-to-Book 11.5x at the 19-Oct-2026 close (CMP ₹377 ÷ book value ₹32.8, Calc; Screener's machine summary also says the stock trades 11.5 times its book value). ₹11.50 paid per ₹1 of net assets — very rich unless 27%+ ROE persists."><div class="l">P/B · Book Value</div><div class="v warn">11.5x · ₹32.8</div><div class="n">19-Oct-2026 · Screener cons: 11.5x book</div></div>
+  <div class="kpi" data-explain="ROCE 36.4% and ROE 27.4% (Screener, consolidated, FY26 basis). Screener's ROE block: 10Y average 24%, 5Y 26%, 3Y 28%, last year 27% — among the best return profiles tracked in this hub."><div class="l">ROCE / ROE</div><div class="v good">36.4% / 27.4%</div><div class="n">ROE: 10Y 24% · 3Y 28% · last yr 27%</div></div>
+  <div class="kpi" data-explain="FY26 revenue ₹27,610 Cr, up 16.2% over FY25 (₹23,769 Cr — Calc). Screener CAGR block: sales 10Y 14%, 5Y 14%, 3Y 16%, TTM 20%. TTM revenue (to Jun-2026) is ₹28,717 Cr."><div class="l">FY26 Sales</div><div class="v good">₹27,610 Cr</div><div class="n">YoY +16.2% (Calc) · CAGR 10Y 14%</div></div>
+  <div class="kpi" data-explain="FY26 net profit ₹6,062 Cr on ₹27,610 Cr sales — a 22.0% net margin (Calc), up from ₹5,323 Cr in FY25 (+13.9%). TTM profit ₹6,148 Cr, TTM EPS ₹8.40. Screener CAGR block: profit 10Y 16%, 5Y 24%, 3Y 27%, TTM 12%."><div class="l">FY26 Net Profit</div><div class="v good">₹6,062 Cr</div><div class="n">Net margin 22.0% · YoY +13.9%</div></div>
+  <div class="kpi" data-explain="Cash from operations +₹1,541 Cr and free cash flow +₹560 Cr in FY26 (CFO was ₹564 Cr in FY25 and ₹4,659 Cr in FY24 — lumpy). CFO/EBITDA 44% in FY26 (Screener cash-flow block)."><div class="l">FY26 CFO / FCF</div><div class="v warn">+1,541 / +560</div><div class="n">Lumpy: 4,659 → 564 → 1,541</div></div>
+  <div class="kpi" data-explain="Borrowings ₹65 Cr in FY26 vs net worth ₹23,988 Cr (equity ₹731 Cr + reserves ₹23,257 Cr) → debt-to-equity 0.003x (Calc). Screener's pros list the company almost debt free; borrowings have been ₹53–65 Cr every year since FY22."><div class="l">Borrowings · D/E</div><div class="v good">₹65 Cr · 0.003x</div><div class="n">vs net worth ₹23,988 Cr — almost debt free</div></div>
+  <div class="kpi" data-explain="Promoter 51.14% — flat across all six reported quarters (Jun-2025 to Sep-2026); the promoter is the Government of India (Navratna PSU). FIIs 16.99% (Sep-2026, down from 18.56%), DIIs 21.86% (up from 20.60%) — domestic institutions absorbing foreign selling."><div class="l">Promoter Holding</div><div class="v">51.14%</div><div class="n">Flat 6 qtrs · GOI PSU · DII 21.9% rising</div></div>
+  <div class="kpi" data-explain="Dividend yield 0.66% at the ₹377 close (Screener). FY26 dividend payout 30% of EPS; the final dividend of ₹0.55 per share (55% of ₹1 face value) was paid on 09-Sep-2026 (company). Screener's pros note a healthy 34.5% dividend payout."><div class="l">Dividend Yield</div><div class="v">0.66%</div><div class="n">FY26 payout 30% · final ₹0.55 paid 09-Sep</div></div>
+</div>
+
+<div class="card" style="border-color:#8d6a1e">
+<h4>Entry Plan (personal) — CANDIDATE, no position <span class="tag t-view">View</span> <span class="tag t-fact">Fact</span></h4>
+<p class="note" style="margin-top:0"><b>Status: CANDIDATE — this stock is under analysis and there is NO POSITION today (zero trades in <code>Equity\Holding_stocks.xlsx</code>). The score verdict drives an entry decision (wait for the trigger / buy only if… / review date), never holding-management wording.</b> Trigger and condition levels below are analyst judgement (<span class="tag t-view">View</span>) struck on verified prices and fundamentals (<span class="tag t-fact">Fact</span>); position size is left blank for you.</p>
+<table>
+<tr><th>Field</th><th style="text-align:left">Value</th></tr>
+<tr><td>Position today</td><td style="text-align:left"><span class="bad"><b>NO POSITION</b></span> — 0 units, 0 trades</td></tr>
+<tr><td>First-tranche trigger</td><td style="text-align:left">₹360–375 — 0.5% to 4.5% below the ₹377 close of 19-Oct-2026, down to the 52-week low ₹360; <b>armed only after Q2 FY27 results (board 30-Oct-2026) confirm the FY27 guidance path</b> — <span class="tag t-view">View</span></td></tr>
+<tr><td>Add-on level</td><td style="text-align:left">₹335–350 (≈40x TTM P/E at ₹336), only if the thesis still holds — <span class="tag t-view">View</span></td></tr>
+<tr><td>Buy only if</td><td style="text-align:left">(1) Q2 FY27 revenue ≈ ₹6,487 Cr or better (+12% YoY, 06-Oct Elara preview) with EBITDA margin ≥26% toward the 28% FY27 guidance · (2) order inflow re-accelerating — H2 pace building toward the ₹55,000 Cr FY27 target after ₹7,400 Cr, −53% YoY till date · (3) working-capital days stabilise at ≤135 and debtor days ≤170 · (4) add-on tranche only below ~40x P/E (≈₹336) · pledge/ISIN/auditor/ratings/peers <span class="warn">[VERIFY — not in free source]</span></td></tr>
+<tr><td>Do NOT buy if</td><td style="text-align:left">Q2 revenue grows &lt;10% YoY or EBITDA margin prints &lt;25%, or the FY27 inflow run-rate stays &gt;40% below last year, or WC days rise again past 135 — or the stock gaps above ₹380 <i>before</i> results (miss it, don't chase)</td></tr>
+<tr><td>Intended first-tranche size</td><td style="text-align:left">First tranche only, at the ₹360–375 trigger (Oct 2026 baseline decision, <code>Equity_Forge.html</code>) — rupee amount <span class="warn">VERIFY</span> (not specified in the decision)</td></tr>
+<tr><td>Next review</td><td style="text-align:left">Nov 2026 monthly run — or immediately after Q2 FY27 results on <b>30-Oct-2026</b> (board meeting called 16-Oct-2026)</td></tr>
+</table>
+<p class="note">Nothing above is an instruction to act at today's price of ₹377 (19-Oct-2026 close): results are 10 days out and the inflow trend is unproven. Re-score at every month-end cycle (28th–2nd) and append the next dated row to the hub's Monthly Log.</p>
+<p class="note"><a class="tabbtn" data-t="tabT" href="#tabT">→ Full transaction log (Transactions tab)</a></p>
+</div>
+
+<div class="verdict-main">
+  <div class="verdict-big">
+    <div style="font-size:12.5px;color:#d7f5c2;letter-spacing:1px">STANDALONE VERDICT (analyst view, Oct 2026)</div>
+    <div class="h">ACCUMULATE · 6.9/10 · 12M horizon</div>
+    <p style="margin-top:8px">One of the highest-quality businesses in this hub — 14% 10Y sales CAGR, 24% 5Y profit CAGR, OPM 29%, ROCE 36.4%, ROE 27.4%, ₹65 Cr of debt against ₹23,988 Cr of net worth, and a ₹75,000+ Cr order book (13-Oct-2026) ≈2.6x TTM sales — but at ₹377 you still pay 44.9x TTM earnings and 11.5x book, FY27 order inflows are running −53% YoY, working-capital days have jumped 79.4 → 135, and Q2 FY27 lands on 30-Oct-2026. Quality says accumulate; price and timing say wait for the print. Enter staged at ₹360–375 only on Q2 confirmation, add below ~40x P/E.</p>
+    <p class="note">Entry triggers: first tranche ₹360–375 post-Q2 · add ₹335–350 (≈40x P/E) · Q2 revenue ≈₹6,487 Cr (+12% YoY) · EBITDA margin ≥26% · inflow re-accelerating vs ₹55,000 Cr target · WC days ≤135 · pledge nil (VERIFY).</p>
+  </div>
+  <div class="card" style="flex:1 1 330px;margin:0">
+    <h4 style="margin-top:0">Section Scorecard (0–10)</h4>
+    <table>
+      <tr><th>Section</th><th>Score</th><th style="width:34%">Rating</th></tr>
+      <tr><td>1. Metadata &amp; Ownership</td><td>7.0</td><td><div class="scorebar"><i style="width:70%"></i></div></td></tr>
+      <tr><td>2. Valuation</td><td>4.5</td><td><div class="scorebar"><i style="width:45%"></i></div></td></tr>
+      <tr><td>3. Growth</td><td>7.5</td><td><div class="scorebar"><i style="width:75%"></i></div></td></tr>
+      <tr><td>4. Profitability &amp; Efficiency</td><td>8.0</td><td><div class="scorebar"><i style="width:80%"></i></div></td></tr>
+      <tr><td>5. Balance Sheet Strength</td><td>9.0</td><td><div class="scorebar"><i style="width:90%"></i></div></td></tr>
+      <tr><td>6. Cash Flow Quality</td><td>5.5</td><td><div class="scorebar"><i style="width:55%"></i></div></td></tr>
+      <tr><td>7. Shareholding &amp; Ownership</td><td>7.0</td><td><div class="scorebar"><i style="width:70%"></i></div></td></tr>
+      <tr><td><b>Composite</b></td><td><b>6.9</b></td><td><div class="scorebar"><i style="width:69%"></i></div></td></tr>
+    </table>
+    <p class="src">Rubric: 8–10 excellent · 6–8 positive/acceptable · 4–6 watchlist · &lt;4 avoid. Composite 6.9 = ACCUMULATE (48.5 ÷ 7 sections).</p>
+  </div>
+</div>
+</section>
+<section class="panel" id="tab1">
+<h2>1. Company / Stock Metadata</h2>
+<div class="viewbox"><div class="vh">Section 1 — The View (plain English)</div>
+<ul>
+<li class="imp">A real, listed, cash-generating strategic business: incorporated 1954, <b>Navratna PSU in defence electronics &amp; aerospace</b>, supplying the Indian Armed Forces across electronic warfare &amp; avionics, communication, radar &amp; fire control, weapon systems, C4I, anti-submarine warfare, tank &amp; gun upgrades, electro-optics and arms &amp; ammunition — 30 Strategic Business Units, <b>defence = 88% of FY26 revenue</b> (90% in FY25).<span class="important">IMPORTANT</span></li>
+<li class="imp">Large Cap index heavyweight: Nifty 50 and BSE Sensex constituent, plus Nifty India Defence, Nifty PSE, BSE PSU, Nifty 100 and BSE 100; market cap ₹2,75,725 Cr (19-Oct-2026); F&amp;O stock on BSE (code 500049, face value ₹1).<span class="important">IMPORTANT</span></li>
+<li>Ownership is stable but state-owned: promoter = Government of India, <b>51.14% flat for six quarters</b>; DII 21.86% rising, FII 16.99% slipping; 26,45,635 shareholders (Sep-2026). Stable control cuts both ways — no dilution, but dividend/capital policy answer to the state.</li>
+<li>VERIFY items (not in free source): promoter pledge %, ISIN, auditor, credit-rating grades, cash balance row, peer table — and Screener itself shows no order-book figure (the order-book numbers in this report come from dated company/broker items in Section 8).</li>
+<li>Customer concentration is institutional — the Indian Armed Forces / Ministry of Defence — so revenue is lumpy and order-driven: the 13-quarter table in Section 3 runs ₹3,533 Cr to ₹10,224 Cr with Q4 spikes. Read Section 8 before sizing a position.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Identification &amp; Classification <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Field</th><th style="text-align:left">Value</th></tr>
+<tr><td>Company Name</td><td style="text-align:left">Bharat Electronics Ltd</td></tr>
+<tr><td>NSE Symbol</td><td style="text-align:left">BEL</td></tr>
+<tr><td>BSE Symbol / Code</td><td style="text-align:left">BEL / 500049 (F&amp;O stock, FV ₹1)</td></tr>
+<tr><td>Sector (Screener)</td><td style="text-align:left">Industrials → Capital Goods → Aerospace &amp; Defence (business: defence electronics &amp; aerospace — EW &amp; avionics, communication, radar &amp; fire control, weapon systems, C4I, ASW, tank &amp; gun upgrades, electro-optics, arms &amp; ammunition)</td></tr>
+<tr><td>Business Type</td><td style="text-align:left">Navratna PSU defence electronics; 30 Strategic Business Units; defence = 88% of FY26 revenue (90% FY25); limited civilian presence</td></tr>
+<tr><td>Market Cap</td><td style="text-align:left">₹2,75,725 Cr at 19-Oct-2026 (Screener) — <b>Large Cap</b></td></tr>
+<tr><td>Face Value</td><td style="text-align:left">₹1.00</td></tr>
+<tr><td>Book Value</td><td style="text-align:left">₹32.8</td></tr>
+<tr><td>52-Week High / Low</td><td style="text-align:left">₹473 / ₹360 (Screener, 19-Oct-2026) — CMP ₹377 = −20% from high, +4.7% from low</td></tr>
+<tr><td>Incorporation</td><td style="text-align:left">1954 (Navratna PSU)</td></tr>
+<tr><td>Upcoming results</td><td style="text-align:left"><b>30-Oct-2026</b> — Q2/H1 FY27 board meeting (called 16-Oct-2026; shown on the Screener page, pulled 20-Oct-2026)</td></tr>
+<tr><td>ISIN / Pledge % / Auditor</td><td style="text-align:left"><span class="warn">VERIFY — not in free Screener export</span></td></tr>
+<tr><td>Ratings</td><td style="text-align:left">Credit-rating grades not in free export → <span class="warn">VERIFY</span></td></tr>
+<tr><td>Index Membership</td><td style="text-align:left">Nifty 50 · BSE Sensex · Nifty India Defence · Nifty PSE · BSE PSU · Nifty 100 · BSE 100 (Screener)</td></tr>
+</table>
+</div>
+<div class="card">
+<h4>Ownership Snapshot (as on 30-Sep-2026, Screener SHP) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Holding</th><th>%</th><th>Remark</th></tr>
+<tr><td>Promoters</td><td>51.14</td><td>Flat 6 quarters — Government of India (Navratna PSU)</td></tr>
+<tr><td>FIIs</td><td>16.99</td><td>Down from 18.56% (Jun'25) — slipping</td></tr>
+<tr><td>DIIs</td><td>21.86</td><td>Up from 20.60% (Jun'25) — rising</td></tr>
+<tr><td>Public / Retail &amp; Others</td><td>10.00</td><td>Free float ≈ 48.9% (100 − 51.14)</td></tr>
+<tr><td>No. of Shareholders</td><td>26,45,635</td><td>As on Sep-2026</td></tr>
+<tr><td>Promoter Pledge</td><td class="warn">VERIFY</td><td>Not disclosed in free export</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> <b>Business architecture:</b> BEL designs and manufactures defence electronic systems end-to-end and sells them to a single buyer family — the Indian Armed Forces and the Ministry of Defence — through 30 SBUs. Revenue is order-book-driven, so quarterly sales swing with delivery schedules (Q4 spikes to ₹9,150 Cr and ₹10,224 Cr in the last two March quarters). The two structural metadata notes: (1) the promoter is the state — stable 51.14% and a strategic order pipeline, but dividend timing, capital allocation and pricing sit inside government policy; (2) 26.45 lakh shareholders on the public side means a widely held, liquid Large Cap rather than a promoters-plus-retail story.</p>
+</div>
+</div>
+</section>
+
+<section class="panel" id="tab2">
+<h2>2. Valuation Metrics</h2>
+<div class="viewbox"><div class="vh">Section 2 — The View (plain English)</div>
+<ul>
+<li class="imp">Expensive on every absolute measure: P/E 44.9x and P/B 11.5x (book ₹32.8) at the 19-Oct-2026 close — for all the 27.4% ROE, you still pay ₹11.50 for every ₹1 of net assets, and Screener's own summary flags the 11.5x-book price as a con.<span class="important">IMPORTANT</span></li>
+<li class="imp">The market has already de-rated: −20% from the ₹473 high, 1-year price CAGR −9% while profits still grew — after 10Y/5Y/3Y price CAGRs of 26%/41%/41%, the multiple is compressing from a very high base, not from an average one.<span class="important">IMPORTANT</span></li>
+<li>Growth does not rescue the multiple outright: PEG ≈1.7 on the 3-year profit CAGR of 27% — fair-to-rich; on TTM profit growth of 12% it is ≈3.7.</li>
+<li>Income floor is thin: dividend yield 0.66% (payout 30% FY26) — almost all of the return has to come from price, and the 52-week low of ₹360 is the only visible floor.</li>
+<li>Peer comparison table did not load in the source (dynamic) → <span class="warn">VERIFY</span>; relative valuation vs defence/PSU peers must be built manually before relying on it.</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Price-to-Earnings 44.9x at the 19-Oct-2026 close (Screener; TTM EPS ₹8.40). ~45x for a company growing profit 13.9% in FY26 — the price already assumes the 15% FY27 revenue guidance and 28% EBITDA-margin story lands."><div class="l">P/E (TTM)</div><div class="v warn">44.9x</div><div class="n">19-Oct-2026 (Screener)</div></div>
+  <div class="kpi" data-explain="Price-to-Book 11.5x (CMP ₹377 ÷ BV ₹32.8, Calc — Screener's cons say the stock trades 11.5 times its book value). 11.5x book is justified only if 27%+ ROE is durable; any PSU pricing scrutiny or margin slip hits this multiple first."><div class="l">P/B</div><div class="v warn">11.5x</div><div class="n">BV ₹32.8 · 19-Oct-2026</div></div>
+  <div class="kpi" data-explain="Price-to-Sales ≈10.0x on FY26 (Calc: mcap ₹2,75,725 Cr ÷ sales ₹27,610 Cr) or 9.6x on TTM sales ₹28,717 Cr. The market pays ~₹10 for every ₹1 of annual revenue — rich for a 22%-net-margin defence manufacturer, tolerable only with flawless execution."><div class="l">P/S (FY26 / TTM)</div><div class="v warn">10.0x / 9.6x</div><div class="n">Mcap 2,75,725 ÷ sales 27,610</div></div>
+  <div class="kpi" data-explain="Estimated Enterprise Value ≈₹2,75,790 Cr (mcap ₹2,75,725 Cr + gross borrowings ₹65 Cr; the cash balance row is not in the free export → VERIFY, so this is an upper-bound estimate). EV/Sales ≈9.6x on TTM."><div class="l">EV (est.)</div><div class="v warn">≈₹2,75,790 Cr</div><div class="n">Mcap + borrowings · VERIFY cash</div></div>
+  <div class="kpi" data-explain="Estimated EV/EBITDA ≈34x (₹2,75,790 Cr ÷ FY26 operating profit ₹8,053 Cr, Calc). For a defence prime with 29% OPM this prices in several more years of the 14–16% revenue compound plus margin hold at 28–31%."><div class="l">EV/EBITDA (est.)</div><div class="v warn">≈34x</div><div class="n">Est. — no cash row in source</div></div>
+  <div class="kpi" data-explain="PEG ≈1.7 (P/E 44.9 ÷ 3-year profit CAGR 27%, Calc). On the 5-year 24% CAGR it is ≈1.9; on TTM profit growth of 12% it is ≈3.7 — growth is not cheap at this price."><div class="l">PEG (3Y)</div><div class="v warn">≈1.7</div><div class="n">3.7 on TTM growth 12%</div></div>
+  <div class="kpi" data-explain="Dividend yield 0.66% at the ₹377 close (Screener, 19-Oct-2026). FY26 payout was 30% of EPS; the ₹0.55 final dividend (55% of ₹1 face value) was paid 09-Sep-2026. No meaningful income support under the price."><div class="l">Dividend Yield</div><div class="v">0.66%</div><div class="n">FY26 payout 30% · final paid 09-Sep</div></div>
+  <div class="kpi" data-explain="Market cap ₹2,75,725 Cr (19-Oct-2026 close) — Large Cap, Nifty 50 and BSE Sensex constituent, also in F&O. Liquidity and position sizing are not the issue here; price discipline is."><div class="l">Market Cap</div><div class="v">₹2,75,725 Cr</div><div class="n">Large Cap · Nifty 50 · F&amp;O</div></div>
+</div>
+<div class="card">
+<h4>Current vs Context <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Comparison</th><th>Current</th><th>Reference</th><th>Verdict</th></tr>
+<tr><td>P/E vs own 3Y profit CAGR (27%)</td><td>44.9x</td><td>PEG ≈1.7</td><td><span class="pill p-y">Growth mostly priced in</span></td></tr>
+<tr><td>P/E vs own returns (ROE 27.4%, ROCE 36.4%)</td><td>44.9x</td><td>Quality top-tier</td><td><span class="pill p-y">Quality premium — still full</span></td></tr>
+<tr><td>P/B vs own book (₹32.8)</td><td>11.5x</td><td>Screener cons: 11.5x book</td><td><span class="pill p-r">Asset multiple very rich</span></td></tr>
+<tr><td>Price vs 1 year ago</td><td>₹377</td><td>1Y price CAGR −9% (Screener)</td><td><span class="pill p-y">Correcting, not cheap</span></td></tr>
+<tr><td>Price vs 52W band</td><td>+4.7% off ₹360</td><td>52W high ₹473 (−20%)</td><td><span class="pill p-y">Lower third of the year's band</span></td></tr>
+<tr><td>Order book vs price</td><td>₹75,000+ Cr (13-Oct-2026)</td><td>≈2.6x TTM sales (Calc)</td><td><span class="pill p-g">Visibility strong — inflows slowing</span></td></tr>
+<tr><td>Peer table (Aerospace &amp; Defence)</td><td class="warn">VERIFY</td><td>Peers table not machine-readable</td><td><span class="pill p-y">Build manually before use</span></td></tr>
+</table>
+<p class="src">Sources: P/E, P/B, BV, yield, mcap — Screener consolidated, pulled 20-Oct-2026 for the 19-Oct-2026 close; P/S, EV, EV/EBITDA, PEG — Calc from those inputs; order book — company/broker news 13-Oct-2026 (Screener itself shows no order book).</p>
+</div>
+</section>
+<section class="panel" id="tab3">
+<h2>3. Growth Metrics</h2>
+<div class="viewbox"><div class="vh">Section 3 — The View (plain English)</div>
+<ul>
+<li class="imp">A steady compounder, not a rocket (7.5/10): sales compounded <b>14% a year for 10 and 5 years and 16% for 3</b> (₹15,368 → ₹27,610 Cr FY22→FY26), profit compounded <b>16% / 24% / 27%</b> over 10Y / 5Y / 3Y — and the TTM sales CAGR of 20% (Screener) shows the base is still compounding.<span class="important">IMPORTANT</span></li>
+<li class="imp">Order book vs order inflow is the swing factor: the book crossed <b>₹75,000 Cr on 13-Oct-2026</b> (≈2.6x TTM sales), yet FY27 inflows are only <b>₹7,400 Cr till date, −53% YoY</b> (Macquarie, 14-Oct-2026) against a ₹55,000+ Cr FY27 target that includes QRSAM ≈₹30,000 Cr (management, 27-Jul-2026).<span class="important">IMPORTANT</span></li>
+<li>Latest quarter is strong on revenue but softer on profit: Q1 FY27 revenue ₹5,533 Cr <b>+25.3% YoY</b>, PAT ₹1,048 Cr only <b>+8.2%</b>, EBITDA margin 25.83% (company, 27-Jul-2026) — Q2 lands 30-Oct-2026.</li>
+<li>Quarterly revenue is lumpy (delivery-driven, Q4 spikes): the 13-quarter range runs ₹3,533 Cr to ₹10,224 Cr — read the annual trend, never a single quarter.</li>
+<li>Watch the mismatch: stock −9% in 1Y vs 16.2% FY26 sales growth — the market is discounting valuation, inflow pace and working capital, not the growth itself.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Annual P&amp;L (Consolidated, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Line</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th><th>TTM</th></tr>
+<tr><td>Sales</td><td>15,368</td><td>17,734</td><td>20,268</td><td>23,769</td><td class="good">27,610</td><td>28,717</td></tr>
+<tr><td>Sales YoY %</td><td>—</td><td>+15.4%</td><td>+14.3%</td><td class="good">+17.3%</td><td class="good">+16.2%</td><td>+4.0% <span class="src">(vs FY26)</span></td></tr>
+<tr><td>Operating Profit (EBITDA)</td><td>3,344</td><td>4,090</td><td>5,051</td><td>6,837</td><td>8,053</td><td>8,199</td></tr>
+<tr><td>OPM %</td><td>22%</td><td>23%</td><td>25%</td><td class="good">29%</td><td class="good">29%</td><td>29%</td></tr>
+<tr><td>Net Profit</td><td>2,400</td><td>2,986</td><td>3,985</td><td>5,323</td><td class="good">6,062</td><td>6,148</td></tr>
+<tr><td>EPS (₹)</td><td>3.28</td><td>4.08</td><td>5.45</td><td>7.28</td><td>8.29</td><td>8.40</td></tr>
+<tr><td>Dividend Payout %</td><td>46%</td><td>44%</td><td>40%</td><td>33%</td><td>30%</td><td>—</td></tr>
+</table>
+<p class="src">Source: Screener consolidated P&amp;L (FY22–FY26 + TTM), pulled 20-Oct-2026. YoY % rows are Calc (as published values are rounded to ₹ Cr). Longer history: sales ₹7,093 Cr in FY15 → ₹14,109 Cr in FY21 (Screener).</p>
+</div>
+<div class="card">
+<h4>Growth scorecard <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>YoY FY26</th><th>CAGR 10Y / 5Y / 3Y</th><th>TTM / latest</th></tr>
+<tr><td>Sales</td><td class="good">+16.2% (23,769→27,610)</td><td class="good">14% / 14% / 16%</td><td>TTM CAGR 20% (Screener)</td></tr>
+<tr><td>Net Profit</td><td class="good">+13.9% (5,323→6,062)</td><td class="good">16% / 24% / 27%</td><td>TTM CAGR 12% (Screener)</td></tr>
+<tr><td>EPS</td><td>+13.9% (7.28→8.29)</td><td>—</td><td>TTM ₹8.40</td></tr>
+<tr><td>Order book</td><td colspan="2">₹75,000+ Cr (13-Oct-2026, company) ≈2.6x TTM sales</td><td>was ₹72,258 Cr (1-Jul-2026)</td></tr>
+<tr><td>Order inflow (FY27)</td><td colspan="2" class="bad">₹7,400 Cr till date, −53% YoY (Macquarie, 14-Oct-2026)</td><td>FY27 target ₹55,000+ Cr</td></tr>
+<tr><td>Stock Price CAGR (Screener)</td><td class="bad">−9%</td><td class="good">26% / 41% / 41%</td><td class="bad">−9% (1Y)</td></tr>
+<tr><td>Return on Equity (Screener)</td><td colspan="3">27% (last year) · 28% (3Y) · 26% (5Y) · 24% (10Y)</td></tr>
+</table>
+</div>
+<div class="card">
+<h4>Quarterly Results — last 13 quarters (Screener, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Line</th><th>Jun'23</th><th>Sep'23</th><th>Dec'23</th><th>Mar'24</th><th>Jun'24</th><th>Sep'24</th><th>Dec'24</th><th>Mar'25</th><th>Jun'25</th><th>Sep'25</th><th>Dec'25</th><th>Mar'26</th><th>Jun'26</th></tr>
+<tr><td>Sales</td><td>3,533</td><td>4,009</td><td>4,162</td><td>8,564</td><td>4,244</td><td>4,605</td><td>5,771</td><td>9,150</td><td>4,440</td><td>5,792</td><td>7,154</td><td>10,224</td><td class="good">5,547</td></tr>
+<tr><td>Operating Profit</td><td>673</td><td>1,014</td><td>1,072</td><td>2,287</td><td>948</td><td>1,400</td><td>1,669</td><td>2,816</td><td>1,238</td><td>1,702</td><td>2,127</td><td>2,982</td><td>1,388</td></tr>
+<tr><td>OPM %</td><td>19%</td><td>25%</td><td>26%</td><td>27%</td><td>22%</td><td>30%</td><td>29%</td><td>31%</td><td>28%</td><td>29%</td><td>30%</td><td>29%</td><td class="warn">25%</td></tr>
+<tr><td>Other Income</td><td>140</td><td>137</td><td>167</td><td>225</td><td>204</td><td>158</td><td>186</td><td>195</td><td>163</td><td>154</td><td>139</td><td>110</td><td>170</td></tr>
+<tr><td>Interest</td><td>1</td><td>2</td><td>1</td><td>4</td><td>1</td><td>1</td><td>1</td><td>6</td><td>1</td><td>2</td><td>2</td><td>2</td><td>1</td></tr>
+<tr><td>Depreciation</td><td>109</td><td>108</td><td>107</td><td>119</td><td>108</td><td>111</td><td>111</td><td>138</td><td>121</td><td>126</td><td>135</td><td>173</td><td>161</td></tr>
+<tr><td>PBT</td><td>703</td><td>1,041</td><td>1,132</td><td>2,390</td><td>1,043</td><td>1,445</td><td>1,744</td><td>2,867</td><td>1,279</td><td>1,728</td><td>2,128</td><td>2,917</td><td>1,396</td></tr>
+<tr><td>Tax %</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td><td>26%</td><td>25%</td><td>26%</td><td>26%</td><td>24%</td><td>25%</td></tr>
+<tr><td>Net Profit</td><td>539</td><td>790</td><td>860</td><td>1,797</td><td>791</td><td>1,093</td><td>1,312</td><td>2,127</td><td>969</td><td>1,287</td><td>1,580</td><td>2,226</td><td class="good">1,055</td></tr>
+<tr><td>EPS (₹)</td><td>0.74</td><td>1.08</td><td>1.18</td><td>2.46</td><td>1.08</td><td>1.49</td><td>1.79</td><td>2.91</td><td>1.33</td><td>1.76</td><td>2.16</td><td>3.04</td><td>1.44</td></tr>
+</table></div>
+<p class="note"><span class="tag t-calc">Calc</span> FY26 quarters (Jun'25–Mar'26) sum to the annual table (sales ₹27,610 Cr, net profit ₹6,062 Cr) — internally consistent. Q1 FY27 (Jun-2026): sales ₹5,547 Cr <b>+24.9% YoY</b> (vs ₹4,440 Cr), net profit ₹1,055 Cr +8.9%, OPM 25% (28% a year ago). The company's own 27-Jul-2026 release reported revenue ₹5,533 Cr +25.3% YoY, PBT ₹1,403 Cr, PAT ₹1,048 Cr +8.2% and EBITDA margin 25.83% — small source differences vs Screener are rounding/definition, direction identical. Q2 FY27 (Sep-2026 quarter) is not yet reported — results due 30-Oct-2026. <span class="tag t-mgmt">Mgmt</span> Q1 also carried order inflow ₹3,754 Cr and an order book of ₹72,258 Cr as on 1-Jul-2026 (company, 27-Jul-2026).</p>
+</div>
+</section>
+
+<section class="panel" id="tab4">
+<h2>4. Profitability &amp; Efficiency</h2>
+<div class="viewbox"><div class="vh">Section 4 — The View (plain English)</div>
+<ul>
+<li class="imp">Top tier for the hub (8.0/10): OPM has stepped up <b>22% → 23% → 25% → 29% → 29%</b> (FY22→FY26), net margin 22.0%, <b>ROCE 36.4% and ROE 27.4%</b> — this is private-sector-grade profitability inside a PSU, on a defence order book.<span class="important">IMPORTANT</span></li>
+<li class="imp">The one drag mark: <b>working capital</b> — debtor days 170 (from 133 in FY24), inventory 265 days, payable 93 days, cash conversion cycle 342 days, working-capital days 79.4 → 135 (Screener cons). Operations absorb cash even as they print profit — that is why CFO/EBITDA fell to 44%.<span class="important">IMPORTANT</span></li>
+<li>Quality check passes: other income is only 7.0% of PBT (FY26, ₹566 of ₹8,052 Cr — Calc from quarterly sums) — profit is genuinely operating-driven; interest of ₹7 Cr in FY26 is 0.09% of operating profit.</li>
+<li>ROCE peaked at 39% in FY25 and eased to 36% in FY26 as working capital ballooned — the metric to defend over the next two quarters.</li>
+<li>Screener's own machine summary agrees on both sides: pros = almost debt free, 23.5% profit CAGR over 5 years, 3Y ROE 27.7%, healthy 34.5% dividend payout; cons = 11.5x book, 170 debtor days, WC days 79.4 → 135 (verbatim, pulled 20-Oct-2026).</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Return &amp; margin stack <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>Value</th><th style="text-align:left">Assessment</th></tr>
+<tr><td>OPM (FY26)</td><td class="good">29%</td><td style="text-align:left">22% → 29% over five years; peak 31% (Mar'26 qtr)</td></tr>
+<tr><td>Net Margin (FY26)</td><td class="good">22.0%</td><td style="text-align:left">₹6,062 Cr ÷ ₹27,610 Cr (Calc)</td></tr>
+<tr><td>ROE</td><td class="good">27.4%</td><td style="text-align:left">Screener: 10Y 24% · 5Y 26% · 3Y 28% — consistently high</td></tr>
+<tr><td>ROCE</td><td class="good">36.4%</td><td style="text-align:left">27 → 30 → 35 → 39 → 36% (FY22–26)</td></tr>
+<tr><td>Interest (FY26)</td><td class="good">₹7 Cr</td><td style="text-align:left">0.09% of operating profit — effectively nil</td></tr>
+<tr><td>Other income / PBT (FY26)</td><td class="good">7.0%</td><td style="text-align:left">₹566 of ₹8,052 Cr — operating-driven</td></tr>
+<tr><td>Asset Turnover</td><td>0.62x</td><td style="text-align:left">Sales 27,610 ÷ assets 44,527 — defence manufacturer</td></tr>
+<tr><td>Net Worth (FY26)</td><td>₹23,988 Cr</td><td style="text-align:left">Equity 731 + reserves 23,257</td></tr>
+</table>
+</div>
+<div class="card">
+<h4>Efficiency ratios (Screener) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Ratio</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Debtor Days</td><td>145</td><td>145</td><td class="good">133</td><td>140</td><td class="bad">170</td></tr>
+<tr><td>Inventory Days</td><td>230</td><td>240</td><td>257</td><td class="bad">273</td><td>265</td></tr>
+<tr><td>Days Payable</td><td>139</td><td>124</td><td>128</td><td>100</td><td>93</td></tr>
+<tr><td>Cash Conversion Cycle</td><td>237</td><td>261</td><td>262</td><td>313</td><td class="bad">342</td></tr>
+<tr><td>Working Capital Days</td><td class="good">4</td><td>28</td><td>18</td><td>85</td><td class="bad">135</td></tr>
+<tr><td>ROCE %</td><td>27%</td><td>30%</td><td>35%</td><td class="good">39%</td><td class="good">36%</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> <b>Signature test (Revenue↑ + Margin↑ + ROCE↑):</b> all three legs point up over five years — revenue 14% CAGR, OPM 22% → 29%, ROCE 27% → 36%. That genuine quality improvement is the core of the 8.0 here and the reason a defence PSU merits an ACCUMULATE band at all. The counterweight is the latest year: ROCE 39% → 36% and WC days 85 → 135 mean growth is now absorbing cash instead of freeing it. If Q2 FY27 shows WC days rising again, the profitability score drops toward 7. Screener's cons (verbatim) list high debtors at 170 days and working-capital days moving 79.4 → 135 — same conclusion from the source itself.</p>
+</div>
+</div>
+<div class="card">
+<h4>Screener's machine summary — Pros &amp; Cons (verbatim, pulled 20-Oct-2026) <span class="tag t-fact">Fact</span></h4>
+<div class="grid2" style="gap:14px">
+<div>
+<h4 style="margin-top:4px">Pros</h4>
+<ul>
+<li>Almost debt free</li>
+<li>Profit growth of 23.5% CAGR over 5 years <span class="src">(CAGR block: 24%)</span></li>
+<li>3Y ROE 27.7% <span class="src">(CAGR block: 28%)</span></li>
+<li>Healthy dividend payout of 34.5%</li>
+</ul>
+</div>
+<div>
+<h4 style="margin-top:4px">Cons</h4>
+<ul>
+<li>Trading 11.5x book <span class="src">(the P/B con is scored in Section 2)</span></li>
+<li>High debtors of 170 days</li>
+<li>Working capital days have increased from 79.4 to 135</li>
+</ul>
+</div>
+</div>
+<p class="src">Source: Screener consolidated page, machine-generated cons block, pulled 20-Oct-2026. The two small differences vs the CAGR block (23.5% vs 24%; 27.7% vs 28%) are the source's own rounding windows — both are quoted here as published, never averaged away.</p>
+</div>
+</section>
+<section class="panel" id="tab5">
+<h2>5. Balance Sheet / Financial Strength</h2>
+<div class="viewbox"><div class="vh">Section 5 — The View (plain English)</div>
+<ul>
+<li class="imp">Fortress (9.0/10): borrowings <b>₹65 Cr against net worth ₹23,988 Cr → D/E 0.003x</b> — Screener's pros call it almost debt free, and the debt line has been ₹53–65 Cr in every year since FY22. For a ₹2.76 lakh Cr company this is effectively a debt-free balance sheet.<span class="important">IMPORTANT</span></li>
+<li class="imp">Growth is funded without leverage: reserves compounded from ₹12,042 Cr to ₹23,257 Cr in four years while borrowings never crossed ₹65 Cr; other liabilities (₹20,473 Cr — advances and payables from the defence customer ecosystem) are working capital, not debt.<span class="important">IMPORTANT</span></li>
+<li>The asset base is modest and expanding steadily: fixed assets ₹2,675 → ₹4,121 Cr (FY22→FY26) with CWIP ₹731 Cr — capacity is being added on internal accruals.</li>
+<li>VERIFY items: no separate cash balance row in the free export (net debt cannot be computed exactly); credit-rating grades; ISIN; auditor. Also flagged: the FY22 equity-capital line of ₹244 Cr does not square with the 731 Cr shares implied by FY22 EPS — the FY23-onward ₹731 Cr is consistent (<span class="warn">VERIFY</span> the FY22 line against the annual report).</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Balance sheet trajectory (Screener, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Line</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Equity Capital</td><td class="warn">244</td><td>731</td><td>731</td><td>731</td><td>731</td></tr>
+<tr><td>Reserves</td><td>12,042</td><td>13,131</td><td>15,595</td><td>19,243</td><td>23,257</td></tr>
+<tr><td>Borrowings</td><td class="good">53</td><td class="good">61</td><td class="good">63</td><td class="good">61</td><td class="good">65</td></tr>
+<tr><td>Other Liabilities</td><td>21,574</td><td>21,567</td><td>23,136</td><td>20,788</td><td>20,473</td></tr>
+<tr><td>Total Liabilities / Assets</td><td>33,912</td><td>35,490</td><td>39,524</td><td>40,824</td><td>44,527</td></tr>
+<tr><td>Fixed Assets</td><td>2,675</td><td>2,963</td><td>3,035</td><td>3,419</td><td>4,121</td></tr>
+<tr><td>CWIP</td><td>1,006</td><td>855</td><td>894</td><td>1,052</td><td>731</td></tr>
+<tr><td>Investments</td><td>1,572</td><td>650</td><td>682</td><td>743</td><td>800</td></tr>
+<tr><td>Other Assets (incl. cash) <span class="tag t-calc">Calc</span></td><td>28,659</td><td>31,022</td><td>34,913</td><td>35,610</td><td>38,875</td></tr>
+<tr><td>Cash &amp; Balances</td><td colspan="5" style="text-align:center" class="warn">NOT in free export — VERIFY from annual report</td></tr>
+</table>
+<p class="src">Source: Screener consolidated balance sheet (FY22–FY26), pulled 20-Oct-2026. Other Assets row is Calc (total − fixed assets − CWIP − investments) and contains receivables, inventory and any cash — the split is not in the free export.</p>
+</div>
+<div class="card">
+<h4>Derived strength metrics <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>Value</th><th style="text-align:left">Basis / verdict</th></tr>
+<tr><td>Debt / Equity (FY26)</td><td class="good">0.003x</td><td style="text-align:left">65 ÷ 23,988 — negligible vs 1.0x comfort level</td></tr>
+<tr><td>Net Worth (FY26)</td><td>₹23,988 Cr</td><td style="text-align:left">731 equity + 23,257 reserves; grew from ₹12,286 Cr in FY22</td></tr>
+<tr><td>Borrowings history</td><td class="good">₹53–65 Cr</td><td style="text-align:left">Flat for 5 years — growth never needed debt</td></tr>
+<tr><td>Interest Coverage (FY26)</td><td class="good">≈1,150x</td><td style="text-align:left">Operating profit ₹8,053 Cr ÷ interest ₹7 Cr — not a constraint</td></tr>
+<tr><td>Net Debt / EBITDA</td><td class="good">≈ nil (est.)</td><td style="text-align:left">Debt ₹65 Cr vs EBITDA ₹8,053 Cr — cash balance VERIFY</td></tr>
+<tr><td>Total Assets</td><td>₹44,527 Cr</td><td style="text-align:left">Only ~9% in fixed assets — an asset-light systems integrator for its size</td></tr>
+<tr><td>Ratings</td><td class="warn">Grades VERIFY</td><td style="text-align:left">Not in free Screener export</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> This is the strongest section of the report: for a ₹2,75,725 Cr market-cap company (19-Oct-2026), ₹65 Cr of borrowings with essentially no interest burden is the definition of financial safety — the 9.0 here is what partially justifies paying up in Section 2. The honest caveats: (1) the equity-capital line quirk in FY22 and the missing cash row keep this from being a 9.5; (2) a state promoter means balance-sheet strength ultimately serves government objectives (dividends, capex mandates, defence pricing) as much as minority shareholders.</p>
+</div>
+</div>
+</section>
+
+<section class="panel" id="tab6">
+<h2>6. Cash Flow Metrics</h2>
+<div class="viewbox"><div class="vh">Section 6 — The View (plain English)</div>
+<ul>
+<li class="imp">Lumpy and weak-converting (5.5/10): CFO saw-tooths <b>₹4,207 → 1,199 → 4,659 → 564 → 1,541 Cr</b> (FY22→FY26) — positive every year, but with a 4x swing between adjacent years; CFO/EBITDA runs 150% / 55% / 120% / 33% / 44%.<span class="important">IMPORTANT</span></li>
+<li class="imp">Profit is real but half of it stays inside the business: cumulative FY22–26 CFO ₹12,170 Cr vs cumulative net profit ₹20,756 Cr → <b>59% conversion</b> (Calc) — receivables at 170 days and WC days at 135 are where the rest is parked.<span class="important">IMPORTANT</span></li>
+<li>Free cash flow is positive in four of five years (₹3,660 / 611 / 4,015 / −444 / +560 Cr; cumulative +₹8,402 Cr) — FY26 is back positive, but on a CFO of ₹1,541 Cr that is only 52% of FY24's level.</li>
+<li>Investing flows are unusually signed: CFI is <i>positive</i> in FY23 (+₹2,708), FY25 (+₹639) and FY26 (+₹1,730 Cr) — likely investment maturities/divestments offsetting capex (<span class="tag t-view">View</span> — the free export does not itemise CFI); financing is consistently negative (−₹1,078 → −₹2,097 Cr) = dividends and other payouts.</li>
+<li>Watch item: with WC days at 135 and FY27 revenue guided +15%, CFO must hold or improve at H1 FY27 (reported 30-Oct-2026) — a second straight weak half-year would drag this score below 5.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Cash flow statement (Screener, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Line</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Cash from Operating Activity (CFO)</td><td class="good">+4,207</td><td class="good">+1,199</td><td class="good">+4,659</td><td class="warn">+564</td><td class="good">+1,541</td></tr>
+<tr><td>Cash from Investing Activity (CFI)</td><td class="bad">−4,872</td><td class="good">+2,708</td><td class="bad">−5,924</td><td class="good">+639</td><td class="good">+1,730</td></tr>
+<tr><td>Cash from Financing Activity (CFF)</td><td class="bad">−1,078</td><td class="bad">−1,262</td><td class="bad">−1,475</td><td class="bad">−1,696</td><td class="bad">−2,097</td></tr>
+<tr><td>Net Cash Flow</td><td class="bad">−1,742</td><td class="good">+2,645</td><td class="bad">−2,739</td><td class="bad">−493</td><td class="good">+1,175</td></tr>
+<tr><td>Free Cash Flow</td><td class="good">+3,660</td><td class="good">+611</td><td class="good">+4,015</td><td class="bad">−444</td><td class="good">+560</td></tr>
+<tr><td>CFO / EBITDA</td><td>150%</td><td>55%</td><td>120%</td><td class="bad">33%</td><td class="warn">44%</td></tr>
+</table>
+<p class="note"><span class="tag t-calc">Calc</span> Cumulative FY22–26: CFO <b>+₹12,170 Cr</b> (4,207 + 1,199 + 4,659 + 564 + 1,541) vs cumulative net profit ₹20,756 Cr → 59% conversion; FCF cumulative <b>+₹8,402 Cr</b>. Unlike levered manufacturers, BEL's operations have funded the entire five-year period — the deficits (FY22, FY24) were investment-driven (CFI −₹4,872 / −₹5,924 Cr), not operating. FY26 test: PAT ₹6,062 Cr vs CFO ₹1,541 Cr → CFO/PAT 25% (weak; the 170 debtor-days are visible here). The negative CFF every year is the dividend stream plus other payouts (₹1,078 → ₹2,097 Cr) — a shareholder-friendly pattern, but one that grows faster than CFO of late.</p>
+</div>
+</section>
+
+<section class="panel" id="tab7">
+<h2>7. Shareholding &amp; Ownership (quarterly)</h2>
+<div class="viewbox"><div class="vh">Section 7 — The View (plain English)</div>
+<ul>
+<li class="imp">Stable state promoter: <b>51.14% unchanged across all six quarters</b> (Jun-2025 → Sep-2026) — the promoter is the Government of India; no dilution, no pledge movement visible (pledge % itself is <span class="warn">VERIFY</span>).<span class="important">IMPORTANT</span></li>
+<li class="imp">The rotation is clean: FII <b>18.56 → 16.99%</b> (−1.57pp) handing off to DII <b>20.60 → 21.86%</b> (+1.26pp) — domestic institutions have been absorbing foreign selling as the price fell 9% over the year.<span class="important">IMPORTANT</span></li>
+<li>Promoter + DII = 73.0% at Sep-2026 — a sticky two-thirds base; public float ≈48.9% with 26,45,635 shareholders — a genuinely widely held Large Cap.</li>
+<li>26.45 lakh shareholders is a large register by hub standards (compare small caps with 4–5 lakh) — expect institutional-grade liquidity and lower retail panic-churn.</li>
+<li>VERIFY: promoter pledge % (not in the free export) — check every quarter even for a PSU; and the missing earlier quarters limit this table to six data points.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Quarterly shareholding, Jun-2025 → Sep-2026 (%) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Class</th><th>Jun'25</th><th>Sep'25</th><th>Dec'25</th><th>Mar'26</th><th>Jun'26</th><th>Sep'26</th></tr>
+<tr><td>Promoters</td><td>51.14</td><td>51.14</td><td>51.14</td><td>51.14</td><td>51.14</td><td>51.14</td></tr>
+<tr><td>FIIs</td><td>18.56</td><td>18.14</td><td>18.51</td><td>19.51</td><td>18.02</td><td class="bad">16.99</td></tr>
+<tr><td>DIIs</td><td>20.60</td><td>20.88</td><td>20.47</td><td>20.00</td><td>21.02</td><td class="good">21.86</td></tr>
+<tr><td>Public</td><td>9.70</td><td>9.84</td><td>9.87</td><td>9.37</td><td>9.82</td><td>10.00</td></tr>
+</table></div>
+<p class="note"><span class="tag t-calc">Calc</span> Promoter + DII = <b>73.00%</b> at Sep-2026 (was 71.74% at Jun'25) · free float ≈ 48.9% · FII:DII ratio 0.78 (DIIs now the larger institutional class — the crossover happened before Jun'25) · rows sum to 99.99% at Sep-26 (source rounding). FII peaked at 19.51% (Mar'26) then fell two straight quarters to 16.99% — the most recent institutional flow is <i>out</i>, which is one reason the Entry Plan refuses to pre-buy the results. No. of shareholders: <b>26,45,635</b> (Sep-2026, Screener). <span class="tag t-fact">Fact</span></p>
+</div>
+</section>
+<section class="panel" id="tab8">
+<h2>8. News &amp; Recent Developments (Oct-2026)</h2>
+<div class="viewbox"><div class="vh">Section 8 — The View (plain English)</div>
+<ul>
+<li class="imp">The near-term decision gate: the board meeting called on <b>16-Oct-2026 for 30-Oct-2026</b> will report Q2/H1 FY27. Everything in the Entry Plan — revenue growth, EBITDA margin vs the 28% guidance, order-inflow run-rate, working-capital days — hangs on that one print, 10 days after this report's price date.<span class="important">IMPORTANT</span></li>
+<li class="imp">Order book crossed <b>₹75,000 Cr on 13-Oct-2026</b> (FY27), but FY27 order inflows are only <b>₹7,400 Cr till date, −53% YoY</b> (Macquarie, 14-Oct-2026 — which still rates Outperform, TP ₹550). The book is the visibility; the inflow is the swing factor.<span class="important">IMPORTANT</span></li>
+<li>Q1 FY27 (27-Jul-2026): revenue ₹5,533 Cr +25.3% YoY, PAT ₹1,048 Cr +8.2%, EBITDA margin 25.83%; order book ₹72,258 Cr as on 1-Jul; Q1 inflow ₹3,754 Cr; guidance FY27 revenue +15%, EBITDA margin 28%, order inflow ₹55,000+ Cr including QRSAM ≈₹30,000 Cr.</li>
+<li>Income and ESG: FY26 final dividend ₹0.55/share (55% of ₹1 face value) paid 09-Sep-2026; CARE ESG score 77.7 (29-Sep-2026).</li>
+<li>Order flow since Q1: ₹730 Cr (26-Aug) and ₹533 Cr (13-Oct) — small relative to the ₹55,000 Cr target; the Elara preview of 06-Oct expects Q2 revenue ≈₹6,487 Cr, +12% YoY. Q2 FY27 was still unpublished as of 20-Oct-2026 → <span class="warn">VERIFY</span> on 30-Oct.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Dated news, results &amp; broker items (all 2026) <span class="tag t-fact">Fact</span> <span class="tag t-mgmt">Mgmt</span></h4>
+<table>
+<tr><th>Date</th><th style="text-align:left">Item</th><th style="text-align:left">Detail</th></tr>
+<tr><td>16-Oct-2026</td><td style="text-align:left"><b>Board meeting called — Q2/H1 FY27 results</b></td><td style="text-align:left">Meeting on <b>30-Oct-2026</b> to consider quarterly and half-yearly results — the Entry Plan's review gate</td></tr>
+<tr><td>14-Oct-2026</td><td style="text-align:left">Macquarie note — Outperform, TP ₹550</td><td style="text-align:left">FY27 order inflows ₹7,400 Cr till date, <b>−53% YoY</b>; rating/target from the broker note (not investment advice — cited as dated market colour)</td></tr>
+<tr><td>13-Oct-2026</td><td style="text-align:left">Orders ₹533 Cr + <b>order book crosses ₹75,000 Cr</b></td><td style="text-align:left">Additional orders ₹533 Cr; FY27 order book &gt;₹75,000 Cr; ICICIdirect cites backlog ~₹70,000 Cr ≈2.4x TTM revenue</td></tr>
+<tr><td>06-Oct-2026</td><td style="text-align:left">Elara Capital — Q2 FY27 preview</td><td style="text-align:left">Q2 revenue estimate ≈₹6,487 Cr, <b>+12% YoY</b> — the baseline the Entry Plan tests the actual print against</td></tr>
+<tr><td>29-Sep-2026</td><td style="text-align:left">CARE ESG score 77.7</td><td style="text-align:left">ESG rating published by CARE; methodology/scale context <span class="warn">VERIFY</span></td></tr>
+<tr><td>09-Sep-2026</td><td style="text-align:left">FY26 final dividend paid</td><td style="text-align:left">₹0.55 per share (55% of ₹1 face value) paid; FY26 total payout 30% of EPS (Screener)</td></tr>
+<tr><td>26-Aug-2026</td><td style="text-align:left">Orders ₹730 Cr</td><td style="text-align:left">New orders intimated post-Q1 — modest vs the FY27 ₹55,000+ Cr inflow target</td></tr>
+<tr><td>27-Jul-2026</td><td style="text-align:left"><b>Q1 FY27 results + FY27 guidance</b></td><td style="text-align:left">Revenue ₹5,533 Cr +25.3% YoY · PBT ₹1,403 Cr · PAT ₹1,048 Cr +8.2% · EBITDA margin 25.83% · order book ₹72,258 Cr (as on 1-Jul) · Q1 inflow ₹3,754 Cr · guidance: FY27 revenue +15%, EBITDA margin 28%, order inflow ₹55,000+ Cr incl. QRSAM ≈₹30,000 Cr</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> The information trail is respectable for a PSU: dated results with guidance, order intimation within weeks, a scheduled board meeting 10 days out, dividend paid on time, two broker notes (Macquarie 14-Oct, ICICIdirect via 13-Oct) and an institutional ESG score. The two gaps that matter for entry sizing: (1) the peer table never loads in the free Screener pull → relative valuation vs the defence complex is <span class="warn">VERIFY</span>; (2) Screener itself displays no order book — every order-book figure in this report is cited to its dated company/broker source above.</p>
+<p class="src">Sources: company results release (27-Jul-2026), order/dividend intimations (26-Aug, 09-Sep, 13-Oct), board-meeting notice (16-Oct), broker notes (06-Oct Elara preview; 14-Oct Macquarie; ICICIdirect backlog cited 13-Oct), CARE ESG (29-Sep) — compiled 20-Oct-2026. Q2 FY27 result: not yet published as of 20-Oct-2026 → <span class="warn">VERIFY</span> after the 30-Oct-2026 board meeting.</p>
+</div>
+</section>
+
+<section class="panel" id="tab9">
+<h2>9. Verdict &amp; Journal (as of Oct 2026)</h2>
+<div class="viewbox"><div class="vh">Section 9 — The View (plain English)</div>
+<ul>
+<li class="imp">Composite <b>6.9/10 → ACCUMULATE</b> (6–8 band): balance sheet 9.0 and profitability 8.0 carry the score; growth 7.5, metadata 7.0 and shareholding 7.0 hold the middle; valuation 4.5 and cash flow 5.5 keep it out of the excellent band.<span class="important">IMPORTANT</span></li>
+<li class="imp">Do not buy at ₹377 today (19-Oct-2026 close). First tranche only at <b>₹360–375</b> and only after Q2 FY27 (30-Oct-2026) confirms: revenue ≈₹6,487 Cr (+12% YoY), EBITDA margin ≥26%, order inflow re-accelerating toward ₹55,000 Cr, WC days ≤135 — and no chasing above ₹380 before the print.<span class="important">IMPORTANT</span></li>
+<li>The bull case is rare: a ₹2.76 lakh Cr PSU compounding 14–16%, earning 29% OPM / 36.4% ROCE / 27.4% ROE with ₹65 Cr of debt and a ₹75,000+ Cr order book — quality this high is hard to find in the hub; only the price (44.9x / 11.5x book) and the working-capital trend stand in the way.</li>
+<li class="imp">Portfolio status is CANDIDATE: stance today = <b>0% position, active monitoring</b>. The verdict word ACCUMULATE describes the business at the right price, not an instruction to buy now.<span class="important">IMPORTANT</span></li>
+<li>Journal routine: Entry #01 (20-Oct-2026) below is the baseline; next review = Nov 2026 monthly run or the Q2 FY27 results on 30-Oct-2026 → entry #02.</li>
+</ul>
+</div>
+
+<div class="card">
+<h4>Section scorecard detail <span class="tag t-view">View</span></h4>
+<div class="tblwrap"><table>
+<tr><th>#</th><th>Section</th><th>Verdict</th><th>Score</th><th style="text-align:left">Evidence</th></tr>
+<tr><td>1</td><td>Metadata &amp; Ownership</td><td><span class="pill p-y">SOLID, PSU CAVEAT</span></td><td>7.0</td><td style="text-align:left">Navratna PSU since 1954, Nifty 50/Sensex + defence/PSE indices, promoter GOI flat 51.14%, DII 21.9% rising, 26.45L shareholders; but state-owned (policy/dividend risk) and pledge/ISIN/auditor/ratings = VERIFY</td></tr>
+<tr><td>2</td><td>Valuation</td><td><span class="pill p-r">EXPENSIVE</span></td><td>4.5</td><td style="text-align:left">P/E 44.9x, P/B 11.5x on BV ₹32.8, P/S ~10x, EV/EBITDA ≈34x (est.), PEG ≈1.7; −20% from high and −9% 1Y but still premium (19-Oct-2026); peer table = VERIFY</td></tr>
+<tr><td>3</td><td>Growth</td><td><span class="pill p-g">STRONG, INFLOW WATCH</span></td><td>7.5</td><td style="text-align:left">Sales CAGR 14%/14%/16% (10Y/5Y/3Y), profit 16%/24%/27%, TTM sales CAGR 20%; order book ₹75,000+ Cr ≈2.6x TTM; but FY27 inflows ₹7,400 Cr, −53% YoY vs ₹55,000 Cr target</td></tr>
+<tr><td>4</td><td>Profitability &amp; Efficiency</td><td><span class="pill p-g">TOP-TIER, WC DRAG</span></td><td>8.0</td><td style="text-align:left">OPM 29% (22→29% over 5Y), ROCE 36.4%, ROE 27.4%, net margin 22%, other income only 7% of PBT; but debtor days 170, WC days 79.4→135, CCC 342</td></tr>
+<tr><td>5</td><td>Balance Sheet</td><td><span class="pill p-g">EXCELLENT</span></td><td>9.0</td><td style="text-align:left">Borrowings ₹65 Cr vs net worth ₹23,988 Cr (D/E 0.003x), flat debt 5 years, interest ₹7 Cr; cash row and FY22 equity line quirk = VERIFY</td></tr>
+<tr><td>6</td><td>Cash Flow</td><td><span class="pill p-y">LUMPY / WEAK CONVERSION</span></td><td>5.5</td><td style="text-align:left">CFO saw-tooth 4,659→564→1,541 Cr; 59% cumulative conversion; FCF +₹560 Cr (positive 4 of 5 years); CFO/EBITDA 44%; CFI itemisation = VERIFY</td></tr>
+<tr><td>7</td><td>Shareholding</td><td><span class="pill p-g">STABLE</span></td><td>7.0</td><td style="text-align:left">Promoter GOI flat 51.14% (6 qtrs), DII 20.60→21.86% rising, FII 18.56→16.99% slipping, 26,45,635 shareholders; pledge = VERIFY</td></tr>
+<tr><td></td><td><b>Composite</b></td><td><span class="pill p-g">ACCUMULATE</span></td><td><b>6.9</b></td><td style="text-align:left">48.5 ÷ 7 — mid-band accumulate, entirely conditional on price discipline and the 30-Oct-2026 print</td></tr>
+</table></div>
+</div>
+
+<div class="grid2">
+<div class="card">
+<h4>Bull case <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>Order-book visibility:</b> ₹75,000+ Cr (13-Oct-2026) ≈2.6x TTM sales, with QRSAM ≈₹30,000 Cr expected inside the ₹55,000 Cr FY27 inflow target.</li>
+<li><b>Top-tier economics:</b> OPM 29%, ROCE 36.4%, ROE 27.4%, 22% net margin — the best profitability stack among large caps tracked in this hub.</li>
+<li><b>Balance sheet fortress:</b> ₹65 Cr debt vs ₹23,988 Cr net worth — no lender risk, no refinancing risk, interest ₹7 Cr.</li>
+<li><b>Steady compounder:</b> 14% 10Y sales CAGR, 24% 5Y profit CAGR, FY27 guidance +15% revenue / 28% EBITDA margin.</li>
+<li><b>De-rating has done work:</b> −20% from the ₹473 high, −9% 1Y, P/E down to 44.9x — a materially better entry than a year ago.</li>
+<li><b>Ownership calm:</b> GOI promoter flat, DII 21.9% rising, 26.45L shareholders, dividend paid on time (₹0.55, 09-Sep), CARE ESG 77.7.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Bear case / Risks <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>Valuation:</b> 44.9x earnings and 11.5x book — even 27% ROE does not make 11.5x book cheap; multiple compresses fast if growth stumbles.</li>
+<li><b>Order-inflow slowdown:</b> ₹7,400 Cr FY27 inflows, −53% YoY (14-Oct) — if QRSAM's ~₹30,000 Cr slips, the whole inflow target is at risk.</li>
+<li><b>Working capital:</b> debtor days 170, WC days 79.4 → 135, CCC 342 — profit is not converting to cash (CFO/EBITDA 44%).</li>
+<li><b>Cash-flow lumpiness:</b> CFO swinging 4,659 → 564 → 1,541 Cr makes any single-year FCF unreliable.</li>
+<li><b>PSU overhang:</b> state owner controls dividend timing and capital allocation; single-buyer (armed forces) concentration with 88% defence revenue and pricing under policy scrutiny.</li>
+<li><b>Near-term gate:</b> Q2 FY27 on 30-Oct-2026 — Q1 grew revenue +25.3% but PAT only +8.2% at 25.83% EBITDA margin (vs 28% guidance); FII holding falling two straight quarters.</li>
+<li><b>VERIFY gaps:</b> peer table, pledge %, ISIN, auditor, ratings grades, cash row — no item may be assumed clean.</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<h4>Monitorables — Q2 FY27 gate (board meeting 30-Oct-2026) <span class="tag t-view">View</span></h4>
+<table>
+<tr><th>#</th><th>Indicator</th><th>What to check</th><th style="text-align:left">Green light</th><th style="text-align:left">Red light</th></tr>
+<tr><td>1</td><td>Q2 revenue growth</td><td>vs Elara preview +12% YoY ≈₹6,487 Cr (06-Oct)</td><td style="text-align:left">≥ +12% YoY (≈₹6,487 Cr+)</td><td style="text-align:left">&lt; +10% YoY</td></tr>
+<tr><td>2</td><td>EBITDA margin</td><td>vs 25.83% Q1 and 28% FY27 guidance</td><td style="text-align:left">≥26% in Q2, path to 28%</td><td style="text-align:left">&lt;25% — two quarters below guidance</td></tr>
+<tr><td>3</td><td>Order inflow run-rate</td><td>vs ₹7,400 Cr (−53% YoY) and ₹55,000 Cr FY27 target</td><td style="text-align:left">H2 accelerates; QRSAM ~₹30,000 Cr booked</td><td style="text-align:left">FY27 on track to miss target by &gt;30%</td></tr>
+<tr><td>4</td><td>Working capital</td><td>WC days vs 135; debtor days vs 170</td><td style="text-align:left">WC days ≤135 and stable; debtors ≤170</td><td style="text-align:left">Either metric rises again</td></tr>
+<tr><td>5</td><td>Dividend</td><td>vs FY26 payout 30%, yield 0.66%, final ₹0.55 paid 09-Sep</td><td style="text-align:left">Interim dividend on schedule</td><td style="text-align:left">Payout cut without cause</td></tr>
+<tr><td>6</td><td>Pledge / VERIFY set</td><td>Sep-26 SHP pledge %; ISIN/auditor/ratings (VERIFY)</td><td style="text-align:left">Pledge nil confirmed</td><td style="text-align:left">Any pledge appears</td></tr>
+<tr><td>7</td><td>Price</td><td>CMP <b>₹377</b> (19-Oct-2026) — trigger ₹360–375</td><td style="text-align:left">Entry zone reached <i>with</i> Q2 confirmation</td><td style="text-align:left">Breaks ₹360 (52W low) or gaps &gt;₹380 pre-results</td></tr>
+</table>
+</div>
+
+<div class="card" style="border-style:dashed">
+<h4>Journal Entry #01 — Baseline <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span> <span class="tag t-view">View</span></h4>
+<p class="note" style="margin-bottom:8px"><b>Metadata:</b> period Q1 FY27 (Jun-2026 quarter) latest reported · assessed <b>20-Oct-2026</b> · price basis <b>₹377 (19-Oct-2026 close, +0.09% day)</b> · prior entry: none (baseline) · hub log: 20-Oct-2026 row added · status <b>CANDIDATE</b> (no position).</p>
+<p style="font-size:13.6px"><b>Facts:</b> CMP ₹377 (19-Oct-2026, +0.09% day; −20% vs 52W high ₹473, +4.7% vs low ₹360; 1Y −9%); mcap ₹2,75,725 Cr; P/E 44.9x; P/B 11.5x; BV ₹32.8; ROE 27.4%; ROCE 36.4%; DY 0.66%; FY26 sales ₹27,610 Cr, OP ₹8,053 Cr, NP ₹6,062 Cr, EPS ₹8.29, payout 30%; TTM sales ₹28,717 Cr, NP ₹6,148 Cr, EPS ₹8.40; borrowings ₹65 Cr vs net worth ₹23,988 Cr; CFO ₹1,541 Cr, FCF ₹560 Cr; WC days 135, debtors 170; promoter 51.14% (GOI, flat) / FII 16.99% / DII 21.86% / public 10.00%; shareholders 26,45,635; Q1 FY27 revenue ₹5,533 Cr +25.3%, PAT ₹1,048 Cr +8.2%, EBITDA margin 25.83%, order book ₹72,258 Cr (1-Jul), inflow ₹3,754 Cr; order book &gt;₹75,000 Cr (13-Oct); FY27 inflows ₹7,400 Cr −53% YoY (14-Oct); results due 30-Oct-2026.<br>
+<b>Calculations:</b> sales CAGR 14%/14%/16% (10Y/5Y/3Y), profit 16%/24%/27%; FY26 YoY sales +16.2%, profit +13.9%; net margin 22.0%; other income/PBT 7.0%; interest 0.09% of OP; P/S 10.0x FY26 / 9.6x TTM; EV ≈₹2,75,790 Cr (est., cash VERIFY); EV/EBITDA ≈34x; PEG ≈1.7 (3Y) / 3.7 (TTM); D/E 0.003x; cumulative FY22–26 CFO ₹12,170 Cr = 59% of cumulative NP ₹20,756 Cr; order book ≈2.6x TTM; composite (7.0+4.5+7.5+8.0+9.0+5.5+7.0) ÷ 7 = 48.5 ÷ 7 = 6.9286 → <b>6.9</b>.<br>
+<b>Management/filings:</b> Q1 FY27 + guidance (+15% revenue, 28% EBITDA margin, ₹55,000+ Cr inflows incl. QRSAM ≈₹30,000 Cr) 27-Jul; orders ₹730 Cr 26-Aug; final dividend ₹0.55 paid 09-Sep; orders ₹533 Cr + book &gt;₹75,000 Cr 13-Oct; Macquarie Outperform TP ₹550 14-Oct; board meeting called 16-Oct for 30-Oct; Elara Q2 preview 06-Oct; CARE ESG 77.7 29-Sep.<br>
+<b>Interpretation:</b> a rare combination — PSU-grade balance sheet (₹65 Cr debt) with private-sector-grade returns (36.4% ROCE, 27.4% ROE) and multi-year order visibility, held back by a full multiple (44.9x / 11.5x book), weak cash conversion (WC days 135), a −53% YoY inflow year-to-date and a results gate 10 days out. The correct candidate behaviour is a pre-committed entry plan — staged at ₹360–375 on confirmation, add-on below ~40x P/E — not a pre-results buy.<br>
+<b>Verdict:</b> <span class="pill p-g">ACCUMULATE</span> score <b>6.9/10</b> · stance: 0% position, entry only per the Entry Plan · next review: Nov 2026 monthly run (or immediately after Q2 FY27 results, 30-Oct-2026), entry #02.</p>
+</div>
+</section>
+<section class="panel" id="tabT">
+<h2>Transactions — Bharat Electronics</h2>
+<div class="viewbox"><div class="vh">Transactions — The View (plain English)</div>
+<ul>
+<li class="imp">This stock is a <b>CANDIDATE</b>: there are <b>no trades yet</b> in <code>Equity\Holding_stocks.xlsx</code> for BEL — zero units, zero rupees invested. Nothing here is estimated or placeholder; the log is genuinely empty.<span class="important">IMPORTANT</span></li>
+<li>The moment a first buy is entered in Excel, this tab must be regenerated with <code>python Equity\code\write_html.py</code> so this tab, the hub Dashboard and the position card all agree — and at that point the portfolio status changes to HOLDING (header badge, tab0 card and hub chip get updated as a dated status change, never by editing old rows).</li>
+<li>Until then, the Entry Plan card in the Dashboard tab is the governing document for this stock: trigger ₹360–375 post-Q2, four buy-only-if conditions, position size left blank for you.</li>
+</ul>
+</div>
+<div class="kpis">
+<div class="kpi" data-explain="Units held = total shares still held, counted as buys minus sells across every trade in Holding_stocks.xlsx."><div class="l">Units held</div><div class="v">0</div><div class="n">0 trades logged</div></div>
+<div class="kpi" data-explain="Average cost = total money invested in this stock divided by units held. It is what one share has effectively cost you across all buys."><div class="l">Average cost</div><div class="v">—</div><div class="n">no position yet</div></div>
+<div class="kpi" data-explain="Invested = every rupee put into this stock, shown with its share of the total invested across all holdings."><div class="l">Invested</div><div class="v">₹0</div><div class="n">0.0% of total invested</div></div>
+<div class="kpi" data-explain="Current value = units held times the 19-Oct-2026 close (₹377). P/L is that value minus the money invested."><div class="l">Current value</div><div class="v">₹0</div><div class="n">P/L ₹0 (0%)</div></div>
+</div>
+<div class="card">
+<h4>Trade log status <span class="tag t-fact">Fact</span></h4>
+<!--HOLD_TXN_START-->
+<p class="note"><b>No trades yet.</b> 0 buy transactions · 0 sell transactions · units held 0 · invested ₹0. BEL is tracked as a CANDIDATE (baseline analysis complete, waiting for the Q2 FY27 gate and the entry trigger) — no position exists today.</p>
+<!--HOLD_TXN_END-->
+</div>
+<p class="src">Source: Equity\Holding_stocks.xlsx (sheet Sheet1, table Shadow_Buy_sell) · recomputed by Equity\code\holdings_calc.py → code\data\holdings.json · CMP dated 19-Oct-2026 close (₹377). Personal position data; not investment advice.</p>
+</section>
+
+<section class="panel" id="tabG">
+<h2>Glossary — jargons, metrics &amp; acronyms (click any blue dotted term anywhere)</h2>
+<div class="viewbox"><div class="vh">How to use the glossary</div>
+<ul>
+<li>Every metric/jargon term in this report is linked — <b>click the blue dotted word</b> to see its plain-English meaning in a pop-up.</li>
+<li class="imp">New to reading reports? Start with: CMP, P/E, P/B, EBITDA, ROE, ROCE, CFO, FCF, FII/DII, D/E, Working Capital Days, Large Cap.<span class="important">IMPORTANT</span></li>
+<li>Shared glossary (<code>glossary.js</code>) — same definitions as the Stock Hub and every other stock page; add a term once and it appears everywhere.</li>
+<li>BEL-specific terms not yet in the shared glossary — <b>Order Book / order inflow, PSU / Navratna, Management Guidance, ESG score</b> — are plain text here and flagged for addition to <code>Developer_file\shared\glossary.js</code>.</li>
+</ul>
+</div>
+<div class="card">
+<h4>All terms — definition, plain meaning, why it matters</h4>
+<div id="glossaryBody"><p class="note">Loading glossary… (requires JavaScript enabled)</p></div>
+</div>
+</section>
+
+<footer>
+  Bharat Electronics Ltd — independent equity research journal entry. Data: Screener.in (consolidated, pulled 20-Oct-2026 for the 19-Oct-2026 close), BSE filings and dated broker/news items in Section 8. VERIFY = unavailable in the free source. Not investment advice.
+</footer>
+
+</div>
+<script src="../../Equity/code/table_chart.js"></script>
+<script src="../shared/glossary.js"></script>
+<script>
+(function(){
+function show(id){
+ document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===id)});
+ document.querySelectorAll('.tabbtn').forEach(function(b){b.classList.toggle('on',b.dataset.t===id)});
+ window.scrollTo(0,0);
+}
+document.querySelectorAll('.tabbtn').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);try{history.replaceState(null,'','#'+b.dataset.t)}catch(e){}})});
+if(location.hash){try{var h=document.querySelector(location.hash+'.panel');if(h)show(location.hash.slice(1))}catch(e){}}
+document.getElementById('stockSel').addEventListener('change',function(){if(this.value){location.href=this.value}});
+})();
+</script>
+</body>
+</html>

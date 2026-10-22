@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InvestIQ — Investment research powered by structured data</title>
+<style>
+:root{--bg:#0f1420;--panel:#161d2e;--panel2:#1c2438;--ink:#e8ecf5;--muted:#9aa7bd;--line:#2a3450;--acc:#4da3ff;--good:#2ecc8f;--warn:#f5b83d;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.55;min-height:100vh}
+.wrap{max-width:1080px;margin:0 auto;padding:44px 22px}
+.brand{text-align:center;margin-bottom:8px}
+.brand h1{margin:0;font-size:44px;letter-spacing:1px;background:linear-gradient(135deg,#7fe0ff,#4da3ff 55%,#8f7bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand .tag{color:var(--muted);font-size:16px;margin-top:6px}
+.badges{margin-top:14px;display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.badge{padding:4px 11px;border-radius:20px;font-size:12.5px;border:1px solid var(--line);background:var(--panel2);color:var(--muted)}
+.badge.info{background:#123055;border-color:#24528f;color:#a8d1ff}
+.modules{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:42px}
+@media(max-width:780px){.modules{grid-template-columns:1fr}}
+.mod{display:block;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px 26px;text-decoration:none;color:var(--ink);transition:transform .14s,border-color .14s,box-shadow .14s;position:relative;overflow:hidden}
+.mod:hover{transform:translateY(-5px);border-color:#4da3ff;box-shadow:0 14px 34px rgba(0,0,0,.4)}
+.mod .kick{font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;color:#8fc4ff;font-weight:700}
+.mod .nm{font-size:26px;font-weight:800;color:#cfe1ff;margin-top:8px}
+.mod .ds{font-size:14px;color:var(--muted);margin-top:9px}
+.mod .go{margin-top:18px;font-size:13px;font-weight:700;letter-spacing:.5px;color:var(--acc)}
+.mod.primary{background:linear-gradient(150deg,#16213a,#161d2e 60%)}
+.hint{text-align:center;color:var(--muted);font-size:12.6px;margin-top:34px}
+.hint a{color:var(--acc)}
+footer{margin-top:46px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12.4px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="brand">
+  <h1>InvestIQ</h1>
+  <div class="tag">Investment research powered by structured data.</div>
+  <div class="badges">
+    <span class="badge info">Data: Screener consolidated + filings</span>
+    <span class="badge">Journal: append-only, dated entries</span>
+    <span class="badge">Cycle: month-end runs</span>
+  </div>
+</div>
+
+<div class="modules">
+  <a class="mod primary" href="equity/Equity_Forge.html">
+    <div class="kick">Module 01</div>
+    <div class="nm">Equity Research</div>
+    <div class="ds">Fundamentals · Valuation · Quarterly Results</div>
+    <div class="go">Open Equity Forge →</div>
+  </a>
+  <a class="mod primary" href="mutual_fund/MF_Forge.html">
+    <div class="kick">Module 02</div>
+    <div class="nm">Mutual Funds</div>
+    <div class="ds">MF research hub - reports, verdicts and the dated journal</div>
+    <div class="go">Open MF Forge →</div>
+  </a>
+</div>
+
+<div class="hint">Equity Forge = the Stock Research Hub (tracked stocks, monthly decision log, glossary).</div>
+
+<footer>
+  InvestIQ — personal investment research hub. Not investment advice; verify flagged figures before acting.
+</footer>
+
+</div>
+</body>
+</html>

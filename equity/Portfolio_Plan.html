@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Plan — Allocation &amp; Monthly Split</title>
+<style>
+:root{--bg:#0f1420;--panel:#161d2e;--panel2:#1c2438;--ink:#e8ecf5;--muted:#9aa7bd;--line:#2a3450;--acc:#4da3ff;--good:#2ecc8f;--warn:#f5b83d;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding:22px}
+header.rpt{background:linear-gradient(135deg,#101828,#1b2a4a);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:18px}
+header.rpt h1{margin:0 0 4px;font-size:27px}
+header.rpt .sub{color:var(--muted);font-size:14px}
+.badges{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{padding:4px 11px;border-radius:20px;font-size:12.5px;border:1px solid var(--line);background:var(--panel2)}
+.badge.buy{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.badge.risk{background:#3a1d1d;border-color:#7a3030;color:#ffb0b0}
+.badge.info{background:#123055;border-color:#24528f;color:#a8d1ff}
+.topnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;position:sticky;top:0;z-index:40;background:rgba(15,20,32,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:9px 12px;margin-bottom:16px}
+.topnav .lbl{font-size:12.4px;color:var(--muted);letter-spacing:.5px}
+.topnav a.home{color:var(--acc);font-size:13px;text-decoration:none;font-weight:600}
+.topnav select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13.4px;font-weight:600;cursor:pointer}
+.tabbar{position:sticky;top:52px;z-index:39;display:flex;flex-wrap:wrap;gap:6px;background:rgba(15,20,32,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:8px;margin-bottom:16px}
+.tabbtn{border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:12.6px;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;letter-spacing:.3px}
+.tabbtn:hover{color:#cfe1ff;border-color:#3b5f96}
+.tabbtn.on{background:#123055;border-color:#2c66ad;color:#a9d1ff;box-shadow:0 0 0 1px #2c66ad}
+.panel{display:none}
+.panel.on{display:block}
+h2{font-size:20px;margin:30px 0 6px;padding-bottom:7px;border-bottom:2px solid var(--line);color:#cfe1ff}
+h3{font-size:15.5px;margin:16px 0 4px;color:#a9c4ea}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 20px;padding:0}
+li{margin:6px 0;font-size:13.9px}
+li b,li code{color:#cfe1ff}
+code{background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:12.8px;font-family:Consolas,"Courier New",monospace}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 17px;margin:13px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.viewbox{border-left:4px solid var(--acc);background:rgba(77,163,255,.07);border-radius:0 9px 9px 0;padding:10px 15px;margin:10px 0 14px}
+.viewbox .vh{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8fc4ff;font-weight:700;margin-bottom:5px}
+.viewbox ul,.viewbox ol{margin:4px 0 2px 18px}.viewbox li{font-size:13.6px;margin:5px 0}
+.viewbox li.imp{color:#ffe6a3}.viewbox li.imp::marker{content:"★ "}
+.important{display:inline-block;background:#4a3708;color:#ffd98a;border:1px solid #8d6a1e;font-size:10.3px;font-weight:700;letter-spacing:.7px;padding:1px 7px;border-radius:4px;vertical-align:1.5px;margin-left:6px}
+.warnbox{border-left:4px solid var(--warn);background:rgba(245,184,61,.08);border-radius:0 9px 9px 0;padding:10px 15px;margin:10px 0 14px}
+.warnbox .vh{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:#ffd98a;font-weight:700;margin-bottom:5px}
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:12px;font-weight:600}
+.p-g{background:#0d3a2c;color:#7ff0c3;border:1px solid #1c6b4f}
+.p-y{background:#3d3210;color:#ffd98a;border:1px solid #8d6a1e}
+.p-r{background:#3a1d1d;color:#ffb0b0;border:1px solid #7a3030}
+.note{font-size:12.4px;color:var(--muted);margin-top:6px}
+a{color:var(--acc)}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12.4px}
+table{border-collapse:collapse;width:100%;margin:10px 0 6px;font-size:13.2px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--panel2);color:#c6d6f0;font-weight:600;text-align:center}
+td b{color:#cfe1ff}
+@media print{body{background:#fff;color:#111}.topnav,.tabbar{display:none!important}.card,header.rpt{background:#fff;color:#111;border-color:#bbb}h2,h3{color:#111}.panel{display:block!important;page-break-before:always}table,th,td{background:#fff;color:#111;border-color:#bbb}th{background:#eee}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="rpt">
+  <h1>📊 Portfolio Plan — Allocation &amp; Monthly Split</h1>
+  <div class="sub">Maintained by the <b>portfolio-planner</b> agent (secondary) from this site's own research + your rules pack. Chat with the planner to change any number here.</div>
+  <div class="badges">
+    <span class="badge buy">Monthly budget ₹20,000 (default — replace with yours)</span>
+    <span class="badge info">As of 07-Oct-2026 prices</span>
+    <span class="badge risk">Holdings: VERIFY — not supplied yet</span>
+    <span class="badge info">Rules pack: v0 defaults</span>
+    <span class="badge">Agent: portfolio-planner (secondary)</span>
+  </div>
+</header>
+
+<nav class="topnav">
+  <a class="home" href="../InvestIQ.html">⌂ InvestIQ</a>&nbsp; <a class="home" href="Equity_Forge.html">⌂ Back to Stock Hub</a>
+  <select id="stockSel">
+    <option value="">— go to stock —</option>
+    <option value="Reliance_Research_Report_Sep2026.html">RELIANCE | L | H</option>
+    <option value="RACE_Research_Report_Sep2026.html">RACE | S | H</option>
+    <option value="HDFCBANK_Research_Report_Sep2026.html">HDFC BANK | L | H</option>
+    <option value="ITC_Research_Report_Sep2026.html">ITC | L | H</option>
+    <option value="CAPLIPOINT_Research_Report_Sep2026.html">CAPLIN POINT | S | H</option>
+    <option value="GANECOS_Research_Report_Sep2026.html">GANESHA ECOSPHERE | S | H</option>
+    <option value="TMPV_Research_Report_Sep2026.html">TATA MOTORS PV | L | H</option>
+  </select>
+</nav>
+
+<nav class="tabbar" id="tabbar" aria-label="Plan sections">
+  <button class="tabbtn on" data-t="tab0">0 · This month's plan</button>
+  <button class="tabbtn" data-t="tab1">1 · Holdings &amp; allocation</button>
+  <button class="tabbtn" data-t="tab2">2 · Rules pack &amp; assumptions</button>
+</nav>
+
+<section class="panel on" id="tab0">
+<h2>0. This month's plan — October 2026</h2>
+<div class="viewbox"><div class="vh">How to read this page</div>
+<ul>
+<li class="imp">Every number here comes from exactly two places: <b>market facts</b> (verdict, score, CMP — all dated 07-Oct-2026, from the hub and reports) and <b>your rules pack</b> (tab 2). Nothing is invented; unknowns are marked VERIFY.<span class="important">IMPORTANT</span></li>
+<li class="imp"><b>Provisional split</b> — your holdings were never supplied, so true current weights are unknown. The equal Rs 5,000 split across the four ACCUMULATE stocks is a placeholder that satisfies only two rules: min band Rs 1,000 and funding policy. Record your holdings (tab 1) and the planner will re-tune it to your real cap-mix.<span class="important">IMPORTANT</span></li>
+<li>Funding policy drives everything: <b>ACCUMULATE → fund · WATCHLIST → no new money · AVOID → Rs 0 + trim/exit review</b> (user decides on any trim).</li>
+</ul></div>
+
+<h3>Monthly split of Rs 20,000 (provisional)</h3>
+<table>
+<tr><th>Stock</th><th>Status</th><th>Verdict (score)</th><th>CMP 07-Oct-2026</th><th>Cap</th><th>Action this month</th><th>Rs</th></tr>
+<tr><td><b>Reliance Industries</b></td><td>HOLDING</td><td><span class="pill p-g">ACCUMULATE 7.0</span></td><td>₹1,208</td><td>Large</td><td>Fund (provisional)</td><td><b>5,000</b></td></tr>
+<tr><td><b>ITC</b></td><td>HOLDING</td><td><span class="pill p-g">ACCUMULATE 7.2</span></td><td>₹266</td><td>Large</td><td>Fund (provisional)</td><td><b>5,000</b></td></tr>
+<tr><td><b>HDFC Bank</b></td><td>HOLDING</td><td><span class="pill p-g">ACCUMULATE 6.9</span></td><td>₹703</td><td>Large</td><td>Fund (provisional)</td><td><b>5,000</b></td></tr>
+<tr><td><b>Caplin Point</b></td><td>HOLDING</td><td><span class="pill p-g">ACCUMULATE 6.6</span></td><td>₹2,649</td><td>Small</td><td>Fund (provisional)</td><td><b>5,000</b></td></tr>
+<tr><td><b>Tata Motors PV</b></td><td>HOLDING</td><td><span class="pill p-y">WATCHLIST 5.1</span></td><td>₹283</td><td>Large</td><td>Pause — no new money</td><td>0</td></tr>
+<tr><td><b>Race Eco Chain</b></td><td>HOLDING</td><td><span class="pill p-y">WATCHLIST · HIGH RISK 4.9</span></td><td>₹104</td><td>Small</td><td>Pause — no new money</td><td>0</td></tr>
+<tr><td><b>Ganesha Ecosphere</b></td><td>HOLDING</td><td><span class="pill p-r">AVOID 3.1</span></td><td>₹999</td><td>Small</td><td>Rs 0 + trim/exit review</td><td>0</td></tr>
+<tr><td colspan="6"><b>Total new money this month</b></td><td><b>20,000</b></td></tr>
+</table>
+<p class="note">Prices dated 07-Oct-2026 close (hub + report headers). Scores are this month's verdicts and stay fixed until the next journal run.</p>
+
+<div class="grid2">
+<div class="card"><h3>Why this split (assumptions stated)</h3><ul>
+<li>Equal Rs 5,000 × 4 satisfies: min band Rs 1,000 ✓ · funding policy ✓ · nothing else — <b>cap-mix tilt not yet applied</b> because current weights are VERIFY.</li>
+<li>New-money cap mix = Large 75% / Small 25% vs target 60/10/30 — once holdings are recorded, the planner steers fresh money to the <b>underweight</b> bands instead.</li>
+<li>Mid cap = 0% of tracked stocks: the 10% Mid target has no instrument yet (future candidate, e.g. a Mid-cap addition — user decides).</li>
+</ul></div>
+<div class="card"><h3>Watch items (no action taken)</h3><ul>
+<li><b>GANECOS (AVOID 3.1):</b> Rs 0 new money is automatic; any trim/exit needs <b>your</b> decision — the planner will lay out the position once holdings are known.</li>
+<li><b>RACE 4.9 (high risk) &amp; TMPV 5.1:</b> paused by policy; revisit when scores re-affirm &gt;6 at the next monthly run.</li>
+<li><b>Candidate HUL (future):</b> CANDIDATE status planned — entry would compete with this split; see tab 2 (lumpsum out of scope v1).</li>
+</ul></div>
+</div>
+</section>
+
+<section class="panel" id="tab1">
+<h2>1. Holdings &amp; allocation — current vs target</h2>
+<div class="warnbox"><div class="vh">⚠ Holdings not supplied — everything below is VERIFY</div>
+<ul style="margin-left:18px">
+<li>Units / avg cost / values were never recorded (the report tab0 personal fields are blank fill-ins by design — <b>never invented</b>).</li>
+<li>To fix: tell the planner in chat, e.g. <b>"holdings: ITC 400 units @ ₹245, HDFC BANK 60 @ ₹700, …"</b> — it will restate your numbers, get your yes, update the rules pack (changelog), and refresh this tab.</li>
+</ul></div>
+
+<h3>Holdings (personal — VERIFY)</h3>
+<table>
+<tr><th>Stock</th><th>Units</th><th>Avg cost</th><th>Value ₹</th><th>% of corpus</th></tr>
+<tr><td>Reliance Industries</td><td>VERIFY</td><td>VERIFY</td><td>VERIFY</td><td>VERIFY</td></tr>
+<tr><td>ITC</td><td>VERIFY</td><td>VERIFY</td><td>VERIFY</td><td>VERIFY</td></tr>
+<tr><td>HDFC Bank</td><td>VERIFY</td><td>VERIFY</td><td>VERIFY</td><td>VERIFY</td></tr>
+<tr><td>Caplin Point</td><td>VERIFY</td><td>VERIFY</td><td>VERIFY</td><td>VERIFY</td></tr>
+<tr><td>Tata Motors PV</td><td>VERIFY</td><td>VERIFY</td><td>VERIFY</td><td>VERIFY</td></tr>
+<tr><td>Race Eco Chain</td><td>VERIFY</td><td>VERIFY</td><td>VERIFY</td><td>VERIFY</td></tr>
+<tr><td>Ganesha Ecosphere</td><td>VERIFY</td><td>VERIFY</td><td>VERIFY</td><td>VERIFY</td></tr>
+<tr><td colspan="3"><b>Equity corpus total</b></td><td><b>VERIFY</b></td><td><b>100%</b></td></tr>
+</table>
+
+<h3>Cap-mix: current vs target</h3>
+<table>
+<tr><th>Cap band</th><th>Current % of corpus</th><th>Target %</th><th>Notes</th></tr>
+<tr><td>Large</td><td>VERIFY</td><td><b>60%</b></td><td>REL, ITC, HDFC BANK, TMPV tracked</td></tr>
+<tr><td>Mid</td><td>VERIFY</td><td><b>10%</b></td><td>no Mid-cap instrument tracked yet</td></tr>
+<tr><td>Small</td><td>VERIFY</td><td><b>30%</b></td><td>CAPLIN, RACE, GANECOS tracked</td></tr>
+</table>
+
+<h3>Concentration limits (rules pack)</h3>
+<table>
+<tr><th>Limit</th><th>Value</th><th>Current</th></tr>
+<tr><td>Single-stock ceiling</td><td><b>20% of corpus</b></td><td>VERIFY (needs holdings)</td></tr>
+<tr><td>Sector ceiling</td><td><b>35%</b></td><td>VERIFY (needs holdings)</td></tr>
+<tr><td>Min monthly band / funded stock</td><td><b>Rs 1,000</b></td><td>met by the provisional split</td></tr>
+</table>
+<p class="note">MF / debt / gold: reserved out of scope v1 (MF instructions pending — never invented).</p>
+</section>
+
+<section class="panel" id="tab2">
+<h2>2. Rules pack v0 &amp; assumptions</h2>
+<div class="viewbox"><div class="vh">The settings behind every answer on this page</div>
+<ul>
+<li class="imp">These are <b>your confirmed defaults (v0)</b> — you said you will update them later. Changing a number = tell the planner; it updates the skill and this tab together.<span class="important">IMPORTANT</span></li>
+</ul></div>
+
+<h3>Rules pack v0</h3>
+<table>
+<tr><th style="width:34%">Setting</th><th style="text-align:left">Value</th></tr>
+<tr><td>Monthly investment budget</td><td><b>Rs 20,000</b></td></tr>
+<tr><td>Cap-mix targets (equity corpus)</td><td><b>Large 60% / Mid 10% / Small 30%</b></td></tr>
+<tr><td>Single-stock ceiling</td><td><b>20%</b> of corpus</td></tr>
+<tr><td>Sector ceiling</td><td><b>35%</b></td></tr>
+<tr><td>Min monthly band / funded stock</td><td><b>Rs 1,000</b></td></tr>
+<tr><td>Funding policy</td><td><b>ACCUMULATE → fund · WATCHLIST → no new money · AVOID → Rs 0 + trim/exit review</b></td></tr>
+<tr><td>Holdings (units / avg cost / value)</td><td><b>VERIFY</b> — not supplied yet</td></tr>
+<tr><td>Equity corpus total</td><td><b>VERIFY</b> — derived once holdings recorded</td></tr>
+<tr><td>Out of scope v1</td><td>Mutual funds (reserved) · lumpsum/tranche deployment · debt/gold</td></tr>
+</table>
+<p class="note">Changelog: v0 — defaults set 03-Oct-2026 (budget Rs 20,000, 60/10/30, 20% ceiling, 35% sector, Rs 1,000 band). User will edit later.</p>
+
+<div class="grid2">
+<div class="card"><h3>Assumptions behind the current plan</h3><ul>
+<li>Budget = Rs 20,000 <b>default</b>; replace with your real monthly number.</li>
+<li>Current weights unknown (holdings VERIFY) → equal split is provisional.</li>
+<li>Verdicts/scores fixed until the next monthly run; CMPs dated 07-Oct-2026.</li>
+<li>Mid 10% target unrealised — no Mid-cap instrument tracked.</li>
+<li>Planning aid built from your own research journal — <b>not investment advice</b>; you make every decision.</li>
+</ul></div>
+<div class="card"><h3>How to use the planner</h3><ul>
+<li>Restart opencode (after any skill/agent change), pick the <b>portfolio-planner</b> agent (it is secondary — not the default), then just ask.</li>
+<li>Sample asks: <code>split my 20k this month</code> · <code>is my small-cap exposure too high?</code> · <code>should I pause RACE?</code> · <code>record my holdings: …</code></li>
+<li>Anything personal (budget, holdings, goals) is recorded only after you confirm it.</li>
+</ul></div>
+</div>
+</section>
+
+<footer>
+  Portfolio Plan — maintained by agent <code>portfolio-planner</code> (skill <code>portfolio-planner</code>) for the Fortune Compass Hub. Market data: Screener.in (07-Oct-2026) via the equity research journal. Figures flagged VERIFY are not yet supplied. Not investment advice; you decide.
+</footer>
+
+</div>
+<script src="../shared/glossary.js"></script>
+<script>
+(function(){
+function show(id){
+ document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===id)});
+ document.querySelectorAll('.tabbtn').forEach(function(b){b.classList.toggle('on',b.dataset.t===id)});
+ window.scrollTo(0,0);
+}
+document.querySelectorAll('.tabbtn').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);try{history.replaceState(null,'','#'+b.dataset.t)}catch(e){}})});
+if(location.hash){try{var h=document.querySelector(location.hash+'.panel');if(h)show(location.hash.slice(1))}catch(e){}}
+document.getElementById('stockSel').addEventListener('change',function(){if(this.value){location.href=this.value}});
+})();
+</script>
+</body>
+</html>

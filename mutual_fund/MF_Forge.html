@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MF Forge — Mutual Fund Research Hub | InvestIQ</title>
+<style>
+:root{--bg:#0f1420;--panel:#161d2e;--panel2:#1c2438;--ink:#e8ecf5;--muted:#9aa7bd;--line:#2a3450;--acc:#4da3ff;--good:#2ecc8f;--warn:#f5b83d;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.55;min-height:100vh}
+.wrap{max-width:1060px;margin:0 auto;padding:34px 22px}
+.kick{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#8fc4ff;font-weight:700}
+h1{font-size:32px;margin:8px 0 4px;color:#cfe1ff}
+.ds{color:var(--muted);font-size:15px}
+h2{font-size:19px;margin:30px 0 8px;padding-bottom:6px;border-bottom:2px solid var(--line);color:#cfe1ff}
+.pill{display:inline-block;background:#3d3210;border:1px solid #8d6a1e;color:#ffd98a;font-size:12.5px;font-weight:700;letter-spacing:1px;padding:4px 15px;border-radius:16px;text-transform:uppercase}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:18px}
+.card p{margin:7px 0;color:var(--muted);font-size:13.8px}
+.card b{color:#cfe1ff}
+nav{margin-top:26px}
+nav a{display:inline-block;margin:0 10px 6px 0;color:var(--acc);font-weight:600;text-decoration:none;font-size:14px}
+footer{margin-top:40px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12.4px}
+.topnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:16px 0 6px}
+.topnav select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:13.6px;font-weight:600;cursor:pointer}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.badge{padding:5px 12px;border-radius:20px;font-size:12.6px;border:1px solid var(--line);background:var(--panel2);color:#cfe1ff}
+.badge.hold{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.badge.cand{background:#123055;border-color:#2c5f9e;color:#a9d1ff}
+.badge.avg{background:#46340f;border-color:#8d6a1e;color:#ffd98a}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin-top:14px}
+.fcard{display:block;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:16px 17px;text-decoration:none;color:var(--ink);transition:transform .12s,border-color .12s}
+.fcard:hover{border-color:#4da3ff;transform:translateY(-3px)}
+.fcard-h{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.fname{font-size:16.5px;font-weight:700;color:#cfe1ff;line-height:1.3}
+.st{font-size:10.6px;font-weight:800;letter-spacing:.8px;padding:3px 9px;border-radius:12px;white-space:nowrap;text-transform:uppercase}
+.st-hold{background:#0d3a2c;border:1px solid #1c6b4f;color:#7ff0c3}
+.st-cand{background:#123055;border:1px solid #2c5f9e;color:#a9d1ff}
+.fcode{font-size:11.6px;color:var(--muted);letter-spacing:.7px;margin-top:6px;font-family:Consolas,monospace}
+.gt{display:inline-block;background:#1f2a44;border:1px solid #3a4a75;color:#9fc1ff;font-size:10.4px;font-weight:800;letter-spacing:.8px;padding:1px 8px;border-radius:10px;text-transform:uppercase;vertical-align:middle;white-space:nowrap}
+.badges .gt{font-size:11.4px;padding:5px 12px;border-radius:20px}
+.fnums{font-size:13.4px;margin-top:9px;color:#dbe6fa}
+.fnums .d{color:var(--muted);font-size:11.8px}
+.fverdict{display:flex;align-items:center;gap:9px;margin-top:10px}
+.vchip{font-size:11.4px;font-weight:800;letter-spacing:.6px;padding:3px 10px;border-radius:12px;text-transform:uppercase}
+.v-excellent{background:#0d3a2c;border:1px solid #1c6b4f;color:#7ff0c3}
+.v-accumulate{background:#123055;border:1px solid #2c66ad;color:#a9d1ff}
+.v-watchlist{background:#46340f;border:1px solid #8d6a1e;color:#ffd98a}
+.v-avoid{background:#3a1d1d;border:1px solid #7a3030;color:#ffb0b0}
+.vscore{font-size:13px;color:#ffd98a;font-weight:700}
+.fnote{font-size:12.4px;color:var(--muted);margin-top:8px}
+details.jrow{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:12px 15px;margin-top:10px}
+details.jrow summary{cursor:pointer;font-weight:700;color:#cfe1ff;font-size:14.4px}
+details.jrow table{border-collapse:collapse;width:100%;margin-top:11px;font-size:13.2px}
+details.jrow th,details.jrow td{border:1px solid var(--line);padding:6px 8px;text-align:left}
+details.jrow th{background:var(--panel2);color:#c6d6f0}
+table{border-collapse:collapse;width:100%;background:var(--panel);font-size:13.4px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left}
+th{background:var(--panel2);color:#c6d6f0}
+.note{font-size:12.6px;color:var(--muted)}
+/* --- hub tabs, ranking & news 20-Oct-2026: presentation only —
+   data, scores, NAVs, dates, status, option codes and marker comments unchanged. */
+.tabbar{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px;border-bottom:2px solid var(--line)}
+.tabbtn{border:1px solid var(--line);border-bottom:none;background:var(--panel2);color:var(--muted);font-size:13.2px;font-weight:700;padding:9px 16px;border-radius:10px 10px 0 0;cursor:pointer;letter-spacing:.3px;font-family:inherit}
+.tabbtn:hover{color:#cfe1ff;border-color:#3b5f96}
+.tabbtn.on{background:#123055;border-color:#2c66ad;color:#a9d1ff;box-shadow:0 0 0 1px #2c66ad}
+section.panel{display:none}
+section.panel.on{display:block}
+.warn{display:inline-block;background:#46340f;border:1px solid #8d6a1e;color:#ffd98a;font-size:11px;font-weight:800;letter-spacing:.5px;padding:1px 8px;border-radius:10px;text-transform:uppercase;white-space:nowrap}
+.pos{color:var(--good);font-weight:700}
+.neg{color:var(--bad);font-weight:700}
+.tblscroll{overflow-x:auto}
+.ranktab{font-size:12.9px}
+.ranktab th,.ranktab td{padding:7px 8px}
+.ranktab td{vertical-align:middle}
+.ranktab .rk{font-size:15px;font-weight:800;color:#cfe1ff;text-align:center}
+/* news readability + Description/Impact 20-Oct-2026 (governance feedback):
+   body cells explicit ink on dark; headline links no longer browser-default blue/purple;
+   date + source columns given readable colours; group headers brightened; wraps, no clip. */
+table.news{font-size:13.6px;color:var(--ink)}
+table.news th{background:var(--panel2);color:#dce6f7}
+table.news td{color:var(--ink);vertical-align:top}
+table.news a{color:#7fc0ff;text-decoration:underline;overflow-wrap:anywhere}
+table.news a:visited{color:#b49ae8}
+table.news a:hover{color:#a9d1ff}
+table.news td.date{white-space:nowrap;color:#c9d6ec}
+table.news td.src{color:#b8c6dc;white-space:nowrap}
+table.news td.desc,table.news td.imp{min-width:170px;line-height:1.45}
+.newsgrp th{background:#123055;color:#cfe4ff;font-size:13.4px}
+.newsgrp a{color:#cfe4ff;text-decoration:underline}
+.newsgrp a:visited{color:#cfe4ff}
+@media print{body{background:#fff;color:#111}.card,.fcard,details.jrow{background:#fff;border-color:#999;color:#111}th{background:#eee;color:#111}td{color:#111}h2,.fname,.card b{color:#111}.tabbar{display:none}section.panel{display:block!important}.warn{background:#fff;border-color:#999;color:#111}}
+
+/* --- verdict chips 20-Oct-2026: three separate verdicts on every card face ---
+   presentation only; scores, NAVs, dates, status and option codes unchanged. */
+.fverdict{flex-wrap:wrap;gap:7px}
+.vchip{display:inline-block;font-size:11.8px;font-weight:800;letter-spacing:.6px;
+  padding:4px 11px;border-radius:12px;text-transform:uppercase;white-space:nowrap;
+  border:1px solid var(--line);background:var(--panel2);color:#cfe1ff}
+.vchip.act{font-size:13.4px;padding:6px 14px;letter-spacing:.7px}
+.c-good{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.c-warn{background:#46340f;border-color:#8d6a1e;color:#ffd98a}
+.c-bad{background:#3a1d1d;border-color:#7a3030;color:#ffb0b0}
+.csmall{font-size:11.5px;font-weight:600;color:var(--muted);text-transform:none;
+  letter-spacing:.2px;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kick">InvestIQ · Module 02 — Mutual Funds</div>
+  <h1>MF Forge</h1>
+  <div class="ds">Mutual fund research hub · reports, verdicts and the dated journal</div>
+
+  <div class="topnav">
+    <a href="../InvestIQ.html" style="margin:0">⌂ InvestIQ</a>
+    <a href="../equity/Equity_Forge.html" style="margin:0">⌂ Equity Forge</a>
+    <select id="fundSel" aria-label="Go to fund report">
+      <option value="">— go to fund —</option>
+      <!--MF_OPTIONS_START-->
+      <option value="PARAGFLEX_MF_Report_Oct2026.html">PARAGFLEX | FX | H | FF</option>
+      <option value="HDFCSMALLCAP_MF_Report_Oct2026.html">HDFCSMALLCAP | SC | H | FF</option>
+      <option value="MIRAETAX_MF_Report_Oct2026.html">MIRAETAX | ELSS | H | CELSS</option>
+      <option value="MOMLMID_MF_Report_Oct2026.html">MOMLMID | LMC | H | EQ</option>
+      <option value="ABSLMULTI_MF_Report_Oct2026.html">ABSLMULTI | MC | H | CC,FF</option>
+      <option value="NIPPONLC_MF_Report_Oct2026.html">NIPPONLC | LC | H | EQ</option>
+      <option value="UTINIFTY50_MF_Report_Oct2026.html">UTINIFTY50 | LC | H | CYC</option>
+      <option value="NIPPONCB_MF_Report_Oct2026.html">NIPPONCB | CB | H | SS</option>
+      <option value="ICICIMA_MF_Report_Oct2026.html">ICICIMA | MAA | H | HH</option>
+      <option value="NAVIMC150_MF_Report_Oct2026.html">NAVIMC150 | MID | H | EE</option>
+      <option value="ABSLBOND_MF_Report_Oct2026.html">ABSLBOND | DB | H | FFIX</option>
+      <option value="ICICISENX_MF_Report_Oct2026.html">ICICISENX | LC | H | EE</option>
+      <option value="MOBSEVAL_MF_Report_Oct2026.html">MOBSEVAL | VAL | H | VE</option>
+      <!--MF_OPTIONS_END-->
+    </select>
+  </div>
+
+  <div class="badges" id="hubBadges" aria-live="polite">
+    <span class="badge" id="badgeTotal">Funds: …</span>
+    <span class="badge hold" id="badgeHold">HOLDING: …</span>
+    <span class="badge cand" id="badgeCand">CANDIDATE: …</span>
+    <span class="badge" id="badgeAvg">Secondary — mean composite: …</span>
+    <span class="badge">Updated 20-Oct-2026 · NAVs 08-Oct-2026</span>
+  </div>
+
+  <!-- goal legend: computed from #fundSel option field 4 (GOALS) in JS — never hardcoded (R1) -->
+  <div class="badges" id="goalBadges" aria-live="polite">
+    <span class="badge">Goals: …</span>
+  </div>
+
+  <!-- hub tab bar 20-Oct-2026: same data-t / .panel.on mechanics as the reports, dependency-free -->
+  <div class="tabbar" id="hubTabbar" aria-label="Hub sections">
+    <button class="tabbtn on" data-t="tabD">Dashboard</button>
+    <button class="tabbtn" data-t="tabF">Funds &amp; Ranking</button>
+    <button class="tabbtn" data-t="tabN">News</button>
+    <button class="tabbtn" data-t="tabJ">Journal</button>
+    <button class="tabbtn" data-t="tabA">About</button>
+  </div>
+
+  <section class="panel on" id="tabD">
+  <h2>Portfolio dashboard</h2>
+  <!--MF_DASH_START-->
+<div class="card" style="margin-top:0">
+  <p><b>Portfolio value</b> ₹27,23,106 · invested ₹25,74,065 · gain ₹1,49,041 (+5.79%) · cash-flow XIRR <b>4.49%</b> — valuation 08-Oct-2026 (VRO dated NAVs, pulled 09-Oct-2026) · transactions: MF_Holdings.xlsx Sheet1, 204 rows (read-only) · funds: 13</p>
+  <p class="note"><b>Fund-wise</b> (level 1 of 2, R1) · units × dated NAV 08-Oct-2026</p>
+  <table>
+    <tr><th>Fund</th><th>Goals</th><th>Txn</th><th>Invested</th><th>Value (08-Oct-2026)</th><th>Gain</th><th>Share</th></tr>
+    <tr><td><b>PARAGFLEX</b> <span class="d">Parag Parikh Flexi Cap Fund</span></td><td><span class="gt">FF</span></td><td>40</td><td>₹5,75,000</td><td>₹5,66,064</td><td>-₹8,936</td><td>20.8%</td></tr>
+    <tr><td><b>HDFCSMALLCAP</b> <span class="d">HDFC Small Cap Fund</span></td><td><span class="gt">FF</span></td><td>38</td><td>₹5,40,000</td><td>₹5,36,051</td><td>-₹3,949</td><td>19.7%</td></tr>
+    <tr><td><b>MIRAETAX</b> <span class="d">Mirae Asset Tax saver</span></td><td><span class="gt">CELSS</span></td><td>8</td><td>₹1,72,000</td><td>₹2,60,607</td><td>₹88,607</td><td>9.6%</td></tr>
+    <tr><td><b>MOMLMID</b> <span class="d">Motilal Oswal Large and Midcap</span></td><td><span class="gt">EQ</span></td><td>22</td><td>₹2,25,000</td><td>₹2,45,388</td><td>₹20,388</td><td>9.0%</td></tr>
+    <tr><td><b>ABSLMULTI</b> <span class="d">Aditya Birla Sun Life Multi Cap Fund</span></td><td><span class="gt">CC</span>, <span class="gt">FF</span></td><td>24</td><td>₹1,48,000</td><td>₹2,20,553</td><td>₹72,553</td><td>8.1%</td></tr>
+    <tr><td><b>NIPPONLC</b> <span class="d">Nippon India Large Cap</span></td><td><span class="gt">EQ</span></td><td>22</td><td>₹2,25,000</td><td>₹2,13,749</td><td>-₹11,251</td><td>7.8%</td></tr>
+    <tr><td><b>UTINIFTY50</b> <span class="d">UTI Nifty 50 Index</span></td><td><span class="gt">CYC</span></td><td>7</td><td>₹2,20,000</td><td>₹1,98,838</td><td>-₹21,162</td><td>7.3%</td></tr>
+    <tr><td><b>NIPPONCB</b> <span class="d">Nippon India Corporate Bond Fund</span></td><td><span class="gt">SS</span></td><td>2</td><td>₹1,20,000</td><td>₹1,27,800</td><td>₹7,800</td><td>4.7%</td></tr>
+    <tr><td><b>ICICIMA</b> <span class="d">ICICI Multi Asset</span></td><td><span class="gt">HH</span></td><td>17</td><td>₹88,000</td><td>₹86,183</td><td>-₹1,817</td><td>3.2%</td></tr>
+    <tr><td><b>NAVIMC150</b> <span class="d">Navi Nifty Midcap 150</span></td><td><span class="gt">EE</span></td><td>10</td><td>₹81,000</td><td>₹85,081</td><td>₹4,081</td><td>3.1%</td></tr>
+    <tr><td><b>ABSLBOND</b> <span class="d">Aditya Birla Sun Life Dynamic Bond Fund</span></td><td><span class="gt">FFIX</span></td><td>7</td><td>₹68,000</td><td>₹71,808</td><td>₹3,808</td><td>2.6%</td></tr>
+    <tr><td><b>ICICISENX</b> <span class="d">ICICI Prudential Sensex Fund</span></td><td><span class="gt">EE</span></td><td>3</td><td>₹52,065</td><td>₹57,850</td><td>₹5,785</td><td>2.1%</td></tr>
+    <tr><td><b>MOBSEVAL</b> <span class="d">Motilal Oswal BSE Enhanced Value Index Fund</span></td><td><span class="gt">VE</span></td><td>4</td><td>₹60,000</td><td>₹53,135</td><td>-₹6,865</td><td>2.0%</td></tr>
+    <tr><th>TOTAL</th><th>10 goals</th><th>204</th><th>₹25,74,065</th><th>₹27,23,106</th><th>₹1,49,041</th><th>100%</th></tr>
+  </table>
+  <p class="note"><b>Goal-wise (type)</b> (level 2 of 2, R1) · proportional split, goal units × dated NAV (R4)</p>
+  <table>
+    <tr><th>Goal</th><th>Funds</th><th>Invested</th><th>Value (08-Oct-2026)</th><th>Gain</th><th>Share</th></tr>
+    <tr><td><b>CELSS</b> <span class="d note">Classic ELSS</span></td><td>MIRAETAX</td><td>₹1,72,000</td><td>₹2,60,607</td><td>₹88,607</td><td>9.6%</td></tr>
+    <tr><td><b>CC</b> <span class="d note">Classic Capital</span></td><td>ABSLMULTI</td><td>₹88,000</td><td>₹1,47,742</td><td>₹59,742</td><td>5.4%</td></tr>
+    <tr><td><b>EE</b> <span class="d note">Extra Edge</span></td><td>ICICISENX, NAVIMC150</td><td>₹1,33,065</td><td>₹1,42,930</td><td>₹9,866</td><td>5.2%</td></tr>
+    <tr><td><b>FF</b> <span class="d note">Focus Fund</span></td><td>ABSLMULTI, HDFCSMALLCAP, PARAGFLEX</td><td>₹11,75,000</td><td>₹11,74,926</td><td>-₹74</td><td>43.1%</td></tr>
+    <tr><td><b>EQ</b> <span class="d note">Equalizer</span></td><td>MOMLMID, NIPPONLC</td><td>₹4,50,000</td><td>₹4,59,137</td><td>₹9,137</td><td>16.9%</td></tr>
+    <tr><td><b>CYC</b> <span class="d note">Cyclone Edge</span></td><td>UTINIFTY50</td><td>₹2,20,000</td><td>₹1,98,838</td><td>-₹21,162</td><td>7.3%</td></tr>
+    <tr><td><b>FFIX</b> <span class="d note">Focus - Fixed</span></td><td>ABSLBOND</td><td>₹68,000</td><td>₹71,808</td><td>₹3,808</td><td>2.6%</td></tr>
+    <tr><td><b>HH</b> <span class="d note">Home Health</span></td><td>ICICIMA</td><td>₹88,000</td><td>₹86,183</td><td>-₹1,817</td><td>3.2%</td></tr>
+    <tr><td><b>SS</b> <span class="d note">Storm Shelter</span></td><td>NIPPONCB</td><td>₹1,20,000</td><td>₹1,27,800</td><td>₹7,800</td><td>4.7%</td></tr>
+    <tr><td><b>VE</b> <span class="d note">Value Edge</span></td><td>MOBSEVAL</td><td>₹60,000</td><td>₹53,135</td><td>-₹6,865</td><td>2.0%</td></tr>
+    <tr><th>TOTAL</th><th>13 funds</th><th>₹25,74,065</th><th>₹27,23,106</th><th>₹1,49,041</th><th>100%</th></tr>
+  </table>
+  <p class="note"><b>Data flag:</b> 2026-10-03 · PARAGFLEX · Focus Fund — RESOLVED (user 09-Oct-2026): sheet Invested 25000.0 -&gt; computed 10000.0. Invested 25,000 vs Price 40.39 x Unit 247.556 = 9,998.79 (sheet Value); Unit was derived from 10,000/40.39. VERIFY - original kept in txn.invested_original.</p>
+  <p class="note">Method: fund value = units × dated NAV; goal value = goal units / fund units × fund value (Calc-tagged proportional split); XIRR = cash-flow weighted on real dated flows with the 08-Oct-2026 position value as the closing inflow. Source: MutualFunds/mf_holdings.json generated 2026-10-11 20:21:42.</p>
+</div>
+<!--MF_DASH_END-->
+  </section>
+
+  <section class="panel" id="tabF">
+  <h2>Fund cards</h2>
+  <div class="cards" id="fundCards">
+    <!--MF_CARDS_START-->
+    <a class="fcard" href="PARAGFLEX_MF_Report_Oct2026.html" data-status="H" data-score="7.11">
+      <div class="fcard-h"><span class="fname">Parag Parikh Flexi Cap Fund — Direct (Growth)</span><span class="st st-hold">HOLDING</span></div>
+      <div class="fcode">PARAGFLEX | FX | H | <span class="gt">FF</span></div>
+      <div class="fnums">NAV <b>₹87.6555</b> <span class="d">08-Oct-2026</span> · 6M <b>-2.75%</b> (70/78) · 3Y <b>11.75%</b> (20/55) · AUM ₹1,45,070 Cr <span class="d">30-Sep-2026</span></div>
+      <div class="fverdict"><span class="vchip act c-warn">Continue and Monitor</span><span class="vchip c-good">FQ 68.5/100 · Acceptable</span><span class="vchip c-bad">SIP -₹8,936 · XIRR -2.25%</span><span class="csmall" data-vchip="7.11">composite 7.11/10</span></div>
+      <div class="fnote">value ₹5,66,064 (20.8% of portfolio) · Fund Quality 68.5/100 Acceptable (provisional) · SIP Outcome invested ₹5,75,000 → value ₹5,66,064, XIRR -2.25% · Action: Continue and Monitor · Task A baseline · (09-Oct-2026)</div>
+    </a>
+    <a class="fcard" href="HDFCSMALLCAP_MF_Report_Oct2026.html" data-status="H" data-score="5.11">
+      <div class="fcard-h"><span class="fname">HDFC Small Cap Fund — Direct (Growth)</span><span class="st st-hold">HOLDING</span></div>
+      <div class="fcode">HDFCSMALLCAP | SC | H | <span class="gt">FF</span></div>
+      <div class="fnums">NAV <b>₹153.7290</b> <span class="d">08-Oct-2026</span> · 6M <b>+5.30%</b> (52/52) · 3Y <b>9.05%</b> (34/34) · AUM ₹40,801 Cr <span class="d">30-Sep-2026</span></div>
+      <div class="fverdict"><span class="vchip act c-warn">Review Allocation</span><span class="vchip c-bad">FQ 32.8/100 · Weak</span><span class="vchip c-bad">SIP -₹3,949 · XIRR -0.89%</span><span class="csmall" data-vchip="5.11">composite 5.11/10</span></div>
+      <div class="fnote">value ₹5,36,051 (19.7% of portfolio) · Fund Quality 32.8/100 Weak (provisional) · SIP Outcome invested ₹5,40,000 → value ₹5,36,051, XIRR -0.89% · Action: Review Allocation · Task A baseline · (09-Oct-2026)</div>
+    </a>
+    <a class="fcard" href="MIRAETAX_MF_Report_Oct2026.html" data-status="H" data-score="6.56">
+      <div class="fcard-h"><span class="fname">Mirae Asset ELSS Tax Saver Fund — Direct (Growth)</span><span class="st st-hold">HOLDING</span></div>
+      <div class="fcode">MIRAETAX | ELSS | H | <span class="gt">CELSS</span></div>
+      <div class="fnums">NAV <b>₹53.3340</b> <span class="d">08-Oct-2026</span> · 6M <b>-1.04%</b> (24/40) · 3Y <b>10.12%</b> (16/38) · AUM ₹26,428 Cr <span class="d">31-Aug-2026</span></div>
+      <div class="fverdict"><span class="vchip act c-good">Continue</span><span class="vchip c-warn">FQ 60.1/100 · Under Review</span><span class="vchip c-good">SIP ₹88,607 · XIRR 10.77%</span><span class="csmall" data-vchip="6.56">composite 6.56/10</span></div>
+      <div class="fnote">value ₹2,60,607 (9.6% of portfolio) · Fund Quality 60.1/100 Under Review (provisional) · SIP Outcome invested ₹1,72,000 → value ₹2,60,607, XIRR 10.77% · Action: Continue · Task A baseline · (09-Oct-2026)</div>
+    </a>
+    <a class="fcard" href="MOMLMID_MF_Report_Oct2026.html" data-status="H" data-score="8.33">
+      <div class="fcard-h"><span class="fname">Motilal Oswal Large and Midcap Fund — Direct (Growth)</span><span class="st st-hold">HOLDING</span></div>
+      <div class="fcode">MOMLMID | LMC | H | <span class="gt">EQ</span></div>
+      <div class="fnums">NAV <b>₹39.3122</b> <span class="d">08-Oct-2026</span> · 6M <b>+11.25%</b> (1/40) · 3Y <b>20.31%</b> (2/27) · AUM ₹19,832 Cr <span class="d">30-Sep-2026</span></div>
+      <div class="fverdict"><span class="vchip act c-good">Continue</span><span class="vchip c-good">FQ 84/100 · Strong</span><span class="vchip c-good">SIP ₹20,388 · XIRR 9.14%</span><span class="csmall" data-vchip="8.33">composite 8.33/10</span></div>
+      <div class="fnote">value ₹2,45,388 (9.0% of portfolio) · Fund Quality 84/100 Strong (provisional) · SIP Outcome invested ₹2,25,000 → value ₹2,45,388, XIRR 9.14% · Action: Continue · Task A baseline · (09-Oct-2026)</div>
+    </a>
+    <a class="fcard" href="ABSLMULTI_MF_Report_Oct2026.html" data-status="H" data-score="5.67">
+      <div class="fcard-h"><span class="fname">Aditya Birla Sun Life Multi-Cap Fund — Direct (Growth)</span><span class="st st-hold">HOLDING</span></div>
+      <div class="fcode">ABSLMULTI | MC | H | <span class="gt">CC</span>, <span class="gt">FF</span></div>
+      <div class="fnums">NAV <b>₹21.6500</b> <span class="d">08-Oct-2026</span> · 6M <b>+7.50%</b> (15/36) · 3Y <b>12.63%</b> (12/22) · AUM ₹7,244 Cr <span class="d">30-Sep-2026</span></div>
+      <div class="fverdict"><span class="vchip act c-warn">Review Allocation</span><span class="vchip c-bad">FQ 41.5/100 · Weak</span><span class="vchip c-good">SIP ₹72,553 · XIRR 13.39%</span><span class="csmall" data-vchip="5.67">composite 5.67/10</span></div>
+      <div class="fnote">value ₹2,20,553 (8.1% of portfolio) · Fund Quality 41.5/100 Weak (provisional) · SIP Outcome invested ₹1,48,000 → value ₹2,20,553, XIRR 13.39% · Action: Review Allocation · Task A baseline · (09-Oct-2026)</div>
+    </a>
+    <a class="fcard" href="NIPPONLC_MF_Report_Oct2026.html" data-status="H" data-score="7.0">
+      <div class="fcard-h"><span class="fname">Nippon India Large Cap Fund — Direct (Growth)</span><span class="st st-hold">HOLDING</span></div>
+      <div class="fcode">NIPPONLC | LC | H | <span class="gt">EQ</span></div>
+      <div class="fnums">NAV <b>₹94.0204</b> <span class="d">08-Oct-2026</span> · 6M <b>-4.24%</b> (54/112) · 3Y <b>9.14%</b> (28/82) · AUM ₹51,296 Cr <span class="d">30-Sep-2026</span></div>
+      <div class="fverdict"><span class="vchip act c-warn">Continue and Monitor</span><span class="vchip c-warn">FQ 59.6/100 · Under Review</span><span class="vchip c-bad">SIP -₹11,251 · XIRR -5.13%</span><span class="csmall" data-vchip="7.0">composite 7.0/10</span></div>
+      <div class="fnote">value ₹2,13,749 (7.8% of portfolio) · Fund Quality 59.6/100 Under Review (provisional) · SIP Outcome invested ₹2,25,000 → value ₹2,13,749, XIRR -5.13% · Action: Continue and Monitor · Task A baseline · (09-Oct-2026)</div>
+    </a>
+    <a class="fcard" href="UTINIFTY50_MF_Report_Oct2026.html" data-status="H" data-score="5.33">
+      <div class="fcard-h"><span class="fname">UTI Nifty 50 Index Fund — Direct (Growth)</span><span class="st st-hold">HOLDING</span></div>
+      <div class="fcode">UTINIFTY50 | LC | H | <span class="gt">CYC</span></div>
+      <div class="fnums">NAV <b>₹156.5445</b> <span class="d">08-Oct-2026</span> · 6M <b>-6.68%</b> (85/112) · 3Y <b>5.18%</b> (64/82) · AUM ₹28,064 Cr <span class="d">30-Sep-2026</span></div>
+      <div class="fverdict"><span class="vchip act c-bad">Consider Switching</span><span class="vchip c-bad">FQ 34.2/100 · Weak</span><span class="vchip c-bad">SIP -₹21,162 · XIRR -8.86%</span><span class="csmall" data-vchip="5.33">composite 5.33/10</span></div>
+      <div class="fnote">value ₹1,98,838 (7.3% of portfolio) · Fund Quality 34.2/100 Weak (provisional) · SIP Outcome invested ₹2,20,000 → value ₹1,98,838, XIRR -8.86% · Action: Consider Switching · Task A baseline · (09-Oct-2026)</div>
+    </a>
+    <a class="fcard" href="NIPPONCB_MF_Report_Oct2026.html" data-status="H" data-score="7.11">
+      <div class="fcard-h"><span class="fname">Nippon India Corporate Bond Fund — Direct (Growth)</span><span class="st st-hold">HOLDING</span></div>
+      <div class="fcode">NIPPONCB | CB | H | <span class="gt">SS</span></div>
+      <div class="fnums">NAV <b>₹67.2494</b> <span class="d">08-Oct-2026</span> · 6M <b>+2.85%</b> (7/21) · 3Y <b>7.51%</b> (4/21) · AUM ₹8,907 Cr <span class="d">30-Sep-2026</span></div>
+      <div class="fverdict"><span class="vchip act c-good">Continue</span><span class="vchip c-good">FQ 70.5/100 · Acceptable</span><span class="vchip c-good">SIP ₹7,800 · XIRR 4.86%</span><span class="csmall" data-vchip="7.11">composite 7.11/10</span></div>
+      <div class="fnote">value ₹1,27,800 (4.7% of portfolio) · Fund Quality 70.5/100 Acceptable (provisional) · SIP Outcome invested ₹1,20,000 → value ₹1,27,800, XIRR 4.86% · Action: Continue · Task A baseline · (09-Oct-2026)</div>
+    </a>
+    <a class="fcard" href="ICICIMA_MF_Report_Oct2026.html" data-status="H" data-score="6.33">
+      <div class="fcard-h"><span class="fname">ICICI Prudential Multi Asset Allocation Fund — Direct (Growth)</span><span class="st st-hold">HOLDING</span></div>
+      <div class="fcode">ICICIMA | MAA | H | <span class="gt">HH</span></div>
+      <div class="fnums">NAV <b>₹855.0433</b> <span class="d">08-Oct-2026</span> · 6M <b>-3.02%</b> (49/51) · 3Y <b>13.07%</b> (16/25) · AUM ₹84,108 Cr <span class="d">30-Sep-2026</span></div>
+      <div class="fverdict"><span class="vchip act c-warn">Continue and Monitor</span><span class="vchip c-warn">FQ 52.6/100 · Under Review</span><span class="vchip c-bad">SIP -₹1,817 · XIRR -2.65%</span><span class="csmall" data-vchip="6.33">composite 6.33/10</span></div>
+      <div class="fnote">value ₹86,183 (3.2% of portfolio) · Fund Quality 52.6/100 Under Review (provisional) · SIP Outcome invested ₹88,000 → value ₹86,183, XIRR -2.65% · Action: Continue and Monitor · Task A baseline · (09-Oct-2026)</div>
+    </a>
+    <a class="fcard" href="NAVIMC150_MF_Report_Oct2026.html" data-status="H" data-score="4.56">
+      <div class="fcard-h"><span class="fname">Navi Nifty Midcap 150 Index Fund — Direct (Growth)</span><span class="st st-hold">HOLDING</span></div>
+      <div class="fcode">NAVIMC150 | MID | H | <span class="gt">EE</span></div>
+      <div class="fnums">NAV <b>₹20.1752</b> <span class="d">08-Oct-2026</span> · 6M <b>+2.01%</b> (44/52) · 3Y <b>12.34%</b> (31/37) · AUM ₹408 Cr <span class="d">31-Aug-2026</span></div>
+      <div class="fverdict"><span class="vchip act c-bad">Consider Switching</span><span class="vchip c-bad">FQ 35.6/100 · Weak</span><span class="vchip c-good">SIP ₹4,081 · XIRR 4.86%</span><span class="csmall" data-vchip="4.56">composite 4.56/10</span></div>
+      <div class="fnote">value ₹85,081 (3.1% of portfolio) · Fund Quality 35.6/100 Weak (provisional) · SIP Outcome invested ₹81,000 → value ₹85,081, XIRR 4.86% · Action: Consider Switching · Task A baseline · (09-Oct-2026)</div>
+    </a>
+    <a class="fcard" href="ABSLBOND_MF_Report_Oct2026.html" data-status="H" data-score="6.89">
+      <div class="fcard-h"><span class="fname">Aditya Birla Sun Life Dynamic Term Fund — Direct (Growth)</span><span class="st st-hold">HOLDING</span></div>
+      <div class="fcode">ABSLBOND | DB | H | <span class="gt">FFIX</span></div>
+      <div class="fnums">NAV <b>₹52.9525</b> <span class="d">08-Oct-2026</span> · 6M <b>+3.15%</b> (4/23) · 3Y <b>7.77%</b> (4/23) · AUM ₹1,370 Cr <span class="d">30-Sep-2026</span></div>
+      <div class="fverdict"><span class="vchip act c-good">Continue</span><span class="vchip c-good">FQ 66.3/100 · Acceptable</span><span class="vchip c-good">SIP ₹3,808 · XIRR 4.13%</span><span class="csmall" data-vchip="6.89">composite 6.89/10</span></div>
+      <div class="fnote">value ₹71,808 (2.6% of portfolio) · Fund Quality 66.3/100 Acceptable (provisional) · SIP Outcome invested ₹68,000 → value ₹71,808, XIRR 4.13% · Action: Continue · Task A baseline · (09-Oct-2026)</div>
+    </a>
+    <a class="fcard" href="ICICISENX_MF_Report_Oct2026.html" data-status="H" data-score="4.33">
+      <div class="fcard-h"><span class="fname">ICICI Prudential BSE Sensex Index Fund — Direct (Growth)</span><span class="st st-hold">HOLDING</span></div>
+      <div class="fcode">ICICISENX | LC | H | <span class="gt">EE</span></div>
+      <div class="fnums">NAV <b>₹23.9224</b> <span class="d">08-Oct-2026</span> · 6M <b>-7.05%</b> (99/112) · 3Y <b>3.69%</b> (75/82) · AUM ₹1,740 Cr <span class="d">30-Sep-2026</span></div>
+      <div class="fverdict"><span class="vchip act c-bad">Consider Switching</span><span class="vchip c-bad">FQ 26.2/100 · Weak</span><span class="vchip c-good">SIP ₹5,785 · XIRR 4.5%</span><span class="csmall" data-vchip="4.33">composite 4.33/10</span></div>
+      <div class="fnote">value ₹57,850 (2.1% of portfolio) · Fund Quality 26.2/100 Weak (provisional) · SIP Outcome invested ₹52,065 → value ₹57,850, XIRR 4.5% · Action: Consider Switching · Task A baseline · (09-Oct-2026)</div>
+    </a>
+    <a class="fcard" href="MOBSEVAL_MF_Report_Oct2026.html" data-status="H" data-score="6.89">
+      <div class="fcard-h"><span class="fname">Motilal Oswal BSE Enhanced Value Index Fund — Direct (Growth)</span><span class="st st-hold">HOLDING</span></div>
+      <div class="fcode">MOBSEVAL | VAL | H | <span class="gt">VE</span></div>
+      <div class="fnums">NAV <b>₹25.3210</b> <span class="d">08-Oct-2026</span> · 6M <b>-8.43%</b> (28/32) · 3Y <b>17.70%</b> (3/25) · AUM ₹2,132 Cr <span class="d">30-Sep-2026</span></div>
+      <div class="fverdict"><span class="vchip act c-warn">Continue and Monitor</span><span class="vchip c-good">FQ 73/100 · Acceptable</span><span class="vchip c-bad">SIP -₹6,865 · XIRR -21.68%</span><span class="csmall" data-vchip="6.89">composite 6.89/10</span></div>
+      <div class="fnote">value ₹53,135 (2.0% of portfolio) · Fund Quality 73/100 Acceptable (provisional) · SIP Outcome invested ₹60,000 → value ₹53,135, XIRR -21.68% · Action: Continue and Monitor · Task A baseline · (09-Oct-2026)</div>
+    </a>
+    <!--MF_CARDS_END-->
+  </div>
+  <p class="note">Cards are links to the dated reports. Status chips come from the option code field 3 (H = HOLDING, C = CANDIDATE); goal chips come from field 4 (GOALS); badges and the goal legend are computed from the option codes in JS — never hardcoded. The three verdict chips (Investor Action · Fund Quality · SIP Outcome) are the headline; the composite /10 band is still computed in JS from data-score and shown only as small secondary text.</p>
+
+  <h2>Fund ranking — by Fund Quality /100 (headline score since 09-Oct-2026)</h2>
+  <p class="note"><b>Basis:</b> ranked by <b>Fund Quality /100</b>, highest first — the legacy composite /10 is <b>not</b> the ranking key; it appears only as the clearly-labelled secondary column. <b>Dates:</b> returns &amp; ranks as on <b>08-Oct-2026</b> (Value Research, pull <b>09-Oct-2026</b>) · portfolio valuation <b>08-Oct-2026</b> (holdings ledger generated 11-Oct-2026) · Fund Quality bands are provisional (Strong 80–100 / Acceptable 65–79 / Under Review 50–64 / Weak &lt;50, 09-Oct-2026). Parenthesised figures = Value Research sub-category rank (6M and 3Y) · SIP P&amp;L / XIRR = cash-flow-weighted on real dated flows. Colour language: <span class="pos">green = good / Continue</span> · <span style="color:var(--warn);font-weight:700">amber = Under Review / monitor / Review Allocation</span> · <span class="neg">red = Weak / Consider Switching</span>.</p>
+  <div class="tblscroll">
+  <table class="ranktab">
+    <tr>
+      <th>#</th><th>Fund</th><th>Fund Quality /100</th><th>Investor Action</th>
+      <th>6M · rank</th><th>3Y · rank</th><th>SIP P&amp;L · XIRR</th><th>Status</th><th>Composite /10 <span class="note">(secondary)</span></th>
+    </tr>
+    <tr><td class="rk">1</td><td><a href="MOMLMID_MF_Report_Oct2026.html">MOMLMID</a><br><span class="note">Motilal Oswal Large and Midcap</span></td><td><span class="vchip c-good">84 · Strong</span></td><td><span class="vchip c-good">Continue</span></td><td><b>+11.25%</b> <span class="note">(1/40)</span></td><td><b>+20.31%</b> <span class="note">(2/27)</span></td><td><span class="pos">₹20,388 · XIRR 9.14%</span></td><td><span class="st st-hold">HOLDING</span></td><td><span class="csmall">8.33/10</span></td></tr>
+    <tr><td class="rk">2</td><td><a href="MOBSEVAL_MF_Report_Oct2026.html">MOBSEVAL</a><br><span class="note">Motilal Oswal BSE Enhanced Value Index</span></td><td><span class="vchip c-good">73 · Acceptable</span></td><td><span class="vchip c-warn">Continue and Monitor</span></td><td><b>-8.43%</b> <span class="note">(28/32)</span></td><td><b>+17.70%</b> <span class="note">(3/25)</span></td><td><span class="neg">-₹6,865 · XIRR -21.68%</span></td><td><span class="st st-hold">HOLDING</span></td><td><span class="csmall">6.89/10</span></td></tr>
+    <tr><td class="rk">3</td><td><a href="NIPPONCB_MF_Report_Oct2026.html">NIPPONCB</a><br><span class="note">Nippon India Corporate Bond</span></td><td><span class="vchip c-good">70.5 · Acceptable</span></td><td><span class="vchip c-good">Continue</span></td><td><b>+2.85%</b> <span class="note">(7/21)</span></td><td><b>+7.51%</b> <span class="note">(4/21)</span></td><td><span class="pos">₹7,800 · XIRR 4.86%</span></td><td><span class="st st-hold">HOLDING</span></td><td><span class="csmall">7.11/10</span></td></tr>
+    <tr><td class="rk">4</td><td><a href="PARAGFLEX_MF_Report_Oct2026.html">PARAGFLEX</a><br><span class="note">Parag Parikh Flexi Cap</span></td><td><span class="vchip c-good">68.5 · Acceptable</span></td><td><span class="vchip c-warn">Continue and Monitor</span></td><td><b>-2.75%</b> <span class="note">(70/78)</span></td><td><b>+11.75%</b> <span class="note">(20/55)</span></td><td><span class="neg">-₹8,936 · XIRR -2.25%</span></td><td><span class="st st-hold">HOLDING</span></td><td><span class="csmall">7.11/10</span></td></tr>
+    <tr><td class="rk">5</td><td><a href="ABSLBOND_MF_Report_Oct2026.html">ABSLBOND</a><br><span class="note">Aditya Birla Sun Life Dynamic Term</span></td><td><span class="vchip c-good">66.3 · Acceptable</span></td><td><span class="vchip c-good">Continue</span></td><td><b>+3.15%</b> <span class="note">(4/23)</span></td><td><b>+7.77%</b> <span class="note">(4/23)</span></td><td><span class="pos">₹3,808 · XIRR 4.13%</span></td><td><span class="st st-hold">HOLDING</span></td><td><span class="csmall">6.89/10</span></td></tr>
+    <tr><td class="rk">6</td><td><a href="MIRAETAX_MF_Report_Oct2026.html">MIRAETAX</a><br><span class="note">Mirae Asset ELSS Tax Saver</span></td><td><span class="vchip c-warn">60.1 · Under Review</span></td><td><span class="vchip c-good">Continue</span></td><td><b>-1.04%</b> <span class="note">(24/40)</span></td><td><b>+10.12%</b> <span class="note">(16/38)</span></td><td><span class="pos">₹88,607 · XIRR 10.77%</span></td><td><span class="st st-hold">HOLDING</span></td><td><span class="csmall">6.56/10</span></td></tr>
+    <tr><td class="rk">7</td><td><a href="NIPPONLC_MF_Report_Oct2026.html">NIPPONLC</a><br><span class="note">Nippon India Large Cap</span></td><td><span class="vchip c-warn">59.6 · Under Review</span></td><td><span class="vchip c-warn">Continue and Monitor</span></td><td><b>-4.24%</b> <span class="note">(54/112)</span></td><td><b>+9.14%</b> <span class="note">(28/82)</span></td><td><span class="neg">-₹11,251 · XIRR -5.13%</span></td><td><span class="st st-hold">HOLDING</span></td><td><span class="csmall">7/10</span></td></tr>
+    <tr><td class="rk">8</td><td><a href="ICICIMA_MF_Report_Oct2026.html">ICICIMA</a><br><span class="note">ICICI Prudential Multi Asset Allocation</span></td><td><span class="vchip c-warn">52.6 · Under Review</span></td><td><span class="vchip c-warn">Continue and Monitor</span></td><td><b>-3.02%</b> <span class="note">(49/51)</span></td><td><b>+13.07%</b> <span class="note">(16/25)</span></td><td><span class="neg">-₹1,817 · XIRR -2.65%</span></td><td><span class="st st-hold">HOLDING</span></td><td><span class="csmall">6.33/10</span></td></tr>
+    <tr><td class="rk">9</td><td><a href="ABSLMULTI_MF_Report_Oct2026.html">ABSLMULTI</a><br><span class="note">Aditya Birla Sun Life Multi-Cap</span></td><td><span class="vchip c-bad">41.5 · Weak</span></td><td><span class="vchip c-warn">Review Allocation</span></td><td><b>+7.50%</b> <span class="note">(15/36)</span></td><td><b>+12.63%</b> <span class="note">(12/22)</span></td><td><span class="pos">₹72,553 · XIRR 13.39%</span></td><td><span class="st st-hold">HOLDING</span></td><td><span class="csmall">5.67/10</span></td></tr>
+    <tr><td class="rk">10</td><td><a href="NAVIMC150_MF_Report_Oct2026.html">NAVIMC150</a><br><span class="note">Navi Nifty Midcap 150 Index</span></td><td><span class="vchip c-bad">35.6 · Weak</span></td><td><span class="vchip c-bad">Consider Switching</span></td><td><b>+2.01%</b> <span class="note">(44/52)</span></td><td><b>+12.34%</b> <span class="note">(31/37)</span></td><td><span class="pos">₹4,081 · XIRR 4.86%</span></td><td><span class="st st-hold">HOLDING</span></td><td><span class="csmall">4.56/10</span></td></tr>
+    <tr><td class="rk">11</td><td><a href="UTINIFTY50_MF_Report_Oct2026.html">UTINIFTY50</a><br><span class="note">UTI Nifty 50 Index</span></td><td><span class="vchip c-bad">34.2 · Weak</span></td><td><span class="vchip c-bad">Consider Switching</span></td><td><b>-6.68%</b> <span class="note">(85/112)</span></td><td><b>+5.18%</b> <span class="note">(64/82)</span></td><td><span class="neg">-₹21,162 · XIRR -8.86%</span></td><td><span class="st st-hold">HOLDING</span></td><td><span class="csmall">5.33/10</span></td></tr>
+    <tr><td class="rk">12</td><td><a href="HDFCSMALLCAP_MF_Report_Oct2026.html">HDFCSMALLCAP</a><br><span class="note">HDFC Small Cap</span></td><td><span class="vchip c-bad">32.8 · Weak</span></td><td><span class="vchip c-warn">Review Allocation</span></td><td><b>+5.30%</b> <span class="note">(52/52)</span></td><td><b>+9.05%</b> <span class="note">(34/34)</span></td><td><span class="neg">-₹3,949 · XIRR -0.89%</span></td><td><span class="st st-hold">HOLDING</span></td><td><span class="csmall">5.11/10</span></td></tr>
+    <tr><td class="rk">13</td><td><a href="ICICISENX_MF_Report_Oct2026.html">ICICISENX</a><br><span class="note">ICICI Prudential BSE Sensex Index</span></td><td><span class="vchip c-bad">26.2 · Weak</span></td><td><span class="vchip c-bad">Consider Switching</span></td><td><b>-7.05%</b> <span class="note">(99/112)</span></td><td><b>+3.69%</b> <span class="note">(75/82)</span></td><td><span class="pos">₹5,785 · XIRR 4.5%</span></td><td><span class="st st-hold">HOLDING</span></td><td><span class="csmall">4.33/10</span></td></tr>
+  </table>
+  </div>
+  <p class="note">Every cell above was cross-checked against the fund's own report (header badges + footer verdict line) and the hub card on 20-Oct-2026 — 13/13 funds matched, <b>no VERIFY cells</b>. Bands and scorecards stay provisional until backtested; this table is a view, never a merged headline score.</p>
+  </section>
+
+    <section class="panel" id="tabN">
+  <h2>News — dated items aggregated from every report tab8</h2>
+  <p class="note"><b>How to read:</b> items grouped by fund (hub index order), each in the order carried by its report’s tab8 (the Value Research dossier order). <b>Headlines and links</b> are copied verbatim from each report’s tab8 (VRO news dossier, pull 09-Oct-2026). <b>Article pages were fetched on 20-Oct-2026</b> (Value Research Online story pages): the <b>Date</b> column now carries each article’s own publication date where the page shows one; where the page carries none, the cell stays <span class="warn">VERIFY</span> (1 item: the Mirae CIO interview). <b>Description</b> is one sentence from the fetched article text — never invented. <b>Impact</b> is a judgement tagged <span class="gt">View</span>: what the item means for THIS fund / the holder — routine distributions and AMC announcements rarely move a Growth-option verdict; a distribution only changes NAV mechanically on the record date, not holder value. A newest-first date sort starts at the next Task B pull that carries dated items throughout — none was invented here. All 13 funds carried items in this pull; none showed an empty tab8.</p>
+  <div class="tblscroll">
+  <table class="news">
+    <tr><th>Date</th><th>Headline</th><th>Description</th><th>Impact</th><th>Source</th></tr>
+    <tr class="newsgrp"><th colspan="5"><a href="PARAGFLEX_MF_Report_Oct2026.html">PARAGFLEX</a> &middot; Parag Parikh Flexi Cap Fund — 4 items &middot; VRO pull 09-Oct-2026 &middot; articles fetched 20-Oct-2026</th></tr>
+    <tr><td class="date">02-Sep-2025</td><td><a href="https://www.valueresearchonline.com/stories/226172/fund-manager-changes-in-a-few-schemes-of-ppfas-mutual-fund/" target="_blank" rel="noopener">Fund manager changes in a few schemes of PPFAS Mutual Fund</a></td><td class="desc">PPFAS Mutual Fund reshuffled fund-management responsibilities across six schemes (including Parag Parikh Flexi Cap Fund) effective 1-Sep-2025, adding Aishwarya Dhar and Tejas Soman on debt while the core equity team (Thakkar/Onkar/Mehta/Tarachandani) stayed.</td><td class="imp"><span class="gt">View</span>Flexi Cap equity managers unchanged; routine AMC line-up change - no Growth-verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">14-Dec-2024</td><td><a href="https://www.valueresearchonline.com/stories/222601/ppfas-unitholders-meeting-2024-insights/" target="_blank" rel="noopener">PPFAS Mutual Fund holds its 11th annual unitholders meeting</a></td><td class="desc">PPFAS held its 11th annual unitholders meeting; CIO Rajeev Thakkar addressed the flexi-cap fund's roughly 20% cash pile (valuation-driven defensiveness), the large-cap fall, and measured EV/AI/solar exposure.</td><td class="imp"><span class="gt">View</span>Confirms the existing defensive-cash stance already in the portfolio view; monitor cash % at the next Task B - no verdict change.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">20-Feb-2024</td><td><a href="https://www.valueresearchonline.com/stories/53944/profiting-from-prophet-buffett/" target="_blank" rel="noopener">Profiting from prophet Buffett</a></td><td class="desc">Value Research feature on how few Indian mutual funds hold stocks as long as Buffett's 'forever' ideal, given typical fund turnover.</td><td class="imp"><span class="gt">View</span>Context on buy-and-hold style; supports the low-turnover narrative but is not scheme-specific - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">26-Dec-2023</td><td><a href="https://www.valueresearchonline.com/stories/53758/mansi-kariya-appointed-as-co-fund-manager-debt-for-a-few-schemes-of-ppfas-mutual-fund/" target="_blank" rel="noopener">Mansi Kariya appointed as Co-Fund Manager-Debt for a few Schemes of PPFAS Mutual Fund</a></td><td class="desc">PPFAS appointed Mansi Kariya as Co-Fund Manager (Debt) for a few schemes including Parag Parikh Flexi Cap Fund, effective 22-Dec-2023.</td><td class="imp"><span class="gt">View</span>Adds a named debt co-manager alongside the unchanged equity team; routine - no Growth-verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr class="newsgrp"><th colspan="5"><a href="HDFCSMALLCAP_MF_Report_Oct2026.html">HDFCSMALLCAP</a> &middot; HDFC Small Cap Fund — 4 items &middot; VRO pull 09-Oct-2026 &middot; articles fetched 20-Oct-2026</th></tr>
+    <tr><td class="date">03-Mar-2026</td><td><a href="https://www.valueresearchonline.com/stories/227972/income-distribution-under-few-funds-of-hdfc-mutual-fund/" target="_blank" rel="noopener">Income distribution under few funds of HDFC Mutual Fund</a></td><td class="desc">HDFC Mutual Fund declared IDCW distributions with record date 5-Mar-2026 across several schemes, including HDFC Small Cap Direct and Regular (article lists Small Cap in the table; VRO 03-Mar-2026).</td><td class="imp"><span class="gt">View</span>Growth-option units see only the mechanical ex-distribution NAV drop; distribution is not extra value - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">17-Mar-2025</td><td><a href="https://www.valueresearchonline.com/stories/223529/income-distribution-under-two-equity-schemes-of-hdfc-mutual-fund/" target="_blank" rel="noopener">Income distribution under two equity schemes of HDFC Mutual Fund</a></td><td class="desc">HDFC MF announced IDCW distributions with record date 13-Mar-2025, including HDFC Small Cap Direct and Regular at Rs 4.00 per unit (VRO article, 17-Mar-2025).</td><td class="imp"><span class="gt">View</span>Routine IDCW; Growth holders see the mechanical ex-date NAV adjustment only - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">12-Mar-2024</td><td><a href="https://www.valueresearchonline.com/stories/54495/dividend-declaration-in-three-equity-funds-of-hdfc-mutual-fund/" target="_blank" rel="noopener">Dividend Declaration in three Equity Funds of HDFC Mutual Fund</a></td><td class="desc">HDFC MF declared dividends with record date 14-Mar-2024 in Flexi Cap (Rs 7.00), Multi Cap (Rs 0.75) and Small Cap (Rs 4.00) under Regular and Direct IDCW options (VRO article, 12-Mar-2024).</td><td class="imp"><span class="gt">View</span>Same mechanical ex-distribution NAV effect for Growth units; routine - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">08-Jul-2024</td><td><a href="https://www.valueresearchonline.com/stories/52290/hdfc-mutual-fund-announces-dividend-in-its-small-cap-and-flexi-cap-funds/" target="_blank" rel="noopener">HDFC Mutual Fund Announces Dividend in its Small Cap and Flexi Cap Funds</a></td><td class="desc">HDFC MF announced dividends with record date 16-Mar-2023 in Small Cap (Rs 3.00) and Flexi Cap (Rs 5.75) under IDCW options (VRO article, 08-Jul-2024).</td><td class="imp"><span class="gt">View</span>Older distribution notice carried in the dossier; no Growth-verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr class="newsgrp"><th colspan="5"><a href="MIRAETAX_MF_Report_Oct2026.html">MIRAETAX</a> &middot; Mirae Asset ELSS Tax Saver Fund — 4 items &middot; VRO pull 09-Oct-2026 &middot; articles fetched 20-Oct-2026</th></tr>
+    <tr><td class="date">18-Mar-2025</td><td><a href="https://www.valueresearchonline.com/stories/223648/income-distribution-under-few-schemes-of-mirae-asset-mutual-fund/" target="_blank" rel="noopener">Income distribution under few schemes of Mirae Asset Mutual Fund</a></td><td class="desc">Mirae Asset MF declared IDCW distributions with record date 20-Mar-2025, including ELSS Tax Saver Direct Rs 2.30 / Regular Rs 1.95 per unit (VRO article, 18-Mar-2025).</td><td class="imp"><span class="gt">View</span>ELSS is lock-in Growth-focused for this holder; IDCW option only - no Growth-verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">26-Nov-2024</td><td><a href="https://www.valueresearchonline.com/stories/222425/interview-with-neelesh-surana-of-mirae-asset-investment-managers/" target="_blank" rel="noopener">Valuations in Indian markets have become reasonable: Mirae's CIO Surana</a></td><td class="desc">Interview with Mirae CIO Neelesh Surana arguing Indian equity corrections are 'healthy' and valuations have become more reasonable for long-term investors (VRO, 26-Nov-2024).</td><td class="imp"><span class="gt">View</span>House view only; no scheme-level change - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">25-Sep-2024</td><td><a href="https://www.valueresearchonline.com/stories/222036/changes-in-sip-investment-amount-for-many-schemes-of-mirae-asset-mutual-fund/" target="_blank" rel="noopener">Changes in SIP investment amount for many schemes of Mirae Asset Mutual Fund</a></td><td class="desc">Mirae Asset MF cut the minimum SIP instalment to Rs 99 across all schemes except ELSS Tax Saver, effective 1-Oct-2024 (VRO article, 25-Sep-2024).</td><td class="imp"><span class="gt">View</span>ELSS excluded from the Rs 99 minimum-SIP change; existing SIPs continue - operational only, no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date"><span class="warn">VERIFY</span></td><td><a href="https://www.valueresearchonline.com/stories/54419/cio-of-mirae-asset-mf-explains-the-recent-lacklustre-performance-of-his-funds/" target="_blank" rel="noopener">CIO of Mirae Asset MF explains the recent lacklustre performance of his funds</a></td><td class="desc">Mirae CIO Neelesh Surana explains the recent lacklustre performance of Large and Midcap and ELSS Tax Saver and his turnaround approach, with views on banking, PSUs and new-age companies (VRO article fetched 20-Oct-2026; page carries no publication date).</td><td class="imp"><span class="gt">View</span>Manager commentary useful as context for the Under Review band; not a new scoring fact - no verdict change.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr class="newsgrp"><th colspan="5"><a href="MOMLMID_MF_Report_Oct2026.html">MOMLMID</a> &middot; Motilal Oswal Large and Midcap Fund — 4 items &middot; VRO pull 09-Oct-2026 &middot; articles fetched 20-Oct-2026</th></tr>
+    <tr><td class="date">20-Jul-2026</td><td><a href="https://www.valueresearchonline.com/stories/229086/fund-manager-changes-in-some-funds-of-motilal-oswal-mutual-fund/" target="_blank" rel="noopener">Fund manager changes in some funds of Motilal Oswal Mutual Fund</a></td><td class="desc">Motilal Oswal MF changed fund-management responsibilities for several schemes effective 20-Jul-2026, including the ELSS Tax Saver line-up (VRO article, 20-Jul-2026).</td><td class="imp"><span class="gt">View</span>Confirm whether Large and Midcap named managers changed in this notice at next Task B; AMC-level reshuffle - no immediate verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">03-Jul-2026</td><td><a href="https://www.valueresearchonline.com/stories/228973/fund-manager-changes-in-some-schemes-of-motilal-oswal-mutual-fund/" target="_blank" rel="noopener">Fund manager changes in some schemes of Motilal Oswal Mutual Fund</a></td><td class="desc">Motilal Oswal MF announced fund-manager changes effective 3-Jul-2026 across schemes including ELSS Tax Saver (VRO article, 03-Jul-2026).</td><td class="imp"><span class="gt">View</span>Second reshuffle within the same month at the AMC; manager-stability stays a watch item - no immediate verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">16-Mar-2026</td><td><a href="https://www.valueresearchonline.com/stories/228079/fund-manager-changes-in-three-schemes-of-motilal-oswal-mutual-fund/" target="_blank" rel="noopener">Fund manager changes in three schemes of Motilal Oswal Mutual Fund</a></td><td class="desc">Motilal Oswal MF reshuffled fund managers effective 16-Mar-2026 in three schemes including ELSS Tax Saver, with Ankit Agarwal added on equity (VRO article, 16-Mar-2026).</td><td class="imp"><span class="gt">View</span>Part of a series of AMC manager changes; Large and Midcap continuity re-checked at next Task B - no immediate verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">31-Mar-2025</td><td><a href="https://www.valueresearchonline.com/stories/223721/income-distribution-under-few-schemes-of-motilal-oswal-mutual-fund/" target="_blank" rel="noopener">Income distribution under few schemes of Motilal Oswal Mutual Fund</a></td><td class="desc">Motilal Oswal MF declared IDCW distributions with record date 25-Mar-2025, including ELSS Tax Saver at Rs 1.88 per unit (VRO article, 31-Mar-2025).</td><td class="imp"><span class="gt">View</span>Routine IDCW; Growth holders unaffected beyond mechanical ex-date NAV - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr class="newsgrp"><th colspan="5"><a href="ABSLMULTI_MF_Report_Oct2026.html">ABSLMULTI</a> &middot; Aditya Birla Sun Life Multi-Cap Fund — 4 items &middot; VRO pull 09-Oct-2026 &middot; articles fetched 20-Oct-2026</th></tr>
+    <tr><td class="date">03-Oct-2025</td><td><a href="https://www.valueresearchonline.com/stories/226411/fund-manager-changes-in-various-schemes-of-aditya-birla-sun-life-mutual-fund/" target="_blank" rel="noopener">Fund manager changes in various schemes of Aditya Birla Sun Life Mutual Fund</a></td><td class="desc">ABSL MF revised fund-management responsibilities across many schemes effective close of business 31-Oct-2025 (VRO article, 03-Oct-2025).</td><td class="imp"><span class="gt">View</span>AMC-wide line-up change; Multi-Cap manager continuity confirmed at next Task B - no immediate verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">21-Aug-2025</td><td><a href="https://www.valueresearchonline.com/stories/226059/income-distribution-under-four-schemes-of-aditya-birla-sun-life-mutual-fund/" target="_blank" rel="noopener">Income distribution under four schemes of Aditya Birla Sun Life Mutual Fund</a></td><td class="desc">ABSL MF declared IDCW distributions with record date 22-Aug-2025 in four schemes (Arbitrage, Balanced Advantage and others listed in the article; VRO 21-Aug-2025).</td><td class="imp"><span class="gt">View</span>Multi-Cap Growth option is not among the distribution items shown - no holder impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">04-Nov-2024</td><td><a href="https://www.valueresearchonline.com/stories/222291/abhinav-khandelwal-to-oversee-fund-management-at-absl-mutual-fund/" target="_blank" rel="noopener">Abhinav Khandelwal to oversee fund management at ABSL Mutual Fund</a></td><td class="desc">ABSL MF revised fund-management responsibilities effective 31-Oct-2024, with Abhinav Khandelwal taking a broader oversight role (VRO article, 04-Nov-2024).</td><td class="imp"><span class="gt">View</span>Senior leadership change at the AMC; feeds manager-stability at next review - no immediate verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">17-Sep-2024</td><td><a href="https://www.valueresearchonline.com/stories/221983/why-too-many-funds-may-lead-to-portfolio-overlaps/" target="_blank" rel="noopener">Fund Radar: Diversify, don't dummify</a></td><td class="desc">Value Research column on portfolio overlap from holding too many similar funds, using large-cap overlap as the worked example (VRO, 17-Sep-2024).</td><td class="imp"><span class="gt">View</span>General diversification education; no scheme-specific fact for Multi-Cap - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr class="newsgrp"><th colspan="5"><a href="NIPPONLC_MF_Report_Oct2026.html">NIPPONLC</a> &middot; Nippon India Large Cap Fund — 4 items &middot; VRO pull 09-Oct-2026 &middot; articles fetched 20-Oct-2026</th></tr>
+    <tr><td class="date">06-Jan-2025</td><td><a href="https://www.valueresearchonline.com/stories/222742/interview-sailesh-raj-bhan-of-nippon-india-mutual-fund-on-recent-correction/" target="_blank" rel="noopener">Look at large caps, hybrids and multi-asset funds in current market: Nippon India MF CIO</a></td><td class="desc">Nippon India MF CIO Sailesh Raj Bhan argues against overpaying for growth and favours large caps, hybrids and multi-asset funds in the current market (video interview, VRO 06-Jan-2025).</td><td class="imp"><span class="gt">View</span>House market view from the Large Cap fund's CIO; informational - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">20-Aug-2024</td><td><a href="https://www.valueresearchonline.com/stories/221823/fund-manager-changes-in-few-schemes-of-nippon-india-mutual-fund/" target="_blank" rel="noopener">Fund manager changes in few schemes of Nippon India Mutual Fund</a></td><td class="desc">Nippon India MF changed fund managers effective 19-Aug-2024 in a few schemes including Large Cap, where Sailesh Raj Bhan was retained with the co-manager line adjusted (VRO article, 20-Aug-2024).</td><td class="imp"><span class="gt">View</span>Co-manager change on Large Cap; lead manager retained - monitor at next Task B, no immediate verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">12-Mar-2024</td><td><a href="https://www.valueresearchonline.com/stories/54491/dividend-declaration-under-nippon-india-large-cap-fund/" target="_blank" rel="noopener">Dividend Declaration under Nippon India Large Cap Fund</a></td><td class="desc">Nippon India MF declared a Rs 2.50 per unit dividend on Large Cap IDCW options with record date 14-Mar-2024 (VRO article, 12-Mar-2024).</td><td class="imp"><span class="gt">View</span>Routine IDCW; Growth units only see the mechanical ex-date NAV drop - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">08-Jul-2024</td><td><a href="https://www.valueresearchonline.com/stories/52216/nippon-india-mutual-fund-declares-dividend-in-its-large-cap-fund/" target="_blank" rel="noopener">Nippon India Mutual Fund Declares Dividend in its Large Cap Fund</a></td><td class="desc">Nippon India MF announced a Rs 1.75 per unit distribution on Large Cap IDCW with record date 3-Mar-2023 (VRO article, 08-Jul-2024).</td><td class="imp"><span class="gt">View</span>Older distribution notice in the dossier; no Growth-verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr class="newsgrp"><th colspan="5"><a href="UTINIFTY50_MF_Report_Oct2026.html">UTINIFTY50</a> &middot; UTI Nifty 50 Index Fund — 4 items &middot; VRO pull 09-Oct-2026 &middot; articles fetched 20-Oct-2026</th></tr>
+    <tr><td class="date">19-Jun-2026</td><td><a href="https://www.valueresearchonline.com/stories/228838/fund-manager-changes-in-various-funds-of-uti-mutual-fund/" target="_blank" rel="noopener">Fund manager changes in various funds of UTI Mutual Fund</a></td><td class="desc">UTI MF changed fund-management responsibilities effective 19-Jun-2026 across various funds, with assistant-fund-manager adjustments on several index schemes (VRO article, 19-Jun-2026).</td><td class="imp"><span class="gt">View</span>Index funds are rules-based; manager changes rarely affect tracking - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">11-Jul-2024</td><td><a href="https://www.valueresearchonline.com/stories/201608/change-in-minimum-application-amount-for-equity-funds-of-uti-mutual-fund/" target="_blank" rel="noopener">Change in Minimum Application Amount for Equity funds of UTI Mutual Fund</a></td><td class="desc">UTI MF cut the minimum application amount from Rs 5,000 to Rs 1,000 across its equity and index funds including Nifty 50 Index Fund, effective 12-Jul-2024 (VRO article, 11-Jul-2024).</td><td class="imp"><span class="gt">View</span>Lowers the lumpsum entry ticket; operational only - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">08-Jul-2024</td><td><a href="https://www.valueresearchonline.com/stories/51000/few-etfs-and-index-fund-names-change-in-uti-mutual-fund/" target="_blank" rel="noopener">Few ETFs and Index Fund Names Change in UTI Mutual Fund</a></td><td class="desc">UTI MF renamed several ETFs and index funds effective 1-Jul-2022 (scheme-name change notice carried by VRO; article page last updated 08-Jul-2024).</td><td class="imp"><span class="gt">View</span>Naming and administrative only; same mandate - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">08-Jul-2024</td><td><a href="https://www.valueresearchonline.com/stories/46856/fund-manager-change-in-schemes-of-uti-mutual-fund/" target="_blank" rel="noopener">Fund Manager change in Schemes of UTI Mutual Fund</a></td><td class="desc">UTI MF changed fund managers effective 1-May-2019 in schemes such as Multi Asset Fund and Children's Career Fund (historical notice carried by VRO; article page last updated 08-Jul-2024).</td><td class="imp"><span class="gt">View</span>Historical notice; no current impact on Nifty 50 Index Fund - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr class="newsgrp"><th colspan="5"><a href="NIPPONCB_MF_Report_Oct2026.html">NIPPONCB</a> &middot; Nippon India Corporate Bond Fund — 4 items &middot; VRO pull 09-Oct-2026 &middot; articles fetched 20-Oct-2026</th></tr>
+    <tr><td class="date">05-Aug-2026</td><td><a href="https://www.valueresearchonline.com/stories/229267/nippon-india-nifty-aaa-psu-bond-plus-sdl-sep-2026-maturity-5050-index-fund-to-merge-with-nippon-india-corporate-bond-fund/" target="_blank" rel="noopener">Nippon India Nifty AAA PSU Bond Plus SDL - Sep 2026 Maturity 50:50 Index Fund to merge with Nippon India Corporate Bond Fund</a></td><td class="desc">Nippon India MF announced the merger of its Nifty AAA PSU Bond Plus SDL Sep-2026 Maturity 50:50 Index Fund into Nippon India Corporate Bond Fund effective 3-Sep-2026; the index fund ceases to exist (VRO article, 05-Aug-2026).</td><td class="imp"><span class="gt">View</span>Corporate Bond Fund absorbs the merged corpus; AUM rises - watch size and flow effects at next Task B, no immediate verdict change.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">27-Mar-2026</td><td><a href="https://www.valueresearchonline.com/stories/228208/nippon-india-etf-nifty-sdl-apr-2026-top-20-equal-weight-to-merge-with-nippon-india-corporate-bond-fund/" target="_blank" rel="noopener">Nippon India ETF Nifty SDL Apr 2026 Top 20 Equal Weight to Merge with Nippon India Corporate Bond Fund</a></td><td class="desc">Nippon India MF announced the merger of ETF Nifty SDL Apr-2026 Top 20 Equal Weight into Nippon India Corporate Bond Fund effective 4-May-2026 (VRO article, 27-Mar-2026).</td><td class="imp"><span class="gt">View</span>Second merger into the same debt fund; confirms AMC consolidation into Corporate Bond - monitor AUM effects, no immediate verdict change.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">13-Mar-2024</td><td><a href="https://www.valueresearchonline.com/stories/54513/benchmark-changes-for-a-few-debt-schemes-of-nippon-india-mutual-fund/" target="_blank" rel="noopener">Benchmark Changes for a few debt Schemes of Nippon India Mutual Fund</a></td><td class="desc">Nippon India MF revised benchmarks for a few debt schemes effective 12-Mar-2024, covering Banking and PSU Debt, Low Duration and Short-term funds (VRO article, 13-Mar-2024).</td><td class="imp"><span class="gt">View</span>Corporate Bond Fund is not among the schemes listed in the article - no direct holder impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">08-Jul-2024</td><td><a href="https://www.valueresearchonline.com/stories/51828/akshay-sharma-is-to-manage-foreign-investments-in-nippon-india-mutual-fund/" target="_blank" rel="noopener">Akshay Sharma is to Manage Foreign Investments in Nippon India Mutual Fund</a></td><td class="desc">Nippon India MF notified that Akshay Sharma, re-designated as fund manager, will manage overseas investments alongside Kinjal Desai (VRO article, 08-Jul-2024).</td><td class="imp"><span class="gt">View</span>Overseas-investment desk change at the AMC; Corporate Bond is domestic debt - no holder impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr class="newsgrp"><th colspan="5"><a href="ICICIMA_MF_Report_Oct2026.html">ICICIMA</a> &middot; ICICI Prudential Multi Asset Allocation Fund — 4 items &middot; VRO pull 09-Oct-2026 &middot; articles fetched 20-Oct-2026</th></tr>
+    <tr><td class="date">02-Sep-2026</td><td><a href="https://www.valueresearchonline.com/stories/229547/icici-prudential-mutual-fund-has-announced-income-distribution-under-its-icici-prudential-multi-asset-allocation-fund/" target="_blank" rel="noopener">ICICI Prudential Mutual Fund has announced income distribution under its ICICI Prudential Multi Asset Allocation Fund</a></td><td class="desc">ICICI Prudential MF declared an IDCW distribution of about Rs 0.60 per unit under Multi Asset Allocation Fund (Regular and Direct) with record date 3-Sep-2026 (VRO article, 02-Sep-2026).</td><td class="imp"><span class="gt">View</span>Growth option sees only the mechanical ex-distribution NAV effect on the record date - not a change in value; no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">27-Aug-2026</td><td><a href="https://www.valueresearchonline.com/stories/229448/name-change-under-few-schemes-in-icici-prudential-mutual-fund/" target="_blank" rel="noopener">Name change of few schemes in ICICI Prudential Mutual Fund</a></td><td class="desc">ICICI Prudential MF renamed several schemes effective 26-Aug-2026, including All Seasons Bond Fund becoming Dynamic Term Fund (VRO article, 27-Aug-2026).</td><td class="imp"><span class="gt">View</span>Administrative rename; Multi Asset Allocation mandate unchanged - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">31-Jul-2026</td><td><a href="https://www.valueresearchonline.com/stories/229218/income-distribution-in-few-schemes-of-icici-prudential-mutual-fund/" target="_blank" rel="noopener">Income distribution in few schemes of ICICI Prudential Mutual Fund</a></td><td class="desc">ICICI Prudential MF declared IDCW distributions with record date 3-Aug-2026, including Multi Asset Direct and Regular at Rs 0.160 per unit (VRO article, 31-Jul-2026).</td><td class="imp"><span class="gt">View</span>Routine IDCW; Growth holders unaffected beyond mechanical ex-date NAV - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">02-Jul-2026</td><td><a href="https://www.valueresearchonline.com/stories/228956/income-distribution-cum-capital-withdrawal-in-few-schemes-of-icici-prudential-mutual-fund/" target="_blank" rel="noopener">Income distribution cum capital withdrawal in few schemes of ICICI Prudential Mutual Fund</a></td><td class="desc">ICICI Prudential MF declared IDCW / capital-withdrawal distributions with record date 6-Jul-2026, including Multi Asset at Rs 0.160 per unit (VRO article, 02-Jul-2026).</td><td class="imp"><span class="gt">View</span>Same mechanical ex-date effect for Growth units; no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr class="newsgrp"><th colspan="5"><a href="NAVIMC150_MF_Report_Oct2026.html">NAVIMC150</a> &middot; Navi Nifty Midcap 150 Index Fund — 4 items &middot; VRO pull 09-Oct-2026 &middot; articles fetched 20-Oct-2026</th></tr>
+    <tr><td class="date">09-Oct-2026</td><td><a href="https://www.valueresearchonline.com/stories/229885/fund-manager-changes-in-a-few-schemes-of-navi-mutual-fund/" target="_blank" rel="noopener">Fund manager changes in a few schemes of Navi Mutual Fund</a></td><td class="desc">Navi MF changed fund-management responsibilities effective 6-Oct-2026 across a few schemes, adjusting hybrid and index line-ups (VRO article, 09-Oct-2026).</td><td class="imp"><span class="gt">View</span>Midcap 150 is a rules-based index fund; manager change rarely affects tracking - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">30-Jun-2025</td><td><a href="https://www.valueresearchonline.com/stories/225284/navi-mutual-fund-to-discontinue-sips-below-rs-100/" target="_blank" rel="noopener">Navi Mutual Fund to discontinue SIPs below Rs 100</a></td><td class="desc">Navi MF will discontinue SIPs with instalments below Rs 100 from 1-Aug-2025 unless investors top up or cancel by 31-Jul-2025 (VRO article, 30-Jun-2025).</td><td class="imp"><span class="gt">View</span>Only micro-SIPs are affected; the holder's SIP amounts are well above Rs 100 - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">18-Feb-2025</td><td><a href="https://www.valueresearchonline.com/stories/223114/appointment-of-ceo-and-change-in-the-fund-management-responsibilities-of-navi-mutual-fund/" target="_blank" rel="noopener">Appointment of CEO and change in the fund management responsibilities of Navi Mutual Fund</a></td><td class="desc">Rajiv Naresh stepped down as Navi MF CEO; Aditya Venkatesh Mulki took over as CEO and Whole-time Director, with fund-management responsibilities revised (VRO article, 18-Feb-2025).</td><td class="imp"><span class="gt">View</span>AMC leadership change; feeds process/stability watch at next Task B - no immediate verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">03-Feb-2025</td><td><a href="https://www.valueresearchonline.com/stories/222869/change-in-the-minimum-application-amount-for-various-schemes-of-navi-mutual-fund/" target="_blank" rel="noopener">Change in the Minimum Application Amount for various schemes of Navi Mutual Fund</a></td><td class="desc">Navi MF raised the minimum purchase and switch amount from Rs 10 to Rs 100 per application across listed schemes effective 4-Feb-2025 (VRO article, 03-Feb-2025).</td><td class="imp"><span class="gt">View</span>Operational ticket-size change; no effect on existing units - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr class="newsgrp"><th colspan="5"><a href="ABSLBOND_MF_Report_Oct2026.html">ABSLBOND</a> &middot; Aditya Birla Sun Life Dynamic Term Fund — 4 items &middot; VRO pull 09-Oct-2026 &middot; articles fetched 20-Oct-2026</th></tr>
+    <tr><td class="date">27-Aug-2026</td><td><a href="https://www.valueresearchonline.com/stories/229447/name-change-of-few-schemes-in-aditya-birla-sun-life-mutual-fund/" target="_blank" rel="noopener">Name change of few schemes in Aditya Birla Sun Life Mutual Fund</a></td><td class="desc">ABSL MF renamed several schemes effective 26-Aug-2026, including Dynamic Bond Fund becoming Dynamic Term Fund (VRO article, 27-Aug-2026).</td><td class="imp"><span class="gt">View</span>Confirms the report's scheme-name alignment (Dynamic Term); mandate unchanged - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">03-Jun-2026</td><td><a href="https://www.valueresearchonline.com/stories/228697/aditya-birla-sun-life-mutual-fund-announces-merger-of-plans-in-some-schemes/" target="_blank" rel="noopener">Aditya Birla Sun Life Mutual Fund announces merger of plans in some schemes</a></td><td class="desc">ABSL MF merged discontinued plans into continuing plans effective 20-Jun-2026, e.g. Savings Fund Discipline Advantage Plan into Growth Regular (VRO article, 03-Jun-2026).</td><td class="imp"><span class="gt">View</span>Plan consolidation across the AMC; check Dynamic Term plan list at next Task B - no immediate verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">17-Sep-2024</td><td><a href="https://www.valueresearchonline.com/stories/221983/why-too-many-funds-may-lead-to-portfolio-overlaps/" target="_blank" rel="noopener">Fund Radar: Diversify, don't dummify</a></td><td class="desc">Value Research column on portfolio overlap from holding too many similar funds, using large-cap overlap as the worked example (same article also listed under ABSLMULTI; VRO 17-Sep-2024).</td><td class="imp"><span class="gt">View</span>General education; no scheme-specific fact for Dynamic Term - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">18-Mar-2024</td><td><a href="https://www.valueresearchonline.com/stories/54596/benchmark-changes-for-a-few-schemes-of-aditya-birla-sun-life-mutual-fund/" target="_blank" rel="noopener">Benchmark Changes for a few Schemes of Aditya Birla Sun Life Mutual Fund</a></td><td class="desc">ABSL MF revised benchmarks effective 12-Mar-2024 for a few schemes including Banking and PSU Debt, Corporate Bond and Credit Risk funds (VRO article, 18-Mar-2024).</td><td class="imp"><span class="gt">View</span>Dynamic Term is not among the schemes listed in the article - no direct holder impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr class="newsgrp"><th colspan="5"><a href="ICICISENX_MF_Report_Oct2026.html">ICICISENX</a> &middot; ICICI Prudential BSE Sensex Index Fund — 4 items &middot; VRO pull 09-Oct-2026 &middot; articles fetched 20-Oct-2026</th></tr>
+    <tr><td class="date">30-Oct-2025</td><td><a href="https://www.valueresearchonline.com/stories/226726/temporary-suspension-of-investments-in-multiple-schemes-of-icici-prudential-mutual-fund/" target="_blank" rel="noopener">Temporary suspension of investments in multiple schemes of ICICI Prudential Mutual Fund</a></td><td class="desc">ICICI Prudential MF temporarily suspended fresh subscriptions, switch-ins and new SIP/STP registrations in IDCW options of multiple schemes effective 3-Nov-2025; existing SIPs continued (VRO article, 30-Oct-2025).</td><td class="imp"><span class="gt">View</span>Holder's option is Growth; confirm at next Task B whether any Growth-plan restriction applied before acting - no immediate verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">24-Dec-2024</td><td><a href="https://www.valueresearchonline.com/stories/222611/fund-manager-change-in-various-schemes-of-icici-prudential-mutual-fund/" target="_blank" rel="noopener">Fund manager change in various schemes of ICICI Prudential Mutual Fund</a></td><td class="desc">ICICI Prudential MF changed fund-management responsibilities effective 18-Dec-2024 across listed schemes including ETFs such as BHARAT 22 (VRO article, 24-Dec-2024).</td><td class="imp"><span class="gt">View</span>Index-fund manager changes rarely affect tracking; monitor at next Task B - no immediate verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">03-Jun-2024</td><td><a href="https://www.valueresearchonline.com/stories/201418/icici-prudential-mutual-fund-changes-scheme-names-of-its-few-schemes/" target="_blank" rel="noopener">ICICI Prudential Mutual Fund Changes Scheme Names of its few schemes</a></td><td class="desc">ICICI Prudential MF renamed a few schemes effective 1-Jun-2024 (VRO article, 03-Jun-2024).</td><td class="imp"><span class="gt">View</span>Administrative rename; Sensex Index mandate unchanged - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">01-Feb-2024</td><td><a href="https://www.valueresearchonline.com/stories/54075/change-in-fund-manager-for-some-index-hybrid-funds-of-icici-prudential-mutual-fund/" target="_blank" rel="noopener">Change in Fund Manager for some index &amp;amp; Hybrid funds of ICICI Prudential Mutual Fund</a></td><td class="desc">ICICI Prudential MF changed fund managers effective 1-Feb-2024 in index and hybrid schemes such as Equity Arbitrage and Equity Savings (VRO article, 01-Feb-2024).</td><td class="imp"><span class="gt">View</span>Index and hybrid line-up change at the AMC; Sensex Index tracking unaffected in principle - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr class="newsgrp"><th colspan="5"><a href="MOBSEVAL_MF_Report_Oct2026.html">MOBSEVAL</a> &middot; Motilal Oswal BSE Enhanced Value Index Fund — 3 items &middot; VRO pull 09-Oct-2026 &middot; articles fetched 20-Oct-2026</th></tr>
+    <tr><td class="date">17-Oct-2024</td><td><a href="https://www.valueresearchonline.com/stories/222149/dishant-mehta-to-co-manage-various-schemes-of-motilal-oswal-mutual-fund/" target="_blank" rel="noopener">Dishant Mehta to co-manage various schemes of Motilal Oswal Mutual Fund</a></td><td class="desc">Motilal Oswal MF added Dishant Mehta as co-manager on the equity portion of passively managed schemes previously run by Swapnil P Mayekar (VRO article, 17-Oct-2024).</td><td class="imp"><span class="gt">View</span>Co-manager addition on passive schemes including value-index lines; tracking is rules-based - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">27-Jun-2024</td><td><a href="https://www.valueresearchonline.com/stories/201534/name-change-of-few-schemes-of-motilal-oswal-mutual-fund/" target="_blank" rel="noopener">Name Change of few schemes of Motilal Oswal Mutual Fund</a></td><td class="desc">Motilal Oswal MF renamed several schemes effective 1-Jun-2024 (VRO article, 27-Jun-2024).</td><td class="imp"><span class="gt">View</span>Administrative rename; Enhanced Value Index mandate unchanged - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+    <tr><td class="date">08-Jul-2024</td><td><a href="https://www.valueresearchonline.com/stories/51773/rakesh-shetty-replaces-abhiroop-mukherjee-as-fund-manager/" target="_blank" rel="noopener">Rakesh Shetty Replaces Abhiroop Mukherjee as Fund Manager</a></td><td class="desc">Motilal Oswal MF replaced Abhiroop Mukherjee with Rakesh Shetty on Ultra Short Term, Liquid and G-Sec-related schemes effective 22-Nov-2022 (historical notice carried by VRO; article page last updated 08-Jul-2024).</td><td class="imp"><span class="gt">View</span>Debt-fund manager change at the AMC; no direct link to the BSE Enhanced Value equity index mandate - no verdict impact.</td><td class="src">Value Research Online · pull 09-Oct-2026</td></tr>
+  </table>
+  </div>
+  <p class="note"><b>51 items across 13 funds</b> (12 funds × 4 items + MOBSEVAL 3). <b>Split:</b> 51/51 descriptions written from the fetched VRO article body (0 headline-only; 0 description-VERIFY) · 50/51 dates taken from the article page, 1 date <span class="warn">VERIFY</span> (Mirae CIO article page carries no publication date) · 51/51 Impact cells tagged <span class="gt">View</span> (0 not-assessed). Headlines, links and source line copied verbatim from each report’s tab8 (VRO news dossier, pull 09-Oct-2026) — no item added, none removed, no date invented. A fund with an empty tab8 would read "No dated news as of 09-Oct-2026" — no fund did. Article fetch date 20-Oct-2026; every figure quoted inside a description carries its source (VRO article) and the article’s own date.</p>
+  </section>
+<section class="panel" id="tabJ">
+  <h2>Research journal — append-only timeline</h2>
+  <details class="jrow" open>
+    <summary>08-Oct-2026 · Entry #1 — baseline build (Task A) — HDFC Small Cap · 5.0/10 WATCHLIST · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>08-Oct-2026</td><td>HDFCSMALLCAP | SC | H</td><td>5.0/10 — WATCHLIST (45 ÷ 9)</td><td><span class="st st-hold">HOLDING</span></td><td>Pause new SIP instalments; hold existing units; no redemption</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹156.1320 (07-Oct-2026) · portfolio 31-Aug-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 08-Oct-2026 · peers re-picked fresh (ITI, Bandhan, Bank of India by 3Y) · rule 3b verdict: active fee not justified.</td></tr>
+    </table>
+  </details>
+  <p class="note"><b>Append-only:</b> every run (Task A or Task B) adds its own row dated dd-Mmm-yyyy below; past rows are never edited and no archive folder exists (skill rule 8).</p>
+  <details class="jrow" open>
+    <summary>09-Oct-2026 · Entry #2 — three-verdict upgrade rebuild (in place) — HDFC Small Cap · FQ 43.5/100 Weak · SIP: Insufficient Evidence · Action: Review Allocation · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>09-Oct-2026</td><td>HDFCSMALLCAP | SC | H</td><td>FQ 43.5/100 Weak (provisional) · SIP Outcome: Insufficient Evidence · Investor Action: Review Allocation · composite 5.0/10 WATCHLIST (secondary)</td><td><span class="st st-hold">HOLDING</span></td><td>Pause new SIP instalments; hold existing units; no redemption; SIP Outcome pending workbook; suitability inputs requested</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹153.7290 (08-Oct-2026) · returns 08-Oct-2026 pulled 09-Oct-2026 · portfolio 31-Aug-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 09-Oct-2026 (ITI, Bandhan, Bank of India by 3Y; six Nifty Smallcap 250 index funds) · rule 3b verdict: active fee not justified · rolling block carried 07-Oct-2026 (re-pull returned no-data). User decisions 1(b) + 2(a) + HOLDING: composite kept as secondary indicator, rebuilt in place.</td></tr>
+    </table>
+  </details>
+  <p class="note"><b>11-Oct-2026 baselines below</b> — one row per fund, copied field-for-field from that fund's own report tab9 journal (Entry #1, Task A build 11-Oct-2026); appended after the existing rows, never re-scored and never re-ordered (append-only, skill rule 8).</p>
+  <details class="jrow">
+    <summary>11-Oct-2026 · Entry #1 — baseline build (Task A) — Parag Parikh Flexi Cap Fund · FQ 68.5/100 Acceptable · Action: Continue and Monitor · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>11-Oct-2026</td><td>PARAGFLEX | FX | H</td><td>FQ 68.5/100 Acceptable (provisional) · SIP Outcome: invested ₹5,75,000 → value ₹5,66,064, P&amp;L -₹8,936, XIRR -2.25% · Investor Action: Continue and Monitor · composite 7.11/10 ACCUMULATE (secondary)</td><td><span class="st st-hold">HOLDING</span></td><td>hold units; SIP pause already priced in; review 28-Oct-2026</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹87.66 (08-Oct-2026) · returns as on 08-Oct-2026 pulled 09-Oct-2026 · portfolio 30-Sep-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 09-Oct-2026 · ledger 19-Mar-2025 → 03-Oct-2026 · source: PARAGFLEX report tab9, Entry #1 (11-Oct-2026).</td></tr>
+    </table>
+  </details>
+  <details class="jrow">
+    <summary>11-Oct-2026 · Entry #1 — baseline build (Task A) — Mirae Asset ELSS Tax Saver Fund · FQ 60.1/100 Under Review · Action: Continue · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>11-Oct-2026</td><td>MIRAETAX | ELSS | H</td><td>FQ 60.1/100 Under Review (provisional) · SIP Outcome: invested ₹1,72,000 → value ₹2,60,607, P&amp;L ₹88,607, XIRR 10.77% · Investor Action: Continue · composite 6.56/10 ACCUMULATE (secondary)</td><td><span class="st st-hold">HOLDING</span></td><td>continue SIP (ELSS tax lock 3Y from each instalment); review 28-Oct-2026</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹53.33 (08-Oct-2026) · returns as on 08-Oct-2026 pulled 09-Oct-2026 · portfolio 31-Aug-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 09-Oct-2026 · ledger 02-Nov-2021 → 13-Dec-2023 · source: MIRAETAX report tab9, Entry #1 (11-Oct-2026).</td></tr>
+    </table>
+  </details>
+  <details class="jrow">
+    <summary>11-Oct-2026 · Entry #1 — baseline build (Task A) — Motilal Oswal Large and Midcap Fund · FQ 84/100 Strong · Action: Continue · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>11-Oct-2026</td><td>MOMLMID | LMC | H</td><td>FQ 84/100 Strong (provisional) · SIP Outcome: invested ₹2,25,000 → value ₹2,45,388, P&amp;L ₹20,388, XIRR 9.14% · Investor Action: Continue · composite 8.33/10 excellent (secondary)</td><td><span class="st st-hold">HOLDING</span></td><td>continue SIP; top-ranked across 6M/1Y/3Y/5Y in category; review 28-Oct-2026</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹39.31 (08-Oct-2026) · returns as on 08-Oct-2026 pulled 09-Oct-2026 · portfolio 30-Sep-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 09-Oct-2026 · ledger 01-Jan-2025 → 04-Sep-2026 · source: MOMLMID report tab9, Entry #1 (11-Oct-2026).</td></tr>
+    </table>
+  </details>
+  <details class="jrow">
+    <summary>11-Oct-2026 · Entry #1 — baseline build (Task A) — Aditya Birla Sun Life Multi-Cap Fund · FQ 41.5/100 Weak · Action: Review Allocation · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>11-Oct-2026</td><td>ABSLMULTI | MC | H</td><td>FQ 41.5/100 Weak (provisional) · SIP Outcome: invested ₹1,48,000 → value ₹2,20,553, P&amp;L ₹72,553, XIRR 13.39% · Investor Action: Review Allocation · composite 5.67/10 WATCHLIST (secondary)</td><td><span class="st st-hold">HOLDING</span></td><td>hold units; escalate to Consider Switching if rolling 3Y beat-cat stays 0% at next Task B</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹21.65 (08-Oct-2026) · returns as on 08-Oct-2026 pulled 09-Oct-2026 · portfolio 30-Sep-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 09-Oct-2026 · ledger 04-Jan-2022 → 19-Feb-2025 · source: ABSLMULTI report tab9, Entry #1 (11-Oct-2026).</td></tr>
+    </table>
+  </details>
+  <details class="jrow">
+    <summary>11-Oct-2026 · Entry #1 — baseline build (Task A) — Nippon India Large Cap Fund · FQ 59.6/100 Under Review · Action: Continue and Monitor · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>11-Oct-2026</td><td>NIPPONLC | LC | H</td><td>FQ 59.6/100 Under Review (provisional) · SIP Outcome: invested ₹2,25,000 → value ₹2,13,749, P&amp;L -₹11,251, XIRR -5.13% · Investor Action: Continue and Monitor · composite 7/10 ACCUMULATE (secondary)</td><td><span class="st st-hold">HOLDING</span></td><td>hold units; long-horizon hold (5Y rank 1/65); review 28-Oct-2026</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹94.02 (08-Oct-2026) · returns as on 08-Oct-2026 pulled 09-Oct-2026 · portfolio 30-Sep-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 09-Oct-2026 · ledger 01-Jan-2025 → 04-Sep-2026 · source: NIPPONLC report tab9, Entry #1 (11-Oct-2026).</td></tr>
+    </table>
+  </details>
+  <details class="jrow">
+    <summary>11-Oct-2026 · Entry #1 — baseline build (Task A) — UTI Nifty 50 Index Fund · FQ 34.2/100 Weak · Action: Consider Switching · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>11-Oct-2026</td><td>UTINIFTY50 | LC | H</td><td>FQ 34.2/100 Weak (provisional) · SIP Outcome: invested ₹2,20,000 → value ₹1,98,838, P&amp;L -₹21,162, XIRR -8.86% · Investor Action: Consider Switching · composite 5.33/10 WATCHLIST (secondary)</td><td><span class="st st-hold">HOLDING</span></td><td>consider switch to UTI Nifty 50 ETF (same AMC, 3Y +5.35% ER 0.04% vs fund +5.18% ER 0.18%); or a lower-cost Nifty 50 index fund; review 28-Oct-2026</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹156.54 (08-Oct-2026) · returns as on 08-Oct-2026 pulled 09-Oct-2026 · portfolio 30-Sep-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 09-Oct-2026 · ledger 16-May-2025 → 24-Mar-2026 · source: UTINIFTY50 report tab9, Entry #1 (11-Oct-2026).</td></tr>
+    </table>
+  </details>
+  <details class="jrow">
+    <summary>11-Oct-2026 · Entry #1 — baseline build (Task A) — Nippon India Corporate Bond Fund · FQ 70.5/100 Acceptable · Action: Continue · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>11-Oct-2026</td><td>NIPPONCB | CB | H</td><td>FQ 70.5/100 Acceptable (provisional) · SIP Outcome: invested ₹1,20,000 → value ₹1,27,800, P&amp;L ₹7,800, XIRR 4.86% · Investor Action: Continue · composite 7.11/10 ACCUMULATE (secondary)</td><td><span class="st st-hold">HOLDING</span></td><td>continue SIP; rank 4/21 on 3Y and 2/19 on 5Y; review 28-Oct-2026</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹67.25 (08-Oct-2026) · returns as on 08-Oct-2026 pulled 09-Oct-2026 · portfolio 30-Sep-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 09-Oct-2026 · ledger 19-May-2025 → 03-Oct-2025 · source: NIPPONCB report tab9, Entry #1 (11-Oct-2026).</td></tr>
+    </table>
+  </details>
+  <details class="jrow">
+    <summary>11-Oct-2026 · Entry #1 — baseline build (Task A) — ICICI Prudential Multi Asset Allocation Fund · FQ 52.6/100 Under Review · Action: Continue and Monitor · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>11-Oct-2026</td><td>ICICIMA | MAA | H</td><td>FQ 52.6/100 Under Review (provisional) · SIP Outcome: invested ₹88,000 → value ₹86,183, P&amp;L -₹1,817, XIRR -2.65% · Investor Action: Continue and Monitor · composite 6.33/10 ACCUMULATE (secondary)</td><td><span class="st st-hold">HOLDING</span></td><td>hold units; 5Y rank 4/15 anchors the case; review 28-Oct-2026</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹855.04 (08-Oct-2026) · returns as on 08-Oct-2026 pulled 09-Oct-2026 · portfolio 30-Sep-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 09-Oct-2026 · ledger 19-May-2025 → 04-Sep-2026 · source: ICICIMA report tab9, Entry #1 (11-Oct-2026).</td></tr>
+    </table>
+  </details>
+  <details class="jrow">
+    <summary>11-Oct-2026 · Entry #1 — baseline build (Task A) — Navi Nifty Midcap 150 Index Fund · FQ 35.6/100 Weak · Action: Consider Switching · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>11-Oct-2026</td><td>NAVIMC150 | MID | H</td><td>FQ 35.6/100 Weak (provisional) · SIP Outcome: invested ₹81,000 → value ₹85,081, P&amp;L ₹4,081, XIRR 4.86% · Investor Action: Consider Switching · composite 4.56/10 WATCHLIST (secondary)</td><td><span class="st st-hold">HOLDING</span></td><td>consider switch to ICICI Pru or SBI Nifty Midcap 150 Index (3Y +12.40/+12.42% ER 0.22/0.34 vs fund +12.34% ER 0.25); review 28-Oct-2026</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹20.18 (08-Oct-2026) · returns as on 08-Oct-2026 pulled 09-Oct-2026 · portfolio 31-Aug-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 09-Oct-2026 · ledger 01-Apr-2025 → 08-Apr-2026 · source: NAVIMC150 report tab9, Entry #1 (11-Oct-2026).</td></tr>
+    </table>
+  </details>
+  <details class="jrow">
+    <summary>11-Oct-2026 · Entry #1 — baseline build (Task A) — Aditya Birla Sun Life Dynamic Term Fund · FQ 66.3/100 Acceptable · Action: Continue · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>11-Oct-2026</td><td>ABSLBOND | DB | H</td><td>FQ 66.3/100 Acceptable (provisional) · SIP Outcome: invested ₹68,000 → value ₹71,808, P&amp;L ₹3,808, XIRR 4.13% · Investor Action: Continue · composite 6.89/10 ACCUMULATE (secondary)</td><td><span class="st st-hold">HOLDING</span></td><td>continue SIP; 5Y rank 2/23 and 6M percentile 86; review 28-Oct-2026</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹52.95 (08-Oct-2026) · returns as on 08-Oct-2026 pulled 09-Oct-2026 · portfolio 30-Sep-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 09-Oct-2026 · ledger 19-May-2025 → 23-Sep-2025 · source: ABSLBOND report tab9, Entry #1 (11-Oct-2026).</td></tr>
+    </table>
+  </details>
+  <details class="jrow">
+    <summary>11-Oct-2026 · Entry #1 — baseline build (Task A) — ICICI Prudential BSE Sensex Index Fund · FQ 26.2/100 Weak · Action: Consider Switching · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>11-Oct-2026</td><td>ICICISENX | LC | H</td><td>FQ 26.2/100 Weak (provisional) · SIP Outcome: invested ₹52,065 → value ₹57,850, P&amp;L ₹5,785, XIRR 4.5% · Investor Action: Consider Switching · composite 4.33/10 WATCHLIST (secondary)</td><td><span class="st st-hold">HOLDING</span></td><td>consider switch to ICICI Pru BSE Sensex ETF (same AMC, 3Y +3.90% ER 0.02% vs fund +3.69% ER 0.17%); review 28-Oct-2026</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹23.92 (08-Oct-2026) · returns as on 08-Oct-2026 pulled 09-Oct-2026 · portfolio 30-Sep-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 09-Oct-2026 · ledger 01-Dec-2023 → 20-Feb-2025 · source: ICICISENX report tab9, Entry #1 (11-Oct-2026).</td></tr>
+    </table>
+  </details>
+  <details class="jrow">
+    <summary>11-Oct-2026 · Entry #1 — baseline build (Task A) — Motilal Oswal BSE Enhanced Value Index Fund · FQ 73/100 Acceptable · Action: Continue and Monitor · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>11-Oct-2026</td><td>MOBSEVAL | VAL | H</td><td>FQ 73/100 Acceptable (provisional) · SIP Outcome: invested ₹60,000 → value ₹53,135, P&amp;L -₹6,865, XIRR -21.68% · Investor Action: Continue and Monitor · composite 6.89/10 ACCUMULATE (secondary)</td><td><span class="st st-hold">HOLDING</span></td><td>hold units; 3Y rank 3/25 and rolling beat-bench 100% - do not redeem on the 6M dip alone; review 28-Oct-2026</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹25.32 (08-Oct-2026) · returns as on 08-Oct-2026 pulled 09-Oct-2026 · portfolio 30-Sep-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 09-Oct-2026 · ledger 27-Feb-2026 → 12-May-2026 · source: MOBSEVAL report tab9, Entry #1 (11-Oct-2026).</td></tr>
+    </table>
+  </details>
+  <details class="jrow">
+    <summary>11-Oct-2026 · baseline build (Task A) — HDFC Small Cap Fund · FQ 32.8/100 Weak · Action: Review Allocation · HOLDING</summary>
+    <table>
+      <tr><th>Date</th><th>Fund</th><th>Composite / Verdict</th><th>Status</th><th>Decision</th><th>Next review</th></tr>
+      <tr><td>11-Oct-2026</td><td>HDFCSMALLCAP | SC | H</td><td>FQ 32.8/100 Weak (provisional) · SIP Outcome: invested ₹5,40,000 → value ₹5,36,051, P&amp;L -₹3,949, XIRR -0.89% · Investor Action: Review Allocation · composite 5.11/10 WATCHLIST (secondary)</td><td><span class="st st-hold">HOLDING</span></td><td>hold units; escalate to Consider Switching if next Task B rank stays last-in-category</td><td>28-Oct-2026 (Task B)</td></tr>
+      <tr><td colspan="6" class="note">Data basis: NAV ₹153.73 (08-Oct-2026) · returns as on 08-Oct-2026 pulled 09-Oct-2026 · portfolio 30-Sep-2026 · ER &amp; risk 30-Sep-2026 · peer re-pick 09-Oct-2026 · ledger 20-Feb-2025 → 29-Sep-2026 · source: HDFCSMALLCAP report tab9, Entry #1 (11-Oct-2026).</td></tr>
+    </table>
+  </details>
+  </section>
+
+  <section class="panel" id="tabA">
+  <h2>How this hub works</h2>
+  <div class="card">
+    <p><b>Codes:</b> every report registers the same option code in both its own #fundSel and this hub's — <code>NAME | CAT | STATUS | GOALS</code> (status field: <code>H</code> = HOLDING, <code>C</code> = CANDIDATE; GOALS = the workbook goal codes the fund is invested against, e.g. <code>ABSLMULTI | MC | H | CC,FF</code> — one report per fund even when it serves two goals). Badges above are computed from these option codes.</p>
+    <p><b>Verdicts (09-Oct-2026):</b> three separate cards — <b>Fund Quality</b> (seven weighted metrics, 0–100, bands Strong 80–100 / Acceptable 65–79 / Under Review 50–64 / Weak &lt;50, labelled provisional), <b>SIP Outcome</b> (invested / value / P&amp;L / XIRR from real dated cash flows, or an explicit Insufficient Evidence state) and <b>Investor Action</b> (Continue / Continue and Monitor / Review Allocation / Consider Switching / Insufficient Evidence) — never merged into one score. The legacy composite = average of the nine scored sections, shown /10 — 8–10 excellent · 6–8 ACCUMULATE · 4–6 WATCHLIST · &lt;4 AVOID — stays a clearly-labelled <b>secondary indicator</b>. WATCHLIST is a verdict word; the status axis stays HOLDING / CANDIDATE.</p>
+    <p><b>Cycle:</b> Task A builds a fund; Task B runs monthly (28th–2nd) — refresh NAV/news, RE-PICK peers, refresh tabP/tabR, re-score, append a dated journal row; Task C is an ad-hoc NAV/P&amp;L refresh (price-only, no re-score, no journal row).</p>
+    <p><b>Data:</b> Value Research Online only — every figure carries source + date, every NAV its NAV date, unconfirmable figures flagged VERIFY. Glossary: <code>MutualFunds/code/glossary_mf.js</code>.</p>
+  </div>
+  </section>
+
+  <nav>
+    <a href="../InvestIQ.html">← InvestIQ home</a>
+    <a href="HDFCSMALLCAP_MF_Report_Oct2026.html">HDFC Small Cap report →</a>
+    <a href="../equity/Equity_Forge.html">Equity Forge →</a>
+  </nav>
+
+  <footer>
+    InvestIQ — personal investment research hub. Not investment advice. Source of truth: <code>Developer_file/mutual_fund/</code>; published copies are mirrored to APP/ only after explicit approval. Hub updated 20-Oct-2026.
+  </footer>
+</div>
+<script>
+(function(){
+function band(s){s=Number(s);if(s>=8)return['EXCELLENT','v-excellent'];if(s>=6)return['ACCUMULATE','v-accumulate'];if(s>=4)return['WATCHLIST','v-watchlist'];return['AVOID','v-avoid'];}
+/* hub tabs (20-Oct-2026): same data-t / .panel.on mechanics as the reports, dependency-free */
+function show(id){
+var ps=document.querySelectorAll('.panel');
+for(var i=0;i<ps.length;i++){ps[i].classList.remove('on');}
+var el=document.getElementById(id);
+if(el){el.classList.add('on');}
+var bs=document.querySelectorAll('.tabbtn');
+for(var j=0;j<bs.length;j++){var on=(bs[j].getAttribute('data-t')===id);if(on){bs[j].classList.add('on');}else{bs[j].classList.remove('on');}}
+window.scrollTo(0,0);
+}
+window.show=show;
+var tb=document.querySelectorAll('.tabbtn');
+for(var q=0;q<tb.length;q++){
+tb[q].addEventListener('click',function(){show(this.getAttribute('data-t'));});
+}
+/* badges + goal legend computed from #fundSel option TEXT
+   (NAME | CAT | STATUS | GOALS) — never hardcoded.
+   NOTE: option VALUE is the filename (no pipes); the code lives in the text. */
+var sel=document.getElementById('fundSel'),tot=0,hold=0,cand=0,goals={};
+if(sel){
+var opts=sel.options;
+for(var i=0;i<opts.length;i++){
+var v=opts[i].value||'';
+if(!v)continue;
+var txt=(opts[i].text||'').trim();
+var f=txt.split('|');
+if(f.length<3)continue;
+tot++;
+var st=f[2].trim().toUpperCase();
+if(st==='H'){hold++;}else if(st==='C'){cand++;}
+if(f.length>3&&f[3].trim()){
+var gs=f[3].split(',');
+for(var k=0;k<gs.length;k++){var g=gs[k].trim();if(g){goals[g]=(goals[g]||0)+1;}}
+}
+}
+}
+var cards=document.querySelectorAll('#fundCards .fcard'),sum=0,n=0;
+for(var j=0;j<cards.length;j++){
+var sc=cards[j].getAttribute('data-score');
+if(sc!==null&&sc!==''){sum+=Number(sc);n++;}
+var chip=cards[j].querySelector('[data-vchip]');
+if(chip&&sc!==null&&sc!==''){var b=band(sc);chip.textContent='composite '+sc+'/10 ('+b[0]+') · secondary';chip.className='csmall';}
+}
+var avg=n?(sum/n).toFixed(1):'—';
+var bt=document.getElementById('badgeTotal'),bh=document.getElementById('badgeHold'),bc=document.getElementById('badgeCand'),ba=document.getElementById('badgeAvg');
+if(bt)bt.textContent='Funds indexed: '+tot;
+if(bh)bh.textContent='HOLDING: '+hold;
+if(bc)bc.textContent='CANDIDATE: '+cand;
+if(ba)ba.textContent='Secondary — mean composite: '+(n?avg+'/10':'—');
+/* goal legend: goal code · fund count, sorted by count desc then name */
+var gb=document.getElementById('goalBadges');
+if(gb){
+var keys=[];
+for(var gn in goals){if(Object.prototype.hasOwnProperty.call(goals,gn))keys.push(gn);}
+keys.sort(function(a,b){return goals[b]-goals[a]||a.localeCompare(b);});
+var html='<span class="badge">Goals: '+keys.length+'</span>';
+for(var m=0;m<keys.length;m++){
+html+='<span class="gt" title="'+keys[m]+' — funds invested under this goal">'+keys[m]+' · '+goals[keys[m]]+'</span>';
+}
+gb.innerHTML=html;
+}
+/* fund dropdown navigation */
+if(sel){sel.addEventListener('change',function(){if(this.value){location.href=this.value;}});}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITC Ltd — Equity Research Journal | Sep 2026</title>
+<style>
+:root{--bg:#0f1420;--panel:#161d2e;--panel2:#1c2438;--ink:#e8ecf5;--muted:#9aa7bd;--line:#2a3450;--acc:#4da3ff;--good:#2ecc8f;--warn:#f5b83d;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:22px}
+header.rpt{background:linear-gradient(135deg,#101828,#1b2a4a);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:20px}
+header.rpt h1{margin:0 0 4px;font-size:27px}
+header.rpt .sub{color:var(--muted);font-size:14px}
+.badges{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{padding:4px 11px;border-radius:20px;font-size:12.5px;border:1px solid var(--line);background:var(--panel2)}
+.badge.buy{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.badge.risk{background:#3a1d1d;border-color:#7a3030;color:#ffb0b0}
+.badge.info{background:#123055;border-color:#24528f;color:#a8d1ff}
+h2{font-size:20px;margin:34px 0 6px;padding-bottom:7px;border-bottom:2px solid var(--line);color:#cfe1ff}
+h4{font-size:14.5px;margin:14px 0 6px;color:#a9c4ea}
+p{margin:8px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 6px;font-size:13.2px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+th{background:var(--panel2);color:#c6d6f0;font-weight:600;text-align:center}
+td:first-child,th:first-child{text-align:left;font-weight:600;color:#dbe6fa}
+tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.tblwrap table{border:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:13px 14px}
+.kpi .l{font-size:11.6px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.kpi .v{font-size:21px;font-weight:700;margin-top:3px}
+.kpi .n{font-size:11.6px;color:var(--muted);margin-top:2px}
+.good{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 17px;margin:13px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.tag{display:inline-block;font-size:10.6px;letter-spacing:.6px;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-right:6px;vertical-align:1.5px;border:1px solid}
+.t-fact{background:#123055;border-color:#2c5f9e;color:#a9d1ff}
+.t-calc{background:#2a2140;border-color:#5a4a8a;color:#cbb8ff}
+.t-mgmt{background:#14402e;border-color:#2c7a5a;color:#9df0cd}
+.t-view{background:#46340f;border-color:#8d6a1e;color:#ffd98a}
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:12px;font-weight:600}
+.p-g{background:#0d3a2c;color:#7ff0c3;border:1px solid #1c6b4f}
+.p-y{background:#3d3210;color:#ffd98a;border:1px solid #8d6a1e}
+.p-r{background:#3a1d1d;color:#ffb0b0;border:1px solid #7a3030}
+.note{font-size:12.4px;color:var(--muted);margin-top:6px}
+.src{font-size:12.2px;color:var(--muted)}
+.scorebar{height:9px;background:#0c111c;border-radius:6px;overflow:hidden;border:1px solid var(--line);min-width:110px}
+.scorebar>i{display:block;height:100%;background:linear-gradient(90deg,#4da3ff,#2ecc8f)}
+ul{margin:7px 0 7px 20px}li{margin:4px 0}
+.verdict-main{display:flex;flex-wrap:wrap;gap:16px;align-items:stretch}
+.verdict-big{flex:1 1 300px;background:linear-gradient(135deg,#2b1d0e,#3a2a12);border:1px solid #8d6a1e;border-radius:12px;padding:18px}
+.verdict-big .h{font-size:26px;font-weight:800;color:#ffd98a}
+a{color:var(--acc)}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12.4px}
+/* top nav + tabs */
+.topnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
+.topnav a.home{color:var(--acc);font-size:13px;text-decoration:none;font-weight:600}
+.topnav select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13.4px;font-weight:600;cursor:pointer}
+.tabbar{position:sticky;top:0;z-index:40;display:flex;flex-wrap:wrap;gap:6px;background:rgba(15,20,32,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:8px;margin-bottom:16px}
+.tabbtn{border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:12.6px;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;letter-spacing:.3px}
+.tabbtn:hover{color:#cfe1ff;border-color:#3b5f96}
+.tabbtn.on{background:#123055;border-color:#2c66ad;color:#a9d1ff;box-shadow:0 0 0 1px #2c66ad}
+.panel{display:none;animation:fadein .25s ease}
+.panel.on{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.viewbox{border-left:4px solid var(--acc);background:rgba(77,163,255,.07);border-radius:0 9px 9px 0;padding:10px 15px;margin:10px 0 14px}
+.viewbox .vh{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8fc4ff;font-weight:700;margin-bottom:5px}
+.viewbox ul{margin:4px 0 2px 18px}.viewbox li{font-size:13.6px;margin:5px 0}
+.viewbox li b{color:#dbe9ff}
+.viewbox li.imp{color:#ffe6a3}
+.viewbox li.imp::marker{content:"★ "}
+.important{display:inline-block;background:#4a3708;color:#ffd98a;border:1px solid #8d6a1e;font-size:10.3px;font-weight:700;letter-spacing:.7px;padding:1px 7px;border-radius:4px;vertical-align:1.5px;margin-left:6px}
+.kpi[data-explain]{cursor:pointer;transition:transform .12s,border-color .12s}
+.kpi[data-explain]:hover{border-color:#4da3ff;transform:translateY(-2px)}
+.kpi[data-explain]::after{content:"ⓘ what does this mean?";display:block;font-size:9.6px;color:#4da3ff;letter-spacing:.4px;margin-top:5px;text-transform:uppercase}
+.term{color:#7fc0ff;text-decoration:underline dotted;cursor:help}
+.term:hover{color:#bfe0ff}
+#modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(4,8,16,.72);padding:20px}
+#modal.on{display:flex;align-items:center;justify-content:center}
+.mbox{background:#141b2c;border:1px solid #2c66ad;border-radius:13px;max-width:640px;width:100%;max-height:82vh;overflow:auto;padding:20px 22px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.mbox .mt{font-size:16.5px;font-weight:700;color:#a9d1ff;margin-bottom:8px}
+.mbox .mb{font-size:14px;line-height:1.65;color:var(--ink)}
+.mbox .mb .why{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);color:#ffd98a;font-size:13.3px}
+.mbox .mclose{float:right;border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:7px;font-size:12px;padding:4px 10px;cursor:pointer}
+.mbox .mclose:hover{color:#fff;border-color:#4da3ff}
+.mgl{font-size:12.4px;color:var(--muted);margin-top:12px}
+/* Position status KPI cards (tab0) - accented left bar + coloured value so
+   this group never reads as a copy of the plain .kpi row at the top of tab0 */
+.pos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0 6px}@media (max-width:900px){.pos-grid{grid-template-columns:repeat(2,1fr)}}@media (max-width:540px){.pos-grid{grid-template-columns:1fr}}
+.posk{background:var(--panel2);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:9px;padding:9px 12px 10px}
+.posk .pk-l{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.posk .pk-v{font-size:20px;font-weight:700;margin-top:3px;color:var(--ink)}
+.posk .pk-n{font-size:11.2px;color:var(--muted);margin-top:3px}
+.posk.p-blue{border-left-color:#4da3ff}
+.posk.p-blue .pk-v{color:#8fc6ff}
+.posk.p-purple{border-left-color:#a78bfa}
+.posk.p-purple .pk-v{color:#cbb8ff}
+.posk.p-amber{border-left-color:#f5b83d}
+.posk.p-amber .pk-v{color:#ffd98a}
+.posk.p-teal{border-left-color:#2ecc8f}
+.posk.p-teal .pk-v{color:#5ee0b0}
+.posk.p-pos{border-left-color:#2ecc8f}
+.posk.p-pos .pk-v{color:#2ecc8f}
+.posk.p-neg{border-left-color:#ff6b6b}
+.posk.p-neg .pk-v{color:#ff6b6b}
+.posk.p-slate{border-left-color:#9aa7bd}
+.posk.p-slate .pk-v{color:#c9d3e6}
+@media print{body{background:#fff;color:#111}.wrap{max-width:none}header.rpt,.card,.kpi,table,.verdict-big{background:#fff;color:#111;border-color:#bbb}th{background:#eee;color:#111}td{color:#111}h2,h4{color:#111}.good{color:#087f4f}.warn{color:#9a6a00}.bad{color:#b00}.panel{display:block!important;page-break-before:always}.tabbar,#modal{display:none!important}.viewbox{background:#f4f8ff;color:#111}.viewbox li{color:#111}.term{color:#0b5ca8}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="rpt">
+  <h1>ITC Ltd — Deep-Dive Fundamental Report</h1>
+  <div class="sub">Quarterly Equity Research Journal &nbsp;•&nbsp; Entry #1 (Baseline Quarter) &nbsp;•&nbsp; Assessment as of <b>September 2026</b> (price data: <b>19-Oct-2026 close</b>; monthly run 20-Oct-2026)</div>
+  <div class="badges">
+    <span class="badge buy">Portfolio status: HOLDING — invested monthly</span>
+    <span class="badge buy">VERDICT: ACCUMULATE (dividend + safety at 52-week low) · composite 7.2/10 · 12M horizon · re-affirmed 19-Oct-2026</span>
+    <span class="badge info">CMP ₹261 (19-Oct-2026 close) · −1.02% (day) · +2.4% above 52W low (₹426/255)</span>
+    <span class="badge info">Large Cap · Mcap ₹3,26,832 Cr (19-Oct-2026)</span>
+    <span class="badge buy">Div yield 5.56% · payout 74.5% · almost debt free</span>
+    <span class="badge">P/E 16.6 · ROE 29.3% · ROCE 38.9% · price 1Y −37%</span>
+    <span class="badge">NSE: ITC · BSE: 500875 · F&O</span>
+    <span class="badge">Sector: Fast Moving Consumer Goods → Diversified FMCG</span>
+  </div>
+  <p class="note" style="margin-top:12px">Primary source: Screener.in (fundamentals consolidated 01-Oct-2026; market data 19-Oct-2026). Corroborating: exchange announcements (Sep/Oct-2026), company concall transcripts and annual reports listed on BSE. All figures in ₹ Crore unless stated. Research journal entry — not investment advice. Several data points unavailable in the free source (pledge %, exact cash balance, peer table, rating grades) are flagged VERIFY.</p>
+</header>
+
+<nav class="topnav">
+  <a class="home" href="../InvestIQ.html">⌂ InvestIQ</a>&nbsp; <a class="home" href="Equity_Forge.html">⌂ Back to Stock Hub</a>
+  <select id="stockSel">
+    <option value="">— go to stock —</option>
+    <option value="Reliance_Research_Report_Sep2026.html">RELIANCE | L | H</option>
+    <option value="RACE_Research_Report_Sep2026.html">RACE | S | H</option>
+    <option value="HDFCBANK_Research_Report_Sep2026.html">HDFC BANK | L | H</option>
+    <option value="ITC_Research_Report_Sep2026.html" selected>ITC | L | H</option>
+    <option value="CAPLIPOINT_Research_Report_Sep2026.html">CAPLIN POINT | S | H</option>
+    <option value="GANECOS_Research_Report_Sep2026.html">GANESHA ECOSPHERE | S | H</option>
+    <option value="TMPV_Research_Report_Sep2026.html">TATA MOTORS PV | L | H</option>
+    <option value="OLECTRA_Research_Report_Oct2026.html">OLECTRA | S | C</option>
+    <option value="KAYNES_Research_Report_Oct2026.html">KAYNES | S | C</option>
+    <option value="BEL_Research_Report_Oct2026.html">BEL | L | C</option>
+    <option value="JIO_Research_Report_Oct2026.html">JIO IPO | L | C</option>
+  </select>
+</nav>
+
+<nav class="tabbar" id="tabbar" aria-label="Report sections">
+  <button class="tabbtn on" data-t="tab0">0 · Dashboard</button>
+  <button class="tabbtn" data-t="tab1">1 · Metadata</button>
+  <button class="tabbtn" data-t="tab2">2 · Valuation</button>
+  <button class="tabbtn" data-t="tab3">3 · Growth</button>
+  <button class="tabbtn" data-t="tab4">4 · Profits</button>
+  <button class="tabbtn" data-t="tab5">5 · Balance Sheet</button>
+  <button class="tabbtn" data-t="tab6">6 · Cash Flow</button>
+  <button class="tabbtn" data-t="tab7">7 · Shareholders</button>
+  <button class="tabbtn" data-t="tab8">8 · News</button>
+  <button class="tabbtn" data-t="tab9">9 · Verdict &amp; Journal</button>
+  <button class="tabbtn" data-t="tabT">Transactions</button>
+  <button class="tabbtn" data-t="tabG">Glossary</button>
+</nav>
+
+<section class="panel on" id="tab0">
+<h2>0. Executive Dashboard — Sep 2026</h2>
+<div class="viewbox"><div class="vh">Section 0 — The View (plain English)</div>
+<ul>
+<li class="imp">One-line verdict: <b>ACCUMULATE — dividend + safety at the 52-week low. ITC at ₹256 sits AT its 52-week low (₹426 → ₹255, price −37% in one year) while still yielding 5.67%, paying out 74.5% of profit, carrying almost no debt and earning ROE 29.3% / ROCE 38.9% — composite 7.2/10, 12-month horizon.</b><span class="important">IMPORTANT</span></li>
+<li class="imp">Three numbers that decide everything: <b>dividend yield 5.67% (income while you wait), P/E 16.2x (cheap for 29% ROE), price at the 52-week low with 1Y price CAGR −37% (the de-rating has already happened).</b><span class="important">IMPORTANT</span></li>
+<li>The one weak section: <b>Growth 5.5/10</b> — 5-year sales CAGR only 9.87% (Screener's single listed con), TTM sales −3% and TTM profit −1%; this is a value-plus-income story, not a growth story.</li>
+<li>Earnings-quality trap to avoid: FY25 net profit of ₹35,052 Cr was inflated by ₹17,803 Cr of other income (Mar-2025 quarter alone: other income ₹15,391 Cr, PAT ₹19,808 Cr) — use FY24 (₹20,751 Cr) and FY26 (₹21,018 Cr) as the real trend.</li>
+<li>Ownership flip: DIIs now own 49.13% and are rising, FIIs 34.23% and falling — there is no promoter row at all (ITC is a professionally managed public company).</li>
+<li>How to read this report: click any section tab above · click any blue info card for a plain-English meaning · click any blue dotted term for its glossary definition.</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Current Market Price — last traded price ₹261 on 19-Oct-2026, down 1.02% that day. The stock is trading 2.4% above its 52-week low of ₹255 — it has fallen from a 52-week high of ₹426 to ₹261, roughly −39% in a year."><div class="l">CMP</div><div class="v">₹261</div><div class="n">19 Oct'26 close · −1.02% (day)</div></div>
+  <div class="kpi" data-explain="Market capitalisation ₹3,26,832 Cr at the 19-Oct-2026 close — the total value of all shares. This is a Large Cap: a Nifty 50 and Sensex constituent held by virtually every mutual fund, index fund and foreign desk in India. Large caps are liquid — you can enter and exit without moving the price."><div class="l">Market Cap</div><div class="v">₹3,26,832 Cr</div><div class="n">Large Cap · Nifty 50 · 19-Oct-2026</div></div>
+  <div class="kpi" data-explain="Price-to-Earnings 16.6x at the 19-Oct-2026 close — you pay ₹16.60 for every ₹1 of yearly profit (TTM EPS ₹15.71). For a business compounding returns at 29% on equity this is a modest multiple: the market is pricing ITC as a slow grower, not a compounder."><div class="l">Stock P/E (TTM)</div><div class="v">16.6x</div><div class="n">EPS TTM ₹15.71 · 19-Oct-2026</div></div>
+  <div class="kpi" data-explain="Dividend yield 5.56% at the 19-Oct-2026 close — the annual dividend works out to roughly ₹14.5 per share. Payout is 74.5% of profit (88% in FY26), so the cheque is funded by earnings, not by eating into reserves."><div class="l">Dividend Yield</div><div class="v good">5.56%</div><div class="n">Payout 74.5% · FY26 payout 88%</div></div>
+  <div class="kpi" data-explain="Return on Equity 29.3% and Return on Capital Employed 38.9% — the company earns ₹29 of profit per ₹100 of shareholder money and ₹39 per ₹100 of total capital. Both are top-tier for Indian companies and are the core quality evidence for the verdict."><div class="l">ROE / ROCE</div><div class="v good">29.3% / 38.9%</div><div class="n">3Y ROE 35.2%</div></div>
+  <div class="kpi" data-explain="FY26 revenue ₹78,868 Cr, up 4.7% over FY25 — a steady, single-digit growing business (5-year CAGR about 10%, TTM −3%). At this size, growth will be industrial-scale and slow, not flashy; that is exactly why the stock de-rated."><div class="l">FY26 Sales</div><div class="v">₹78,868 Cr</div><div class="n">YoY +4.7% · 5Y CAGR ~10%</div></div>
+  <div class="kpi" data-explain="FY26 net profit ₹21,018 Cr on ₹78,868 Cr of sales — a net margin of 26.6%. Caution: FY25's ₹35,052 Cr was inflated by a one-off other income of ₹17,803 Cr, so FY24 (₹20,751 Cr) and FY26 (₹21,018 Cr) are the two comparable years."><div class="l">FY26 Net Profit</div><div class="v good">₹21,018 Cr</div><div class="n">Net margin 26.6% · FY25 one-off</div></div>
+  <div class="kpi" data-explain="Book value ₹57.9 per share — the accounting net assets behind each share. At ₹261 the stock trades at about 4.5x book, a premium that a 29% return on equity comfortably earns; the gap is your quality price tag."><div class="l">P/B · Book Value</div><div class="v">4.5x · ₹57.9</div><div class="n">Premium paid for 29% ROE</div></div>
+  <div class="kpi" data-explain="52-week range ₹426 to ₹255 — the price is sitting at the very bottom of its yearly range (2.4% above the low at the 19-Oct-2026 close). Buying at a 52-week low means the de-rating has already happened, but it also means price momentum is still negative (1-year price CAGR −37%)."><div class="l">52-Week Range</div><div class="v warn">₹426 / ₹255</div><div class="n">2.4% above 52W low</div></div>
+  <div class="kpi" data-explain="Borrowings ₹2,399 Cr in FY26 versus reserves of ₹71,254 Cr — a debt-to-equity ratio of about 0.03x, i.e. 'almost debt free'. Interest of ₹85 Cr is trivial against ₹27,306 Cr of operating profit, so a rate shock cannot break this company."><div class="l">Borrowings · D/E</div><div class="v good">₹2,399 Cr · 0.03x</div><div class="n">Almost debt free</div></div>
+  <div class="kpi" data-explain="Cash from operations ₹18,464 Cr in FY26 — 91% of operating profit converted into cash — and free cash flow ₹16,332 Cr. Reliable cash conversion is what funds the dividend and the buybacks year after year."><div class="l">FY26 CFO / FCF</div><div class="v good">₹18,464 / ₹16,332</div><div class="n">CFO/OP 91%</div></div>
+  <div class="kpi" data-explain="No promoter row exists — ITC is a professionally managed public company (categories sum to 100%). DIIs hold 49.13% and are rising; FIIs hold 34.23% and are falling. Domestic institutions are currently the marginal buyer, foreign funds the marginal seller."><div class="l">DII / FII Holding</div><div class="v">49.13% / 34.23%</div><div class="n">No promoter · public company</div></div>
+</div>
+
+<div class="card" style="border-color:#1c6b4f">
+<h4>Position status (personal) <span class="tag t-fact">Fact</span></h4>
+<p class="note" style="margin-top:0"><b>Status: HOLDING — this stock is invested in on a monthly basis.</b> The score verdict on this page drives the monthly action (continue the monthly buy / pause / add a tranche). The position figures below are <span class="tag t-calc">Calc</span> generated from your trade log (<code>Equity\Holding_stocks.xlsx</code>) by <code>Equity\code\holdings_calc.py</code> and refreshed at every monthly run — units held, average cost, value and P/L are never typed in by hand. Market prices are the 19-Oct-2026 close.</p>
+<div class="pos-grid">
+<!--HOLD_POS_START-->
+<div class="posk p-blue"><div class="pk-l">Units held</div><div class="pk-v">162</div><div class="pk-n"><span class="tag t-calc">Calc</span></div></div>
+<div class="posk p-purple"><div class="pk-l">Average cost</div><div class="pk-v">₹369.20</div><div class="pk-n"><span class="tag t-calc">Calc</span></div></div>
+<div class="posk p-amber"><div class="pk-l">Invested (contribution)</div><div class="pk-v">₹59,810</div><div class="pk-n">18.6% of ₹3,21,508 total</div></div>
+<div class="posk p-teal"><div class="pk-l">Current value</div><div class="pk-v">₹42,282</div><div class="pk-n">at CMP ₹261 on 19-Oct-2026</div></div>
+<div class="posk p-neg"><div class="pk-l">Profit / Loss</div><div class="pk-v">−₹17,528</div><div class="pk-n">−29.3% on ₹59,810 invested</div></div>
+<div class="posk p-slate"><div class="pk-l">Monthly buy / SIP amount</div><div class="pk-v">&mdash;</div><div class="pk-n">fill in</div></div>
+<!--HOLD_POS_END-->
+</div>
+<p class="note"><a class="tabbtn" data-t="tabT" href="#tabT">→ Full transaction log (Transactions tab)</a></p>
+</div>
+<div class="verdict-main">
+  <div class="verdict-big">
+    <div style="font-size:12.5px;color:#ffe0a3;letter-spacing:1px">STANDALONE VERDICT (analyst view, Sep 2026)</div>
+    <div class="h">ACCUMULATE · 12M horizon</div>
+    <p style="margin-top:8px">ITC at ₹256 is trading at its 52-week low after a −37% one-year fall, at just 16.2x trailing earnings, while the underlying business still throws off ₹18,464 Cr of operating cash flow, pays out 74.5% of profit as dividend (5.67% yield at ₹256), and carries almost no debt (₹2,399 Cr against ₹71,254 Cr of reserves). Quality metrics are top-class — ROE 29.3%, ROCE 38.9%, operating margin 34–39%, net margin ~27%. The only dull section is growth (5.5/10: 5-year sales CAGR 9.87%, TTM sales −3%), which is precisely why the price is here. At the low, the dividend cheque pays you to wait while cigarette volumes, FMCG-others margins and FY27 growth re-accelerate.</p>
+    <p class="note">Re-entry triggers: Q2 FY27 results (trading window reopens 48 hours after results) · fresh dividend declaration in the Q2/AGM cycle · price reclaiming ₹280–300 with volume growth · DII holding holding above 49% · any step-up in FY27 sales growth vs the 9.87% five-year trend.</p>
+  </div>
+  <div class="card" style="flex:1 1 330px;margin:0">
+    <h4 style="margin-top:0">Section Scorecard (0–10)</h4>
+    <table>
+      <tr><th>Section</th><th>Score</th><th style="width:34%">Rating</th></tr>
+      <tr><td>1. Metadata &amp; Identity</td><td>8.0</td><td><div class="scorebar"><i style="width:80%"></i></div></td></tr>
+      <tr><td>2. Valuation</td><td>7.5</td><td><div class="scorebar"><i style="width:75%"></i></div></td></tr>
+      <tr><td>3. Growth</td><td>5.5</td><td><div class="scorebar"><i style="width:55%"></i></div></td></tr>
+      <tr><td>4. Profitability &amp; Efficiency</td><td>8.0</td><td><div class="scorebar"><i style="width:80%"></i></div></td></tr>
+      <tr><td>5. Balance Sheet Strength</td><td>8.0</td><td><div class="scorebar"><i style="width:80%"></i></div></td></tr>
+      <tr><td>6. Cash Flow Quality</td><td>7.5</td><td><div class="scorebar"><i style="width:75%"></i></div></td></tr>
+      <tr><td>7. Shareholding &amp; Ownership</td><td>6.0</td><td><div class="scorebar"><i style="width:60%"></i></div></td></tr>
+      <tr><td><b>Composite</b></td><td><b>7.2</b></td><td><div class="scorebar"><i style="width:72%"></i></div></td></tr>
+    </table>
+    <p class="src">Rubric: 8–10 excellent · 6–8 positive/acceptable · 4–6 watchlist · &lt;4 avoid. Composite 7.2 = average of the seven section scores → ACCUMULATE (positive/acceptable zone; growth at 5.5 keeps it short of an outright 'buy').</p>
+  </div>
+</div>
+</section>
+<section class="panel" id="tab1">
+<h2>1. Company / Stock Metadata</h2>
+<div class="viewbox"><div class="vh">Section 1 — The View (plain English)</div>
+<ul>
+<li class="imp">India's largest consumer-franchise listing: ITC Ltd, incorporated <b>1910</b>, the largest cigarette manufacturer and seller in the country, diversified into FMCG Others, Paperboards/Paper/Packaging and Agri Business across four reported segments.<span class="important">IMPORTANT</span></li>
+<li class="imp">Blue-chip identity: NSE: ITC · BSE: 500875 · F&amp;O · a Large Cap of ₹3,20,656 Cr sitting in the Nifty 50, Sensex, Nifty FMCG, Nifty India Consumption, BSE Bharat 22 and Nifty Dividend Opportunities 50 — the most institutionally followed stock in Indian FMCG.<span class="important">IMPORTANT</span></li>
+<li>Price context dominates the read: CMP ₹256 is <b>AT the 52-week low of ₹255</b> (high ₹426) after a −37% one-year fall — the market has already marked this down hard.</li>
+<li>Ownership has no promoter at all (categories sum to 100% — a professionally managed public company); DIIs 49.13% rising, FIIs 34.23% falling, shareholder count up from 32.7 lakh to 41.5 lakh in three years.</li>
+<li>VERIFY items (not in free source): ISIN, auditor, promoter-equivalent pledge data, exact cash balance, credit-rating grades (ICRA/CRISIL updates exist but grades are not exported), peer P/E table.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Identification &amp; Classification <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Field</th><th style="text-align:left">Value</th></tr>
+<tr><td>Company Name</td><td style="text-align:left">ITC Ltd</td></tr>
+<tr><td>NSE Symbol</td><td style="text-align:left">ITC</td></tr>
+<tr><td>BSE Symbol / Code</td><td style="text-align:left">ITC / 500875 (F&amp;O)</td></tr>
+<tr><td>Sector (Screener)</td><td style="text-align:left">Fast Moving Consumer Goods → Diversified FMCG</td></tr>
+<tr><td>Business Type</td><td style="text-align:left">Diversified FMCG conglomerate — four segments: FMCG Cigarettes, FMCG Others, Paperboards/Paper/Packaging, Agri Business; largest cigarette manufacturer/seller in India; established 1910</td></tr>
+<tr><td>Market Cap</td><td style="text-align:left">₹3,20,656 Cr — <b>Large Cap</b></td></tr>
+<tr><td>Face Value</td><td style="text-align:left">₹1.00</td></tr>
+<tr><td>Book Value</td><td style="text-align:left">₹57.9</td></tr>
+<tr><td>52-Week High / Low</td><td style="text-align:left">₹426 / ₹255 (CMP ₹256 = <b class="warn">AT the 52-week low</b>)</td></tr>
+<tr><td>Incorporation</td><td style="text-align:left">1910</td></tr>
+<tr><td>Website</td><td style="text-align:left">itcportal.com</td></tr>
+<tr><td>Index Membership</td><td style="text-align:left">Nifty 50, BSE Sensex, Nifty FMCG, Nifty India Consumption, BSE Bharat 22, Nifty Dividend Opportunities 50 etc.</td></tr>
+<tr><td>Ratings</td><td style="text-align:left">ICRA 27-Nov-2025 · CRISIL 9-Apr-2025 (also ICRA 29-Nov-2024, CRISIL 26-Sep-2024) — grades not shown in export, <span class="warn">VERIFY</span></td></tr>
+<tr><td>ISIN / Auditor / Cash</td><td style="text-align:left"><span class="warn">VERIFY — not in free Screener export</span></td></tr>
+</table>
+</div>
+<div class="card">
+<h4>Ownership Snapshot (as on 30-Jun-2026, Screener SHP) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Holding</th><th>%</th><th>Remark</th></tr>
+<tr><td>Promoters</td><td class="warn">None</td><td>No promoter row — public company; categories sum to 100%</td></tr>
+<tr><td>FIIs</td><td class="warn">34.23</td><td>Falling — was 43.34% in Sep'23 (−9.11 pp)</td></tr>
+<tr><td>DIIs</td><td class="good">49.13</td><td>Rising — was 41.94% in Sep'23 (+7.19 pp)</td></tr>
+<tr><td>Government</td><td>0.04</td><td>Flat 0.04% throughout</td></tr>
+<tr><td>Public / Retail &amp; Others</td><td>16.61</td><td>Up from 14.68% (Sep'23)</td></tr>
+<tr><td>No. of Shareholders</td><td>41,52,430</td><td>Up from 32,74,360 (Sep'23) — retail crowd growing</td></tr>
+<tr><td>Promoter Pledge</td><td>N/A</td><td>No promoter — nothing to pledge</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> <b>Business architecture:</b> four cash-generative legs — cigarettes (the profit engine), FMCG Others (the growth/margin-fix leg), Paperboards/Paper/Packaging (cyclical) and Agri Business (commodity-linked). The paperboard cycle and cigarette taxation are the two swing factors to read in every set of results.</p>
+</div>
+</div>
+<div class="card">
+<h4>Screener Pros &amp; Cons (machine-generated) <span class="tag t-fact">Fact</span></h4>
+<div class="grid2">
+<div>
+<table>
+<tr><th style="text-align:left">Pros</th></tr>
+<tr><td style="text-align:left" class="good">Almost debt free</td></tr>
+<tr><td style="text-align:left" class="good">Good dividend yield of 5.67%</td></tr>
+<tr><td style="text-align:left" class="good">3Y ROE of 35.2%</td></tr>
+<tr><td style="text-align:left" class="good">Healthy dividend payout of 74.5%</td></tr>
+</table>
+</div>
+<div>
+<table>
+<tr><th style="text-align:left">Cons</th></tr>
+<tr><td style="text-align:left" class="bad">Poor sales growth of 9.87% over past five years</td></tr>
+</table>
+<p class="note"><span class="tag t-calc">Calc</span> Only one machine-flagged con, and it is growth, not balance sheet or valuation — an unusual profile for a stock down 37% in a year.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="panel" id="tab2">
+<h2>2. Valuation Metrics</h2>
+<div class="viewbox"><div class="vh">Section 2 — The View (plain English)</div>
+<ul>
+<li class="imp">Cheap for its quality: <b>P/E 16.2x on TTM EPS ₹15.84 with a 5.67% dividend yield</b> — you are paying a FMCG-staple multiple for a business that returns 29% on equity and 39% on capital employed.<span class="important">IMPORTANT</span></li>
+<li class="imp">The de-rating is the opportunity and the warning: price CAGR is <b>−37% in 1 year, −15% over 3 years, +3% over 5 years</b> — the market has cut the multiple relentlessly while earnings stayed flat; catching a falling large cap needs a trigger, not just a low number.<span class="important">IMPORTANT</span></li>
+<li>Income-side support is unusually strong: dividend yield 5.67% plus a 74.5% payout (88% in FY26) means roughly ₹14.5 per share a year arrives whether the price moves or not.</li>
+<li>P/B 4.4x against book value ₹57.9 looks rich in isolation, but a 29% ROE and 38.9% ROCE justify paying above book for a franchise of this quality.</li>
+<li>Peer P/E table was not machine-readable in the free source — build it manually (HUL, Nestlé, Britannia, Godrej) before relying on any relative valuation (flagged VERIFY).</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Price-to-Earnings 16.2x — you pay ₹16.20 for each ₹1 of trailing profit (TTM EPS ₹15.84). Large-cap FMCG names usually trade at much richer multiples; at 16.2x ITC is priced like a slow compounder, not a market leader."><div class="l">P/E (TTM)</div><div class="v good">16.2x</div><div class="n">EPS TTM ₹15.84</div></div>
+  <div class="kpi" data-explain="Price-to-Book 4.4x — ₹4.42 paid for every ₹1 of book value (₹57.9). A premium to book is normal when returns on equity are ~29%; the market is paying for the franchise, not the assets."><div class="l">P/B</div><div class="v">4.4x</div><div class="n">BV ₹57.9</div></div>
+  <div class="kpi" data-explain="Dividend yield 5.67% — at ₹256 that is about ₹14.5 per share a year, with a payout of 74.5% of profit (88% in FY26). This is the floor under the thesis: income arrives even if the price does nothing."><div class="l">Dividend Yield</div><div class="v good">5.67%</div><div class="n">Payout 74.5% · FY26 88%</div></div>
+  <div class="kpi" data-explain="Price-to-Sales 4.1x — the market values ₹1 of annual sales at about ₹4 (₹3,20,656 Cr market cap ÷ ₹78,868 Cr FY26 sales). High for a low-growth year, but ITC converts about 27 paise of every sales rupee into net profit, which is why P/S looks rich."><div class="l">P/S (FY26)</div><div class="v">4.1x</div><div class="n">Mcap ÷ sales 78,868</div></div>
+  <div class="kpi" data-explain="Enterprise Value ≈₹3,23,055 Cr — market cap ₹3,20,656 Cr plus gross borrowings ₹2,399 Cr (exact cash balance not in the free export, so this is an upper-bound estimate; VERIFY). Debt adds less than 1% to the true cost of the company."><div class="l">EV (est.)</div><div class="v">≈₹3.23 L Cr</div><div class="n">Mcap + borrowings · VERIFY cash</div></div>
+  <div class="kpi" data-explain="EV/EBITDA ≈12x — ₹3.23 L Cr enterprise value ÷ ₹27,306 Cr FY26 operating profit. A modest multiple for a business converting 91% of operating profit into cash every year."><div class="l">EV/EBITDA (est.)</div><div class="v good">≈12x</div><div class="n">On FY26 OP ₹27,306 Cr</div></div>
+  <div class="kpi" data-explain="PEG ≈1.6 — P/E 16.2 divided by the 5-year profit CAGR of 10%. Above 1 means you are paying slightly more than the growth rate; not a bargain on growth, but PEG understates the dividend, which PEG ignores entirely."><div class="l">PEG (est.)</div><div class="v warn">≈1.6</div><div class="n">16.2 ÷ 5Y profit CAGR 10%</div></div>
+  <div class="kpi" data-explain="Price one year ago vs today: the 1-year price CAGR is −37%, from roughly ₹406 down to ₹256 — almost ₹150 of value evaporated per share in twelve months while earnings barely moved (TTM profit −1%)."><div class="l">Price 1Y</div><div class="v bad">−37%</div><div class="n">₹426 high → ₹256 CMP</div></div>
+</div>
+<div class="card">
+<h4>Current vs Context <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Comparison</th><th>Current</th><th>Reference</th><th>Verdict</th></tr>
+<tr><td>P/E vs own 5Y profit CAGR (10%)</td><td>16.2x</td><td>PEG ≈1.6</td><td><span class="pill p-y">Fair, not cheap, on growth alone</span></td></tr>
+<tr><td>Dividend yield vs payout discipline</td><td>5.67%</td><td>Payout 74.5% / 88% FY26</td><td><span class="pill p-g">Income cushion under the price</span></td></tr>
+<tr><td>Price vs 1 year ago</td><td>₹256</td><td>1Y CAGR −37%</td><td><span class="pill p-y">De-rating already happened</span></td></tr>
+<tr><td>Price vs 52-week low</td><td>₹256</td><td>52W low ₹255</td><td><span class="pill p-y">AT the low — no break, no bounce yet</span></td></tr>
+<tr><td>P/B vs own ROE</td><td>4.4x</td><td>ROE 29.3%</td><td><span class="pill p-g">Premium earned by returns</span></td></tr>
+<tr><td>Peer table (Diversified FMCG)</td><td class="warn">VERIFY</td><td>Peers table not machine-readable</td><td><span class="pill p-y">Build manually before use</span></td></tr>
+</table>
+</div>
+</section>
+<section class="panel" id="tab3">
+<h2>3. Growth Metrics</h2>
+<div class="viewbox"><div class="vh">Section 3 — The View (plain English)</div>
+<ul>
+<li class="imp">The weakest section (5.5/10) and the reason for the low price: sales CAGR <b>10Y 7% · 5Y 10% · 3Y 4% · TTM −3%</b> and profit CAGR <b>10Y 8% · 5Y 10% · 3Y 3% · TTM −1%</b> — momentum has stalled even as the absolute numbers stay huge (FY26 sales ₹78,868 Cr, PAT ₹21,018 Cr).<span class="important">IMPORTANT</span></li>
+<li class="imp">FY25 is a one-off-flattered year: other income of <b>₹17,803 Cr</b> (Mar-2025 quarter alone: ₹15,391 other income, ₹19,808 PAT, EPS ₹15.76) inflated FY25 PAT to ₹35,052 Cr — <b>ignore it for trend</b>; FY24 ₹20,751 Cr and FY26 ₹21,018 Cr are the comparable base.<span class="important">IMPORTANT</span></li>
+<li>Stripping the one-off, the underlying engine is remarkably flat and reliable: operating profit has stayed in a ₹25,188–27,306 Cr band for four years with OPM of 34–37% — stability, not growth.</li>
+<li>Latest quarter (Jun-2026) was the weakest in the series: sales ₹19,114 Cr <b>−11% YoY</b> (Jun'25 was ₹21,495 Cr), OPM collapsed to <b>27% from 39%</b> and PAT fell to ₹4,509 Cr (−16% YoY) with interest at a series-high ₹40 Cr.</li>
+<li>Stock price tells the same story: price CAGR 1Y −37%, 3Y −15%, 5Y +3%, 10Y +1% — the market has paid for this growth profile by cutting the multiple, not by rewarding it.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Annual P&amp;L (Consolidated, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Line</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th><th>TTM</th></tr>
+<tr><td>Sales</td><td>70,919</td><td>67,932</td><td>75,323</td><td class="good">78,868</td><td>76,488</td></tr>
+<tr><td>Sales YoY %</td><td class="good">+16.9%</td><td class="bad">−4.2%</td><td class="good">+10.9%</td><td>+4.7%</td><td class="warn">−3%</td></tr>
+<tr><td>Operating Profit (EBITDA)</td><td>25,704</td><td>25,188</td><td>25,832</td><td class="good">27,306</td><td>25,682</td></tr>
+<tr><td>OPM %</td><td>36</td><td>37</td><td class="warn">34</td><td>35</td><td>34</td></tr>
+<tr><td>Other Income</td><td>2,098</td><td>3,330</td><td class="bad">17,803</td><td>2,523</td><td>2,908</td></tr>
+<tr><td>Interest</td><td>78</td><td class="good">39</td><td>45</td><td>85</td><td>108</td></tr>
+<tr><td>Depreciation</td><td>1,809</td><td>1,518</td><td>1,646</td><td>1,711</td><td>1,715</td></tr>
+<tr><td>Profit before tax</td><td>25,915</td><td>26,961</td><td class="warn">41,943</td><td>28,033</td><td>26,766</td></tr>
+<tr><td>Tax %</td><td>25</td><td>23</td><td class="bad">16</td><td>25</td><td>—</td></tr>
+<tr><td>Net Profit</td><td>19,477</td><td class="good">20,751</td><td class="warn">35,052</td><td class="good">21,018</td><td>20,184</td></tr>
+<tr><td>EPS (₹)</td><td>15.44</td><td>16.39</td><td class="warn">27.77</td><td>16.51</td><td>15.84</td></tr>
+<tr><td>Dividend Payout %</td><td>100</td><td>84</td><td>52</td><td class="good">88</td><td>—</td></tr>
+</table></div>
+<p class="note"><span class="tag t-calc">Calc</span> FY25 (₹35,052 Cr PAT, 16% tax, ₹17,803 Cr other income) is a <b>one-off-flattered year</b> — the low tax rate and the extraordinary other income both belong to the Mar-2025 quarter. Excluding it, PAT has moved 19,477 → 20,751 → 21,018 over FY23→FY26 (+8% in three years) and EPS 15.44 → 16.51.</p>
+</div>
+<div class="card">
+<h4>Growth scorecard <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>YoY FY26</th><th>CAGR 3Y</th><th>CAGR 5Y</th><th>CAGR 10Y</th><th>TTM / 1Y</th></tr>
+<tr><td>Sales</td><td>+4.7%</td><td class="warn">4%</td><td class="good">10%</td><td>7%</td><td class="bad">−3%</td></tr>
+<tr><td>Net Profit</td><td>+1.3% (20,751→21,018, ex-FY25)</td><td class="warn">3%</td><td class="good">10%</td><td>8%</td><td class="bad">−1%</td></tr>
+<tr><td>EPS</td><td>+0.7% (16.39→16.51)</td><td class="warn">3%</td><td class="good">10%</td><td>8%</td><td class="bad">−1%</td></tr>
+<tr><td>Stock Price CAGR (Screener)</td><td class="bad">−37%</td><td class="bad">−15%</td><td>+3%</td><td>+1%</td><td class="bad">−37%</td></tr>
+<tr><td>Return on Equity (Screener)</td><td colspan="5">29% (last year) · 35% (3Y) · 32% (5Y) · 28% (10Y)</td></tr>
+</table>
+<p class="src">Screener KEY GROWTH block: Sales CAGR 10Y 7% / 5Y 10% / 3Y 4% / TTM −3% · Profit CAGR 10Y 8% / 5Y 10% / 3Y 3% / TTM −1% · Stock CAGR 10Y 1% / 5Y 3% / 3Y −15% / 1Y −37%.</p>
+</div>
+<div class="card">
+<h4>Quarterly Results — last 13 quarters (Screener, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Line</th><th>Jun'23</th><th>Sep'23</th><th>Dec'23</th><th>Mar'24</th><th>Jun'24</th><th>Sep'24</th><th>Dec'24</th><th>Mar'25</th><th>Jun'25</th><th>Sep'25</th><th>Dec'25</th><th>Mar'26</th><th>Jun'26</th></tr>
+<tr><td>Sales</td><td>17,164</td><td>17,774</td><td>17,195</td><td>17,038</td><td>17,778</td><td>19,990</td><td>18,790</td><td>18,765</td><td class="good">21,495</td><td>19,502</td><td>20,047</td><td>17,825</td><td>19,114</td></tr>
+<tr><td>Operating Profit</td><td>6,670</td><td>6,454</td><td>6,210</td><td>6,302</td><td>6,545</td><td>6,552</td><td>6,362</td><td>6,519</td><td>6,816</td><td>6,695</td><td>6,883</td><td class="good">6,924</td><td class="bad">5,181</td></tr>
+<tr><td>OPM %</td><td class="good">39</td><td>36</td><td>36</td><td>37</td><td>37</td><td class="warn">33</td><td>34</td><td>35</td><td class="bad">32</td><td>34</td><td>34</td><td class="good">39</td><td class="bad">27</td></tr>
+<tr><td>Other Income</td><td>722</td><td>674</td><td>820</td><td>868</td><td>771</td><td>690</td><td>803</td><td class="bad">15,391</td><td>751</td><td>739</td><td>322</td><td>700</td><td>1,148</td></tr>
+<tr><td>Interest</td><td>10</td><td>10</td><td>12</td><td>11</td><td>10</td><td>15</td><td>10</td><td>11</td><td>16</td><td>20</td><td>19</td><td>29</td><td class="warn">40</td></tr>
+<tr><td>Depreciation</td><td>442</td><td>453</td><td>384</td><td>385</td><td>403</td><td>416</td><td>416</td><td>411</td><td>423</td><td>435</td><td>431</td><td>422</td><td>428</td></tr>
+<tr><td>PBT</td><td>6,940</td><td>6,665</td><td>6,635</td><td>6,774</td><td>6,903</td><td>6,811</td><td>6,740</td><td class="warn">21,489</td><td>7,128</td><td>6,979</td><td>6,754</td><td>7,173</td><td>5,861</td></tr>
+<tr><td>Tax %</td><td>25</td><td>26</td><td class="good">19</td><td>23</td><td>25</td><td>26</td><td>26</td><td class="bad">8</td><td>25</td><td>26</td><td>26</td><td>24</td><td>23</td></tr>
+<tr><td>Net Profit</td><td>5,190</td><td>4,965</td><td>5,407</td><td>5,191</td><td>5,177</td><td>5,054</td><td>5,013</td><td class="bad">19,808</td><td>5,343</td><td>5,187</td><td>5,018</td><td class="good">5,470</td><td class="bad">4,509</td></tr>
+<tr><td>EPS (₹)</td><td>4.10</td><td>3.93</td><td>4.28</td><td>4.10</td><td>4.08</td><td>3.99</td><td>3.94</td><td class="bad">15.76</td><td>4.19</td><td>4.09</td><td>3.94</td><td class="good">4.30</td><td class="bad">3.51</td></tr>
+</table></div>
+<p class="note"><span class="tag t-calc">Calc</span> <b>Mar-2025 quarter is a one-off:</b> other income ₹15,391 Cr vs a normal ₹700–870 Cr, tax rate 8% vs 23–26%, PAT ₹19,808 Cr vs a normal ₹5,000–5,500 Cr — a single quarter contributed ₹14,291 Cr of the FY25 PAT beat, which is why FY25 annual other income hit ₹17,803 Cr and PAT ₹35,052 Cr. <b>Use FY24 and FY26 for trend.</b> Separately, watch Jun-2026: OPM 27% and PAT ₹4,509 Cr are the weakest in the 13-quarter series (interest also at a series-high ₹40 Cr), against Mar-2026's OPM 39% / PAT ₹5,470 Cr — Q1 FY27 needs explaining on the Q2 call.</p>
+</div>
+</section>
+
+<section class="panel" id="tab4">
+<h2>4. Profitability &amp; Efficiency</h2>
+<div class="viewbox"><div class="vh">Section 4 — The View (plain English)</div>
+<ul>
+<li class="imp">The strongest evidence in the report (8.0/10): <b>ROE 29.3%, ROCE 38.9%, OPM in a 32–39% band and a net margin around 27%</b> — a business that keeps ₹27 of every ₹100 of sales as profit, year after year.<span class="important">IMPORTANT</span></li>
+<li class="imp">Dividend is the headline: payout <b>74.5%</b> on a three-year view, <b>88% in FY26</b>, yield <b>5.67%</b> at ₹256 — management returns essentially all surplus cash instead of empire-building.<span class="important">IMPORTANT</span></li>
+<li class="imp">Interest cover is effectively infinite (FY26 EBIT ≈₹27,221 Cr ÷ interest ₹85 Cr ≈ 320x) — rate risk is a non-issue for this balance sheet.<span class="important">IMPORTANT</span></li>
+<li>Efficiency is drifting the wrong way: cash conversion cycle widened 105 → 164 days (FY23 → FY26) on inventory days of 209 — heavier working capital, but funded by accruals, not borrowings.</li>
+<li>Jun-2026 quarter broke the margin pattern (OPM 27% vs a 32–39% range) — one quarter is not a trend, but it is the single number to verify in Q2 FY27.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Return &amp; margin stack <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>Value</th><th style="text-align:left">Assessment</th></tr>
+<tr><td>ROE (latest year)</td><td class="good">29.3%</td><td style="text-align:left">Screener: 35% (3Y) · 32% (5Y) · 28% (10Y) — consistently top-class</td></tr>
+<tr><td>ROCE</td><td class="good">38.9%</td><td style="text-align:left">36–39% every year FY23–FY26 — capital efficiency at scale</td></tr>
+<tr><td>OPM (FY26)</td><td class="good">35%</td><td style="text-align:left">Quarterly band 32–39% over 13 quarters (Jun'26 dip to 27%)</td></tr>
+<tr><td>Net Margin (FY26)</td><td class="good">26.6%</td><td style="text-align:left">₹21,018 ÷ ₹78,868 — FY24 was 30.5%; FY25's 46.5% is one-off</td></tr>
+<tr><td>Interest Coverage (FY26)</td><td class="good">≈320x</td><td style="text-align:left">EBIT 27,221 ÷ interest 85 — effectively no leverage risk</td></tr>
+<tr><td>Other income / PBT (FY26)</td><td>9%</td><td style="text-align:left">2,523 ÷ 28,033 — clean; FY25 was 42% (one-off ₹17,803 Cr)</td></tr>
+<tr><td>Asset Turnover (FY26)</td><td>0.84x</td><td style="text-align:left">Sales 78,868 ÷ assets 93,637 — capital-heavy, but owned outright</td></tr>
+<tr><td>Net Worth (FY26)</td><td>₹72,507 Cr</td><td style="text-align:left">Equity 1,253 + reserves 71,254</td></tr>
+</table>
+</div>
+<div class="card">
+<h4>Efficiency ratios (Screener) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Ratio</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Debtor Days</td><td class="good">15</td><td>22</td><td>23</td><td>18</td></tr>
+<tr><td>Inventory Days</td><td>148</td><td>191</td><td>178</td><td class="bad">209</td></tr>
+<tr><td>Days Payable</td><td>59</td><td>65</td><td>55</td><td>63</td></tr>
+<tr><td>Cash Conversion Cycle</td><td class="good">105</td><td>148</td><td>146</td><td class="bad">164</td></tr>
+<tr><td>Working Capital Days</td><td class="good">20</td><td>39</td><td>45</td><td class="bad">47</td></tr>
+<tr><td>ROCE %</td><td class="good">39</td><td>36</td><td>37</td><td class="good">39</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> <b>Signature test (Revenue↑ + Margin↑ + ROCE↑):</b> ROCE is firmly up-and-flat (39 → 36 → 37 → 39) and margins hold at 32–39%, but the revenue leg is weak — FY26 sales +4.7%, 3Y CAGR 4%, TTM −3%. Two and a half legs are present; growth is the missing third. The deterioration is in working capital (CCC 105 → 164 days, inventory days 209 — paperboards/agri stock), which is why CFO/OP slipped from 98% to 91% even though debt stays negligible. ROE row is absent from the ratio export — use the header 29.3% and the KEY GROWTH ROE block (29% last year, 35% 3Y).</p>
+<p class="note"><span class="tag t-fact">Fact</span> <b>Dividend highlight:</b> payout 74.5% (healthy, per Screener pros) · FY26 payout 88% · yield 5.67% at ₹256 · FY23 payout 100%, FY24 84%, FY25 52% (profit base inflated by the one-off) — the payout normalises to ~85–100% whenever profit is clean.</p>
+</div>
+</div>
+</section>
+<section class="panel" id="tab5">
+<h2>5. Balance Sheet / Financial Strength</h2>
+<div class="viewbox"><div class="vh">Section 5 — The View (plain English)</div>
+<ul>
+<li class="imp">A fortress balance sheet (8.0/10): borrowings of <b>₹2,399 Cr against reserves of ₹71,254 Cr</b> — debt-to-equity of about <b>0.03x</b>, which is exactly what Screener's "almost debt free" pro means.<span class="important">IMPORTANT</span></li>
+<li class="imp">Net worth ₹72,507 Cr and total assets ₹93,637 Cr, of which ₹38,128 Cr sits in investments — this company finances itself out of accumulated profits, not lenders.<span class="important">IMPORTANT</span></li>
+<li>Watch item, not a risk yet: borrowings jumped from <b>₹285 Cr (FY25) to ₹2,399 Cr (FY26)</b>, an increase of ₹2,114 Cr in one year on an otherwise debt-free sheet — <span class="warn">VERIFY</span> from the FY26 annual report whether this is short-term working-capital/trade borrowing or term debt; even at face value it is only 3.3% of reserves.</li>
+<li>Asset base is heavy and growing: fixed assets ₹22,443 Cr, CWIP ₹1,602 Cr (capex underway), investments up every year from ₹29,415 to ₹38,128 Cr.</li>
+<li>VERIFY items: cash &amp; balances row is missing from the free export (net debt cannot be struck exactly), and the ICRA/CRISIL rating grades are not shown.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Balance sheet trajectory (Screener, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Line</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Equity Capital</td><td>1,243</td><td>1,248</td><td>1,251</td><td>1,253</td></tr>
+<tr><td>Reserves</td><td>67,912</td><td>73,259</td><td>68,779</td><td class="good">71,254</td></tr>
+<tr><td>Borrowings</td><td class="good">306</td><td class="good">303</td><td class="good">285</td><td class="warn">2,399</td></tr>
+<tr><td>Other Liabilities</td><td>16,370</td><td>16,944</td><td>17,688</td><td>18,731</td></tr>
+<tr><td>Total Liabilities / Assets</td><td>85,831</td><td>91,754</td><td>88,003</td><td>93,637</td></tr>
+<tr><td>Fixed Assets</td><td>25,851</td><td>27,820</td><td class="warn">21,955</td><td>22,443</td></tr>
+<tr><td>CWIP</td><td>3,003</td><td>2,861</td><td>1,091</td><td>1,602</td></tr>
+<tr><td>Investments</td><td>29,415</td><td>31,114</td><td>34,720</td><td class="good">38,128</td></tr>
+<tr><td>Other Assets</td><td>27,561</td><td>29,959</td><td>30,237</td><td>31,464</td></tr>
+<tr><td>Cash &amp; Balances</td><td colspan="4" style="text-align:center" class="warn">NOT in free export — VERIFY from AR</td></tr>
+</table></div>
+</div>
+<div class="card">
+<h4>Derived strength metrics <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>Value</th><th style="text-align:left">Basis / verdict</th></tr>
+<tr><td>Debt / Equity (FY26)</td><td class="good">0.03x</td><td style="text-align:left">2,399 ÷ 72,507 net worth — 'almost debt free'</td></tr>
+<tr><td>Borrowings FY25 → FY26</td><td class="warn">+₹2,114 Cr</td><td style="text-align:left">285 → 2,399 — nature of borrowing <span class="warn">VERIFY</span> (short-term lines?)</td></tr>
+<tr><td>Borrowings vs Reserves</td><td class="good">3.3%</td><td style="text-align:left">2,399 ÷ 71,254 — even the jump is trivial vs net worth</td></tr>
+<tr><td>Interest Coverage</td><td class="good">≈320x</td><td style="text-align:left">EBIT 27,221 ÷ interest 85 — no lender risk</td></tr>
+<tr><td>Net Worth</td><td>₹72,507 Cr</td><td style="text-align:left">Equity 1,253 + reserves 71,254</td></tr>
+<tr><td>Total Assets</td><td>₹93,637 Cr</td><td style="text-align:left">Investments 38,128 (41%) + other assets 31,464 (34%)</td></tr>
+<tr><td>Fixed Assets + CWIP</td><td>₹24,045 Cr</td><td style="text-align:left">Plant base with ₹1,602 Cr capex in progress</td></tr>
+<tr><td>Ratings</td><td class="warn">ICRA / CRISIL</td><td style="text-align:left">27-Nov-2025 &amp; 9-Apr-2025 updates; grades not exported — VERIFY</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> For a ₹3.2 Lakh-Cr company this is as safe as an Indian balance sheet gets: debt 0.03x equity, interest cover ~320x, investments growing ₹29,415 → ₹38,128 Cr in four years. The only line worth a raised eyebrow is the FY26 borrowings jump of ₹2,114 Cr — flag it as <b>VERIFY</b> rather than alarm until the FY26 annual report confirms whether it is short-term funding or trade-related borrowing.</p>
+</div>
+</div>
+</section>
+
+<section class="panel" id="tab6">
+<h2>6. Cash Flow Metrics</h2>
+<div class="viewbox"><div class="vh">Section 6 — The View (plain English)</div>
+<ul>
+<li class="imp">Cash generation is steady and predictable: CFO of <b>₹18,878 / ₹17,179 / ₹17,627 / ₹18,464 Cr</b> across FY23–FY26 — a ₹17–19k Cr band every single year, converting 91–98% of operating profit into cash.<span class="important">IMPORTANT</span></li>
+<li class="imp">The financing outflow is deliberate and shareholder-friendly: CFF of <b>−13,006 / −18,551 / −17,037 / −16,147 Cr</b> = dividends plus buybacks — ₹64,741 Cr returned to owners in four years while the balance sheet stayed debt-free.<span class="important">IMPORTANT</span></li>
+<li>FCF of ₹16,184 / ₹13,724 / ₹15,524 / ₹16,332 Cr — cumulative ₹61,764 Cr of free cash over FY23–26; the net cash line is flat (₹139/191/26/−4) because cash in is immediately paid out.</li>
+<li>Investing outflow (−5,732 / +1,563 / −564 / −2,321) is modest capex plus portfolio churn — no cash-burning expansion programme.</li>
+<li>The only drift to monitor: CFO/OP slipped 98% → 91% as the cash conversion cycle widened to 164 days — still excellent, but the direction matters.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Cash flow statement (Screener, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Line</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Cash from Operating Activity (CFO)</td><td class="good">18,878</td><td class="good">17,179</td><td class="good">17,627</td><td class="good">18,464</td></tr>
+<tr><td>Cash from Investing Activity</td><td class="bad">−5,732</td><td>1,563</td><td>−564</td><td class="bad">−2,321</td></tr>
+<tr><td>Cash from Financing Activity</td><td class="bad">−13,006</td><td class="bad">−18,551</td><td class="bad">−17,037</td><td class="bad">−16,147</td></tr>
+<tr><td>Net Cash Flow</td><td>139</td><td>191</td><td>26</td><td>−4</td></tr>
+<tr><td>Free Cash Flow</td><td class="good">16,184</td><td class="good">13,724</td><td class="good">15,524</td><td class="good">16,332</td></tr>
+<tr><td>CFO / Operating Profit</td><td class="good">98%</td><td>92%</td><td>93%</td><td>91%</td></tr>
+</table>
+<p class="note"><span class="tag t-calc">Calc</span> Four-year totals: CFO <b>+₹72,148 Cr</b> · FCF <b>+₹61,764 Cr</b> · CFF <b>−₹64,741 Cr</b> · CFI −₹7,054 Cr · net cash change +₹352 Cr. The story is clean: the business earns ₹18k Cr a year, invests ₹1–6k Cr, and hands essentially everything else to shareholders (dividends + buybacks). CFO/PAT ≈ 0.92x (18,464 ÷ 21,018 in FY26) — profits are cash, not accrual artifice.</p>
+<p class="note"><span class="tag t-view">View</span> This is the strongest structural argument for the ACCUMULATE verdict: a company that does not need external capital, cannot be broken by rates, and is contractually generous with surplus cash. Keep one eye on the 98% → 91% CFO/OP drift (working capital now 164 days) — if it drops below 85% while interest stays at ₹40 Cr/quarter, the model changes.</p>
+</div>
+</section>
+
+<section class="panel" id="tab7">
+<h2>7. Shareholding &amp; Ownership (quarterly)</h2>
+<div class="viewbox"><div class="vh">Section 7 — The View (plain English)</div>
+<ul>
+<li class="imp"><b>ITC has NO promoter row</b> — it is a professionally managed public company and the four categories (FII + DII + Government + Public) sum to 100% in every quarter. There is no promoter holding to track and nothing to pledge.<span class="important">IMPORTANT</span></li>
+<li class="imp">The real story is a handover: <b>DIIs 41.94% → 49.13%</b> (rising) while <b>FIIs 43.34% → 34.23%</b> (falling) — domestic institutions overtook foreign investors in the Mar'24 quarter and now own nearly half the company.<span class="important">IMPORTANT</span></li>
+<li>Foreign selling of ~9 percentage points over 12 quarters explains a good part of the −37% price move — the exit has been orderly, not panicked, and it is now down to a third of the company.</li>
+<li>Public/retail holding crept up from 14.68% to 16.61% and shareholder count jumped from 32.7 lakh to 41.5 lakh (+27%) — more retail owners at a lower price, which usually marks accumulation rather than distribution.</li>
+<li>Section score 6.0/10: quality ownership (no dead promoter weight, deep institutional base) but the trend is foreign-exit, so watch the next DII/FII print for direction.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Quarterly shareholding, Sep-2023 → Jun-2026 (%) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Class</th><th>Sep'23</th><th>Dec'23</th><th>Mar'24</th><th>Jun'24</th><th>Sep'24</th><th>Dec'24</th><th>Mar'25</th><th>Jun'25</th><th>Sep'25</th><th>Dec'25</th><th>Mar'26</th><th>Jun'26</th></tr>
+<tr><td>Promoters</td><td colspan="12" style="text-align:center" class="warn">NONE — public company, no promoter row (categories sum to 100%)</td></tr>
+<tr><td>FIIs</td><td class="good">43.34</td><td>43.26</td><td>40.95</td><td>40.47</td><td>40.53</td><td>40.17</td><td>39.87</td><td>37.98</td><td>37.39</td><td>36.11</td><td>34.83</td><td class="bad">34.23</td></tr>
+<tr><td>DIIs</td><td>41.94</td><td>41.98</td><td class="good">43.76</td><td>44.02</td><td>44.59</td><td>44.91</td><td>45.19</td><td>46.91</td><td>47.41</td><td>48.90</td><td>49.15</td><td class="good">49.13</td></tr>
+<tr><td>Government</td><td>0.04</td><td>0.04</td><td>0.04</td><td>0.04</td><td>0.04</td><td>0.04</td><td>0.04</td><td>0.04</td><td>0.04</td><td>0.04</td><td>0.04</td><td>0.04</td></tr>
+<tr><td>Public</td><td>14.68</td><td>14.71</td><td>15.23</td><td>15.47</td><td>14.83</td><td>14.88</td><td>14.90</td><td>15.07</td><td>15.16</td><td>14.95</td><td>15.96</td><td>16.61</td></tr>
+<tr><td>No. of Shareholders</td><td>32,74,360</td><td>33,35,815</td><td>36,48,537</td><td>37,56,541</td><td>35,68,560</td><td>37,10,169</td><td>36,47,886</td><td>36,48,989</td><td>36,66,407</td><td>36,08,157</td><td>40,41,653</td><td>41,52,430</td></tr>
+</table></div>
+<p class="note"><span class="tag t-calc">Calc</span> FII + DII = <b>83.36%</b> of the company is institutional (Jun'26) · government 0.04% · public 16.61%. Crossover: DII holding first exceeded FII holding in the <b>Mar'24</b> quarter (43.76% vs 40.95%) and has widened every year since; FII −9.11 pp and DII +7.19 pp over 12 quarters. Shareholders +27% (32.7 L → 41.5 L). <span class="tag t-fact">Fact</span></p>
+</div>
+</section>
+<section class="panel" id="tab8">
+<h2>8. News &amp; Recent Developments (Sep-2026)</h2>
+<div class="viewbox"><div class="vh">Section 8 — The View (plain English)</div>
+<ul>
+<li class="imp">The material corporate action: on <b>28-Sep-2026 ITC bought the remaining shares of Sproutlife for ₹645 Cr</b>, converting it into a wholly owned subsidiary — consolidation of the health/wellness foods portfolio (equivalent to 0.2% of market cap, financially immaterial, strategically relevant).<span class="important">IMPORTANT</span></li>
+<li class="imp">Results date now fixed: the <b>Q2 FY27 board meeting is called for 02-Nov-2026</b> (announced in the Oct filings; trading window closed 01-Oct-2026, reopens 48 hours after the print). The Oct-2026 expectation of a mid/late-October result has therefore slipped — next catalyst is 02-Nov, not Oct.<span class="important">IMPORTANT</span></li>
+<li>Corporate-governance housekeeping: newspaper publication on 21-Sep re lost/duplicate share certificates, ESOP allotment on 17-Sep — routine, no value impact.</li>
+<li>Management was on the road: Jefferies India Forum (18-Sep) and J.P. Morgan India Conference (21-Sep), announced 9-Sep — access to foreign investors precisely while the stock sits at its 52-week low.</li>
+<li>Information trail is deep: annual reports 2013–2026, latest concall Jul-2026, ICRA rating update 27-Nov-2025 and CRISIL 9-Apr-2025 (grades not exported → <span class="warn">VERIFY</span>).</li>
+</ul>
+</div>
+<div class="card">
+<h4>Announcements &amp; filings (from Screener documents section) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Date</th><th style="text-align:left">Item</th><th style="text-align:left">Detail</th></tr>
+<tr><td>02-Nov-2026</td><td style="text-align:left"><b>Q2 FY27 results date</b></td><td style="text-align:left"><b>Board meeting scheduled for 02-Nov-2026</b> — half-year results; window reopens 48 hours after the print (pulled 20-Oct-2026)</td></tr>
+<tr><td>28-Sep-2026</td><td style="text-align:left">Acquisition — Sproutlife</td><td style="text-align:left">Purchased the remaining shares for <b>₹645 Cr</b>; Sproutlife now a wholly owned subsidiary</td></tr>
+<tr><td>25-Sep-2026</td><td style="text-align:left">Trading window closure</td><td style="text-align:left">Window closes 01-Oct-2026, reopens 48 hours after Q2/half-year results</td></tr>
+<tr><td>21-Sep-2026</td><td style="text-align:left">Newspaper publication</td><td style="text-align:left">Public notice regarding lost/duplicate share certificates (investor-grievance housekeeping)</td></tr>
+<tr><td>17-Sep-2026</td><td style="text-align:left">ESOP allotment</td><td style="text-align:left">Employee Stock Option Plan allotment of equity shares</td></tr>
+<tr><td>09-Sep-2026</td><td style="text-align:left">Investor conferences</td><td style="text-align:left">Management at Jefferies India Forum (18-Sep) and J.P. Morgan India Conference (21-Sep)</td></tr>
+<tr><td>27-Nov-2025</td><td style="text-align:left">ICRA rating update</td><td style="text-align:left">Latest ICRA communication (grade not in free export — <span class="warn">VERIFY</span>)</td></tr>
+<tr><td>09-Apr-2025</td><td style="text-align:left">CRISIL rating update</td><td style="text-align:left">Latest CRISIL communication (grade not shown — <span class="warn">VERIFY</span>); earlier: ICRA 29-Nov-2024, CRISIL 26-Sep-2024</td></tr>
+<tr><td>Jul-2026</td><td style="text-align:left">Concall</td><td style="text-align:left">Latest earnings call — transcripts/PPT on BSE</td></tr>
+</table>
+<p class="note">Documents available: <b>Annual Reports 2013–2026</b>, concall transcripts, quarterly raw PDFs. <span class="tag t-view">View</span> The disclosure trail is that of a top-tier large cap — the only gaps are the rating grades and the peer table in the free Screener export, both flagged VERIFY.</p>
+</div>
+</section>
+
+<section class="panel" id="tab9">
+<h2>9. Verdict &amp; Journal (as of Sep 2026)</h2>
+<div class="viewbox"><div class="vh">Section 9 — The View (plain English)</div>
+<ul>
+<li class="imp">Composite <b>7.2/10 → ACCUMULATE</b> (dividend + safety at the 52-week low, 12-month horizon): metadata 8.0, valuation 7.5, growth 5.5, profits 8.0, balance sheet 8.0, cash flow 7.5, shareholding 6.0.<span class="important">IMPORTANT</span></li>
+<li class="imp">Buy in tranches at/around ₹261 rather than waiting for a bounce: yield 5.56% plus 0.03x debt plus 29% ROE means the downside is largely priced in — but the position stays small until growth re-accelerates above the 9.87% five-year trend.<span class="important">IMPORTANT</span></li>
+<li>The bull case is quality-at-a-low (cheap multiple, fortress balance sheet, ₹18k Cr annual CFO, 74–88% payout); the bear case is a slow-growth giant with a broken Jun'26 quarter (OPM 27%, PAT −16% YoY) and foreign investors still net sellers.</li>
+<li>Journal routine: Entry #01 (01-Oct-2026) stays frozen as the baseline; <b>Entry #02 below</b> is the 20-Oct-2026 monthly run — scores re-affirmed, prices refreshed. Next review: Q2 FY27 results on <b>02-Nov-2026</b>, entry #03.</li>
+</ul>
+</div>
+
+<div class="card">
+<h4>Section scorecard detail <span class="tag t-view">View</span></h4>
+<div class="tblwrap"><table>
+<tr><th>#</th><th>Section</th><th>Verdict</th><th>Score</th><th style="text-align:left">Evidence</th></tr>
+<tr><td>1</td><td>Metadata &amp; Identity</td><td><span class="pill p-g">STRONG</span></td><td>8.0</td><td style="text-align:left">1910 vintage, Nifty 50/F&amp;O, four segments, deep index membership, transparent filings (AR 2013–26)</td></tr>
+<tr><td>2</td><td>Valuation</td><td><span class="pill p-g">ATTRACTIVE</span></td><td>7.5</td><td style="text-align:left">P/E 16.2x, EV/EBITDA ~12x, yield 5.67% at the 52W low; offset by P/B 4.4x and −37% 1Y momentum</td></tr>
+<tr><td>3</td><td>Growth</td><td><span class="pill p-y">WATCH</span></td><td>5.5</td><td style="text-align:left">5Y sales CAGR 9.87% (Screener con), 3Y 4%, TTM −3%; FY25 PAT ₹35,052 Cr one-off-flattered</td></tr>
+<tr><td>4</td><td>Profitability &amp; Efficiency</td><td><span class="pill p-g">EXCELLENT</span></td><td>8.0</td><td style="text-align:left">ROE 29.3%, ROCE 38.9%, OPM 32–39%, net margin ~27%, interest cover ~320x; CCC drifting to 164 days</td></tr>
+<tr><td>5</td><td>Balance Sheet</td><td><span class="pill p-g">FORTRESS</span></td><td>8.0</td><td style="text-align:left">Borrowings 2,399 vs reserves 71,254 (D/E 0.03x), net worth ₹72,507 Cr; FY26 borrowing jump → VERIFY</td></tr>
+<tr><td>6</td><td>Cash Flow</td><td><span class="pill p-g">STRONG</span></td><td>7.5</td><td style="text-align:left">CFO ₹17–19k Cr every year, CFO/OP 91–98%, FCF ₹61,764 Cr cumulative, CFF = dividends + buybacks</td></tr>
+<tr><td>7</td><td>Shareholding</td><td><span class="pill p-y">MIXED</span></td><td>6.0</td><td style="text-align:left">No promoter; DII 49.13% rising vs FII 34.23% falling; 41.5 L shareholders (+27%)</td></tr>
+<tr><td></td><td><b>Composite</b></td><td><span class="pill p-g">ACCUMULATE</span></td><td><b>7.2</b></td><td style="text-align:left">Average of seven sections — positive/acceptable band, held back only by growth</td></tr>
+</table></div>
+</div>
+
+<div class="grid2">
+<div class="card">
+<h4>Bull case <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>Quality at the low:</b> ROE 29.3% / ROCE 38.9% at 16.2x earnings — the market is paying a staple multiple for a compounder-quality return profile.</li>
+<li><b>Income while you wait:</b> 5.67% dividend yield, payout 74.5% (88% in FY26) — roughly ₹14.5 per share a year at ₹256.</li>
+<li><b>Cannot go bust:</b> D/E 0.03x, interest cover ~320x, ₹18,464 Cr CFO and ₹38,128 Cr of investments on a ₹93,637 Cr balance sheet.</li>
+<li><b>Domestic hand-held:</b> DIIs at 49.13% and rising (+7.19 pp in 12 quarters) — Indian institutions are buying what foreigners sell.</li>
+<li><b>De-rating exhausted on price:</b> −37% in 1Y, −15% over 3Y, sitting exactly at the 52-week low with Q2 results and Sproutlife consolidation as catalysts.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Bear case / Risks <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>Growth is the flaw:</b> 5Y sales CAGR 9.87%, 3Y 4%, TTM −3% — a slow-growing giant can stay cheap for years (10Y price CAGR is just 1%).</li>
+<li><b>Jun-2026 quarter broke pattern:</b> OPM 27% vs a 32–39% band, PAT ₹4,509 Cr (−16% YoY), interest ₹40 Cr a series high — if Q2 repeats, earnings downgrades follow.</li>
+<li><b>Foreign exit not finished:</b> FII holding fell 43.34% → 34.23% over 12 quarters; another 5–9 pp of supply would pressure the price further.</li>
+<li><b>Policy/regulatory risk:</b> cigarettes are the profit engine — every GST/compensation-rate change or packaging rule hits directly (this is why FY23 sales jumped 16.9% pre-election).</li>
+<li><b>Cyclical drag:</b> paperboards (inventory 209 days, CCC 164 days) and agri commodities can compress margins without warning.</li>
+<li><b>VERIFY debt jump:</b> borrowings +₹2,114 Cr in FY26 on an almost-debt-free sheet — small, but the composition must be read in the FY26 annual report.</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<h4>Monitorables — next-quarter checklist (Q2 FY27, Oct-2026) <span class="tag t-view">View</span></h4>
+<table>
+<tr><th>#</th><th>Indicator</th><th>What to check</th><th style="text-align:left">Green light</th><th style="text-align:left">Red light</th></tr>
+<tr><td>1</td><td>Cigarette volume / realisation</td><td>Segment growth vs FY26 run-rate</td><td style="text-align:left">Volume + realisation both up (mid-single digit)</td><td style="text-align:left">Volume down or price-led only — demand or tax shock</td></tr>
+<tr><td>2</td><td>FMCG-Others margin</td><td>Segment margin trend vs FY26</td><td style="text-align:left">Margins expand toward breakeven-plus</td><td style="text-align:left">Wider losses — growth bought with cash</td></tr>
+<tr><td>3</td><td>Dividend declaration</td><td>Interim/final payout on Q2 &amp; at AGM</td><td style="text-align:left">Payout stays ≥80%, yield holds above 5.5%</td><td style="text-align:left">Payout cut below 60% — thesis core removed</td></tr>
+<tr><td>4</td><td>DII vs FII trend</td><td>Sep-26 shareholding pattern</td><td style="text-align:left">DII holds ≥49%, FII decline slows</td><td style="text-align:left">DII also turns seller below 48%</td></tr>
+<tr><td>5</td><td>Price vs baseline</td><td>CMP <b>₹261</b> (19-Oct-2026) vs ₹256 entry baseline</td><td style="text-align:left">Holds ₹250–280 while accumulating</td><td style="text-align:left">Sustains below ₹255 (fresh 52W low)</td></tr>
+<tr><td>6</td><td>FY27 growth vs 9.87% 5Y</td><td>H1 FY27 sales growth</td><td style="text-align:left">Back above ~10% — growth score re-rated</td><td style="text-align:left">Still ≤4% (3Y trend) — value trap risk</td></tr>
+<tr><td>7</td><td>Q2 results timing</td><td>Board meeting now called for <b>02-Nov-2026</b></td><td style="text-align:left">Print on 02-Nov, window reopens promptly</td><td style="text-align:left">Slippage past mid-Nov — disclosure drift</td></tr>
+</table>
+</div>
+
+<div class="card" style="border-style:dashed">
+<h4>Journal Entry #01 — Baseline <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span> <span class="tag t-view">View</span></h4>
+<p class="note" style="margin-bottom:8px"><b>Metadata:</b> period Q1 FY27 (Jun-2026 quarter) · assessed 01-Oct-2026 · price basis ₹256 (01-Oct close) · prior entry: none (baseline) · hub log: Oct-2026 row added.</p>
+<p style="font-size:13.6px"><b>Facts:</b> CMP ₹266, +4.3% above the 52-week low (₹426/255), −0.37% on the day; mcap ₹3,33,186 Cr; P/E 16.9; BV ₹57.9; div yield 5.46%; ROE 29.3%; ROCE 38.9%; FY26 sales ₹78,868 Cr, OP ₹27,306 Cr, PAT ₹21,018 Cr, EPS ₹16.51, payout 88%; borrowings ₹2,399 Cr vs reserves ₹71,254 Cr; CFO ₹18,464 Cr, FCF ₹16,332 Cr; DII 49.13% / FII 34.23% / public 16.61% (no promoter), shareholders 41,52,430.<br>
+<b>Calculations:</b> composite 7.2 (8.0+7.5+5.5+8.0+8.0+7.5+6.0 ÷ 7); D/E 0.03x; P/B 4.6x; P/S 4.2x; EV ≈₹3,35,585 Cr (est.), EV/EBITDA ≈12x; interest cover ≈320x; net margin 26.6%; four-year CFO +₹72,148 Cr vs CFF −₹64,741 Cr; PEG ≈1.7 (16.9 ÷ 10% 5Y profit CAGR).<br>
+<b>Management/filings:</b> Sproutlife bought for ₹645 Cr → wholly owned subsidiary (28-Sep-2026); trading window shut 01-Oct pending Q2 (25-Sep); lost-certificate newspaper notice (21-Sep); ESOP allotment (17-Sep); Jefferies India Forum 18-Sep + J.P. Morgan India Conference 21-Sep; ratings ICRA 27-Nov-2025 / CRISIL 9-Apr-2025 (grades VERIFY); ARs 2013–2026, concall Jul-2026.<br>
+<b>Interpretation:</b> a top-class, debt-free, cash-generating FMCG monopoly priced like a utility because growth has stalled (5Y 9.87%, TTM −3%) and foreigners have been steady sellers for three years. The 52-week low plus a 5.67% yield makes the risk/reward asymmetric to the upside — accumulate in tranches, size it as an income/defensive holding, and let the Oct-2026 Q2 print decide whether growth deserves a re-rating.<br>
+<b>Verdict:</b> <span class="pill p-g">ACCUMULATE</span> score <b>7.2/10</b> · horizon <b>12 months</b> · stance: begin accumulating at ₹256 with room to add below ₹255 · next review: after Q2 FY27 results (Oct-2026), entry #02.</p>
+</div>
+
+<div class="card" style="border-style:dashed">
+<h4>Journal Entry #02 — Monthly run (20-Oct-2026) <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span> <span class="tag t-view">View</span></h4>
+<p class="note" style="margin-bottom:8px"><b>Metadata:</b> monthly cycle executed 20-Oct-2026 · price basis <b>₹261 (19-Oct-2026 close, −1.02% day)</b> — the 20-Oct close was not yet published by the source at run time, so the run is dated to the latest verified close · prior entry: #01 (01-Oct-2026) · hub log: 19-Oct-2026 row appended.</p>
+<p style="font-size:13.6px"><b>Facts:</b> CMP ₹261 (−1.88% vs the 07-Oct row of ₹266); mcap ₹3,26,832 Cr; P/E 16.6; P/B 4.5x on BV ₹57.9; div yield 5.56%; ROE 29.3%; ROCE 38.9%; 52W ₹426/₹255 unchanged (CMP is now 2.4% above the low). News since Entry #01: <b>Q2 FY27 board meeting called for 02-Nov-2026</b> (pulled 20-Oct-2026); trading window closed 01-Oct until 48h after the print.<br>
+<b>Calculations:</b> composite re-checked section by section — (8.0+7.5+5.5+8.0+8.0+7.5+6.0) ÷ 7 = 7.21 → <b>7.2, unchanged</b>; no section crosses a rubric band. PEG ≈1.7 (16.6 ÷ 10% 5Y profit CAGR). Dividend at ₹14.5/share yields 5.56% at ₹261.<br>
+<b>Interpretation:</b> nothing in the two weeks since Entry #01 changes the thesis: the stock drifted ₹5 lower, the yield widened slightly, and the only new information is the result date moving to 02-Nov-2026 — later than the mid/late-October expectation, which is a mild negative on disclosure timing but not on fundamentals. The Q1 FY27 miss (OPM 27%, PAT −16% YoY) is still un-rebutted, so the growth score stays at 5.5 until the Nov print.<br>
+<b>Verdict:</b> <span class="pill p-g">ACCUMULATE</span> score <b>7.2/10</b> — <b>re-affirmed, unchanged</b> · horizon <b>12 months</b> · stance: continue accumulating at/around ₹261, keep the position defensive-sized · next review: Q2 FY27 results on 02-Nov-2026, entry #03.</p>
+</div>
+</section>
+
+<section class="panel" id="tabT">
+<h2>Transactions — ITC</h2>
+<div class="viewbox"><div class="vh">Transactions — The View (plain English)</div>
+<ul>
+<li class="imp">Every trade for this stock exactly as recorded in <code>Equity\Holding_stocks.xlsx</code> — date, fund, action, quantity, price, invested. The last two columns are the <b>running</b> units held and average cost after that trade.<span class="important">IMPORTANT</span></li>
+<li>The <b>Price</b> column is what you paid on the day; the dashboard's current value uses the <b>19-Oct-2026 close</b> instead — two different things, don't mix them.</li>
+<li>After adding trades in Excel, re-run <code>python Equity\code\write_html.py</code> so this tab, the dashboard and the position card all agree.</li>
+</ul>
+</div>
+<div class="kpis">
+<div class="kpi" data-explain="Units held = total shares still held, counted as buys minus sells across every trade in Holding_stocks.xlsx."><div class="l">Units held</div><div class="v">162</div><div class="n">7 trades logged</div></div>
+<div class="kpi" data-explain="Average cost = total money invested in this stock divided by units held. It is what one share has effectively cost you across all buys."><div class="l">Average cost</div><div class="v">₹369.20</div><div class="n">vs CMP ₹261 on 19-Oct-2026</div></div>
+<div class="kpi" data-explain="Invested = every rupee put into this stock, shown with its share of the total invested across all holdings."><div class="l">Invested</div><div class="v">₹59,810</div><div class="n">18.6% of total invested</div></div>
+<div class="kpi" data-explain="Current value = units held times the 19-Oct-2026 close. P/L is that value minus the money invested."><div class="l">Current value</div><div class="v">₹42,282</div><div class="n"><span class="bad">P/L −₹17,528 (−29.3%)</span></div></div>
+</div>
+<!--HOLD_TXN_START-->
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Date</th><th style="text-align:left">Fund</th><th>Action</th><th>Qty</th><th>Price</th><th>Invested</th><th>Units held</th><th>Avg cost</th></tr>
+<tr><td>23-Apr-2025</td><td style="text-align:left">Direct Fund</td><td>Buy</td><td>42</td><td>₹433.00</td><td>₹18,186.00</td><td>42</td><td>₹433.00</td></tr>
+<tr><td>14-May-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>36</td><td>₹429.75</td><td>₹15,471.00</td><td>78</td><td>₹431.50</td></tr>
+<tr><td>04-Jul-2025</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>12</td><td>₹413.00</td><td>₹4,956.00</td><td>90</td><td>₹429.03</td></tr>
+<tr><td>07-Apr-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>35</td><td>₹298.00</td><td>₹10,430.00</td><td>125</td><td>₹392.34</td></tr>
+<tr><td>05-May-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>12</td><td>₹311.00</td><td>₹3,732.00</td><td>137</td><td>₹385.22</td></tr>
+<tr><td>13-Jul-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>18</td><td>₹280.00</td><td>₹5,040.00</td><td>155</td><td>₹373.00</td></tr>
+<tr><td>07-Aug-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>7</td><td>₹285.00</td><td>₹1,995.00</td><td>162</td><td>₹369.20</td></tr>
+</table></div>
+<!--HOLD_TXN_END-->
+<p class="src">Source: Equity\Holding_stocks.xlsx (sheet Sheet1, table Shadow_Buy_sell) &middot; recomputed by Equity\code\holdings_calc.py &rarr; code\data\holdings.json &middot; CMP dated 19-Oct-2026 close. Personal position data; not investment advice.</p>
+</section>
+
+<section class="panel" id="tabG">
+<h2>Glossary — jargons, metrics &amp; acronyms (click any blue dotted term anywhere)</h2>
+<div class="viewbox"><div class="vh">How to use the glossary</div>
+<ul>
+<li>Every metric/jargon term in this report is linked — <b>click the blue dotted word</b> to see its plain-English meaning in a pop-up.</li>
+<li class="imp">New to reading reports? Start with: CMP, P/E, EBITDA, ROE, ROCE, CFO, FCF, FII/DII, D/E, Small Cap.<span class="important">IMPORTANT</span></li>
+<li>Shared glossary (<code>glossary.js</code>) — same definitions as the Stock Hub and every other stock page; add a term once and it appears everywhere.</li>
+</ul>
+</div>
+<div class="card">
+<h4>All terms — definition, plain meaning, why it matters</h4>
+<div id="glossaryBody"><p class="note">Loading glossary… (requires JavaScript enabled)</p></div>
+</div>
+</section>
+
+<footer>
+  ITC Ltd — independent equity research journal entry. Data: Screener.in (consolidated, 01-Oct-2026), BSE/NSE announcements. Figures flagged VERIFY are unavailable in the free source. Not investment advice.
+</footer>
+
+</div>
+<script src="../../Equity/code/table_chart.js"></script>
+<script src="../shared/glossary.js"></script>
+<script>
+(function(){
+function show(id){
+ document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===id)});
+ document.querySelectorAll('.tabbtn').forEach(function(b){b.classList.toggle('on',b.dataset.t===id)});
+ window.scrollTo(0,0);
+}
+document.querySelectorAll('.tabbtn').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);try{history.replaceState(null,'','#'+b.dataset.t)}catch(e){}})});
+if(location.hash){try{var h=document.querySelector(location.hash+'.panel');if(h)show(location.hash.slice(1))}catch(e){}}
+document.getElementById('stockSel').addEventListener('change',function(){if(this.value){location.href=this.value}});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reliance Industries Ltd — Equity Research Journal | Sep 2026</title>
+<style>
+:root{--bg:#0f1420;--panel:#161d2e;--panel2:#1c2438;--ink:#e8ecf5;--muted:#9aa7bd;--line:#2a3450;--acc:#4da3ff;--good:#2ecc8f;--warn:#f5b83d;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:22px}
+header.rpt{background:linear-gradient(135deg,#101828,#1b2a4a);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:20px}
+header.rpt h1{margin:0 0 4px;font-size:27px}
+header.rpt .sub{color:var(--muted);font-size:14px}
+.badges{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{padding:4px 11px;border-radius:20px;font-size:12.5px;border:1px solid var(--line);background:var(--panel2)}
+.badge.buy{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.badge.risk{background:#3a1d1d;border-color:#7a3030;color:#ffb0b0}
+.badge.info{background:#123055;border-color:#24528f;color:#a8d1ff}
+h2{font-size:20px;margin:34px 0 6px;padding-bottom:7px;border-bottom:2px solid var(--line);color:#cfe1ff}
+h3{font-size:16px;margin:20px 0 8px;color:#bcd3f5}
+h4{font-size:14.5px;margin:14px 0 6px;color:#a9c4ea}
+p{margin:8px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 6px;font-size:13.2px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+th{background:var(--panel2);color:#c6d6f0;font-weight:600;text-align:center}
+td:first-child,th:first-child{text-align:left;font-weight:600;color:#dbe6fa}
+tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.tblwrap table{border:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:13px 14px}
+.kpi .l{font-size:11.6px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.kpi .v{font-size:21px;font-weight:700;margin-top:3px}
+.kpi .n{font-size:11.6px;color:var(--muted);margin-top:2px}
+.good{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 17px;margin:13px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.tag{display:inline-block;font-size:10.6px;letter-spacing:.6px;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-right:6px;vertical-align:1.5px;border:1px solid}
+.t-fact{background:#123055;border-color:#2c5f9e;color:#a9d1ff}
+.t-calc{background:#2a2140;border-color:#5a4a8a;color:#cbb8ff}
+.t-mgmt{background:#14402e;border-color:#2c7a5a;color:#9df0cd}
+.t-view{background:#46340f;border-color:#8d6a1e;color:#ffd98a}
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:12px;font-weight:600}
+.p-g{background:#0d3a2c;color:#7ff0c3;border:1px solid #1c6b4f}
+.p-y{background:#3d3210;color:#ffd98a;border:1px solid #8d6a1e}
+.p-r{background:#3a1d1d;color:#ffb0b0;border:1px solid #7a3030}
+.note{font-size:12.4px;color:var(--muted);margin-top:6px}
+.footnote{font-size:12.3px;color:var(--muted);border-left:3px solid var(--line);padding:6px 10px;margin:9px 0;background:rgba(255,255,255,.02)}
+.scorebar{height:9px;background:#0c111c;border-radius:6px;overflow:hidden;border:1px solid var(--line);min-width:110px}
+.scorebar>i{display:block;height:100%;background:linear-gradient(90deg,#4da3ff,#2ecc8f)}
+ul{margin:7px 0 7px 20px}li{margin:4px 0}
+.verdict-main{display:flex;flex-wrap:wrap;gap:16px;align-items:stretch}
+.verdict-big{flex:1 1 300px;background:linear-gradient(135deg,#0e2b22,#123a2d);border:1px solid #1e6b52;border-radius:12px;padding:18px}
+.verdict-big .h{font-size:26px;font-weight:800;color:#7ff0c3}
+.src{font-size:12.2px;color:var(--muted)}
+a{color:var(--acc)}
+.jr{border:1px dashed var(--line);border-radius:12px;padding:15px 17px;margin:14px 0;background:rgba(255,255,255,.02)}
+.jr .meta{font-size:12.5px;color:var(--muted);margin-bottom:8px}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12.4px}
+/* Position status KPI cards (tab0) - accented left bar + coloured value so
+   this group never reads as a copy of the plain .kpi row at the top of tab0 */
+.pos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0 6px}@media (max-width:900px){.pos-grid{grid-template-columns:repeat(2,1fr)}}@media (max-width:540px){.pos-grid{grid-template-columns:1fr}}
+.posk{background:var(--panel2);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:9px;padding:9px 12px 10px}
+.posk .pk-l{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.posk .pk-v{font-size:20px;font-weight:700;margin-top:3px;color:var(--ink)}
+.posk .pk-n{font-size:11.2px;color:var(--muted);margin-top:3px}
+.posk.p-blue{border-left-color:#4da3ff}
+.posk.p-blue .pk-v{color:#8fc6ff}
+.posk.p-purple{border-left-color:#a78bfa}
+.posk.p-purple .pk-v{color:#cbb8ff}
+.posk.p-amber{border-left-color:#f5b83d}
+.posk.p-amber .pk-v{color:#ffd98a}
+.posk.p-teal{border-left-color:#2ecc8f}
+.posk.p-teal .pk-v{color:#5ee0b0}
+.posk.p-pos{border-left-color:#2ecc8f}
+.posk.p-pos .pk-v{color:#2ecc8f}
+.posk.p-neg{border-left-color:#ff6b6b}
+.posk.p-neg .pk-v{color:#ff6b6b}
+.posk.p-slate{border-left-color:#9aa7bd}
+.posk.p-slate .pk-v{color:#c9d3e6}
+@media print{body{background:#fff;color:#111}.wrap{max-width:none}header.rpt,.card,.kpi,table,.jr,.verdict-big{background:#fff;color:#111;border-color:#bbb}th{background:#eee;color:#111}td{color:#111}h2,h3,h4{color:#111}.good{color:#087f4f}.warn{color:#9a6a00}.bad{color:#b00}.panel{display:block!important;page-break-before:always}.tabbar,#modal{display:none!important}.viewbox{background:#f4f8ff;color:#111}.viewbox li{color:#111}.term{color:#0b5ca8}}
+/* ===== Tabs ===== */
+.tabbar{position:sticky;top:0;z-index:40;display:flex;flex-wrap:wrap;gap:6px;background:rgba(15,20,32,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:8px;margin-bottom:16px}
+.tabbtn{border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:12.6px;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;letter-spacing:.3px}
+.tabbtn:hover{color:#cfe1ff;border-color:#3b5f96}
+.tabbtn.on{background:#123055;border-color:#2c66ad;color:#a9d1ff;box-shadow:0 0 0 1px #2c66ad}
+.panel{display:none;animation:fadein .25s ease}
+.panel.on{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+/* ===== Section view bullets ===== */
+.viewbox{border-left:4px solid var(--acc);background:rgba(77,163,255,.07);border-radius:0 9px 9px 0;padding:10px 15px;margin:10px 0 14px}
+.viewbox .vh{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8fc4ff;font-weight:700;margin-bottom:5px}
+.viewbox ul{margin:4px 0 2px 18px}
+.viewbox li{font-size:13.6px;margin:5px 0}
+.viewbox li b{color:#dbe9ff}
+.viewbox li.imp{color:#ffe6a3}
+.viewbox li.imp::marker{content:"★ "}
+.important{display:inline-block;background:#4a3708;color:#ffd98a;border:1px solid #8d6a1e;font-size:10.3px;font-weight:700;letter-spacing:.7px;padding:1px 7px;border-radius:4px;vertical-align:1.5px;margin-left:6px}
+/* ===== Clickable KPI cards ===== */
+.kpi[data-explain]{cursor:pointer;transition:transform .12s,border-color .12s}
+.kpi[data-explain]:hover{border-color:#4da3ff;transform:translateY(-2px)}
+.kpi[data-explain]::after{content:"ⓘ what does this mean?";display:block;font-size:9.6px;color:#4da3ff;letter-spacing:.4px;margin-top:5px;text-transform:uppercase}
+/* ===== Glossary term links ===== */
+.term{color:#7fc0ff;text-decoration:underline dotted;cursor:help}
+.term:hover{color:#bfe0ff}
+/* ===== Modal ===== */
+#modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(4,8,16,.72);padding:20px}
+#modal.on{display:flex;align-items:center;justify-content:center}
+.mbox{background:#141b2c;border:1px solid #2c66ad;border-radius:13px;max-width:640px;width:100%;max-height:82vh;overflow:auto;padding:20px 22px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.mbox .mt{font-size:16.5px;font-weight:700;color:#a9d1ff;margin-bottom:8px}
+.mbox .mb{font-size:14px;line-height:1.65;color:var(--ink)}
+.mbox .mb .why{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);color:#ffd98a;font-size:13.3px}
+.mbox .mclose{float:right;border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:7px;font-size:12px;padding:4px 10px;cursor:pointer}
+.mbox .mclose:hover{color:#fff;border-color:#4da3ff}
+.mgl{font-size:12.4px;color:var(--muted);margin-top:12px}
+.topnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
+.topnav a.home{color:var(--acc);font-size:13px;text-decoration:none;font-weight:600}
+.topnav select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13.4px;font-weight:600;cursor:pointer}
+@media print{.topnav{display:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="rpt">
+  <h1>Reliance Industries Ltd — Deep-Dive Fundamental Report</h1>
+  <div class="sub">Quarterly Equity Research Journal &nbsp;•&nbsp; Entry #1 (Baseline Quarter) &nbsp;•&nbsp; Assessment as of <b>September 2026</b> (price data: <b>19-Oct-2026 close</b>; monthly run 20-Oct-2026)</div>
+  <div class="badges">
+    <span class="badge buy">Portfolio status: HOLDING — invested monthly</span>
+    <span class="badge buy">VERDICT: ACCUMULATE (Buy on declines) · re-affirmed 19-Oct-2026</span>
+    <span class="badge info">CMP ₹1,202 (19-Oct-2026 close) · −0.76% (day)</span>
+    <span class="badge info">Mkt Cap ₹16,26,611 Cr (19-Oct-2026)</span>
+    <span class="badge info">P/E 21.8x · P/B 1.80x · ROE 8.9%</span>
+    <span class="badge risk">Near 52-week low (₹1,152)</span>
+    <span class="badge buy">Large Cap · Nifty 50 heavyweight</span>
+    <span class="badge">NSE: RELIANCE · BSE: 500325</span>
+    <span class="badge info">Sector: Oil, Gas &amp; Consumable Fuels</span>
+  </div>
+  <p class="note" style="margin-top:12px">Primary source: Screener.in (fundamentals consolidated 01-Oct-2026; market data 19-Oct-2026). Corroborating primary sources: RIL Integrated Annual Report 2025-26, RIL Q1 FY27 media release &amp; concall transcript (17-Jul-2026), NSE/RIL shareholding pattern (Jun-2026), Q4 FY26 media release. All figures in ₹ Crore unless stated. Research journal entry — not investment advice.</p>
+</header>
+
+<nav class="topnav">
+  <a class="home" href="../InvestIQ.html">⌂ InvestIQ</a>&nbsp; <a class="home" href="Equity_Forge.html">⌂ Back to Stock Hub</a>
+  <select id="stockSel">
+    <option value="">— go to stock —</option>
+    <option value="Reliance_Research_Report_Sep2026.html" selected>RELIANCE | L | H</option>
+    <option value="RACE_Research_Report_Sep2026.html">RACE | S | H</option>
+    <option value="HDFCBANK_Research_Report_Sep2026.html">HDFC BANK | L | H</option>
+    <option value="ITC_Research_Report_Sep2026.html">ITC | L | H</option>
+    <option value="CAPLIPOINT_Research_Report_Sep2026.html">CAPLIN POINT | S | H</option>
+    <option value="GANECOS_Research_Report_Sep2026.html">GANESHA ECOSPHERE | S | H</option>
+    <option value="TMPV_Research_Report_Sep2026.html">TATA MOTORS PV | L | H</option>
+    <option value="OLECTRA_Research_Report_Oct2026.html">OLECTRA | S | C</option>
+    <option value="KAYNES_Research_Report_Oct2026.html">KAYNES | S | C</option>
+    <option value="BEL_Research_Report_Oct2026.html">BEL | L | C</option>
+    <option value="JIO_Research_Report_Oct2026.html">JIO IPO | L | C</option>
+  </select>
+</nav>
+<script>
+document.getElementById('stockSel').addEventListener('change',function(){if(this.value){location.href=this.value}});
+</script>
+
+<nav class="tabbar" id="tabbar" aria-label="Report sections">
+  <button class="tabbtn on" data-t="tab0">0 · Dashboard</button>
+  <button class="tabbtn" data-t="tab1">1 · Metadata</button>
+  <button class="tabbtn" data-t="tab2">2 · Valuation</button>
+  <button class="tabbtn" data-t="tab3">3 · Growth</button>
+  <button class="tabbtn" data-t="tab4">4 · Profits</button>
+  <button class="tabbtn" data-t="tab5">5 · Balance Sheet</button>
+  <button class="tabbtn" data-t="tab6">6 · Cash Flow</button>
+  <button class="tabbtn" data-t="tab7">7 · Shareholders</button>
+  <button class="tabbtn" data-t="tab8">8 · Mgmt &amp; News</button>
+  <button class="tabbtn" data-t="tab9">9 · Verdict</button>
+  <button class="tabbtn" data-t="tab10">10 · Journal</button>
+  <button class="tabbtn" data-t="tabT">Transactions</button>
+  <button class="tabbtn" data-t="tabG">Glossary</button>
+  <button class="tabbtn" data-t="tabA">Appendix</button>
+</nav>
+
+<section class="panel on" id="tab0">
+<h2>0. Executive Dashboard — Sep 2026</h2>
+<div class="viewbox"><div class="vh">Section 0 — The View (plain English)</div>
+<ul>
+<li class="imp">One-line verdict: <b>ACCUMULATE — the stock is cheap versus its own history, cash-rich and low on debt, but the business earns only ~9–10% returns on capital, so buy in tranches, not all at once.</b><span class="important">IMPORTANT</span></li>
+<li class="imp">Three numbers that decide everything: P/E 21.8x vs own 5-year average ~26x (discount), ROE 8.91% (below par), Net Debt/EBITDA 0.60x (rock solid).<span class="important">IMPORTANT</span></li>
+<li>Price is 4.3% above the 52-week low after a −15% one-year fall — you are buying after the damage, not before it.</li>
+<li>Verdict changes if: ROE stays below 8%, Retail margin falls below 7% for two quarters, foreign investors keep selling over 100 bps a quarter, or net debt/EBITDA crosses 1.5x.</li>
+<li>How to read this report: click any section tab above · click any blue info card for a plain-English meaning · click any blue dotted term for its glossary definition.</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Current Market Price — the last price at which the share traded (₹1,202 on 19-Oct-2026), down 0.76% that day. It sits 4.3% above the lowest price of the last year, so the market is pricing Reliance near its worst point of the past 12 months."><div class="l">CMP</div><div class="v">₹1,202</div><div class="n">19 Oct'26 close · −0.76% (day)</div></div>
+  <div class="kpi" data-explain="52-week high / low — the best and worst prices of the last year (₹1,612 / ₹1,152, 19-Oct-2026). Trading near the low means sustained selling pressure: either earnings disappointed or foreign investors were net sellers."><div class="l">52W Range</div><div class="v warn">1,612 / 1,152</div><div class="n">4.3% above 52W low</div></div>
+  <div class="kpi" data-explain="Price-to-Earnings ratio — how many rupees you pay for ₹1 of annual profit. At 21.8x you pay ₹21.80 for every ₹1 of Reliance's last-12-month profit. The oil &amp; gas sector average is only ~10.8x, so Reliance costs about double the sector because half its profits now come from consumer businesses (Jio + Retail)."><div class="l">Stock P/E (TTM)</div><div class="v">21.8x</div><div class="n">Sector (Nifty O&amp;G) ≈10.8x</div></div>
+  <div class="kpi" data-explain="Price-to-Book ratio and Book Value per share — book value (₹668) is what the company's net assets are worth on paper. At 1.80x the market pays ₹1.80 for every ₹1 of those net assets — a normal, not cheap, level for a large conglomerate."><div class="l">P/B · Book Value</div><div class="v">1.80x · ₹668</div><div class="n">Net worth ₹9,04,030 Cr</div></div>
+  <div class="kpi" data-explain="Return on Equity and Return on Capital Employed — the profit earned on shareholders' money (8.91%) and on all capital in the business (10.3%). Below par: a quality compounder should earn 15%+. This has been stuck near 9% for a decade and is the biggest weakness in the story."><div class="l">ROE / ROCE</div><div class="v warn">8.91% / 10.3%</div><div class="n">Below par for a compounder</div></div>
+  <div class="kpi" data-explain="Net Debt to EBITDA — how many years of operating cash profit would be needed to repay all borrowings after using available cash. 0.6–0.7x means under one year's profit — a fortress balance sheet (anything under 2x is normally considered safe)."><div class="l">Net Debt / EBITDA</div><div class="v good">0.60–0.70x</div><div class="n">Net debt ₹1,24,717 Cr</div></div>
+  <div class="kpi" data-explain="Revenue for financial year 2025-26 — total sales of the whole group ₹10.56 lakh crore, up 9.7% over FY25. TTM (trailing twelve months) of ₹11.23 lakh crore shows the most recent one-year run rate."><div class="l">FY26 Revenue</div><div class="v">₹10.56 L Cr</div><div class="n">YoY +9.7% · TTM ₹11.23 L Cr</div></div>
+  <div class="kpi" data-explain="Net profit (bottom line) after all costs, interest and tax — ₹95,754 Cr in FY26, up 17.8%. Part of the jump came from higher interest income, not core operations — core EBITDA grew about 8%."><div class="l">FY26 Net Profit</div><div class="v">₹95,754 Cr</div><div class="n">YoY +17.8% · TTM ₹88,167 Cr</div></div>
+  <div class="kpi" data-explain="Cash from Operations and Free Cash Flow — the business actually generated ₹1,92,113 Cr of cash (twice its accounting profit), and after spending ₹1.2–1.4 lakh crore on new assets, ₹70,023 Cr was genuinely free cash. Strong, improving figures."><div class="l">FY26 CFO / FCF</div><div class="v good">1,92,113 / 70,023</div><div class="n">CFO/PAT ≈ 2.0x</div></div>
+  <div class="kpi" data-explain="Promoter holding and Pledge — the founding family owns 50.48% of the company and has pledged (kept as loan collateral) 0% of its shares. Zero pledge for years is a strong governance positive: the family is not borrowing against its stake."><div class="l">Promoter / Pledge</div><div class="v good">50.48% / 0%</div><div class="n">Jun-26 quarter (SHP)</div></div>
+  <div class="kpi" data-explain="Foreign investors cut their stake from ~22.6% to 17.19% over three years while Indian institutions (mutual funds, insurers) raised from 16.0% to 21.10% — foreign money is walking out, domestic money is absorbing those sales."><div class="l">FII → DII shift</div><div class="v warn">17.19% → 21.10%</div><div class="n">FII −541 bps since Sep'23</div></div>
+  <div class="kpi" data-explain="Dividend Yield — annual dividend per share ÷ share price. At 0.50% you earn about ₹6 a year on a ₹1,202 share, so almost no income support; Reliance reinvests ~90% of profits back into the business."><div class="l">Dividend Yield</div><div class="v">0.50%</div><div class="n">Payout ~10% of profits</div></div>
+</div>
+
+<div class="card" style="border-color:#1c6b4f">
+<h4>Position status (personal) <span class="tag t-fact">Fact</span></h4>
+<p class="note" style="margin-top:0"><b>Status: HOLDING — this stock is invested in on a monthly basis.</b> The score verdict on this page drives the monthly action (continue the monthly buy / pause / add a tranche). The position figures below are <span class="tag t-calc">Calc</span> generated from your trade log (<code>Equity\Holding_stocks.xlsx</code>) by <code>Equity\code\holdings_calc.py</code> and refreshed at every monthly run — units held, average cost, value and P/L are never typed in by hand. Market prices are the 19-Oct-2026 close.</p>
+<div class="pos-grid">
+<!--HOLD_POS_START-->
+<div class="posk p-blue"><div class="pk-l">Units held</div><div class="pk-v">22</div><div class="pk-n"><span class="tag t-calc">Calc</span></div></div>
+<div class="posk p-purple"><div class="pk-l">Average cost</div><div class="pk-v">₹1,346.09</div><div class="pk-n"><span class="tag t-calc">Calc</span></div></div>
+<div class="posk p-amber"><div class="pk-l">Invested (contribution)</div><div class="pk-v">₹29,614</div><div class="pk-n">9.2% of ₹3,21,508 total</div></div>
+<div class="posk p-teal"><div class="pk-l">Current value</div><div class="pk-v">₹26,444</div><div class="pk-n">at CMP ₹1,202 on 19-Oct-2026</div></div>
+<div class="posk p-neg"><div class="pk-l">Profit / Loss</div><div class="pk-v">−₹3,170</div><div class="pk-n">−10.7% on ₹29,614 invested</div></div>
+<div class="posk p-slate"><div class="pk-l">Monthly buy / SIP amount</div><div class="pk-v">&mdash;</div><div class="pk-n">fill in</div></div>
+<!--HOLD_POS_END-->
+</div>
+<p class="note"><a class="tabbtn" data-t="tabT" href="#tabT">→ Full transaction log (Transactions tab)</a></p>
+</div>
+<div class="verdict-main">
+  <div class="verdict-big">
+    <div style="font-size:12.5px;color:#9adfc4;letter-spacing:1px">STANDALONE VERDICT (analyst view, Sep 2026)</div>
+    <div class="h">ACCUMULATE — 12–18M horizon</div>
+    <p style="margin-top:8px">Quality conglomerate trading ~20% below its own 5-year average trailing P/E and ~10–14% below its historical forward multiple, after a −15% 1-year price CAGR. Balance sheet and cash conversion are institutional-grade; earnings momentum turned positive again in Q1 FY27 (record quarterly EBITDA ₹47,517 Cr) after four quarters of estimate cuts. Key deduction: structurally low returns (ROE ~9%, ROCE ~10%) cap any multiple re-rating. Street SOTP target prices: <b>₹1,537–1,700</b> (Jul-2026 broker reviews) = +32% to +46% upside from ₹1,168.</p>
+    <p class="note">Invalidation triggers: ROE sustained &lt;8%; Retail EBITDA margin &lt;7% for 2+ quarters; renewed FII selling &gt;100 bps/qtr; crude/geo shock impairing O2C; Net Debt/EBITDA &gt;1.5x.</p>
+  </div>
+  <div class="card" style="flex:1 1 330px;margin:0">
+    <h4 style="margin-top:0">Section Scorecard (0–10)</h4>
+    <table>
+      <tr><th>Section</th><th>Score</th><th style="width:34%">Rating</th></tr>
+      <tr><td>1. Metadata &amp; Ownership</td><td>7.5</td><td><div class="scorebar"><i style="width:75%"></i></div></td></tr>
+      <tr><td>2. Valuation</td><td>7.0</td><td><div class="scorebar"><i style="width:70%"></i></div></td></tr>
+      <tr><td>3. Growth</td><td>5.5</td><td><div class="scorebar"><i style="width:55%"></i></div></td></tr>
+      <tr><td>4. Profitability &amp; Efficiency</td><td>5.0</td><td><div class="scorebar"><i style="width:50%"></i></div></td></tr>
+      <tr><td>5. Balance Sheet Strength</td><td>8.5</td><td><div class="scorebar"><i style="width:85%"></i></div></td></tr>
+      <tr><td>6. Cash Flow Quality</td><td>7.5</td><td><div class="scorebar"><i style="width:75%"></i></div></td></tr>
+      <tr><td>7. Shareholding &amp; Ownership</td><td>7.0</td><td><div class="scorebar"><i style="width:70%"></i></div></td></tr>
+      <tr><td><b>Composite</b></td><td><b>7.0</b></td><td><div class="scorebar"><i style="width:70%"></i></div></td></tr>
+    </table>
+    <p class="src">Rubric: 8–10 excellent · 6–8 positive/acceptable · 4–6 watchlist · &lt;4 avoid. Scores are analyst judgement anchored to Sections 1–7.</p>
+  </div>
+</div>
+
+</section>
+
+<section class="panel" id="tab1">
+<h2>1. Company / Stock Metadata</h2>
+<div class="viewbox"><div class="vh">Section 1 — The View (plain English)</div>
+<ul>
+<li class="imp">Identity and ownership are clean: top credit ratings (AAA/A1+ domestically, Baa1/A− globally), promoter holding steady near 50% for 12 quarters with <b>zero pledge</b> — no borrowing against the family's shares.<span class="important">IMPORTANT</span></li>
+<li class="imp">Ownership structure is defensive: promoters + Indian institutions together hold ~71.6%, so only ~29% (mostly foreign) is genuinely in play.<span class="important">IMPORTANT</span></li>
+<li>This is not a pure oil company any more: 5 businesses — refining/petchem (O2C), Jio telecom, Retail, media (JioStar), oil &amp; gas exploration plus New Energy.</li>
+<li>Small watch item: retail shareholder count jumped to 46.5 lakh (+2.3 lakh in one quarter) — a large late-entering retail crowd is usually a caution sign, not a bullish one.</li>
+<li>One number to verify before quoting externally: promoter stake's +0.48 pp rise looks like an internal reshuffle between group entities, not a market buy.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Identification &amp; Classification <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Field</th><th style="text-align:left">Value</th></tr>
+<tr><td>Company Name</td><td style="text-align:left">Reliance Industries Limited</td></tr>
+<tr><td>NSE Symbol</td><td style="text-align:left">RELIANCE (F&amp;O stock)</td></tr>
+<tr><td>BSE Symbol / Code</td><td style="text-align:left">RELIANCE / 500325</td></tr>
+<tr><td>ISIN</td><td style="text-align:left">INE002A01018</td></tr>
+<tr><td>Sector (Screener)</td><td style="text-align:left">Energy → Oil, Gas &amp; Consumable Fuels</td></tr>
+<tr><td>Industry (Screener)</td><td style="text-align:left">Petroleum Products → Refineries &amp; Marketing</td></tr>
+<tr><td>Business Type</td><td style="text-align:left">Diversified conglomerate: O2C (refining/petchem), Digital &amp; Telecom (Jio), Retail, Media (JioStar), Oil &amp; Gas E&amp;P, New Energy</td></tr>
+<tr><td>Market Cap</td><td style="text-align:left">₹15,79,529 Cr</td></tr>
+<tr><td>Cap Tier</td><td style="text-align:left">Large Cap (largest listed Indian company by mcap)</td></tr>
+<tr><td>Face Value</td><td style="text-align:left">₹10.0</td></tr>
+<tr><td>Book Value</td><td style="text-align:left">₹668 (Net worth ₹9,04,030 Cr ÷ 1,353.2 Cr shares)</td></tr>
+<tr><td>52-Week High / Low</td><td style="text-align:left">₹1,612 / ₹1,161</td></tr>
+<tr><td>Incorporation</td><td style="text-align:left">08-May-1973 (as Mynylon Ltd; renamed Reliance Textile Industries 11-Mar-1977)</td></tr>
+<tr><td>Listing Date</td><td style="text-align:left">BSE: Nov 1977 IPO (oversubscribed 7×, ₹10 FV) · NSE: 1994 <span class="warn">†verify exact dates from exchange security master</span></td></tr>
+<tr><td>Index Membership</td><td style="text-align:left">Sensex, Nifty 50, BSE 100/200/500, Nifty 500, Nifty Oil &amp; Gas +40 more (Screener)</td></tr>
+<tr><td>Ratings</td><td style="text-align:left">CRISIL &amp; CARE AAA/Stable (₹67,000 Cr NCDs); A1+ on ₹34,500 Cr CP (Sep-2026); Moody's Baa1 / S&amp;P A− (FY26 upgrade)</td></tr>
+</table>
+</div>
+<div class="card">
+<h4>Ownership Snapshot (as on 30-Jun-2026, NSE/Screener SHP) <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Holding</th><th>%</th><th>QoQ Δ (pp)</th></tr>
+<tr><td>Promoter &amp; Promoter Group</td><td>50.48</td><td class="good">+0.48</td></tr>
+<tr><td>Promoter Pledge</td><td class="good">0.00</td><td>0.00</td></tr>
+<tr><td>FII / FPI</td><td>17.19</td><td class="bad">−1.48</td></tr>
+<tr><td>DII (incl. MF, insurance, banks)</td><td>21.10</td><td class="good">+0.64</td></tr>
+<tr><td>— of which Mutual Funds</td><td>~10.11 <span class="src">(VR Jun-26)</span></td><td class="good">+0.33</td></tr>
+<tr><td>— of which Insurance (LIC alone)</td><td>6.88 <span class="src">(VR Jun-26)</span></td><td class="good">+0.08</td></tr>
+<tr><td>Government</td><td>0.17</td><td>0.00</td></tr>
+<tr><td>Public / Retail &amp; Others</td><td>11.05</td><td class="bad">+0.35</td></tr>
+<tr><td>No. of Shareholders</td><td>46,51,863</td><td class="bad">+2,30,574</td></tr>
+</table>
+<p class="note"><b>Promoter detail:</b> 6,715,496,096 shares held by 47 promoter entities (up 7.00 Cr shares vs Mar-26). Value Research shows Reliance Industrial Investments &amp; Holdings (3.62%) and Reliance Services &amp; Holdings (2.58%) newly appearing under "Promoter" in Jun-26 — <span class="tag t-view">View</span> this is likely <b>intra-group reclassification</b>, not an open-market buy; confirm against the Jun-26 SHP. Promoter stake has stayed in a 50.00–50.48% band for 12 quarters: <b>no dilution, no pledge.</b></p>
+<p class="note"><b>Business architecture (AR 2025-26):</b> RIL holds 66.43% of Jio Platforms, 83.56% each of Reliance Retail Ventures &amp; Reliance Consumer Products, 59.59% of JioStar. Ambani family holds ~50% of the holding company.</p>
+</div>
+</div>
+
+</section>
+
+<section class="panel" id="tab2">
+<h2>2. Valuation Metrics</h2>
+<div class="viewbox"><div class="vh">Section 2 — The View (plain English)</div>
+<ul>
+<li class="imp">The core reason to look at Reliance today: at 21.1x earnings it trades about <b>20% below its own 5-year average P/E of ~26x</b>, and its forward multiple (18–19x) is the cheapest relative to its own average in years.<span class="important">IMPORTANT</span></li>
+<li class="imp">But it is <b>not</b> deep value: at 21.1x it still costs roughly double the oil &amp; gas sector (10.8x) — that premium is only justified if Jio and Retail keep growing and the market credits them at consumer-company multiples.<span class="important">IMPORTANT</span></li>
+<li>Every yardstick points the same way versus history: P/B 1.5x fwd vs 1.9x avg, EV/EBITDA 10x fwd vs 12x avg — the de-rating is broad-based, not a one-metric quirk.</li>
+<li>Growth-adjusted it is fair, not cheap: PEG of 1.7 says you pay ₹1.70 per point of profit growth (below 1 would be outright cheap).</li>
+<li>Street sum-of-parts targets of ₹1,537–1,700 imply +32–46% upside — but they were struck at a ₹1,327 price, so treat them as direction, not promise.</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Price-to-Earnings — what you pay for ₹1 of yearly profit. 21.1x means ₹21.10 per ₹1 of last-12-month profit; the sector average is ~10.8x."><div class="l">P/E (TTM)</div><div class="v">21.1x</div><div class="n">EPS TTM ₹55.22</div></div>
+  <div class="kpi" data-explain="Price-to-Book — share price vs accounting net worth per share. 1.75x means the market pays ₹1.75 for every ₹1 of book value (₹668/share)."><div class="l">P/B</div><div class="v">1.75x</div><div class="n">BV ₹668</div></div>
+  <div class="kpi" data-explain="Price-to-Sales — you pay ₹1.41 for every ₹1 of annual revenue. Useful when margins differ across companies; ignores profitability."><div class="l">P/S (TTM)</div><div class="v">1.41x</div><div class="n">Sales TTM ₹11.23 L Cr</div></div>
+  <div class="kpi" data-explain="Enterprise Value = market cap + net debt — roughly what it would cost to buy the entire business including repaying its loans. ₹17.04 lakh crore."><div class="l">Enterprise Value</div><div class="v">₹17.04 L Cr</div><div class="n">Mcap + net debt 1,24,717</div></div>
+  <div class="kpi" data-explain="EV to EBITDA — the price of the whole company per ₹1 of operating cash profit. 9.3x is below Reliance's own historical forward average of ~12x, i.e. cheaper than usual."><div class="l">EV/EBITDA</div><div class="v">9.3x</div><div class="n">TTM EBITDA ₹1,83,561</div></div>
+  <div class="kpi" data-explain="EV to Sales — whole-company price per ₹1 of sales (1.52x). A rough yardstick that ignores margins; mainly for cross-company comparison."><div class="l">EV/Sales</div><div class="v">1.52x</div><div class="n">TTM basis</div></div>
+  <div class="kpi" data-explain="PEG = P/E divided by profit growth rate. 1.7 means you pay 1.7x per point of yearly growth. Below 1 = cheap for growth; 1.7 = fairly priced, not a bargain on growth alone."><div class="l">PEG</div><div class="v">1.7x</div><div class="n">21.1 ÷ 12.2% 5Y PAT CAGR</div></div>
+  <div class="kpi" data-explain="Dividend Yield — yearly dividend ÷ price = 0.51%, about ₹6/year per ₹1,168 share. Low because Reliance reinvests most profits instead of paying them out."><div class="l">Dividend Yield</div><div class="v">0.51%</div><div class="n">Payout ~10% (3Y avg)</div></div>
+</div>
+
+<div class="grid2">
+<div class="card">
+<h4>Core valuation table <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>Value</th><th style="text-align:left">Basis / Formula</th></tr>
+<tr><td>Stock P/E</td><td>21.1x</td><td style="text-align:left">1,168 ÷ TTM EPS 55.22 (Screener)</td></tr>
+<tr><td>P/B</td><td>1.75x</td><td style="text-align:left">1,168 ÷ BV 668</td></tr>
+<tr><td>P/S</td><td>1.41x</td><td style="text-align:left">15,79,529 ÷ 11,23,055 (TTM)</td></tr>
+<tr><td>EV/EBITDA</td><td>9.3x</td><td style="text-align:left">(15,79,529 + 1,24,717) ÷ 1,83,561 <span class="src">[9.5x on FY26 EBITDA 1,79,065; 8.2x on company EBITDA ₹2,07,911 = OP + other income]</span></td></tr>
+<tr><td>EV/Sales</td><td>1.52x</td><td style="text-align:left">EV 17,04,246 ÷ TTM sales</td></tr>
+<tr><td>PEG</td><td>1.7x (5Y) / 2.4x (3Y)</td><td style="text-align:left">P/E ÷ PAT CAGR 12.2% / 8.9% <span class="src">[3.5x on broker FY26-28E PAT CAGR ~6%]</span></td></tr>
+<tr><td>Dividend Yield</td><td>0.51%</td><td style="text-align:left">Screener; 3Y payout 10.2% of profits</td></tr>
+<tr><td>Market Cap</td><td>₹15,79,529 Cr</td><td style="text-align:left">Screener, 01-Oct-2026</td></tr>
+</table>
+</div>
+<div class="card">
+<h4>Current vs Historical vs Sector <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Comparison</th><th>Current</th><th>Reference</th><th>Verdict</th></tr>
+<tr><td>P/E vs 5Y average P/E</td><td>21.1x</td><td>≈26x <span class="src">(est.: FY-end adj. prices ÷ FY EPS)</span></td><td><span class="pill p-g">~20% discount</span></td></tr>
+<tr><td>Forward P/E vs hist. forward avg</td><td>18–19x</td><td>21x fwd avg</td><td><span class="pill p-g">~12% discount (≈ −1SD)</span></td></tr>
+<tr><td>P/B vs historical fwd avg</td><td>1.5x fwd</td><td>1.9x fwd avg</td><td><span class="pill p-g">discount</span></td></tr>
+<tr><td>EV/EBITDA vs historical</td><td>10x fwd</td><td>12x fwd avg</td><td><span class="pill p-g">discount</span></td></tr>
+<tr><td>P/E vs Sector (Nifty O&amp;G 10.8x)</td><td>21.1x</td><td>10.8x</td><td><span class="pill p-y">+95% premium to sector</span></td></tr>
+<tr><td>P/B vs Sector (1.35x)</td><td>1.75x</td><td>1.35x</td><td><span class="pill p-y">+30% premium</span></td></tr>
+</table>
+<p class="note"><b>Sector context <span class="tag t-view">View</span>:</b> Nifty Oil &amp; Gas structurally trades ~10–11x (7Y median ~11.9x) on capital intensity, crude-driven earnings volatility and state-OMC weight. RIL's ~2x premium is <i>structural, not a bubble</i> — ~50% of EBITDA now comes from consumer businesses (Jio + Retail) that deserve consumer multiples, while cyclical peers (IOC 5.8x, BPCL 8.1x, ONGC 6.7x) deserve trough multiples. The correct tests: RIL vs <b>its own history</b> (discount) and vs <b>sum-of-parts</b> (street SOTP ₹1,537–1,700 ≈ 30% above CMP).</p>
+</div>
+</div>
+
+<div class="card">
+<h4>Peer &amp; Sector Valuation Table <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Stock (Nifty O&amp;G constituents)</th><th>P/E</th><th>P/B</th><th>Div Yield %</th><th style="text-align:left">Note</th></tr>
+<tr><td>Reliance Industries (CMP basis)</td><td class="warn">21.1</td><td>1.75</td><td>0.51</td><td style="text-align:left">Screener 01-Oct-26; integrated + consumer mix</td></tr>
+<tr><td>Indian Oil</td><td>5.8</td><td>0.9</td><td>6.0</td><td style="text-align:left">State OMC, cyclical trough earnings</td></tr>
+<tr><td>Bharat Petroleum</td><td>8.1</td><td>1.4</td><td>5.5</td><td style="text-align:left">State OMC</td></tr>
+<tr><td>Hindustan Petroleum</td><td>47.5</td><td>1.5</td><td>6.5</td><td style="text-align:left">Compressed marketing margins</td></tr>
+<tr><td>ONGC</td><td>6.7</td><td>0.8</td><td>5.8</td><td style="text-align:left">Upstream</td></tr>
+<tr><td>GAIL</td><td>11.6</td><td>1.2</td><td>2.9</td><td style="text-align:left">Gas transmission &amp; marketing</td></tr>
+<tr><td>Petronet LNG</td><td>10.4</td><td>1.9</td><td>3.4</td><td style="text-align:left">Regulated tolling</td></tr>
+<tr><td>Indraprastha Gas</td><td>15.3</td><td>1.8</td><td>3.2</td><td style="text-align:left">City gas distributor</td></tr>
+<tr><td>Mahanagar Gas</td><td>15.4</td><td>1.7</td><td>2.7</td><td style="text-align:left">City gas distributor</td></tr>
+<tr><td>Oil India</td><td>9.2</td><td>1.2</td><td>2.6</td><td style="text-align:left">Upstream</td></tr>
+<tr><td>Chennai Petroleum</td><td>4.9</td><td>1.7</td><td>4.5</td><td style="text-align:left">Refiner</td></tr>
+<tr><td><b>Nifty Oil &amp; Gas Index</b></td><td><b>10.8</b></td><td><b>1.35</b></td><td><b>1.80</b></td><td style="text-align:left">Screener index page</td></tr>
+</table></div>
+<p class="src">Peer P/B &amp; yields: Trendlyne constituent snapshot (~26-Aug-2026). Index P/E, P/B, yield: Screener (Nifty Oil &amp; Gas). RIL: Screener 01-Oct-2026. Screener's own RIL peer table loads via JavaScript and was not machine-readable, so sector constituents are used. Peer median P/E ex-RIL ≈ 9–11x.</p>
+</div>
+
+</section>
+
+<section class="panel" id="tab3">
+<h2>3. Growth Metrics</h2>
+<div class="viewbox"><div class="vh">Section 3 — The View (plain English)</div>
+<ul>
+<li class="imp">Use the 3-year numbers, not the 5-year ones: revenue has compounded just <b>6.4%/year</b> and profit <b>8.9%/year</b> over 3 years (the flashy 17.8% five-year rate is a COVID-low-base and oil-price artefact).<span class="important">IMPORTANT</span></li>
+<li class="imp">The earnings down-cycle appears to have ended: Q1 FY27 delivered a <b>record ₹47,517 Cr quarterly EBITDA (+10.7% YoY)</b> and underlying profit growth of +9.3% once you strip last year's one-time Asian Paints gain.<span class="important">IMPORTANT</span></li>
+<li>The headline TTM profit fall of −7.9% is a base effect, not deterioration — same quarter last year contained an ₹8,924 Cr one-time gain.</li>
+<li>Two engines are out of sync: Jio is compounding (revenue +11.8%, EBITDA +15.1%) while Retail is slowing (+7.4% revenue, EBITDA −1.1% as it spends on quick commerce).</li>
+<li>Growth quality verdict: moderate (score 5.5/10) — the group grows near GDP-plus rates; the excitement has to come from margins and the consumer businesses, not the top line.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Revenue &amp; Profit trajectory (Consolidated, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>FY</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026</th><th>TTM</th></tr>
+<tr><td>Sales</td><td>466,307</td><td>694,673</td><td>876,396</td><td>899,041</td><td>962,820</td><td>1,055,780</td><td>1,123,055</td></tr>
+<tr><td>Sales YoY %</td><td>—</td><td class="good">+49.0%</td><td class="good">+26.2%</td><td>+2.6%</td><td>+7.1%</td><td class="good">+9.7%</td><td>+6.4%</td></tr>
+<tr><td>Operating Profit (EBITDA*)</td><td>80,790</td><td>108,581</td><td>142,318</td><td>162,498</td><td>165,598</td><td>179,065</td><td>183,561</td></tr>
+<tr><td>OPM %</td><td>17%</td><td>16%</td><td>16%</td><td>18%</td><td>17%</td><td>17%</td><td>16%</td></tr>
+<tr><td>EBITDA (OP − Dep = EBIT)</td><td>54,218</td><td>78,799</td><td>102,015</td><td>111,666</td><td>112,462</td><td>121,377</td><td>124,615</td></tr>
+<tr><td>Net Profit</td><td>53,739</td><td>67,845</td><td>74,088</td><td>79,020</td><td>81,309</td><td>95,754</td><td>88,167</td></tr>
+<tr><td>Net Profit YoY %</td><td>—</td><td class="good">+26.3%</td><td>+9.2%</td><td>+6.7%</td><td>+2.9%</td><td class="good">+17.8%</td><td class="bad">−7.9%</td></tr>
+<tr><td>EPS (₹)</td><td>38.75</td><td>44.87</td><td>49.29</td><td>51.45</td><td>51.47</td><td>59.69</td><td>55.22</td></tr>
+<tr><td>EPS Growth %</td><td>—</td><td class="good">+15.8%</td><td>+9.9%</td><td>+3.2%</td><td>+0.0%</td><td class="good">+16.0%</td><td class="bad">−7.5%</td></tr>
+<tr><td>Dividend Payout %</td><td>9%</td><td>9%</td><td>9%</td><td>10%</td><td>11%</td><td>10%</td><td>—</td></tr>
+</table></div>
+<p class="src">*Screener "Operating Profit" = Sales − Expenses (expenses exclude depreciation) = EBITDA as defined by RIL/brokerages (Q1 FY27 EBITDA ₹47,517 Cr matches exactly). EBIT = OP − Depreciation.</p>
+</div>
+<div class="card">
+<h4>CAGR Scorecard <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>YoY FY26</th><th>CAGR 3Y</th><th>CAGR 5Y</th><th>CAGR 10Y</th></tr>
+<tr><td>Revenue</td><td class="good">+9.7%</td><td class="warn">6.4%</td><td class="good">17.8%</td><td class="good">14.5%</td></tr>
+<tr><td>Net Profit</td><td class="good">+17.8%</td><td class="warn">8.9%</td><td class="good">12.2%</td><td class="good">12.4%</td></tr>
+<tr><td>EPS</td><td class="good">+16.0%</td><td class="warn">6.6%</td><td>9.0%</td><td>10.2%</td></tr>
+<tr><td>EBITDA (Screener OP)</td><td class="good">+8.1%</td><td class="warn">8.0%</td><td class="good">17.3%</td><td class="good">15.7%</td></tr>
+<tr><td>EBIT</td><td class="good">+7.9%</td><td class="warn">5.9%</td><td class="good">17.5%</td><td>—</td></tr>
+</table>
+<h4>Screener published growth block <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Series</th><th>10Y</th><th>5Y</th><th>3Y</th><th>TTM / 1Y</th></tr>
+<tr><td>Compounded Sales Growth</td><td>15%</td><td>18%</td><td>6%</td><td>15%</td></tr>
+<tr><td>Compounded Profit Growth</td><td>10%</td><td>12%</td><td>5%</td><td>0%</td></tr>
+<tr><td>Stock Price CAGR</td><td>17%</td><td>0%</td><td>0%</td><td class="bad">−15%</td></tr>
+<tr><td>Return on Equity</td><td>9%</td><td>9%</td><td>9%</td><td>9%</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> <b>Growth diagnosis:</b> (i) 5Y revenue CAGR 17.8% flatters a COVID-low base + crude pass-through; the honest current-phase numbers are <b>3Y revenue CAGR 6.4% and 3Y PAT CAGR 8.9%</b>. (ii) FY26 PAT +17.8% is flattered by higher other income (₹28,846 Cr vs ₹17,824 Cr) — underlying EBITDA grew only +8.1%. (iii) TTM profit −7.9% is entirely a base effect: Q1 FY25 contained the ₹8,924 Cr Asian Paints stake-sale gain; adjusted, Q1 FY27 PBT ex-other-income grew +9.3% YoY — <b>the earnings downgrade cycle has likely ended</b>. (iv) Operating leverage remains the swing factor: OPM slipped from 18% (FY24) to 17% (FY26) and 15.4% in Q1 FY27.</p>
+</div>
+</div>
+
+<div class="card">
+<h4>Quarterly Results — last 13 quarters (Screener, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Line</th><th>Jun'23</th><th>Sep'23</th><th>Dec'23</th><th>Mar'24</th><th>Jun'24</th><th>Sep'24</th><th>Dec'24</th><th>Mar'25</th><th>Jun'25</th><th>Sep'25</th><th>Dec'25</th><th>Mar'26</th><th>Jun'26</th></tr>
+<tr><td>Sales</td><td>207,559</td><td>231,886</td><td>225,086</td><td>236,533</td><td>231,784</td><td>231,535</td><td>239,986</td><td>261,388</td><td>243,632</td><td>254,623</td><td>264,905</td><td>294,059</td><td class="good">309,468</td></tr>
+<tr><td>Operating Profit</td><td>38,093</td><td>40,968</td><td>40,656</td><td>42,516</td><td>38,765</td><td>39,058</td><td>43,789</td><td>43,832</td><td>42,905</td><td>45,885</td><td>46,018</td><td>44,141</td><td class="good">47,517</td></tr>
+<tr><td>OPM %</td><td>18%</td><td>18%</td><td>18%</td><td>18%</td><td>17%</td><td>17%</td><td>18%</td><td>17%</td><td>18%</td><td>18%</td><td>17%</td><td class="warn">15%</td><td class="warn">15%</td></tr>
+<tr><td>Other Income</td><td>3,813</td><td>3,841</td><td>3,869</td><td>4,534</td><td>3,983</td><td>4,876</td><td>4,214</td><td>4,905</td><td>15,119</td><td>4,482</td><td>4,914</td><td>4,447</td><td>6,550</td></tr>
+<tr><td>Interest</td><td>5,837</td><td>5,731</td><td>5,789</td><td>5,761</td><td>5,918</td><td>6,017</td><td>6,179</td><td>6,155</td><td>7,036</td><td>6,827</td><td>6,613</td><td>6,585</td><td>8,337</td></tr>
+<tr><td>Depreciation</td><td>11,775</td><td>12,585</td><td>12,903</td><td>13,569</td><td>13,596</td><td>12,880</td><td>13,181</td><td>13,479</td><td>13,842</td><td>14,416</td><td>14,622</td><td>14,808</td><td>15,100</td></tr>
+<tr><td>Net Profit</td><td>18,258</td><td>19,878</td><td>19,641</td><td>21,243</td><td>17,445</td><td>19,323</td><td>21,930</td><td>22,611</td><td class="warn">30,783*</td><td>22,092</td><td>22,290</td><td>20,589</td><td class="good">23,196</td></tr>
+<tr><td>EPS (₹)</td><td>11.83</td><td>12.85</td><td>12.76</td><td>14.01</td><td>11.19</td><td>12.24</td><td>13.70</td><td>14.34</td><td>19.95</td><td>13.42</td><td>13.78</td><td>12.54</td><td class="good">15.48</td></tr>
+</table></div>
+<p class="note">*Jun'25 NP includes ₹8,924 Cr gain on sale of Asian Paints shares (other income ₹15,119 Cr). Reported PAT attributable to owners in Q1 FY27 = ₹20,946 Cr (−22.4% YoY against that inflated base); Screener's ₹23,196 Cr is consolidated profit including minority interests (management quoted "≈₹23,200 Cr, up 6%" adjusted). <span class="tag t-calc">Calc</span> Q1 FY27: Sales +27.0% YoY / +5.2% QoQ; EBITDA ₹47,517 Cr (record, +10.7% YoY); OPM 15.4%; PBT ex-other-income +9.3% YoY.</p>
+</div>
+
+<div class="card">
+<h4>Q1 FY27 Segment Scorecard (Jun-2026 quarter) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Segment</th><th>Revenue ₹ Cr</th><th>YoY</th><th>EBITDA ₹ Cr</th><th>YoY</th><th>Margin</th><th style="text-align:left">KPIs</th></tr>
+<tr><td>Jio (Digital Services)</td><td>39,173</td><td class="good">+11.8%</td><td>20,865</td><td class="good">+15.1%</td><td class="good">53.3% (+150 bps)</td><td style="text-align:left">533.3 mn subs (+8.9 mn QoQ); ARPU ₹215.6; 285 mn 5G users</td></tr>
+<tr><td>Reliance Retail (RRVL)</td><td>90,408 gross</td><td class="warn">+7.4% (+11.6% adj.)</td><td>6,309</td><td class="bad">−1.1%</td><td class="bad">7.9% (−80 bps)</td><td style="text-align:left">20,169 stores; 396 mn customers; 568 mn transactions (+46%); digital orders +116% YoY</td></tr>
+<tr><td>O2C</td><td>—</td><td>—</td><td>strong</td><td class="good">+48% standalone</td><td>—</td><td style="text-align:left">Better transport-fuel cracks &amp; petchem margins; crude basket optimisation</td></tr>
+<tr><td><b>Consolidated</b></td><td><b>309,468</b></td><td class="good"><b>+27.0%</b></td><td><b>47,517</b></td><td class="good"><b>+10.7%</b></td><td>15.4%</td><td style="text-align:left">Record quarterly EBITDA; consumer businesses ≈50% of group mix</td></tr>
+</table></div>
+<p class="src">Source: RIL Q1 FY27 media release &amp; concall transcript (17-Jul-2026); brokerage reviews (BOBCAPS, PL Capital) and business press. Retail EBITDA missed street estimates; Jio was in line.</p>
+</div>
+
+</section>
+
+<section class="panel" id="tab4">
+<h2>4. Profitability &amp; Efficiency</h2>
+<div class="viewbox"><div class="vh">Section 4 — The View (plain English)</div>
+<ul>
+<li class="imp">The weakest section of the report (5.0/10): Reliance earns <b>ROE 8.9% and ROCE 10.3%</b> — barely above what shareholders' money could earn elsewhere, and flat for a decade. A great compounder earns 15%+.<span class="important">IMPORTANT</span></li>
+<li class="imp">The green-light pattern (revenue rising + margins rising + returns rising together) has <b>not</b> appeared: margins slipped from 18% (FY24) to 17% (FY26) and 15.4% in Q1 FY27.<span class="important">IMPORTANT</span></li>
+<li>Reasons are structural, not cosmetic: huge refining/spectrum/capex assets in the denominator, plus heavy current investment in New Energy and 5G that earns nothing yet.</li>
+<li>Small yellow flag: cash conversion cycle worsened from −8 days to +25 days — customers are taking longer to pay (debtor days up from 12 to 20), though suppliers still largely fund working capital (−66 days).</li>
+<li>What would upgrade this section: two consecutive quarters of margin expansion plus ROE moving toward 9.5–10%. Until then, cap the valuation multiple you are willing to pay.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Return stack <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Metric</th><th>Value</th><th style="text-align:left">Assessment</th></tr>
+<tr><td>ROE (latest / 3Y avg)</td><td class="warn">8.91% / 8.77%</td><td style="text-align:left">Below cost of equity — Screener's own cons flags this</td></tr>
+<tr><td>ROCE</td><td class="warn">10.3%</td><td style="text-align:left">FY26 10%; 10-year band 8–12%</td></tr>
+<tr><td>ROA (FY26 PAT ÷ total assets)</td><td>4.4%</td><td style="text-align:left">95,754 ÷ 21,77,546 (TTM 4.05%)</td></tr>
+<tr><td>Gross Margin</td><td>N/A</td><td style="text-align:left">Not published in Screener P&amp;L (no segment COGS split)</td></tr>
+<tr><td>EBITDA Margin (OPM)</td><td>17.0%</td><td style="text-align:left">FY26 17.0% vs FY25 17.2% vs FY24 18.1%</td></tr>
+<tr><td>EBIT Margin</td><td>11.5%</td><td style="text-align:left">(1,79,065 − 57,688) ÷ 10,55,780</td></tr>
+<tr><td>Net Profit Margin</td><td>9.1%</td><td style="text-align:left">FY26; TTM 7.85%</td></tr>
+<tr><td>Asset Turnover</td><td>0.48x</td><td style="text-align:left">Sales ÷ total assets — capital-heavy (refineries, spectrum, CWIP)</td></tr>
+<tr><td>Capital Turnover</td><td>1.17x</td><td style="text-align:left">Sales ÷ net worth 9,04,030</td></tr>
+<tr><td>ROE trend (Screener)</td><td>10Y 9% · 5Y 9% · 3Y 9% · LY 9%</td><td style="text-align:left">Remarkably flat — no improvement in compounding quality</td></tr>
+</table>
+</div>
+<div class="card">
+<h4>Efficiency ratios (Screener) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Ratio</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Debtor Days</td><td>15</td><td>12</td><td>12</td><td>13</td><td>16</td><td class="warn">20</td></tr>
+<tr><td>Inventory Days</td><td>102</td><td>83</td><td>87</td><td>95</td><td>85</td><td>88</td></tr>
+<tr><td>Days Payable</td><td>136</td><td>123</td><td>91</td><td>111</td><td>108</td><td>84</td></tr>
+<tr><td>Cash Conversion Cycle</td><td>−19</td><td>−27</td><td>7</td><td>−3</td><td>−8</td><td class="bad">25</td></tr>
+<tr><td>Working Capital Days</td><td>−58</td><td>−56</td><td>−66</td><td>−53</td><td>−68</td><td>−66</td></tr>
+<tr><td>ROCE %</td><td>8</td><td>8</td><td>9</td><td>10</td><td>10</td><td>10</td></tr>
+</table></div>
+<p class="note"><span class="tag t-view">View</span> <b>Signature test — Revenue↑ + EBITDA margin flat + ROCE flat:</b> FY26 delivered Revenue +9.7%, margin 17.0% (−20 bps), ROCE 10% (unchanged). This says <b>scale is growing but returns on incremental capital are not improving</b> — typical of a group still investing heavily (New Energy, data centres, retail dark stores, Jio 5G). Watch item: CCC turned +25 days (vs −8 FY25) on stretched receivables (debtor days 20 vs 12 three years ago); working-capital days remain deeply negative (−66), so the cycle overall stays supplier-financed. <span class="tag t-calc">Calc</span> The Indian compounder quality bar (ROCE &gt;15% + expanding margins) is <b>not</b> met; the "Revenue↑ + Margin↑ + ROCE↑" green-light pattern has <i>not</i> yet appeared.</p>
+</div>
+</div>
+
+</section>
+
+<section class="panel" id="tab5">
+<h2>5. Balance Sheet / Financial Strength</h2>
+<div class="viewbox"><div class="vh">Section 5 — The View (plain English)</div>
+<ul>
+<li class="imp">The best section of the report (8.5/10): after one year of profits you could repay all net debt <b>0.6 times over</b>, interest is covered 6.6×, and the group holds ₹2.43 lakh crore of cash and investments.<span class="important">IMPORTANT</span></li>
+<li class="imp">The debt-cycling pattern is complete: construction-in-progress (money locked in unfinished factories/plants) has fallen two years running — ₹3.39 lakh cr → ₹2.38 lakh cr — meaning the big capex wave is over and deleveraging + buyback/dividend capacity is next.<span class="important">IMPORTANT</span></li>
+<li>Balance sheet has funded its own growth: working capital is negative (−66 days) — suppliers and subscribers effectively lend to the business.</li>
+<li>Domestic ratings are the highest possible (AAA/Stable, A1+); global ratings are investment grade (Moody's Baa1, S&amp;P A−) and were upgraded in FY26.</li>
+<li>Verify before quoting: contingent liabilities are quoted two ways (₹12,649 Cr vs ₹78,282 Cr including disputed tax demands) — see the flag in Appendix B.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Key strength metrics (as at 31-Mar-2026) <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>Value</th><th style="text-align:left">Basis</th></tr>
+<tr><td>Total Assets</td><td>₹21,77,546 Cr</td><td style="text-align:left">Screener (AR: ₹21,78,140 Cr)</td></tr>
+<tr><td>Total Debt (gross)</td><td>₹3,74,421 Cr</td><td style="text-align:left">Company FY26 release (Screener borrowings row ₹4,02,962 Cr incl. leases/other financing)</td></tr>
+<tr><td>Cash &amp; Equivalents</td><td>₹1,45,977 Cr</td><td style="text-align:left">Consolidated BS + current investments ₹97,431 Cr = ₹2,43,408 Cr liquid</td></tr>
+<tr><td>Net Debt</td><td class="good">₹1,24,717 Cr</td><td style="text-align:left">Company (US$13.2 bn); ~₹1.23 L Cr at Jun-26 per management</td></tr>
+<tr><td>Net Worth</td><td>₹9,04,030 Cr</td><td style="text-align:left">Equity 13,532 + Reserves 8,90,498</td></tr>
+<tr><td>Book Value / share</td><td>₹668</td><td style="text-align:left">9,04,030 ÷ 1,353.2 Cr shares</td></tr>
+<tr><td>Debt / Equity</td><td class="good">0.41x</td><td style="text-align:left">3,74,421 ÷ 9,04,030 (Screener basis 0.45x)</td></tr>
+<tr><td>Net Debt / EBITDA</td><td class="good">0.60x co. / 0.70x Screener basis</td><td style="text-align:left">1,24,717 ÷ 2,07,911 (co. EBITDA) / ÷ 1,79,065 (OP)</td></tr>
+<tr><td>Interest Coverage</td><td class="good">6.6x / 4.5x</td><td style="text-align:left">EBITDA ÷ interest 1,79,065 ÷ 27,061; EBIT ÷ interest 1,21,377 ÷ 27,061</td></tr>
+<tr><td>Current Ratio</td><td>1.10</td><td style="text-align:left">5,94,249 ÷ 5,41,254</td></tr>
+<tr><td>Quick Ratio</td><td>0.79</td><td style="text-align:left">(CA − inventory) ÷ CL = 4,27,308 ÷ 5,41,254</td></tr>
+<tr><td>Working Capital</td><td class="good">−66 days</td><td style="text-align:left">Negative WC = operations self-fund working capital</td></tr>
+<tr><td>Contingent Liabilities</td><td class="warn">₹12,649 Cr (1.4% of net worth)</td><td style="text-align:left">AR 2025-26 consolidated: claims ₹5,532 Cr + guarantees ₹7,117 Cr. <span class="warn">†A separate compilation cites ₹78,282 Cr including disputed tax/duty demands — VERIFY against the AR note before use.</span></td></tr>
+<tr><td>Ratings</td><td class="good">AAA/Stable, A1+; Baa1 / A−</td><td style="text-align:left">CRISIL &amp; CARE (Sep-2026); Moody's &amp; S&amp;P (FY26 upgrade)</td></tr>
+</table>
+</div>
+<div class="card">
+<h4>Balance sheet trajectory (Screener, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Line</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Equity Capital</td><td>6,445</td><td>6,765</td><td>6,766</td><td>6,766</td><td>13,532</td><td>13,532</td></tr>
+<tr><td>Reserves</td><td>693,727</td><td>772,720</td><td>709,106</td><td>786,715</td><td>829,668</td><td>890,498</td></tr>
+<tr><td>Borrowings</td><td>278,962</td><td>319,158</td><td>451,664</td><td>350,719</td><td>374,313</td><td>402,962</td></tr>
+<tr><td>Other Liabilities</td><td>340,931</td><td>399,979</td><td>438,346</td><td>610,848</td><td>732,200</td><td>870,554</td></tr>
+<tr><td>Total Liabilities</td><td>1,320,065</td><td>1,498,622</td><td>1,605,882</td><td>1,755,048</td><td>1,949,713</td><td>2,177,546</td></tr>
+<tr><td>Fixed Assets</td><td>541,258</td><td>627,798</td><td>724,805</td><td>779,985</td><td>999,393</td><td>1,124,795</td></tr>
+<tr><td>CWIP</td><td>125,953</td><td>172,506</td><td>293,752</td><td>338,855</td><td>262,358</td><td class="good">237,686</td></tr>
+<tr><td>Investments</td><td>364,828</td><td>394,264</td><td>235,560</td><td>225,672</td><td>242,381</td><td>248,332</td></tr>
+<tr><td>Total Assets</td><td>1,320,065</td><td>1,498,622</td><td>1,605,882</td><td>1,755,048</td><td>1,949,713</td><td>2,177,546</td></tr>
+</table></div>
+<p class="note"><span class="tag t-view">View</span> <b>Strengths:</b> leverage contained (gross debt/EBITDA ~2.1x, net 0.6–0.7x), net debt actually fell from ₹1,17,102 Cr (Mar-25 company basis) — wait, company basis Mar-25 was ₹1,17,083 Cr and Mar-26 ₹1,24,717 Cr (+6.5%) while EBITDA grew, so leverage ratio was flat at 0.60x. Liquid assets ₹2.43 L Cr exceed short-term borrowings. CWIP declining for two years (3,38,855 → 2,37,686) = <b>capex cycle rolling over</b>, a leading indicator for FCF inflection. <b>Watch:</b> Other liabilities ballooned to ₹8,70,554 Cr (deferred revenue from subscriber advances, lease &amp; other obligations) — not debt, but it inflates the balance sheet; contingent liabilities need verification (see flag).</p>
+</div>
+</div>
+
+</section>
+
+<section class="panel" id="tab6">
+<h2>6. Cash Flow Metrics</h2>
+<div class="viewbox"><div class="vh">Section 6 — The View (plain English)</div>
+<ul>
+<li class="imp">Cash test passed comfortably: the company booked ₹95,754 Cr of profit but actually generated <b>₹1,92,113 Cr of cash (2.0× profit)</b> — earnings are fully backed by real money, with depreciation explaining the gap.<span class="important">IMPORTANT</span></li>
+<li class="imp">Direction of travel is excellent: free cash flow has risen three straight years (₹41,079 → ₹70,023 Cr) while financing cash flow is strongly negative (−₹51,549 Cr) — the group is repaying debt while funding capex from operations.<span class="important">IMPORTANT</span></li>
+<li>Cash conversion is textbook: ₹107 of cash per ₹100 of EBITDA — nothing unusual hidden in the accounts.</li>
+<li>Watch item: capex is still ₹1.44 lakh crore (13.7% of sales). The FCF story only keeps improving if this tapers as guided (~₹1.3 lakh cr/yr).</li>
+<li>Plain-English translation: this is what a "post-peak-capex" company looks like — cash starts piling up before the market re-rates the stock.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Cash flow statement (Screener, ₹ Cr) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Line</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Operating Cash Flow (CFO)</td><td>26,958</td><td>110,654</td><td>115,032</td><td>158,788</td><td>178,703</td><td class="good">192,113</td></tr>
+<tr><td>Investing Cash Flow</td><td>−142,385</td><td>−109,162</td><td>−93,001</td><td>−113,581</td><td>−137,535</td><td>−101,089</td></tr>
+<tr><td>Financing Cash Flow</td><td>101,904</td><td>17,289</td><td>10,455</td><td>−16,646</td><td>−31,891</td><td class="good">−51,549</td></tr>
+<tr><td>Net Cash Flow</td><td>−13,523</td><td>18,781</td><td>32,486</td><td>28,561</td><td>9,277</td><td class="good">39,475</td></tr>
+<tr><td>Free Cash Flow (Screener)</td><td>−76,560</td><td>13,646</td><td>−16,770</td><td>21,212</td><td>41,079</td><td class="good">70,023</td></tr>
+<tr><td>CFO / OP (Screener)</td><td>37%</td><td>105%</td><td>85%</td><td>105%</td><td>115%</td><td>113%</td></tr>
+</table></div>
+</div>
+<div class="card">
+<h4>Cash conversion diagnostics <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Metric</th><th>FY26</th><th style="text-align:left">Interpretation</th></tr>
+<tr><td>CFO / PAT</td><td class="good">2.0x</td><td style="text-align:left">1,92,113 ÷ 95,754 — very healthy; large depreciation (57,688) + working-capital funding</td></tr>
+<tr><td>FCF / PAT</td><td class="good">73%</td><td style="text-align:left">70,023 ÷ 95,754 (Screener FCF basis)</td></tr>
+<tr><td>FCF / PAT (co. capex basis)</td><td>50%</td><td style="text-align:left">(1,92,113 − 1,44,271) ÷ 95,754</td></tr>
+<tr><td>Cash Conversion (CFO/EBITDA)</td><td class="good">107%</td><td style="text-align:left">1,92,113 ÷ 1,79,065 — cash profit fully converted</td></tr>
+<tr><td>Capex (FY26, company)</td><td>₹1,44,271 Cr</td><td style="text-align:left">Q4 FY26 media release (FY25: ₹1,31,107 Cr)</td></tr>
+<tr><td>Capex / Revenue</td><td class="warn">13.7%</td><td style="text-align:left">Still elevated; broker model ~₹1.3 L Cr p.a. over FY26-28E</td></tr>
+<tr><td>FCF (co. capex basis)</td><td class="good">₹47,842 Cr</td><td style="text-align:left">Positive for 3rd straight year after COVID-era burn</td></tr>
+<tr><td>Financing outflow</td><td>−51,549</td><td style="text-align:left">Debt repayment + rising dividends (₹7,443 Cr) — deleveraging &amp; shareholder returns</td></tr>
+</table>
+<p class="note"><span class="tag t-view">View</span> <b>CFO vs PAT check (the user's stated test):</b> PAT ₹95,754 Cr vs CFO ₹1,92,113 Cr → ratio ~2.0x, i.e. <b>earnings are fully backed by cash</b>; no red flag of PAT ≫ CFO. The gap is explained by depreciation/amortisation (₹57,688 Cr), which is a non-cash charge on a capex-heavy asset base — economically, cash profit ≈ EBITDA − cash tax − working capital. Direction of travel: CFO up 4 consecutive years (1,58,788 → 1,78,703 → 1,92,113), FCF positive and rising (41,079 → 70,023), financing cash flow increasingly negative (net repayment) — <b>a textbook "post-peak-capex" cash-flow signature</b>. Risk to monitor: sustaining ₹1.3–1.4 L Cr annual capex while Jio tariff hikes and Retail monetisation fund growth.</p>
+</div>
+</div>
+
+</section>
+
+<section class="panel" id="tab7">
+<h2>7. Shareholding &amp; Ownership (quarterly)</h2>
+<div class="viewbox"><div class="vh">Section 7 — The View (plain English)</div>
+<ul>
+<li class="imp">The clearest flow signal in the report: over 3 years foreigners sold <b>−541 bps</b> and Indian institutions bought <b>+511 bps</b> — a mirror-image transfer at roughly ₹1,100–1,600 prices.<span class="important">IMPORTANT</span></li>
+<li class="imp">Practical implication: as long as the FII line keeps falling, the multiple is capped; <b>one quarter of FII buying would be the single strongest confirmation</b> that the re-rating has begun — track this line every quarter.<span class="important">IMPORTANT</span></li>
+<li>Domestic institutions now own more than foreign ones (DII 21.1% vs FII 17.2%, ratio 0.81 vs 1.41 three years ago) — ownership has "Indianised".</li>
+<li>Promoter behaviour is exemplary: ~50% stake, 0% pledge; the +0.48 pp bump in Jun-26 is likely an internal transfer between group entities, not a market purchase.</li>
+<li>Caution: retail shareholder count hit 46.5 lakh (record territory) while FIIs exit — historically, retail crowds arrive late; don't confuse their numbers with smart money.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Quarterly shareholding trend, Sep-2023 → Jun-2026 (%) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Class</th><th>Sep'23</th><th>Dec'23</th><th>Mar'24</th><th>Jun'24</th><th>Sep'24</th><th>Dec'24</th><th>Mar'25</th><th>Jun'25</th><th>Sep'25</th><th>Dec'25</th><th>Mar'26</th><th>Jun'26</th></tr>
+<tr><td>Promoters</td><td>50.27</td><td>50.30</td><td>50.31</td><td>50.33</td><td>50.24</td><td>50.13</td><td>50.10</td><td>50.07</td><td>50.01</td><td>50.00</td><td>50.00</td><td class="good">50.48</td></tr>
+<tr><td>FIIs</td><td>22.60</td><td>22.13</td><td>22.06</td><td>21.75</td><td>21.30</td><td>19.16</td><td>19.07</td><td>19.21</td><td>18.65</td><td>19.09</td><td>18.67</td><td class="bad">17.19</td></tr>
+<tr><td>DIIs</td><td>15.99</td><td>16.59</td><td>16.98</td><td>17.30</td><td>17.61</td><td>19.02</td><td>19.36</td><td>19.72</td><td>20.25</td><td>20.10</td><td>20.46</td><td class="good">21.10</td></tr>
+<tr><td>Government</td><td>0.17</td><td>0.18</td><td>0.19</td><td>0.19</td><td>0.19</td><td>0.18</td><td>0.17</td><td>0.17</td><td>0.17</td><td>0.17</td><td>0.17</td><td>0.17</td></tr>
+<tr><td>Public</td><td>10.98</td><td>10.80</td><td>10.46</td><td>10.43</td><td>10.67</td><td>11.52</td><td>11.29</td><td>10.84</td><td>10.92</td><td>10.64</td><td>10.70</td><td>11.05</td></tr>
+<tr><td>No. of Shareholders (Cr/L)</td><td>36.99L</td><td>36.14L</td><td>34.63L</td><td>34.93L</td><td>38.35L</td><td>47.15L</td><td>47.66L</td><td>44.36L</td><td>43.94L</td><td>42.06L</td><td>44.21L</td><td class="warn">46.52L</td></tr>
+</table></div>
+<h4>Yearly view (%) <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Class</th><th>Mar'17</th><th>Mar'19</th><th>Mar'21</th><th>Mar'23</th><th>Mar'24</th><th>Mar'25</th><th>Mar'26</th><th>Jun'26</th></tr>
+<tr><td>Promoters</td><td>46.32</td><td>47.27</td><td>50.58</td><td>50.41</td><td>50.31</td><td>50.10</td><td>50.00</td><td>50.48</td></tr>
+<tr><td>FIIs</td><td>22.58</td><td>24.39</td><td>25.66</td><td>22.49</td><td>22.06</td><td>19.07</td><td>18.67</td><td>17.19</td></tr>
+<tr><td>DIIs</td><td>11.85</td><td>11.86</td><td>12.62</td><td>16.06</td><td>16.98</td><td>19.36</td><td>20.46</td><td>21.10</td></tr>
+<tr><td>Public</td><td>19.12</td><td>16.29</td><td>10.94</td><td>10.89</td><td>10.46</td><td>11.29</td><td>10.70</td><td>11.05</td></tr>
+</table></div>
+<p class="note"><span class="tag t-calc">Calc</span> <b>Derived metrics (Jun-2026):</b> Promoter + DII = <b>71.58%</b> (stable domestic control block) · Promoter + DII + Govt = 71.75% · free float ≈ 49.5% · FII : DII ratio = <b>0.81</b> vs 1.41 in Sep-2023 (a structural flip — domestic institutions now out-own foreign ones) · FII holding −541 bps over 12 quarters, DII +511 bps over the same window (mirror-image transfer) · Promoter pledge = 0% · Promoter QoQ change +0.48 pp (+7.00 Cr shares) · Shareholder count +2.30 L QoQ and +9.5 L vs Sep-2023 (retail base expanding while FIIs exit).</p>
+<p class="note"><span class="tag t-view">View</span> <b>Interpretation:</b> The ownership flow is the single most useful derived signal here. FIIs have been steady sellers for three years (global energy-exposure trimming + India portfolio rotation), and DIIs have absorbed every block — a sign of domestic institutional confidence at these prices, but also the reason the stock has de-rated (foreign selling caps multiples). Promoter behaviour is exemplary: constant ~50% with zero pledge. A <b>rising FII line in any future quarter would be a high-signal confirmation</b> of the re-rating thesis; track this every quarter in the journal. Retail shareholder growth (46.5 L, an all-time high territory) is a contrarian caution flag — crowds tend to enter late.</p>
+</div>
+
+</section>
+
+<section class="panel" id="tab8">
+<h2>8. Management Commentary &amp; Recent Developments (Q1 FY27, Jul–Oct 2026)</h2>
+<div class="viewbox"><div class="vh">Section 8 — The View (plain English)</div>
+<ul>
+<li class="imp">Management sounded confident, not defensive: record ₹47,517 Cr quarterly EBITDA, consumer businesses back to ~50% of group profits, and cash flows "really funding the overall capex".<span class="important">IMPORTANT</span></li>
+<li class="imp">The two promises worth testing every quarter: Retail's target to <b>double operating EBITDA in three years</b> (it fell 1.1% in Q1 — promise vs reality gap), and Jio's tariff hikes from Q3 FY27 (broker model assumes ₹15+ ARPU jump).<span class="important">IMPORTANT</span></li>
+<li>Bad news was framed as deliberate: Retail's 7.9% margin dip is "a conscious play" to invest in dark stores/digital commerce — credible only if margins recover by FY28–29.</li>
+<li>Balance-sheet signals stay positive: net debt ~₹1.23 lakh cr falling, ratings upgraded (Moody's Baa1), fresh ₹13,008 Cr debentures issued at just 7.90% on 01-Oct-2026.</li>
+<li>Broker targets ₹1,537–1,700 (+32–46% from current price) — but re-check them; they were set when the stock was ₹1,327.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>From the Q1 FY27 concall (17-Jul-2026) <span class="tag t-mgmt">Mgmt</span></h4>
+<ul>
+<li><b>CFO Sh. Srikanth:</b> "Topline up 25% primarily on oil prices… overall EBITDA more than ₹54,000 Cr, up 10% [company definition incl. other income]… net profit at almost ₹23,200 Cr, up 6% [adjusted]… O2C up 17%, JPL 15%… consumer businesses back to ~50% of the overall mix… cash flows continue to be strong, really funding the overall capex."</li>
+<li><b>Jio (Sh. Anshuman):</b> 533 mn connectivity subscribers (+35.2 mn YoY), 285 mn 5G users, fixed-broadband 28.6 mn connects (14 mn AirFiber); revenue ₹39,173 Cr +11.8%, EBITDA ₹20,865 Cr +15.1%, margin 53.3% (+150 bps); data traffic 69.4 exabytes +27% YoY.</li>
+<li><b>Retail (Sh. Dinesh Taluja):</b> Gross revenue ₹90,408 Cr (+7.4%, +11.6% adjusting for the 1-Dec-2025 RCPL demerger); EBITDA ₹6,309 Cr, margin 7.9% — "<i>a conscious play</i>" to invest in digital commerce/hyperlocal dark stores; grocery digital orders +116% YoY; ~400 mn loyalty customers; management targets <b>doubling operating EBITDA over three years</b> (scale in FY27, monetise FY28-29).</li>
+<li><b>Balance sheet:</b> Net debt ≈₹1.23 L Cr (down vs Mar-26 print of ₹1,24,717 Cr), quarterly capex ~₹39,000 Cr, Moody's upgraded to Baa1 with S&amp;P at A−.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Announcements &amp; ratings (Aug–Oct 2026) <span class="tag t-fact">Fact</span></h4>
+<ul>
+<li><b>14-Oct-2026:</b> <b>Jio Platforms Ltd (JPL) filed its red-herring prospectus for an IPO</b> — price band <b>₹1,065–1,119</b>, issue opens <b>21-Oct-2026</b>, with a reservation for eligible RIL shareholders. This is the group's consumer-segment value unlock finally going to market; how JPL lists against the band is the single most relevant event for this holding in Q3 FY27.</li>
+<li><b>01-Oct-2026:</b> Allotted ₹13,008.6 Cr unsecured NCDs at <b>7.90% coupon</b>, maturing 1-Oct-2036 — refinancing at 7.9% signals continued strong debt access.</li>
+<li><b>25-Sep-2026:</b> CARE &amp; CRISIL assigned <b>AAA/Stable</b> to ₹67,000 Cr debentures; CARE A1+ reaffirmed on ₹34,500 Cr CP.</li>
+<li><b>23–24 Sep-2026:</b> Management at CITIC CLSA Investors' Forum and BofA Asia Pacific Conference (Hong Kong) — active institutional coverage continues.</li>
+<li><b>30-Sep-2026:</b> Trading window closed from 01-Oct until 48 hours after Q2 FY2026-27 results → <b>Q2 FY27 still not published as of the 20-Oct-2026 run</b> (Screener shows no Q2 row) → <span class="warn">VERIFY</span> the actual date on BSE/NSE.</li>
+<li><b>Sep-2026:</b> CRISIL/CARE rating updates published (09, 25, 28, 30-Sep) — all stable.</li>
+<li><b>Concall transcripts:</b> Jul-2026, Apr-2026, Jan-2026 available on BSE (Screener documents section).</li>
+</ul>
+</div>
+</div>
+<div class="card">
+<h4>Street view after Q1 FY27 <span class="tag t-fact">Fact</span> <span class="tag t-view">View</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Broker (Jul-2026)</th><th>Rating</th><th>Target (₹)</th><th style="text-align:left">Key basis</th></tr>
+<tr><td>BOBCAPS</td><td>BUY</td><td>1,670</td><td style="text-align:left">SOTP on Jun-28E EV/EBITDA: refining 6.5x, petchem 5.5x, Telecom 12x, Retail 35x</td></tr>
+<tr><td>Motilal-type revision</td><td>LONG</td><td>1,537</td><td style="text-align:left">Jun-28F SOTP: petchem/ refining 7.5x, Retail 28x, Jio 12x, E&amp;P 6x, New Energy DCF</td></tr>
+<tr><td>Kotak-style</td><td>BUY</td><td>1,550</td><td style="text-align:left">Peak capex behind → ~₹90,000 Cr FCF over FY26-28E, net debt falling to 0.7x by FY28</td></tr>
+<tr><td>Global broker</td><td>BUY</td><td>1,700</td><td style="text-align:left">EBITDA CAGR 7.7% / PAT CAGR 6% over FY26-28E</td></tr>
+<tr><td>PL Capital</td><td>BUY</td><td>1,675</td><td style="text-align:left">SOTP ₹1,728: Retail ₹716 (38x FY28), RJio ₹622 (15x), O2C/E&amp;P ₹280, New Energy ₹111</td></tr>
+<tr><td><b>Street range</b></td><td><b>Consensus BUY</b></td><td><b>1,537 – 1,700</b></td><td style="text-align:left">At CMP ₹1,202 (19-Oct-2026) → implied upside <b>+28% to +41%</b>; at Jul-CMP of ₹1,327 the upside was +16% to +28%</td></tr>
+</table></div>
+<p class="note"><span class="tag t-view">View</span> Caveat: broker targets were struck at ₹1,300–1,330; the stock was ₹1,168 on 07-Oct-2026 and is ₹1,202 at the 19-Oct-2026 close (−9.4% from the ₹1,327 Jul-level), near its 52-week low, which <i>increases</i> the arithmetic upside but also means the market has discovered something the July notes did not price (global risk-off / FII outflows / Q2 pre-results nerves / Jio IPO supply). Re-verify targets before relying on them — treat the range as directional evidence, not as a promise.</p>
+</div>
+
+</section>
+
+<section class="panel" id="tab9">
+<h2>9. Verdict — Section-wise (as of Sep 2026)</h2>
+<div class="viewbox"><div class="vh">Section 9 — The View (plain English)</div>
+<ul>
+<li class="imp">Composite score <b>7.0/10 → ACCUMULATE</b> (buy slowly on declines), not a full-throttle buy: two sections drag it down — Growth 5.5 and Profitability 5.0.<span class="important">IMPORTANT</span></li>
+<li class="imp">The score spread tells the whole story: Balance Sheet 8.5 + Cash Flow 7.5 (structural strengths) vs Profitability 5.0 (structural weakness) — you are buying a safe, cash-generating business that has not yet proven it earns high returns.<span class="important">IMPORTANT</span></li>
+<li>Bull case in one line: cheapest valuation in years + capex peak behind + Jio tariff hikes + Retail EBITDA doubling target.</li>
+<li>Bear case in one line: ROE stuck near 9%, Retail margins compressing, FIIs still selling, crude/geo volatility hitting refining.</li>
+<li>The 7-point monitorables checklist at the bottom of this section is your operating system for the next quarter — green lights on 4+ of them upgrades the verdict; red lights on 3+ downgrade it.</li>
+</ul>
+</div>
+<div class="card">
+<div class="tblwrap"><table>
+<tr><th>#</th><th>Section</th><th>Verdict</th><th>Score</th><th style="text-align:left">Evidence (traced to Sections above)</th></tr>
+<tr><td>1</td><td>Metadata &amp; Ownership structure</td><td><span class="pill p-g">STRONG</span></td><td>7.5</td><td style="text-align:left">Promoter 50.48% with 0% pledge for 12+ quarters; AAA/A− ratings; largest listed Indian company; clean identification trail</td></tr>
+<tr><td>2</td><td>Valuation</td><td><span class="pill p-g">ATTRACTIVE</span></td><td>7.0</td><td style="text-align:left">P/E 21.1x ≈ 20% below 5Y avg ~26x; forward 18–19x vs 21x historical (−1SD); EV/EBITDA 9.3x vs 12x fwd avg; BUT +95% premium to Nifty Oil &amp; Gas — justified only if consumer-segment re-rating happens</td></tr>
+<tr><td>3</td><td>Growth</td><td><span class="pill p-y">MIXED</span></td><td>5.5</td><td style="text-align:left">FY26 rev +9.7% / PAT +17.8%, but 3Y CAGRs only 6.4% / 8.9%; TTM PAT −7.9% (base effect); Q1 FY27 record EBITDA +10.7% and adjusted profit +6% — inflecting</td></tr>
+<tr><td>4</td><td>Profitability &amp; Efficiency</td><td><span class="pill p-r">BELOW PAR</span></td><td>5.0</td><td style="text-align:left">ROE 8.9%, ROCE 10.3%, ROA 4.4% — flat for a decade; OPM 17% drifting to 15.4% in Q1; CCC worsened to 25 days; margin + ROCE are not yet rising together</td></tr>
+<tr><td>5</td><td>Balance Sheet / Financial Strength</td><td><span class="pill p-g">EXCELLENT</span></td><td>8.5</td><td style="text-align:left">Net debt/EBITDA 0.60x, D/E 0.41x, interest cover 6.6x, liquid assets ₹2.43 L Cr, negative working capital, CWIP falling, AAA ratings, ₹13,008 Cr NCD at 7.9% subscribed in Oct-26</td></tr>
+<tr><td>6</td><td>Cash Flow</td><td><span class="pill p-g">STRONG &amp; IMPROVING</span></td><td>7.5</td><td style="text-align:left">CFO ₹1,92,113 Cr (CFO/PAT 2.0x, CFO/EBITDA 107%), FCF ₹70,023 Cr third positive year, financing outflow −₹51,549 Cr (net repayment), capex rolling over (CWIP −30%)</td></tr>
+<tr><td>7</td><td>Shareholding &amp; Ownership</td><td><span class="pill p-y">MIXED–POSITIVE</span></td><td>7.0</td><td style="text-align:left">DII +511 bps absorbs FII −541 bps; promoter up &amp; pledge-free; but retail count at 46.5 L (late-crowd flag) and FII line still falling</td></tr>
+<tr><td></td><td><b>COMPOSITE</b></td><td><span class="pill p-g">ACCUMULATE</span></td><td><b>7.0</b></td><td style="text-align:left">Balanced score: cheap vs own history + fortress balance sheet + cash compounding, offset by mediocre returns on capital</td></tr>
+</table></div>
+</div>
+
+<div class="grid2">
+<div class="card">
+<h4>Bull case <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>Valuation reset + earnings turn:</b> 20% below own 5Y P/E at the exact moment the earnings downgrade cycle ends (Q1 FY27 record EBITDA).</li>
+<li><b>Capex peak is behind:</b> CWIP 3,38,855 → 2,37,686; FCF inflecting (41,079 → 70,023 Cr); brokers model ~₹90,000 Cr cumulative FCF FY26-28 and net debt/EBITDA → 0.7x.</li>
+<li><b>Jio compounding:</b> 533 mn subs, ARPU ₹215.6 (industry-low vs peers), 15% tariff hikes from Q3 FY27 (per broker model), 53.3% EBITDA margins — the highest-quality asset in the group.</li>
+<li><b>Retail optionality:</b> 20,169 stores, 396 mn customers, digital orders +116%; management targets doubling operating EBITDA in 3 years — if delivered, SOTP expands materially.</li>
+<li><b>Deleveraging + ratings upgrade</b> (Moody's Baa1) while paying rising dividends (110% of FV in FY25 terms) — capital discipline improving.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Bear case / Risks <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>Structurally low returns:</b> ROE 8.9% / ROCE 10% for a decade means the business earns barely its cost of equity; multiple expansion cannot be permanent without a returns inflection.</li>
+<li><b>O2C cyclicality:</b> refining cracks &amp; petchem spreads drive group earnings; crude/geo shocks (management called Q1 "an extraordinary energy market shock" quarter) create earnings variance.</li>
+<li><b>Retail margin erosion:</b> margin at 15-quarter-low zone (7.9%) due to quick-commerce investment; if competition (Zepto/Blinkit/Amazon) forces indefinite spend, the Retail SOTP (₹700+ of street TP) shrinks.</li>
+<li><b>FII exit:</b> −541 bps in 3 years and still falling; until this line turns, valuation re-rating is capped.</li>
+<li><b>Contingent liabilities &amp; complexity:</b> verify ₹12,649 Cr vs ₹78,282 Cr readings; 40+ entities, JVs, demerger (RCPL, JioStar) make true economic ownership harder to audit.</li>
+<li><b>Dividend yield 0.51%</b> — negligible income support; payout only 10% of profits.</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<h4>Monitorables — next-quarter checklist (Q2 FY27, results mid-Oct 2026) <span class="tag t-view">View</span></h4>
+<table>
+<tr><th>#</th><th>Indicator</th><th>What to check</th><th style="text-align:left">Green light</th><th style="text-align:left">Red light</th></tr>
+<tr><td>1</td><td>Jio tariff pass-through</td><td>ARPU vs ₹215.6; subs vs 533 mn</td><td style="text-align:left">ARPU &gt;₹220 with subs stable/rising</td><td style="text-align:left">Sub loss &gt;5 mn with ARPU flat</td></tr>
+<tr><td>2</td><td>Retail EBITDA margin</td><td>vs 7.9% (Q1) and 8.7% (Q1 FY26)</td><td style="text-align:left">Margin stabilises ≥7.9% while revenue +10%</td><td style="text-align:left">Below 7.5% for a second quarter</td></tr>
+<tr><td>3</td><td>O2C cracks</td><td>OPM vs 15.4% (Q1)</td><td style="text-align:left">OPM back toward 16–17%</td><td style="text-align:left">Sustained &lt;14%</td></tr>
+<tr><td>4</td><td>FCF &amp; net debt</td><td>CFO vs capex; net debt vs ₹1.23 L Cr</td><td style="text-align:left">Net debt declining with capex taper</td><td style="text-align:left">Net debt/EBITDA &gt;1.0x</td></tr>
+<tr><td>5</td><td>FII holding</td><td>Screener SHP (Sep-2026 quarter)</td><td style="text-align:left">FII line turns up</td><td style="text-align:left">Further &gt;100 bps selling</td></tr>
+<tr><td>6</td><td>ROE / ROCE</td><td>TTM ROE vs 8.91%</td><td style="text-align:left">ROE &gt;9.5% and rising</td><td style="text-align:left">ROE slips below 8%</td></tr>
+<tr><td>7</td><td>Receivables</td><td>Debtor days vs 20; CCC vs 25</td><td style="text-align:left">CCC normalises back &lt;15 days</td><td style="text-align:left">CCC &gt;35 days</td></tr>
+</table>
+</div>
+
+</section>
+
+<section class="panel" id="tab10">
+<h2>10. Quarterly Research Journal</h2>
+<div class="viewbox"><div class="vh">Section 10 — The View (plain English)</div>
+<ul>
+<li class="imp">This is a journal, not a one-off report: every quarter gets a new frozen Entry (this is Entry #01, the baseline) so you can later judge <b>what you knew, when you knew it, and what you got wrong</b>.<span class="important">IMPORTANT</span></li>
+<li class="imp">Each entry keeps Facts, Calculations, Management quotes and my own Views strictly separated — so when the verdict changes, you can see exactly which layer changed.<span class="important">IMPORTANT</span></li>
+<li>"What would change my mind" is pre-committed: upgrade only if FII buying turns + ROE &gt;9.5% + Retail margin ≥8.2%; downgrade if FIIs keep selling and Retail margin falls below 7.5%.</li>
+<li>Next entry: after Q2 FY27 results — <b>still unpublished at the 20-Oct-2026 run</b> (Screener shows no Q2 row → <span class="warn">VERIFY</span> date on BSE/NSE); written within 5 trading days of results. In between, each month-end cycle appends a dated row to the <b>Monthly run records</b> card below — price and score re-affirmation only, never a rewrite of a frozen quarterly entry.</li>
+<li>Archive index at the bottom tracks every entry's verdict and score over time — the honesty layer of the whole system.</li>
+</ul>
+</div>
+<p class="note">Purpose: preserve every quarter's assessment independently and traceably. Each entry is frozen once published; the next quarter's entry references (never overwrites) it. Structure of every entry: <b>Metadata → Facts → Calculations → Management commentary → Analyst interpretation → Verdict + score → What would change my mind → Next review date.</b></p>
+
+<div class="jr">
+  <div class="meta"><b>ENTRY #01 — BASELINE</b> &nbsp;|&nbsp; Period: Q1 FY27 (Jun-2026 quarter results) &nbsp;|&nbsp; Assessment date: 01-Oct-2026 &nbsp;|&nbsp; Price basis: ₹1,168 (01-Oct close) &nbsp;|&nbsp; Data as of: Screener consolidated, SHP Jun-2026, AR FY2025-26 &nbsp;|&nbsp; Author: Equity Research (systematic journal) &nbsp;|&nbsp; Prior entry: none (baseline)</div>
+
+  <h4>10.1 Facts (traceable, no interpretation) <span class="tag t-fact">Fact</span></h4>
+  <ul>
+    <li>CMP ₹1,168; 52W ₹1,612/₹1,161; 1Y price CAGR −15%; mcap ₹15,79,529 Cr.</li>
+    <li>FY26: Sales ₹10,55,780 Cr; EBITDA (OP) ₹1,79,065 Cr; PAT ₹95,754 Cr; EPS ₹59.69; Book value ₹668.</li>
+    <li>TTM: Sales ₹11,23,055 Cr; PAT ₹88,167 Cr; EPS ₹55.22 → P/E 21.1x, P/B 1.75x, P/S 1.41x.</li>
+    <li>Net debt ₹1,24,717 Cr; gross debt ₹3,74,421 Cr; cash ₹1,45,977 Cr (+ ₹97,431 Cr current investments).</li>
+    <li>CFO FY26 ₹1,92,113 Cr; FCF (Screener) ₹70,023 Cr; capex (company) ₹1,44,271 Cr.</li>
+    <li>ROE 8.91%; ROCE 10.3%; OPM 17.0% FY26, 15.4% Q1 FY27.</li>
+    <li>Shareholding (Jun-26): Promoter 50.48% (pledge 0%), FII 17.19%, DII 21.10%, Public 11.05%, Govt 0.17%; 46,51,863 shareholders.</li>
+    <li>Q1 FY27: Sales ₹3,09,468 Cr (+27.0% YoY); EBITDA ₹47,517 Cr (record, +10.7%); reported owners' PAT ₹20,946 Cr (−22.4% on Asian Paints-gain-inflated base); consolidated profit ₹23,196 Cr.</li>
+    <li>Nifty Oil &amp; Gas P/E ≈10.8x (Screener); peer P/Es: IOC 5.8x, BPCL 8.1x, ONGC 6.7x, GAIL 11.6x.</li>
+  </ul>
+
+  <h4>10.2 Calculations performed <span class="tag t-calc">Calc</span></h4>
+  <ul>
+    <li>Revenue CAGR: 3Y 6.4% · 5Y 17.8% · 10Y 14.5%. PAT CAGR: 3Y 8.9% · 5Y 12.2% · 10Y 12.4%.</li>
+    <li>EV = 15,79,529 + 1,24,717 = ₹17,04,246 Cr → EV/EBITDA 9.3x (TTM), EV/Sales 1.52x.</li>
+    <li>PEG = 21.1 ÷ 12.2 = 1.7 (5Y basis); 2.4 (3Y basis).</li>
+    <li>D/E = 0.41x; Net debt/EBITDA = 0.60x (company EBITDA) / 0.70x (Screener EBITDA); interest cover 6.6x.</li>
+    <li>Current ratio 1.10; quick ratio 0.79; asset turnover 0.48x; capital turnover 1.17x; ROA 4.4%.</li>
+    <li>CFO/PAT 2.0x; CFO/EBITDA 107%; FCF/PAT 73% (Screener) / 50% (company capex); capex/revenue 13.7%.</li>
+    <li>P/E discount vs est. 5Y average (~26x) ≈ −20%; premium vs sector P/E = +95%.</li>
+    <li>FII Δ over 12 quarters −541 bps; DII Δ +511 bps; FII:DII = 0.81 (vs 1.41 then); Promoter+DII = 71.58%.</li>
+    <li>Q1 FY27 underlying: PBT ex-other-income = 30,630 − 6,550 = ₹24,080 Cr vs 37,146 − 15,119 = ₹22,027 Cr → +9.3% YoY.</li>
+  </ul>
+
+  <h4>10.3 Management commentary captured <span class="tag t-mgmt">Mgmt</span></h4>
+  <ul>
+    <li>Q1 called "extraordinary… energy market shock" — O2C delivered with agility; recurring EBITDA &gt;₹54,000 Cr (+10%).</li>
+    <li>Retail margin dip framed as deliberate: investment in digital commerce/hyperlocal for "a few quarters"; target = double operating EBITDA over 3 years.</li>
+    <li>Jio: strongest quarter — margins 53.3%, subs 533 mn; group now ~50% consumer mix.</li>
+    <li>Balance sheet: net debt ~₹1.23 L Cr, capex ~₹39,000 Cr/qtr, ratings upgraded (Moody's Baa1, S&amp;P A−).</li>
+  </ul>
+
+  <h4>10.4 Analyst interpretation (frozen view) <span class="tag t-view">View</span></h4>
+  <p>Two things are true simultaneously: (a) the <i>business</i> is mediocre-quality at the return level (ROE ~9%, ROCE ~10%, flat for a decade — the Revenue↑+Margin↑+ROCE↑ pattern has not appeared), and (b) the <i>security</i> is cheap relative to its own history at a moment when earnings momentum has turned. For a long-term holder this combination supports accumulation rather than aggression: the downside cushion comes from the balance sheet (0.6x net leverage, AAA, 2.0x cash conversion) and valuation percentile, while the upside depends on a returns inflection that has not yet been proven. The single most informative quarterly line to watch remains <b>FII%</b>; the single most informative business line is <b>Retail EBITDA margin</b>. Jio is the compounding engine; O2C is the volatility engine. Conglomerate complexity means SOTP is the only defensible valuation method — and street SOTP (₹1,537–1,700) sits ~30–46% above the market price.</p>
+
+  <h4>10.5 Verdict at Entry #01</h4>
+  <p><span class="pill p-g">ACCUMULATE (Buy on declines)</span> &nbsp; Composite score <b>7.0/10</b> &nbsp;|&nbsp; 12–18 month stance &nbsp;|&nbsp; Positioning: staggered accumulation (e.g., tranches at ₹1,150–1,180 / ₹1,050–1,080) rather than lump-sum &nbsp;|&nbsp; Street reference TPs ₹1,537–1,700.</p>
+
+  <h4>10.6 What would change my mind</h4>
+  <ul>
+    <li><b>Upgrade to BUY-Aggressive:</b> FII% turns up for one quarter + ROE &gt;9.5% + Retail margin ≥8.2% + OPM ≥16.5%.</li>
+    <li><b>Downgrade to HOLD:</b> FII selling continues AND Retail margin &lt;7.5% AND TTM PAT growth stays negative into FY27.</li>
+    <li><b>Downgrade to AVOID:</b> ROE breaks &lt;8%, promoter stake dips below 50% with a pledge, or net debt/EBITDA exceeds 1.5x.</li>
+  </ul>
+
+  <h4>10.7 Next review</h4>
+  <p>Q2 FY2026-27 results (window closed 01-Oct-2026; print still not on Screener as of 20-Oct-2026 → <span class="warn">VERIFY</span>) — Entry #02 will be written within 5 trading days of results, following the same 10.1–10.6 structure, and will link back to this entry for delta comparison.</p>
+</div>
+
+<div class="card" style="border-style:dashed">
+<h4>Monthly run records (append-only — price + score re-affirmation, never a rewrite of a quarterly entry) <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Date</th><th>CMP</th><th>Δ vs prev</th><th>Score</th><th>Verdict</th><th style="text-align:left">Decision of the month</th></tr>
+<tr><td>07-Oct-2026</td><td>₹1,208</td><td class="good">+₹40 (+3.42%)</td><td>7.0</td><td><span class="pill p-g">ACCUMULATE</span></td><td style="text-align:left">Ad-hoc CMP refresh (price only, no re-score) — 07-Oct-2026 close, −0.85% day</td></tr>
+<tr><td>19-Oct-2026</td><td>₹1,202</td><td class="bad">−₹6 (−0.50%)</td><td>7.0</td><td><span class="pill p-g">ACCUMULATE</span></td><td style="text-align:left">Monthly run executed 20-Oct-2026 (19-Oct close was the latest published at run time; −0.76% day). <b>Score and verdict re-affirmed, unchanged</b> — no section crosses a rubric band. Jio Platforms IPO filed 14-Oct (band ₹1,065–1,119, opens 21-Oct, RIL-shareholder reservation) is the catalyst to watch; Q2 FY27 still awaited. Next review: Q2 FY27 results → Entry #02.</td></tr>
+</table></div>
+<p class="src">Every row is dated dd-Mmm-yyyy; rows are appended, never edited. Source: Screener consolidated closes.</p>
+</div>
+
+<div class="card">
+<h4>Journal archive index (to be extended each quarter)</h4>
+<table>
+<tr><th>Entry</th><th>Period</th><th>Date</th><th>CMP</th><th>Verdict</th><th>Score</th><th>Status</th></tr>
+<tr><td>#01</td><td>Q1 FY27 baseline</td><td>01-Oct-2026</td><td>₹1,168</td><td>ACCUMULATE</td><td>7.0</td><td class="good">Published (this document)</td></tr>
+<tr><td>#02</td><td>Q2 FY27</td><td>~Oct-2026</td><td>—</td><td>—</td><td>—</td><td>Scheduled (post-results)</td></tr>
+<tr><td>#03</td><td>Q3 FY27</td><td>~Jan-2027</td><td>—</td><td>—</td><td>—</td><td>Planned</td></tr>
+</table>
+</div>
+
+</section>
+
+<section class="panel" id="tabT">
+<h2>Transactions — Reliance Industries</h2>
+<div class="viewbox"><div class="vh">Transactions — The View (plain English)</div>
+<ul>
+<li class="imp">Every trade for this stock exactly as recorded in <code>Equity\Holding_stocks.xlsx</code> — date, fund, action, quantity, price, invested. The last two columns are the <b>running</b> units held and average cost after that trade.<span class="important">IMPORTANT</span></li>
+<li>The <b>Price</b> column is what you paid on the day; the dashboard's current value uses the <b>19-Oct-2026 close</b> instead — two different things, don't mix them.</li>
+<li>After adding trades in Excel, re-run <code>python Equity\code\write_html.py</code> so this tab, the dashboard and the position card all agree.</li>
+</ul>
+</div>
+<div class="kpis">
+<div class="kpi" data-explain="Units held = total shares still held, counted as buys minus sells across every trade in Holding_stocks.xlsx."><div class="l">Units held</div><div class="v">22</div><div class="n">5 trades logged</div></div>
+<div class="kpi" data-explain="Average cost = total money invested in this stock divided by units held. It is what one share has effectively cost you across all buys."><div class="l">Average cost</div><div class="v">₹1,346.09</div><div class="n">vs CMP ₹1,202 on 19-Oct-2026</div></div>
+<div class="kpi" data-explain="Invested = every rupee put into this stock, shown with its share of the total invested across all holdings."><div class="l">Invested</div><div class="v">₹29,614</div><div class="n">9.2% of total invested</div></div>
+<div class="kpi" data-explain="Current value = units held times the 19-Oct-2026 close. P/L is that value minus the money invested."><div class="l">Current value</div><div class="v">₹26,444</div><div class="n"><span class="bad">P/L −₹3,170 (−10.7%)</span></div></div>
+</div>
+<!--HOLD_TXN_START-->
+<div class="tblwrap"><table data-vt-default="chart">
+<tr><th>Date</th><th style="text-align:left">Fund</th><th>Action</th><th>Qty</th><th>Price</th><th>Invested</th><th>Units held</th><th>Avg cost</th></tr>
+<tr><td>08-Apr-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>4</td><td>₹1,347.00</td><td>₹5,388.00</td><td>4</td><td>₹1,347.00</td></tr>
+<tr><td>05-May-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>4</td><td>₹1,453.00</td><td>₹5,812.00</td><td>8</td><td>₹1,400.00</td></tr>
+<tr><td>13-Jul-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>5</td><td>₹1,298.00</td><td>₹6,490.00</td><td>13</td><td>₹1,360.77</td></tr>
+<tr><td>07-Aug-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>5</td><td>₹1,324.00</td><td>₹6,620.00</td><td>18</td><td>₹1,350.56</td></tr>
+<tr><td>04-Sep-2026</td><td style="text-align:left">Focus Force -LG</td><td>Buy</td><td>4</td><td>₹1,326.00</td><td>₹5,304.00</td><td>22</td><td>₹1,346.09</td></tr>
+</table></div>
+<!--HOLD_TXN_END-->
+<p class="src">Source: Equity\Holding_stocks.xlsx (sheet Sheet1, table Shadow_Buy_sell) &middot; recomputed by Equity\code\holdings_calc.py &rarr; code\data\holdings.json &middot; CMP dated 19-Oct-2026 close. Personal position data; not investment advice.</p>
+</section>
+
+<section class="panel" id="tabG">
+<h2>Glossary — Jargons, Metrics &amp; Acronyms (click any blue dotted term anywhere to open it)</h2>
+<div class="viewbox"><div class="vh">How to use the glossary</div>
+<ul>
+<li>Every metric/jargon term in this report is linked automatically — <b>click the blue dotted word</b> anywhere in the report to see its plain-English meaning in a pop-up.</li>
+<li class="imp">New to reading reports? Start with: CMP, P/E, EBITDA, ROE, ROCE, Net Debt/EBITDA, CFO, FCF, FII/DII, SOTP.<span class="important">IMPORTANT</span></li>
+<li>Formulas shown are the ones used in this document (Screener definitions), so every number here can be reproduced from the tables.</li>
+</ul>
+</div>
+<div class="card">
+<h4>All terms (A–Z) — definition, plain meaning, formula</h4>
+<div id="glossaryBody"><p class="note">Loading glossary… (requires JavaScript enabled)</p></div>
+</div>
+</section>
+
+<section class="panel" id="tabA">
+<h2>Appendix A — 10-Year Annual Data Archive (Screener, Consolidated, ₹ Cr)</h2>
+<div class="viewbox"><div class="vh">Appendix A — The View</div>
+<ul>
+<li>Full 12-year P&amp;L, balance sheet and cash-flow archive — the raw evidence behind every claim in Sections 0–9.</li>
+<li class="imp">Reading tip: look at the last 3–4 columns only; older years matter for trend direction (e.g., OPM peaked at 18% in FY24, ROCE peaked at 12% in FY19).<span class="important">IMPORTANT</span></li>
+</ul>
+</div>
+<div class="card">
+<h4>Profit &amp; Loss <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Line</th><th>FY15</th><th>FY16</th><th>FY17</th><th>FY18</th><th>FY19</th><th>FY20</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th><th>TTM</th></tr>
+<tr><td>Sales</td><td>374,372</td><td>272,583</td><td>303,954</td><td>390,823</td><td>568,337</td><td>596,679</td><td>466,307</td><td>694,673</td><td>876,396</td><td>899,041</td><td>962,820</td><td>1,055,780</td><td>1,123,055</td></tr>
+<tr><td>Expenses</td><td>336,923</td><td>230,802</td><td>257,647</td><td>326,508</td><td>484,087</td><td>507,413</td><td>385,517</td><td>586,092</td><td>734,078</td><td>736,543</td><td>797,222</td><td>876,715</td><td>939,494</td></tr>
+<tr><td>Operating Profit</td><td>37,449</td><td>41,781</td><td>46,307</td><td>64,315</td><td>84,250</td><td>89,266</td><td>80,790</td><td>108,581</td><td>142,318</td><td>162,498</td><td>165,598</td><td>179,065</td><td>183,561</td></tr>
+<tr><td>OPM %</td><td>10%</td><td>15%</td><td>15%</td><td>16%</td><td>15%</td><td>15%</td><td>17%</td><td>16%</td><td>16%</td><td>18%</td><td>17%</td><td>17%</td><td>16%</td></tr>
+<tr><td>Other Income</td><td>8,528</td><td>12,212</td><td>9,222</td><td>9,869</td><td>8,406</td><td>8,570</td><td>22,432</td><td>19,600</td><td>12,020</td><td>15,792</td><td>17,824</td><td>28,846</td><td>20,393</td></tr>
+<tr><td>Interest</td><td>3,316</td><td>3,691</td><td>3,849</td><td>8,052</td><td>16,495</td><td>22,027</td><td>21,189</td><td>14,584</td><td>19,571</td><td>23,118</td><td>24,269</td><td>27,061</td><td>28,362</td></tr>
+<tr><td>Depreciation</td><td>11,547</td><td>11,565</td><td>11,646</td><td>16,706</td><td>20,934</td><td>22,203</td><td>26,572</td><td>29,782</td><td>40,303</td><td>50,832</td><td>53,136</td><td>57,688</td><td>58,946</td></tr>
+<tr><td>Profit before tax</td><td>31,114</td><td>38,737</td><td>40,034</td><td>49,426</td><td>55,227</td><td>53,606</td><td>55,461</td><td>83,815</td><td>94,464</td><td>104,340</td><td>106,017</td><td>123,162</td><td>116,646</td></tr>
+<tr><td>Tax %</td><td>24%</td><td>23%</td><td>25%</td><td>27%</td><td>28%</td><td>26%</td><td>3%</td><td>19%</td><td>22%</td><td>25%</td><td>24%</td><td>22%</td><td>25%</td></tr>
+<tr><td>Net Profit</td><td>23,640</td><td>29,861</td><td>29,833</td><td>36,080</td><td>39,837</td><td>39,880</td><td>53,739</td><td>67,845</td><td>74,088</td><td>79,020</td><td>81,309</td><td>95,754</td><td>88,167</td></tr>
+<tr><td>EPS (₹)</td><td>17.07</td><td>21.51</td><td>21.55</td><td>26.69</td><td>29.28</td><td>29.10</td><td>38.75</td><td>44.87</td><td>49.29</td><td>51.45</td><td>51.47</td><td>59.69</td><td>55.22</td></tr>
+<tr><td>Dividend Payout %</td><td>12%</td><td>10%</td><td>11%</td><td>10%</td><td>10%</td><td>10%</td><td>9%</td><td>9%</td><td>9%</td><td>10%</td><td>11%</td><td>10%</td><td>—</td></tr>
+</table></div>
+</div>
+
+<div class="card">
+<h4>Balance Sheet &amp; Cash Flow <span class="tag t-fact">Fact</span></h4>
+<div class="tblwrap"><table>
+<tr><th>Line</th><th>FY15</th><th>FY16</th><th>FY17</th><th>FY18</th><th>FY19</th><th>FY20</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th></tr>
+<tr><td>Equity Capital</td><td>2,943</td><td>2,948</td><td>2,959</td><td>5,922</td><td>5,926</td><td>6,339</td><td>6,445</td><td>6,765</td><td>6,766</td><td>6,766</td><td>13,532</td><td>13,532</td></tr>
+<tr><td>Reserves</td><td>215,556</td><td>228,608</td><td>260,750</td><td>287,584</td><td>381,186</td><td>442,827</td><td>693,727</td><td>772,720</td><td>709,106</td><td>786,715</td><td>829,668</td><td>890,498</td></tr>
+<tr><td>Borrowings</td><td>168,251</td><td>194,714</td><td>217,475</td><td>239,843</td><td>307,714</td><td>355,133</td><td>278,962</td><td>319,158</td><td>451,664</td><td>350,719</td><td>374,313</td><td>402,962</td></tr>
+<tr><td>Total Liabilities / Assets</td><td>504,486</td><td>598,997</td><td>706,802</td><td>811,273</td><td>997,630</td><td>1,163,015</td><td>1,320,065</td><td>1,498,622</td><td>1,605,882</td><td>1,755,048</td><td>1,949,713</td><td>2,177,546</td></tr>
+<tr><td>Fixed Assets</td><td>156,458</td><td>184,910</td><td>198,526</td><td>403,885</td><td>398,374</td><td>532,658</td><td>541,258</td><td>627,798</td><td>724,805</td><td>779,985</td><td>999,393</td><td>1,124,795</td></tr>
+<tr><td>CWIP</td><td>166,462</td><td>228,697</td><td>324,837</td><td>187,022</td><td>179,463</td><td>109,106</td><td>125,953</td><td>172,506</td><td>293,752</td><td>338,855</td><td>262,358</td><td>237,686</td></tr>
+<tr><td>CFO</td><td>34,374</td><td>38,134</td><td>49,550</td><td>71,459</td><td>42,346</td><td>94,877</td><td>26,958</td><td>110,654</td><td>115,032</td><td>158,788</td><td>178,703</td><td>192,113</td></tr>
+<tr><td>CFI</td><td>−64,706</td><td>−36,186</td><td>−66,201</td><td>−68,192</td><td>−94,507</td><td>−72,497</td><td>−142,385</td><td>−109,162</td><td>−93,001</td><td>−113,581</td><td>−137,535</td><td>−101,089</td></tr>
+<tr><td>CFF</td><td>8,444</td><td>−3,210</td><td>8,617</td><td>−2,001</td><td>55,906</td><td>−2,541</td><td>101,904</td><td>17,289</td><td>10,455</td><td>−16,646</td><td>−31,891</td><td>−51,549</td></tr>
+<tr><td>Free Cash Flow</td><td>−28,588</td><td>−8,420</td><td>−27,077</td><td>−1,495</td><td>−50,431</td><td>19,324</td><td>−76,560</td><td>13,646</td><td>−16,770</td><td>21,212</td><td>41,079</td><td>70,023</td></tr>
+<tr><td>ROCE %</td><td>9%</td><td>10%</td><td>10%</td><td>11%</td><td>12%</td><td>11%</td><td>8%</td><td>8%</td><td>9%</td><td>10%</td><td>10%</td><td>10%</td></tr>
+</table></div>
+<p class="src">Note: equity capital doubled between FY24 and FY25 reflecting the 1:1 bonus issue (record date FY25); EPS and per-share data on Screener are bonus-adjusted. FY21 tax of 3% reflects COVID-era deferred-tax credits.</p>
+</div>
+
+<h2>Appendix B — Methodology, Sources &amp; Verification Flags</h2>
+<div class="viewbox"><div class="vh">Appendix B — The View</div>
+<ul>
+<li class="imp">Before quoting anything from this report externally, clear the <b>7 verification flags (†)</b> — especially the contingent-liability number (₹12,649 Cr vs ₹78,282 Cr) and the two capex definitions.<span class="important">IMPORTANT</span></li>
+<li>Every tag in the report tells you the evidence quality: <span class="tag t-fact">Fact</span> reported number · <span class="tag t-calc">Calc</span> derived here · <span class="tag t-mgmt">Mgmt</span> company statement · <span class="tag t-view">View</span> analyst judgement.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Methodology &amp; definitions <span class="tag t-calc">Calc</span></h4>
+<ul>
+<li><b>Report currency:</b> ₹ Cr unless stated; market data as of 19-Oct-2026 close (fundamentals 01-Oct-2026).</li>
+<li><b>Operating Profit (Screener)</b> = Sales − Expenses = EBITDA (validated: Q1 FY27 ₹47,517 Cr matches RIL release). <b>EBIT</b> = OP − Depreciation.</li>
+<li><b>EV</b> = Market cap + Net debt (excludes minority interest &amp; current investments; treat EV multiples as approximate).</li>
+<li><b>Net debt</b> = Gross borrowings − cash &amp; equivalents (Screener basis ₹1,64,657 − ₹39,940 ≈ values differ from company's ₹1,24,717 Cr net-of-investments figure; both shown wherever material).</li>
+<li><b>CAGR</b> = (End/Start)^(1/n) − 1 on FY-end figures; 3Y = FY23→FY26, 5Y = FY21→FY26, 10Y = FY16→FY26.</li>
+<li><b>ROE</b> = PAT ÷ average net worth; <b>ROCE</b> = EBIT ÷ (net worth + borrowings) per Screener.</li>
+<li><b>FCF</b> = CFO − capex; two capex definitions coexist (Screener derived vs company-reported) — both shown, never mixed.</li>
+<li><b>Tags:</b> Fact = reported number · Calc = derived here · Mgmt = company statement · View = analyst judgement.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Verification flags — DO NOT PUBLISH EXTERNALLY WITHOUT CHECKING <span class="warn">†</span></h4>
+<ul>
+<li><span class="warn">†</span> <b>Contingent liabilities:</b> ₹12,649 Cr (AR FY26 notes) vs ₹78,282 Cr (third-party compilation incl. disputed demands) — reconcile against the AR.</li>
+<li><span class="warn">†</span> <b>Listing dates:</b> BSE "Nov 1977" IPO date and exact NSE listing date (1994) not verified from primary sources.</li>
+<li><span class="warn">†</span> <b>5Y average P/E ≈26x</b> is an internal estimate from FY-end price ÷ FY EPS, not an exchange/agency statistic.</li>
+<li><span class="warn">†</span> <b>Capex column ordering</b> in quarterly Screener exports interpreted as (Q4, Q3, Q2-qtr, FY, FY-1) — confirm before citing quarterly capex.</li>
+<li><span class="warn">†</span> <b>Broker targets</b> (₹1,537–1,700) from Jul-2026 notes at CMP ₹1,327; re-check for updates.</li>
+<li><span class="warn">†</span> <b>Promoter +0.48 pp (Jun-26)</b> attributed to intra-group reclassification (RIIHL 3.62% / RSHL 2.58%) — confirm via SHP PDF.</li>
+<li><span class="warn">†</span> Peer P/B &amp; yield data from Trendlyne (~26-Aug-2026); Screener's built-in peer table is JS-rendered and was not machine-readable.</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<h4>Sources</h4>
+<table>
+<tr><th>#</th><th>Source</th><th>Used for</th></tr>
+<tr><td>1</td><td>screener.in/company/RELIANCE/consolidated/ (01-Oct-2026)</td><td>All financial statements, ratios, quarterly series, shareholding, market data</td></tr>
+<tr><td>2</td><td>screener.in (Nifty Oil &amp; Gas index page)</td><td>Sector P/E, P/B, dividend yield</td></tr>
+<tr><td>3</td><td>RIL Q1 FY27 media release &amp; concall transcript, 17-Jul-2026</td><td>Segment results, management commentary, net debt, capex</td></tr>
+<tr><td>4</td><td>RIL Q4 FY26 release (30-Apr-2026) &amp; Annual Report 2025-26</td><td>FY26 capex, contingent liabilities, shareholding, ratings inputs</td></tr>
+<tr><td>5</td><td>Broker reviews: BOBCAPS, PL Capital, others (Jul-2026)</td><td>Targets, SOTP, forward multiples, FY26-28E projections</td></tr>
+<tr><td>6</td><td>Trendlyne constituent data (~26-Aug-2026)</td><td>Peer P/B, yields</td></tr>
+<tr><td>7</td><td>Business press / exchanges (Sep–Oct 2026)</td><td>NCD allotment 7.90%, ratings, investor-conference participation, trading-window closure</td></tr>
+</table>
+</div>
+
+<div class="card">
+<p class="note"><b>Disclaimer:</b> This document is an independent research journal prepared for educational and personal tracking purposes. It is not investment advice, not a solicitation, and not affiliated with Screener.in, Reliance Industries Limited, or any broker. Figures are compiled from public sources believed reliable but unverified against audited statements in several flagged places (see verification flags). Forward-looking statements and broker targets are the opinions of their authors. Investments in securities carry risk of capital loss; consult a SEBI-registered advisor before acting. All derived calculations are reproducible from the source tables in this document.</p>
+</div>
+
+</section>
+
+<div id="modal"><div class="mbox" role="dialog" aria-modal="true">
+<button class="mclose" id="mClose">✕ close</button>
+<div class="mt" id="mTitle">—</div>
+<div class="mb" id="mBody">—</div>
+<div class="mgl" id="mGlossLink" style="display:none"><a href="#" id="mToGloss">→ Open this term in the full Glossary tab</a></div>
+</div></div>
+
+<script>
+(function(){
+var GL=[
+{n:"CMP (Current Market Price)",m:"CMP",d:"The latest price at which one share actually traded — ₹1,202 on 19-Oct-2026.",w:"Every ratio and upside figure in this report is calculated from this number, so always quote it with its date."},
+{n:"52-Week High / Low",m:"52W",d:"The best and worst prices of the last one year — ₹1,612 and ₹1,161 for Reliance.",w:"Trading 0.6% above the low means the market has been selling it down for a long time — you buy after the fall, not before it."},
+{n:"Market Cap / mcap",m:"Market Cap||mcap",d:"Total market value of all shares = price × number of shares (₹15,79,529 Cr).",w:"Sets the company's size bucket (Large Cap) and is the base for every valuation ratio."},
+{n:"P/E (Price-to-Earnings)",m:"P/E",d:"Share price ÷ earnings per share. At 21.1x you pay ₹21.10 for every ₹1 of Reliance's last-12-month profit.",w:"The most-used valuation number: compare it with (a) the company's own history (~26x avg → currently cheap) and (b) its sector (10.8x → currently premium)."},
+{n:"P/B (Price-to-Book)",m:"P/B",d:"Share price ÷ book value per share. 1.75x = ₹1.75 paid for every ₹1 of net assets on the books.",w:"Below 1 often means distress or deep value; above 2 needs strong returns to justify — Reliance at 1.75x is neutral."},
+{n:"P/S (Price-to-Sales)",m:"P/S",d:"Market cap ÷ annual revenue (1.41x).",w:"Useful when profits are volatile (like refining) — but it ignores whether sales turn into profit."},
+{n:"EV (Enterprise Value)",m:"Enterprise Value||EV",d:"Market cap + net debt — roughly the cost to buy the whole business including repaying its loans (₹17.04 lakh crore).",w:"Better than market cap for comparing companies with different debt loads."},
+{n:"EV/EBITDA",m:"EV/EBITDA",d:"Enterprise Value ÷ operating cash profit. 9.3x = you pay 9.3 years of EBITDA to own the group.",w:"Debt-neutral yardstick; vs Reliance's own ~12x forward average it is cheap, vs IOC/ONGC peers it is premium."},
+{n:"EV/Sales",m:"EV/Sales",d:"Whole-company price per ₹1 of sales (1.52x).",w:"A rough margin-agnostic check — mainly for cross-company comparison."},
+{n:"PEG Ratio",m:"PEG",d:"P/E ÷ annual profit growth %. At 1.7 you pay 1.7x per point of yearly growth.",w:"Below 1 = cheap for its growth; above ~2 = expensive for its growth; 1.7 = fairly priced."},
+{n:"TTM (Trailing Twelve Months)",m:"TTM",d:"The sum of the last four reported quarters — keeps valuation current between financial years.",w:"Makes P/E and margins reflect today's reality rather than an old financial year."},
+{n:"EPS (Earnings Per Share)",m:"EPS",d:"Net profit ÷ number of shares — ₹59.69 in FY26 (₹55.22 on TTM basis).",w:"Bottom line per share; P/E = price ÷ EPS."},
+{n:"Book Value / BV",m:"Book Value||BV",d:"Accounting value of shareholders' equity per share = net worth ÷ shares (₹668).",w:"A rough valuation floor; P/B = price ÷ book value."},
+{n:"Net Worth",m:"Net Worth",d:"Shareholders' funds = equity capital + reserves (₹9,04,030 Cr).",w:"The company's accounting net wealth and the denominator of ROE."},
+{n:"ROE (Return on Equity)",m:"ROE",d:"Net profit ÷ shareholders' money. Reliance earns 8.91% — ₹8.91 profit per ₹100 of owner capital.",w:"Shows how hard your money works. Below ~12% is a poor compounder; flat 9% for a decade is Reliance's core weakness."},
+{n:"ROCE (Return on Capital Employed)",m:"ROCE",d:"EBIT ÷ (net worth + borrowings) = 10.3% — return on all capital in the business.",w:"Best single test of operating quality; 15%+ = excellent, ~10% = average, below 8% = value trap."},
+{n:"ROA (Return on Assets)",m:"ROA",d:"Net profit ÷ total assets = 4.4%.",w:"Low for asset-heavy industries — each ₹100 of refineries/spectrum produces only ₹4.4 of profit."},
+{n:"EBITDA",m:"EBITDA",d:"Earnings Before Interest, Tax, Depreciation & Amortisation — operating cash profit before financing and capital costs (₹1,79,065 Cr FY26 = Screener's Operating Profit).",w:"The headline profit metric for conglomerates; drives EV/EBITDA and net-debt tests."},
+{n:"EBIT",m:"EBIT",d:"Earnings Before Interest & Tax = EBITDA − depreciation (₹1,21,377 Cr FY26).",w:"Closer to true economic profit; used for ROCE and interest coverage."},
+{n:"OPM (Operating Profit Margin)",m:"OPM",d:"Operating profit ÷ sales — 17% in FY26, 15.4% in Q1 FY27.",w:"Every 100 bps on ₹1 lakh cr of sales = ₹1,000 Cr of profit — hence worth tracking quarterly."},
+{n:"Net Profit Margin",m:"Net Profit Margin",d:"Net profit ÷ sales (9.1% in FY26).",w:"How much of every ₹100 of sales survives as final profit."},
+{n:"CFO (Cash From Operations)",m:"CFO",d:"Actual cash generated by the core business — ₹1,92,113 Cr in FY26.",w:"Compare with reported profit: CFO ≥ PAT repeatedly means the earnings are real, not accounting entries."},
+{n:"CFI (Cash Flow From Investing)",m:"CFI",d:"Cash spent on or received from assets and investments (−₹1,01,089 Cr in FY26, mostly capex).",w:"A large negative CFI for an industrial group means it is still building for the future."},
+{n:"CFF (Cash Flow From Financing)",m:"CFF",d:"Cash from borrowings/equity minus repayments, dividends and buybacks (−₹51,549 Cr in FY26).",w:"Consistently negative CFF with positive CFO = the company is paying down debt and rewarding shareholders."},
+{n:"FCF (Free Cash Flow)",m:"FCF||Free Cash Flow",d:"CFO − capital expenditure = ₹70,023 Cr in FY26 (third straight positive year).",w:"Money truly free for debt repayment, dividends or buybacks — the trend in FCF often predicts re-rating."},
+{n:"Capex (Capital Expenditure)",m:"Capex",d:"Money spent on plants, refineries, spectrum, stores — ₹1,44,271 Cr in FY26 (13.7% of sales).",w:"Falling capex converts accounting profit into free cash — the key swing factor for the next 2–3 years."},
+{n:"Net Debt",m:"Net Debt",d:"Total borrowings minus cash & investments = ₹1,24,717 Cr.",w:"Near the low end for a company this size — minimal solvency risk."},
+{n:"D/E (Debt-to-Equity)",m:"D/E",d:"Borrowings ÷ net worth = 0.41x.",w:"Below 1x is comfortable for industrial groups; rising above 1.5x would start to worry lenders."},
+{n:"Net Debt/EBITDA",m:"Net Debt/EBITDA",d:"Years of operating cash profit needed to repay net debt — 0.60–0.70x for Reliance.",w:"Under 2x is normally safe; this low ratio is a major reason the balance sheet scores 8.5/10."},
+{n:"Interest Coverage",m:"Interest Coverage",d:"EBIT/EBITDA ÷ interest expense = 6.6x (EBITDA) or 4.5x (EBIT).",w:"How easily the company can pay its interest; below 2–3x signals distress."},
+{n:"Current Ratio",m:"Current Ratio",d:"Current assets ÷ current liabilities = 1.10.",w:"Short-term liquidity; ~1.0+ is fine for companies whose working capital is negative."},
+{n:"Quick Ratio",m:"Quick Ratio",d:"(Current assets − inventory) ÷ current liabilities = 0.79.",w:"Stricter liquidity test that ignores stock lying unsold in warehouses."},
+{n:"Working Capital Days",m:"Working Capital Days||Working Capital",d:"Days of cash tied up in day-to-day operations = −66 days for Reliance.",w:"Negative means suppliers and subscribers effectively finance the business — a competitive advantage."},
+{n:"Debtor Days",m:"Debtor Days",d:"Average days taken by customers to pay — 20 days in FY26 (was 12 three years ago).",w:"Rising = slower collections — a small early-warning signal to watch."},
+{n:"Inventory Days",m:"Inventory Days",d:"Average days stock sits before being sold — 88 days.",w:"Rising inventory with falling sales can precede write-downs."},
+{n:"Days Payable",m:"Days Payable",d:"Average days the company takes to pay its suppliers — 84 days.",w:"Longer is better for cash flow — the company borrows from suppliers for free."},
+{n:"Cash Conversion Cycle (CCC)",m:"Cash Conversion Cycle||CCC",d:"Debtor days + inventory days − payable days = 25 days for FY26 (was −8 in FY25).",w:"How long cash is stuck in operations; negative is ideal — the swing to +25 is a minor yellow flag."},
+{n:"FII (Foreign Institutional Investor)",m:"FII||FPI",d:"Overseas funds, pension funds and brokers holding Indian shares — 17.19% of Reliance.",w:"FIIs set the valuation multiple; three years of their selling is why the stock de-rated."},
+{n:"DII (Domestic Institutional Investor)",m:"DII",d:"Indian mutual funds, insurance companies and banks — 21.10% of Reliance.",w:"They absorbed almost the entire FII selling — a sign of domestic conviction."},
+{n:"Promoter / Promoter Group",m:"Promoter",d:"The founding controlling family and its entities (Ambani family ≈ 50.48%).",w:"Steady promoter stake with no dilution is a governance positive."},
+{n:"Pledge",m:"Pledge",d:"Shares kept as loan collateral by their owners — Reliance promoters have pledged 0%.",w:"A sudden pledge jump is a classic early warning of promoter financial stress."},
+{n:"SHP (Shareholding Pattern)",m:"SHP",d:"Quarterly disclosure filed with exchanges showing % held by promoters, FIIs, DIIs and public.",w:"The raw input for Section 7 and one of the best forward-looking ownership signals."},
+{n:"CAGR (Compound Annual Growth Rate)",m:"CAGR",d:"The steady yearly growth rate implied over a period: (end ÷ start)^(1÷n) − 1.",w:"Strip out one-off jumps; comparing 3Y vs 5CAGR shows whether growth is slowing (Reliance: 6.4% vs 17.8%)."},
+{n:"YoY (Year-on-Year)",m:"YoY",d:"Compared with the same period one year earlier.",w:"Removes seasonal effects — the correct way to read quarterly results."},
+{n:"QoQ (Quarter-on-Quarter)",m:"QoQ",d:"Compared with the immediately previous quarter.",w:"Useful for momentum signals like shareholding shifts."},
+{n:"bps (Basis Points)",m:"bps",d:"1 basis point = 0.01%. So 541 bps = 5.41 percentage points.",w:"Standard unit for small changes in rates, margins and holdings."},
+{n:"SOTP (Sum-of-the-Parts)",m:"SOTP",d:"Valuing each business separately and adding them up — brokers get ₹1,537–1,700 for Reliance vs ₹1,168 market price.",w:"The only fair way to value a conglomerate; the gap between SOTP and market price is the opportunity."},
+{n:"DCF (Discounted Cash Flow)",m:"DCF",d:"Values a business by projecting its future cash and discounting them to today's money.",w:"Broker SOTPs use DCF for New Energy and media where there are no peer multiples yet."},
+{n:"Contingent Liabilities",m:"Contingent Liabilities",d:"Possible future payments (tax disputes, court claims, guarantees) not yet due — ₹12,649 Cr per the annual report.",w:"Could become real cash outflows; always compare against net worth (here ~1.4%, small)."},
+{n:"ARPU",m:"ARPU",d:"Average Revenue Per User per month — ₹215.6 for Jio in Q1 FY27.",w:"The single number that shows whether tariff hikes are landing; brokers expect ₹230+ after the Q3 FY27 hikes."},
+{n:"O2C (Oil-to-Chemicals)",m:"O2C",d:"Reliance's refining, fuels marketing and petrochemicals segment.",w:"Still the largest cash generator but the most cyclical — its cracks/spreads drive group earnings volatility."},
+{n:"E&P (Exploration & Production)",m:"E&P",d:"The oil and gas drilling business (KG-D6 basin etc.).",w:"High-margin when crude is high; small share of group EBITDA."},
+{n:"Demerger",m:"Demerger",d:"Splitting a business into a separate listed company (e.g., RCPL retail brands, JioStar media).",w:"Sharpens focus and often unlocks value — but temporarily complicates comparability of numbers."},
+{n:"Bonus Issue",m:"Bonus Issue",d:"Free extra shares given to existing holders (1:1 in FY25) — share count doubles, price halves, nothing changes economically.",w:"Explains why equity capital jumped from ₹6,766 Cr to ₹13,532 Cr between FY24 and FY25."},
+{n:"Face Value (FV)",m:"Face Value",d:"The nominal value printed on a share certificate — ₹10 for Reliance.",w:"Unrelated to market price; determines dividend per share and issue prices."},
+{n:"Dividend Yield",m:"Dividend Yield",d:"Annual dividend per share ÷ share price = 0.51% (about ₹6/year at ₹1,168).",w:"Very little income support — Reliance reinvests ~90% of profits instead of paying them out."},
+{n:"Dividend Payout %",m:"Dividend Payout",d:"Share of net profit paid out as dividend — about 10% for Reliance.",w:"A rising payout with falling capex is a classic late-cycle shareholder-return signal."},
+{n:"CWIP (Capital Work in Progress)",m:"CWIP",d:"Money spent on assets still under construction — ₹2,37,686 Cr, down from ₹3,38,855 Cr two years ago.",w:"Falling CWIP means the capex peak has passed — future free cash flow should rise."},
+{n:"NCD (Non-Convertible Debenture)",m:"NCD",d:"A long-term corporate bond — ₹13,008.6 Cr allotted on 01-Oct-2026 at 7.90% due 2036.",w:"A cheap 10-year rate signals lenders see low default risk."},
+{n:"CP (Commercial Paper)",m:"CP",d:"Short-term corporate IOU, usually under a year — rated A1+ (highest short-term grade).",w:"Shows the company can roll short-term funding easily."},
+{n:"AAA / A1+",m:"AAA||A1+",d:"Highest domestic credit ratings: AAA = safest long-term debt, A1+ = safest short-term debt.",w:"Means effectively zero near-term default risk and the cheapest borrowing costs."},
+{n:"Baa1 / A−",m:"Baa1||A−",d:"Investment-grade international ratings from Moody's (Baa1) and S&P (A−) — upgraded in FY26.",w:"Keeps Reliance accessible to foreign debt investors and foreign-currency funding."},
+{n:"ISIN",m:"ISIN",d:"International Securities Identification Number — the share's global ID: INE002A01018.",w:"Used by foreign exchanges and custodians to identify the exact security."},
+{n:"NSE / BSE",m:"NSE||BSE",d:"National Stock Exchange and Bombay Stock Exchange — Reliance trades on both (RELIANCE / 500325).",w:"The two primary listings; prices are usually identical after currency of information."},
+{n:"Sensex / Nifty 50",m:"Sensex||Nifty 50",d:"Benchmark indices: Sensex = 30 BSE stocks, Nifty 50 = 50 NSE stocks.",w:"Reliance is a heavyweight in both — its moves alone can move the indices."},
+{n:"F&O (Futures & Options)",m:"F&O",d:"The derivatives segment where RELIANCE is an eligible underlying stock.",w:"High F&O activity amplifies price swings around results and event dates."},
+{n:"Large Cap",m:"Large Cap",d:"Top tier of companies by market value — Reliance is the largest listed Indian company.",w:"Large caps move less violently but also offer lower multi-bagger potential."},
+{n:"Financial Year (FY) & Quarters",m:"FY26||FY25||FY24||FY23||FY22||FY21||FY27",d:"Indian financial years run April–March: FY26 = Apr-2025 to Mar-2026. Q1 FY27 = the Apr–Jun-2026 quarter.",w:"Results are always quoted against these periods — misreading them is the most common error for beginners."},
+{n:"Nifty Oil & Gas index",m:"Nifty Oil & Gas||Nifty O&G",d:"Sector index of oil & gas companies; currently trades at P/E ≈ 10.8x, P/B 1.35x, yield 1.80%.",w:"The benchmark for Reliance's sector premium — it trades at ~2× the sector."}
+];
+var byKey={};GL.forEach(function(g,i){g.m.split('||').forEach(function(t){byKey[t]=i})});
+function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}
+function slug(g,i){return 'g'+i}
+/* ---- Glossary tab render ---- */
+var sorted=GL.map(function(g,i){return {g:g,i:i}}).sort(function(a,b){return a.g.n.localeCompare(b.g.n)});
+var html='<input id="gSearch" placeholder="Type to filter — e.g. ROE, EBITDA, FII…" style="width:100%;max-width:420px;padding:8px 11px;margin:4px 0 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel2);color:var(--ink);font-size:13.5px">';
+sorted.forEach(function(o){
+ html+='<div class="gitem" id="'+slug(o.g,o.i)+'" data-s="'+o.g.n.toLowerCase()+'" style="border-bottom:1px solid var(--line);padding:9px 4px">'
+ +'<div style="font-weight:700;color:#cfe1ff">'+o.g.n+'</div>'
+ +'<div style="font-size:13.4px;margin-top:3px">'+o.g.d+'</div>'
+ +'<div style="font-size:12.6px;color:#ffd98a;margin-top:4px">Why it matters: '+o.g.w+'</div></div>';
+});
+var gbody=document.getElementById('glossaryBody');
+if(gbody)gbody.innerHTML=html;
+var gs=document.getElementById('gSearch');
+if(gs)gs.addEventListener('input',function(){var q=this.value.toLowerCase();document.querySelectorAll('.gitem').forEach(function(el){el.style.display=(!q||el.dataset.s.indexOf(q)>-1||el.textContent.toLowerCase().indexOf(q)>-1)?'':'none'})});
+/* ---- Tabs ---- */
+function show(id){
+ document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===id)});
+ document.querySelectorAll('.tabbtn').forEach(function(b){b.classList.toggle('on',b.dataset.t===id)});
+ window.scrollTo({top:0,behavior:'instant' in window?'auto':'auto'});
+}
+document.querySelectorAll('.tabbtn').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);try{history.replaceState(null,'','#'+b.dataset.t)}catch(e){}})});
+if(location.hash){try{var h=document.querySelector(location.hash+'.panel');if(h)show(location.hash.slice(1))}catch(e){}}
+/* ---- Modal ---- */
+var modal=document.getElementById('modal'),mT=document.getElementById('mTitle'),mB=document.getElementById('mBody'),mG=document.getElementById('mGlossLink');
+function openModal(title,body,showGloss){mT.textContent=title;mB.innerHTML=body;mG.style.display=showGloss?'':'none';modal.classList.add('on')}
+function closeModal(){modal.classList.remove('on')}
+document.getElementById('mClose').addEventListener('click',closeModal);
+modal.addEventListener('click',function(e){if(e.target===modal)closeModal()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+document.getElementById('mToGloss').addEventListener('click',function(e){e.preventDefault();var a=mG.dataset.anchor;closeModal();show('tabG');if(a){var el=document.getElementById(a);if(el)setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'center'});el.style.background='rgba(77,163,255,.14)';setTimeout(function(){el.style.background=''},2600)},60)}});
+document.addEventListener('click',function(e){
+ var k=e.target.closest('.kpi[data-explain]');
+ if(k){openModal(k.querySelector('.l').textContent+' — plain English',k.dataset.explain,false);return}
+ var t=e.target.closest('.term');
+ if(t){var g=GL[+t.dataset.k];if(g){openModal(g.n,'<b>Meaning:</b> '+g.d+'<div class="why"><b>Why it matters:</b> '+g.w+'</div>',true);mG.dataset.anchor='g'+t.dataset.k}return}
+});
+/* ---- Auto-link glossary terms (first occurrence per section) ---- */
+try{
+ var keys=Object.keys(byKey).sort(function(a,b){return b.length-a.length});
+ var re=new RegExp('(?<![A-Za-z0-9])('+keys.map(esc).join('|')+')(?![A-Za-z0-9])','g');
+ document.querySelectorAll('section.panel').forEach(function(sec){
+  var seen={},nodes=[],w=document.createTreeWalker(sec,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+   if(!n.nodeValue||!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+   var p=n.parentElement;if(!p)return NodeFilter.FILTER_REJECT;
+   if(/^(SCRIPT|STYLE|A|BUTTON|INPUT)$/.test(p.tagName))return NodeFilter.FILTER_REJECT;
+   if(p.closest('#glossaryBody,#modal,.term,.tabbtn'))return NodeFilter.FILTER_REJECT;
+   return NodeFilter.FILTER_ACCEPT}});
+  while(w.nextNode())nodes.push(w.currentNode);
+  nodes.forEach(function(n){
+   var last=0,parts=[],m;re.lastIndex=0;
+   while((m=re.exec(n.nodeValue))){
+    var t=m[0];
+    if(seen[t]||byKey[t]===undefined)continue;
+    seen[t]=1;
+    parts.push(document.createTextNode(n.nodeValue.slice(last,m.index)));
+    var sp=document.createElement('span');sp.className='term';sp.dataset.k=byKey[t];sp.textContent=t;parts.push(sp);
+    last=m.index+t.length;
+   }
+   if(!last)return;
+   parts.push(document.createTextNode(n.nodeValue.slice(last)));
+   var frag=document.createDocumentFragment();parts.forEach(function(p){frag.appendChild(p)});
+   n.parentNode.replaceChild(frag,n);
+  });
+ });
+}catch(err){/* older browser without lookbehind — glossary tab still works */}
+})();
+</script>
+</div>
+<script src="../../Equity/code/table_chart.js"></script>
+</body>
+</html>

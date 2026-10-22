@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jio Platforms Ltd (IPO) — Equity Research Journal | Oct 2026</title>
+<style>
+:root{--bg:#0f1420;--panel:#161d2e;--panel2:#1c2438;--ink:#e8ecf5;--muted:#9aa7bd;--line:#2a3450;--acc:#4da3ff;--good:#2ecc8f;--warn:#f5b83d;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:22px}
+header.rpt{background:linear-gradient(135deg,#101828,#1b2a4a);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:20px}
+header.rpt h1{margin:0 0 4px;font-size:27px}
+header.rpt .sub{color:var(--muted);font-size:14px}
+.badges{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{padding:4px 11px;border-radius:20px;font-size:12.5px;border:1px solid var(--line);background:var(--panel2)}
+.badge.buy{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.badge.risk{background:#3a1d1d;border-color:#7a3030;color:#ffb0b0}
+.badge.info{background:#123055;border-color:#24528f;color:#a8d1ff}
+h2{font-size:20px;margin:34px 0 6px;padding-bottom:7px;border-bottom:2px solid var(--line);color:#cfe1ff}
+h4{font-size:14.5px;margin:14px 0 6px;color:#a9c4ea}
+p{margin:8px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 6px;font-size:13.2px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+th{background:var(--panel2);color:#c6d6f0;font-weight:600;text-align:center}
+td:first-child,th:first-child{text-align:left;font-weight:600;color:#dbe6fa}
+tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.tblwrap table{border:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:13px 14px}
+.kpi .l{font-size:11.6px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.kpi .v{font-size:21px;font-weight:700;margin-top:3px}
+.kpi .n{font-size:11.6px;color:var(--muted);margin-top:2px}
+.good{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 17px;margin:13px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.tag{display:inline-block;font-size:10.6px;letter-spacing:.6px;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-right:6px;vertical-align:1.5px;border:1px solid}
+.t-fact{background:#123055;border-color:#2c5f9e;color:#a9d1ff}
+.t-calc{background:#2a2140;border-color:#5a4a8a;color:#cbb8ff}
+.t-mgmt{background:#14402e;border-color:#2c7a5a;color:#9df0cd}
+.t-view{background:#46340f;border-color:#8d6a1e;color:#ffd98a}
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:12px;font-weight:600}
+.p-g{background:#0d3a2c;color:#7ff0c3;border:1px solid #1c6b4f}
+.p-y{background:#3d3210;color:#ffd98a;border:1px solid #8d6a1e}
+.p-r{background:#3a1d1d;color:#ffb0b0;border:1px solid #7a3030}
+.note{font-size:12.4px;color:var(--muted);margin-top:6px}
+.src{font-size:12.2px;color:var(--muted)}
+.scorebar{height:9px;background:#0c111c;border-radius:6px;overflow:hidden;border:1px solid var(--line);min-width:110px}
+.scorebar>i{display:block;height:100%;background:linear-gradient(90deg,#4da3ff,#2ecc8f)}
+ul{margin:7px 0 7px 20px}li{margin:4px 0}
+.verdict-main{display:flex;flex-wrap:wrap;gap:16px;align-items:stretch}
+.verdict-big{flex:1 1 300px;background:linear-gradient(135deg,#1d2b16,#26360f);border:1px solid #4a7a2e;border-radius:12px;padding:18px}
+.verdict-big .h{font-size:26px;font-weight:800;color:#b9f0a3}
+a{color:var(--acc)}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12.4px}
+/* top nav + tabs */
+.topnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
+.topnav a.home{color:var(--acc);font-size:13px;text-decoration:none;font-weight:600}
+.topnav select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13.4px;font-weight:600;cursor:pointer}
+.tabbar{position:sticky;top:0;z-index:40;display:flex;flex-wrap:wrap;gap:6px;background:rgba(15,20,32,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:8px;margin-bottom:16px}
+.tabbtn{border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:12.6px;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;letter-spacing:.3px}
+.tabbtn:hover{color:#cfe1ff;border-color:#3b5f96}
+.tabbtn.on{background:#123055;border-color:#2c66ad;color:#a9d1ff;box-shadow:0 0 0 1px #2c66ad}
+.panel{display:none;animation:fadein .25s ease}
+.panel.on{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.viewbox{border-left:4px solid var(--acc);background:rgba(77,163,255,.07);border-radius:0 9px 9px 0;padding:10px 15px;margin:10px 0 14px}
+.viewbox .vh{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8fc4ff;font-weight:700;margin-bottom:5px}
+.viewbox ul{margin:4px 0 2px 18px}.viewbox li{font-size:13.6px;margin:5px 0}
+.viewbox li b{color:#dbe9ff}
+.viewbox li.imp{color:#ffe6a3}
+.viewbox li.imp::marker{content:"★ "}
+.important{display:inline-block;background:#4a3708;color:#ffd98a;border:1px solid #8d6a1e;font-size:10.3px;font-weight:700;letter-spacing:.7px;padding:1px 7px;border-radius:4px;vertical-align:1.5px;margin-left:6px}
+.kpi[data-explain]{cursor:pointer;transition:transform .12s,border-color .12s}
+.kpi[data-explain]:hover{border-color:#4da3ff;transform:translateY(-2px)}
+.kpi[data-explain]::after{content:"ⓘ what does this mean?";display:block;font-size:9.6px;color:#4da3ff;letter-spacing:.4px;margin-top:5px;text-transform:uppercase}
+.term{color:#7fc0ff;text-decoration:underline dotted;cursor:help}
+.term:hover{color:#bfe0ff}
+#modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(4,8,16,.72);padding:20px}
+#modal.on{display:flex;align-items:center;justify-content:center}
+.mbox{background:#141b2c;border:1px solid #2c66ad;border-radius:13px;max-width:640px;width:100%;max-height:82vh;overflow:auto;padding:20px 22px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.mbox .mt{font-size:16.5px;font-weight:700;color:#a9d1ff;margin-bottom:8px}
+.mbox .mb{font-size:14px;line-height:1.65;color:var(--ink)}
+.mbox .mb .why{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);color:#ffd98a;font-size:13.3px}
+.mbox .mclose{float:right;border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:7px;font-size:12px;padding:4px 10px;cursor:pointer}
+.mbox .mclose:hover{color:#fff;border-color:#4da3ff}
+.mgl{font-size:12.4px;color:var(--muted);margin-top:12px}
+/* Position status KPI cards (tab0) - accented left bar + coloured value so
+   this group never reads as a copy of the plain .kpi row at the top of tab0 */
+.pos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0 6px}@media (max-width:900px){.pos-grid{grid-template-columns:repeat(2,1fr)}}@media (max-width:540px){.pos-grid{grid-template-columns:1fr}}
+.posk{background:var(--panel2);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:9px;padding:9px 12px 10px}
+.posk .pk-l{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.posk .pk-v{font-size:20px;font-weight:700;margin-top:3px;color:var(--ink)}
+.posk .pk-n{font-size:11.2px;color:var(--muted);margin-top:3px}
+.posk.p-blue{border-left-color:#4da3ff}
+.posk.p-blue .pk-v{color:#8fc6ff}
+.posk.p-purple{border-left-color:#a78bfa}
+.posk.p-purple .pk-v{color:#cbb8ff}
+.posk.p-amber{border-left-color:#f5b83d}
+.posk.p-amber .pk-v{color:#ffd98a}
+.posk.p-teal{border-left-color:#2ecc8f}
+.posk.p-teal .pk-v{color:#5ee0b0}
+.posk.p-pos{border-left-color:#2ecc8f}
+.posk.p-pos .pk-v{color:#2ecc8f}
+.posk.p-neg{border-left-color:#ff6b6b}
+.posk.p-neg .pk-v{color:#ff6b6b}
+.posk.p-slate{border-left-color:#9aa7bd}
+.posk.p-slate .pk-v{color:#c9d3e6}
+@media print{body{background:#fff;color:#111}.wrap{max-width:none}header.rpt,.card,.kpi,table,.verdict-big{background:#fff;color:#111;border-color:#bbb}th{background:#eee;color:#111}td{color:#111}h2,h4{color:#111}.good{color:#087f4f}.warn{color:#9a6a00}.bad{color:#b00}.panel{display:block!important;page-break-before:always}.tabbar,#modal{display:none!important}.viewbox{background:#f4f8ff;color:#111}.viewbox li{color:#111}.term{color:#0b5ca8}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="rpt">
+  <h1>Jio Platforms Ltd (JPL) — Pre-IPO Deep-Dive Report</h1>
+  <div class="sub">Quarterly Equity Research Journal &nbsp;•&nbsp; Entry #1 (Baseline — Pre-IPO) &nbsp;•&nbsp; Assessment as of <b>October 2026</b> (issue 21–23 Oct 2026; report built 20-Oct-2026; no CMP — not yet listed)</div>
+  <div class="badges">
+    <span class="badge risk">Portfolio status: CANDIDATE — no position, not yet listed</span>
+    <span class="badge buy">VERDICT: ACCUMULATE — composite 7.1/10 (IPO call, see plan)</span>
+    <span class="badge info">PRE-IPO — no CMP · issue ₹1,065–1,119 · opens 21-Oct-2026</span>
+    <span class="badge info">Expected Large Cap · implied Mcap ₹9.8–10.3 lakh Cr at band (14–20-Oct-2026 reports)</span>
+    <span class="badge info">Listing expected ~28-Oct-2026 (BSE + NSE)</span>
+    <span class="badge">Promoter: Reliance Industries 66.4% → ~64.4% post-issue</span>
+    <span class="badge">Fresh issue ₹30,213 Cr (cap) · India's largest IPO</span>
+    <span class="badge">At-band P/E ~32–33x FY26 · EV/EBITDA ~15x FY26</span>
+  </div>
+  <p class="note" style="margin-top:12px">Primary sources: Red Herring Prospectus (RHP) 14-Oct-2026 · Draft Red Herring Prospectus (DRHP) 19-Jun-2026 · RIL / JPL exchange filings · JPL FY26 annual report figures as carried in dated press coverage · CNBC-TV18 / Business Standard (14-Oct-2026) · Angel One note (15-Oct-2026) · broker notes (Emkay, SBI Securities, Swastika, Bonanza, 15–16-Oct-2026) · Economic Times cap-table &amp; grey-market reports (15-Oct / 20-Oct-2026). All figures in ₹ Crore unless stated; Indian digit grouping. Research journal entry — not investment advice. <b>There is no CMP and no Screener page — shares do not trade yet</b>; every price-dependent field is the dated issue band / implied valuation. Unavailable or unconfirmed figures are flagged <span class="warn">VERIFY</span> — never invented.</p>
+</header>
+
+<nav class="topnav">
+  <a class="home" href="../InvestIQ.html">⌂ InvestIQ</a>&nbsp; <a class="home" href="Equity_Forge.html">⌂ Back to Stock Hub</a>
+  <select id="stockSel">
+    <option value="">— go to stock —</option>
+    <option value="Reliance_Research_Report_Sep2026.html">RELIANCE | L | H</option>
+    <option value="RACE_Research_Report_Sep2026.html">RACE | S | H</option>
+    <option value="HDFCBANK_Research_Report_Sep2026.html">HDFC BANK | L | H</option>
+    <option value="ITC_Research_Report_Sep2026.html">ITC | L | H</option>
+    <option value="CAPLIPOINT_Research_Report_Sep2026.html">CAPLIN POINT | S | H</option>
+    <option value="GANECOS_Research_Report_Sep2026.html">GANESHA ECOSPHERE | S | H</option>
+    <option value="TMPV_Research_Report_Sep2026.html">TATA MOTORS PV | L | H</option>
+    <option value="OLECTRA_Research_Report_Oct2026.html">OLECTRA | S | C</option>
+    <option value="KAYNES_Research_Report_Oct2026.html">KAYNES | S | C</option>
+    <option value="BEL_Research_Report_Oct2026.html">BEL | L | C</option>
+    <option value="JIO_Research_Report_Oct2026.html" selected>JIO IPO | L | C</option>
+  </select>
+</nav>
+
+<nav class="tabbar" id="tabbar" aria-label="Report sections">
+  <button class="tabbtn on" data-t="tab0">0 · Dashboard</button>
+  <button class="tabbtn" data-t="tab1">1 · Metadata</button>
+  <button class="tabbtn" data-t="tab2">2 · Valuation</button>
+  <button class="tabbtn" data-t="tab3">3 · Growth</button>
+  <button class="tabbtn" data-t="tab4">4 · Profits</button>
+  <button class="tabbtn" data-t="tab5">5 · Balance Sheet</button>
+  <button class="tabbtn" data-t="tab6">6 · Cash Flow</button>
+  <button class="tabbtn" data-t="tab7">7 · Shareholders</button>
+  <button class="tabbtn" data-t="tab8">8 · News</button>
+  <button class="tabbtn" data-t="tab9">9 · Verdict &amp; Journal</button>
+  <button class="tabbtn" data-t="tabT">Transactions</button>
+  <button class="tabbtn" data-t="tabG">Glossary</button>
+</nav>
+
+<section class="panel on" id="tab0">
+<h2>0. Executive Dashboard — Pre-IPO, Oct 2026</h2>
+<div class="viewbox"><div class="vh">Section 0 — The View (plain English)</div>
+<ul>
+<li class="imp">One-line verdict: <b>ACCUMULATE (7.1/10) — India's largest-ever IPO of the country's dominant telecom &amp; digital business (533 m subs, 51.9% FY26 EBITDA margin, ₹77,556 Cr operating cash flow): SUBSCRIBE in the 21–23 Oct 2026 issue at ≤ ₹1,119 for one lot / your chosen size — but no position today, and buy the real aftermarket tranche only at ≤ ₹1,000 (≤30x FY26 earnings) after listing + 10 sessions.</b><span class="important">IMPORTANT</span></li>
+<li class="imp">Three numbers that decide everything: official band <b>₹1,065–1,119</b> (≈31.7–33.3x FY26 P/E) · FY26 EBITDA margin <b>51.9%</b> (Q1 FY27 53.3%) · <b>77.08%</b> of FY26 revenue from operations flows through one related-party distributor, Reliance Retail.<span class="important">IMPORTANT</span></li>
+<li>Price context: <b>there is no CMP — JPL shares do not trade yet.</b> The issue opens <b>tomorrow, 21-Oct-2026</b>, closes 23-Oct-2026, allotment ~26-Oct, listing expected <b>~28-Oct-2026</b> on BSE + NSE. The only prices that exist are the band (RHP, 14-Oct-2026) and an <b>unofficial</b> grey-market premium of ~₹245 (~22%) → indicative ₹1,364 (Economic Times, 20-Oct-2026) — unofficial, not guaranteed, and it must never drive the verdict.</li>
+<li class="imp">Portfolio status is <b>CANDIDATE</b> — no position today (shares are not even allotted yet). The Entry Plan card below is the IPO participation plan: apply / don't apply conditions, quota eligibility (you hold Reliance Industries → RIL-shareholder reservation), application size left for you, and the post-listing first-tranche trigger.<span class="important">IMPORTANT</span></li>
+<li>How to read this report: click any section tab above · click any blue info card for a plain-English meaning · click any blue dotted term for its glossary definition.</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Official IPO price band of ₹1,065–1,119 per share (face value ₹10), fixed by the IPO committee on 14-Oct-2026 along with the RHP. It supersedes pre-RHP press reports of ₹1,150–1,220. 100% fresh issue of up to 27,00,00,000 shares — no Offer For Sale by the promoter. Public bid opens 21-Oct-2026 and closes 23-Oct-2026."><div class="l">IPO Price Band</div><div class="v">₹1,065–1,119</div><div class="n">RHP 14-Oct'26 · opens 21-Oct · 100% fresh</div></div>
+  <div class="kpi" data-explain="Market capitalisation implied by the band: about ₹9.8 lakh Cr at the floor to ₹10.3 lakh Cr at the cap (roughly US$101–107 bn). This is a band-implied figure from 14–20-Oct-2026 coverage — not a traded value; the actual figure depends on the final price discovered on 23-Oct-2026."><div class="l">Implied Mcap (at band)</div><div class="v warn">₹9.8–10.3 lakh Cr</div><div class="n">≈ $101–107 bn · 14–20 Oct'26 reports</div></div>
+  <div class="kpi" data-explain="Price-to-Earnings at the band using FY26 EPS of ₹33.6: 31.7x at the ₹1,065 floor and 33.3x at the ₹1,119 cap (Calc: price ÷ 33.6). Broker notes of 15–16-Oct-2026 quote ~31.7–33.3x FY26. For context, listed peer Bharti Airtel trades around 39–41x."><div class="l">At-band P/E (FY26)</div><div class="v warn">~31.7–33.3x</div><div class="n">EPS ₹33.6 · floor → cap · vs Airtel 39–41x</div></div>
+  <div class="kpi" data-explain="FY26 (Apr-2025 to Mar-2026) revenue from operations of ₹1,46,885 Cr, up 14.6% over FY25 (₹1,28,218 Cr). FY24 was ₹1,09,558 Cr — a two-year CAGR of about 18.6% (Calc). Q1 FY27 revenue was ₹39,173 Cr, +11.8% YoY."><div class="l">FY26 Revenue</div><div class="v good">₹1,46,885 Cr</div><div class="n">YoY +14.6% · Q1 FY27 ₹39,173 Cr +11.8%</div></div>
+  <div class="kpi" data-explain="FY26 profit after tax of ₹30,049 Cr (FY25 ₹26,109 Cr, FY24 ~₹21,422 Cr) on an EBITDA margin of 51.9% (EBITDA ₹76,255 Cr). Net margin about 20.5% (Calc). Q1 FY27 PAT was ₹7,764 Cr, +9.2% YoY. Note: FY26 PBT includes a one-off ₹1,840.5 Cr benefit from extending network-asset life from 16 to 18 years."><div class="l">FY26 PAT · EBITDA margin</div><div class="v good">₹30,049 Cr · 51.9%</div><div class="n">EBITDA ₹76,255 Cr · net margin ~20.5%</div></div>
+  <div class="kpi" data-explain="Average Revenue Per User per month: ₹206.2 in FY25 → ₹214 in FY26 → ₹215.6 in Q1 FY27 (Jun-2026 quarter). ARPU is the single swing factor in the growth case — only +0.7% QoQ (Calc), and free 5G for 285 million subscribers dilutes it. Tariff growth may stall per DRHP risk factors."><div class="l">ARPU</div><div class="v">₹215.6</div><div class="n">Q1 FY27 · FY26 ₹214 · FY25 ₹206.2</div></div>
+  <div class="kpi" data-explain="533.3 million mobile subscribers at Jun-2026 (524.4 m at Mar-2026, +8.9 m / +1.7% QoQ, Calc), including 285 m on 5G and 28.6 m fixed-broadband customers. Jio carries about 60% of India's wireless data traffic, 42.6% of fixed broadband and 50% of wireless broadband (RHP)."><div class="l">Subscribers</div><div class="v good">533.3 m</div><div class="n">Jun-2026 · +8.9 m QoQ · 5G 285 m</div></div>
+  <div class="kpi" data-explain="Net debt of ₹9,539 Cr at Jun-2026 (gross borrowings ₹61,372 Cr less ₹51,833 Cr cash and securities), down from ₹27,579 Cr at Mar-2026; reported net leverage 0.36x FY26. Nomura's alternative lens including deferred spectrum payments and leases is far higher at ~₹1.4 lakh Cr — both views are carried below with sources."><div class="l">Net Debt (Jun-26)</div><div class="v good">₹9,539 Cr</div><div class="n">gross ₹61,372 Cr − cash ₹51,833 Cr</div></div>
+  <div class="kpi" data-explain="₹27,500 Cr of the ₹30,213 Cr cap-size issue (about 91%, Calc) goes to repay or prepay borrowings of subsidiary Reliance Jio Infocomm (RJIL); the rest is general corporate purposes. Management says this pushes JPL towards net debt-free and saves ₹2,000–2,500 Cr of interest a year."><div class="l">Use of Proceeds</div><div class="v">₹27,500 Cr → RJIL debt</div><div class="n">~91% of issue · saves ₹2,000–2,500 Cr/yr</div></div>
+</div>
+
+<div class="card" style="border-color:#8d6a1e">
+<h4>IPO Participation Plan (personal) — CANDIDATE, no position <span class="tag t-view">View</span> <span class="tag t-fact">Fact</span></h4>
+<p class="note" style="margin-top:0"><b>Status: CANDIDATE — there is NO POSITION today: no units, no trades, and no allotment yet (the bid opens 21-Oct-2026). Shares do not trade until listing (~28-Oct-2026), so nothing here is holding-management wording — it is an entry decision for the issue and the aftermarket.</b> Recommendations below are analyst judgement (<span class="tag t-view">View</span>) on verified issue facts (<span class="tag t-fact">Fact</span>); application size is left blank for you.</p>
+<table>
+<tr><th>Field</th><th style="text-align:left">Value</th></tr>
+<tr><td>Position today</td><td style="text-align:left"><span class="bad"><b>NO POSITION</b></span> — 0 units, 0 trades; not allotted, not listed</td></tr>
+<tr><td>Apply in IPO? (21–23 Oct 2026)</td><td style="text-align:left"><b>YES — SUBSCRIBE within the ₹1,065–1,119 band</b> (cut-off/cap acceptable), conditional on: (1) treat it as a <b>size-disciplined</b> entry, not a listing-gain punt · (2) read the day-wise QIB/retail subscription data on 21–22 Oct before finalising (numbers <span class="warn">VERIFY</span> — not out yet) · (3) the ~₹245 GMP is <b>unofficial</b> and must not size your bid · <span class="tag t-view">View</span></td></tr>
+<tr><td>Quota eligibility</td><td style="text-align:left">Retail quota (35% of issue) applies to everyone. <b>Also eligible: the eligible-RIL-shareholder reservation of up to ₹2,500 Cr</b> — individuals/HUFs holding Reliance Industries as of the record date <b>14-Oct-2026</b>, bid cap ₹2 lakh per application. The tracked portfolio holds 22 units of Reliance Industries, so you qualify in principle — <span class="warn">VERIFY your own demat holding status on the record date</span> before bidding <span class="important">IMPORTANT</span></td></tr>
+<tr><td>Intended application size</td><td style="text-align:left"><span class="warn">VERIFY — you decide</span>. Reference points: min lot 12 shares = ₹12,780 at floor / <b>₹13,428 at cap</b>; RIL-shareholder quota capped at ₹2 lakh (≈14 lots at cap)</td></tr>
+<tr><td>Listing-gain expectation vs fundamentals</td><td style="text-align:left">GMP ~₹245 (~22%) → indicative ₹1,364 (ET, 20-Oct-2026) is <b>UNOFFICIAL, not guaranteed</b> — grey-market prints are not a return promise. The fundamental case is 32–33x FY26 at band: a pop is a bonus, not the thesis. Do not size or chase on GMP <span class="tag t-view">View</span></td></tr>
+<tr><td>Do NOT apply if</td><td style="text-align:left">you would be uncomfortable holding through a listing below the band (IPOs can and do list at a discount — there is no price floor after 23-Oct)</td></tr>
+<tr><td>Post-listing first-tranche trigger</td><td style="text-align:left"><b>Review at listing + 10 sessions (~11-Nov-2026).</b> (a) If it <b>lists ≤ ₹1,119</b> (at/below the cap, ≤33.3x FY26) → first tranche allowed on day 1–10; (b) if it opens at a premium (GMP implies ~₹1,364) → <b>no chase</b>: buy only if it <b>re-rates to ≤30x FY26 = ≤ ~₹1,000</b> in the aftermarket. Aftermarket bar is deliberately stricter than the IPO bar because allotment is one-time and capped <span class="tag t-view">View</span></td></tr>
+<tr><td>Do NOT buy if</td><td style="text-align:left">it holds above ~₹1,150 (≈34x FY26) through the first 10 sessions with no Q2 FY27 confirmation, or Q2 FY27 shows ARPU falling below ₹214 / churn above 1.6%</td></tr>
+<tr><td>Next review</td><td style="text-align:left"><b>Listing week (~28-Oct-2026)</b> — verdict re-scored on the actual listing price — then <b>Q2 FY27 results (~Nov-2026; exact date <span class="warn">VERIFY</span>)</b></td></tr>
+</table>
+<p class="note">Nothing above is an instruction to buy before listing: there is no price to buy at until ~28-Oct-2026. The verdict word ACCUMULATE describes the business at the right price; the IPO application and any aftermarket tranche are the two separate decisions this plan governs. Re-score at the listing week and append the next dated row to the hub's Monthly Log.</p>
+<p class="note"><a class="tabbtn" data-t="tabT" href="#tabT">→ Full transaction log (Transactions tab — no trades yet)</a></p>
+</div>
+
+<div class="verdict-main">
+  <div class="verdict-big">
+    <div style="font-size:12.5px;color:#d7f5c2;letter-spacing:1px">STANDALONE VERDICT (analyst view, Oct 2026)</div>
+    <div class="h">ACCUMULATE · 7.1/10 · IPO + 12M horizon</div>
+    <p style="margin-top:8px">India's largest telecom and digital business — 533 m subscribers, ~60% of the nation's wireless data traffic, 51.9% EBITDA margins and ₹77,556 Cr of operating cash flow against only ₹34,184 Cr of capex — is coming to market at ~32–33x FY26 earnings: below Bharti Airtel's 39–41x, though at a 15–17% EV/EBITDA premium to Airtel's India business, with 77% of revenue routed through promoter-owned Reliance Retail and an unconventional leverage lens (book net debt ₹9,539 Cr vs Nomura's ~₹1.4 lakh Cr including spectrum &amp; leases). Business quality and cash generation say own it; price and concentration say size it small and stay disciplined. SUBSCRIBE in the 21–23 Oct issue at ≤ ₹1,119 (you are RIL-shareholder-quota eligible — verify record-date demat), then add the real tranche only ≤ ₹1,000 (≤30x FY26) after listing + 10 sessions.</p>
+    <p class="note">IPO call: subscribe at band, small size · aftermarket: no chase above ₹1,119; first tranche ≤ ₹1,000 · GMP ~22% is unofficial · next review listing week (~28-Oct-2026) + Q2 FY27 (~Nov-2026).</p>
+  </div>
+  <div class="card" style="flex:1 1 330px;margin:0">
+    <h4 style="margin-top:0">Section Scorecard (0–10)</h4>
+    <table>
+      <tr><th>Section</th><th>Score</th><th style="width:34%">Rating</th></tr>
+      <tr><td>1. Metadata &amp; Ownership</td><td>7.0</td><td><div class="scorebar"><i style="width:70%"></i></div></td></tr>
+      <tr><td>2. Valuation</td><td>6.0</td><td><div class="scorebar"><i style="width:60%"></i></div></td></tr>
+      <tr><td>3. Growth</td><td>7.0</td><td><div class="scorebar"><i style="width:70%"></i></div></td></tr>
+      <tr><td>4. Profitability &amp; Efficiency</td><td>6.5</td><td><div class="scorebar"><i style="width:65%"></i></div></td></tr>
+      <tr><td>5. Balance Sheet Strength</td><td>7.5</td><td><div class="scorebar"><i style="width:75%"></i></div></td></tr>
+      <tr><td>6. Cash Flow Quality</td><td>8.5</td><td><div class="scorebar"><i style="width:85%"></i></div></td></tr>
+      <tr><td>7. Shareholding &amp; Ownership</td><td>7.5</td><td><div class="scorebar"><i style="width:75%"></i></div></td></tr>
+      <tr><td><b>Composite</b></td><td><b>7.1</b></td><td><div class="scorebar"><i style="width:71%"></i></div></td></tr>
+    </table>
+    <p class="src">Rubric: 8–10 excellent · 6–8 positive/acceptable · 4–6 watchlist · &lt;4 avoid. Composite 7.1 = ACCUMULATE (50.0 ÷ 7 sections, rounded to 1 decimal). For an IPO the verdict answers "subscribe / avoid at band" plus the aftermarket stance — see the plan above.</p>
+  </div>
+</div>
+</section>
+
+<section class="panel" id="tab1">
+<h2>1. Metadata &amp; Ownership — Issue Structure, Promoter, Governance</h2>
+<div class="viewbox"><div class="vh">Section 1 — The View (plain English)</div>
+<ul>
+<li class="imp">Who and what: <b>Jio Platforms Ltd (JPL)</b> is Reliance Industries' telecom + digital holding company — the parent of <b>Reliance Jio Infocomm Ltd (RJIL)</b>, which runs the Jio network. It is India's largest telecom operator by subscribers and carries about <b>60% of India's wireless data traffic</b>. The IPO is <b>100% fresh equity</b> (no promoter selling) with proceeds earmarked mostly to <b>cut RJIL's debt</b>.<span class="important">IMPORTANT</span></li>
+<li>Ownership after the issue: Reliance Industries' <b>66.4% → ~64.4%</b>. Ownership stays with the promoter family (Mukesh Ambani remains Chairman &amp; Managing Director). Free float after listing stays small — roughly <b>22–24%</b> once RIL's post-issue stake and the 5% employee/IPO quota are netted off (Calc).</li>
+<li class="imp">Issue mechanics you must hold in mind: band <b>₹1,065–1,119</b>, min lot <b>12 shares (₹12,780–13,428)</b>, <b>₹2,500 Cr reserved for eligible Reliance Industries shareholders</b> (record date 14-Oct-2026; cap ₹2 lakh/application), quota split 35% retail / 18% NII / 50% QIB (approximately, per RHP), one lot per valid retail application, no discount for retail (the ₹1,065 floor applies to everyone).<span class="important">IMPORTANT</span></li>
+<li>Governance: promoter-controlled, big-business group structure; the headline governance issue is <b>related-party revenue — 77.08% of FY26 revenue comes through promoter-owned Reliance Retail</b> as distributor (covered in Section 4). Promoter group pledging: <span class="warn">VERIFY — not disclosed in the material used</span>.</li>
+<li>Index/benchmark effect: an expected ₹10 lakh Cr company will likely be added to NSE Nifty 50 and BSE Sensex post-listing (eligibility windows <span class="warn">VERIFY</span>) — a mechanical passive-inflow tailwind, not a thesis.</li>
+</ul>
+</div>
+
+<h4>Identity &amp; issue facts</h4>
+<table>
+<tr><th>Field</th><th style="text-align:left">Value</th></tr>
+<tr><td>Company</td><td style="text-align:left">Jio Platforms Ltd (JPL) — holding company of Reliance Jio Infocomm Ltd (RJIL)</td></tr>
+<tr><td>Sector / industry</td><td style="text-align:left">Telecom services · India (wireless, fixed broadband, digital platforms)</td></tr>
+<tr><td>Promoter &amp; management</td><td style="text-align:left">Reliance Industries Ltd (~66.4% pre-issue). Chairman &amp; Managing Director: <b>Mukesh D. Ambani</b>. JPL is majority-owned by RIL and its designated entities.</td></tr>
+<tr><td>Issue type &amp; dates</td><td style="text-align:left"><b>IPO — 100% fresh issue</b> of up to <b>27,00,00,000 equity shares</b> (face value ₹10). Bid opens <b>21-Oct-2026</b>, closes <b>23-Oct-2026</b>; basis of allotment ~26-Oct-2026; listing expected <b>~28-Oct-2026</b> (BSE + NSE)</td></tr>
+<tr><td>Price band (RHP, 14-Oct-2026)</td><td style="text-align:left"><b>₹1,065 – ₹1,119</b> per share (₹1,150–1,220 in pre-RHP press reports — superseded)</td></tr>
+<tr><td>Issue size</td><td style="text-align:left">~<b>₹28,755 Cr</b> at floor · <b>₹30,213 Cr</b> at cap (Calc: 27.0 Cr shares × band) — India's largest IPO (previous record HDB Financial ₹28,870 Cr/Oct-2025; final issue is ~<b>8.4% larger</b> than Hyundai India's ₹27,870 Cr)</td></tr>
+<tr><td>Lot size</td><td style="text-align:left"><b>12 shares</b> → ₹12,780 (floor) / <b>₹13,428</b> (cap) per lot; minimum 1 lot, maximum 13 lots for retail (₹2 lakh cap)</td></tr>
+<tr><td>Quota split</td><td style="text-align:left">Retail 35% · NII (HNI) 18% · QIB 50% · employees ~5% (approximately, per RHP) — <span class="warn">VERIFY exact split</span></td></tr>
+<tr><td>RIL-shareholder reservation</td><td style="text-align:left">Up to <b>₹2,500 Cr</b> reserved for eligible shareholders of Reliance Industries Ltd holding as of record date <b>14-Oct-2026</b>; max ₹2 lakh per application; shares credited by 26-Oct-2026</td></tr>
+<tr><td>Anchor book</td><td style="text-align:left">Anchor allotment <b>20-Oct-2026</b> (today); allocation split QIB 50% / retail 50% within the up-to-60% anchor portion — anchor list and demand <span class="warn">VERIFY (announced after 19:00 IST)</span></td></tr>
+<tr><td>Lead managers</td><td style="text-align:left">Book-running lead managers and registrar <span class="warn">VERIFY — not confirmed in material used</span></td></tr>
+<tr><td>Use of proceeds</td><td style="text-align:left"><b>₹27,500 Cr</b> to repay/prepay borrowings of subsidiary RJIL (~91% of cap-size issue, Calc) · balance general corporate purposes</td></tr>
+<tr><td>Post-issue promoter holding</td><td style="text-align:left">RIL ~<b>66.4% → ~64.4%</b> (published); check cross-calibration: 9.8 lakh Cr ÷ ₹1,065 ≈ <b>920 Cr</b> implied post-issue shares; 920 Cr × 66.4% ≈ 611 Cr → ≈ 66.4% (Calc — consistent). <b>Free float ≈ 22–24%</b> post-issue (Calc, subject to final RHP cap-table numbers)</td></tr>
+<tr><td>Listing / index effect</td><td style="text-align:left">Expected large-cap in Nifty 50 &amp; Sensex post-listing (eligibility + passive flows <span class="warn">VERIFY</span>)</td></tr>
+<tr><td>Screener page / CMP</td><td style="text-align:left"><span class="warn">Not applicable — pre-IPO</span>. No CMP, no symbol yet; Screener is by definition unavailable until listing</td></tr>
+</table>
+
+<h4>Post-issue ownership (illustrative — Calc)</h4>
+<div class="tblwrap"><table>
+<tr><th>Shareholder</th><th>Pre-issue</th><th>Post-issue (at cap)</th><th style="text-align:left">Note</th></tr>
+<tr><td>Reliance Industries Ltd (promoter)</td><td>66.4%</td><td>~64.4%</td><td style="text-align:left">published; no promoter selling in this issue</td></tr>
+<tr><td>Other promoter-group / treasury</td><td>~10–11%</td><td>~10–11%</td><td style="text-align:left"><span class="warn">VERIFY exact split from RHP cap table</span></td></tr>
+<tr><td>Public / free float (incl. IPO)</td><td>~22%</td><td>~22–24%</td><td style="text-align:left">RIL's post-issue stake stays locked in (180-day lock-in, per standard promoter rules) — <span class="warn">VERIFY lock-in terms</span></td></tr>
+<tr><td><b>Implied post-issue shares</b></td><td colspan="2"><b>~920 Cr</b></td><td style="text-align:left">Calc: ₹9.8 lakh Cr ÷ ₹1,065 (floor) ≈ 920 Cr shares</td></tr>
+</table></div>
+
+<h4>Governance &amp; related-party lens</h4>
+<div class="grid2">
+<div class="card">
+<h4 style="margin-top:0">Positives</h4>
+<ul>
+<li><span class="tag t-fact">Fact</span> Promoter taking the company public at full band — no OFS dumping of promoter shares.</li>
+<li><span class="tag t-fact">Fact</span> Single-class equity, listed-entity reporting standards from day one, ₹2,500 Cr reserved for ordinary RIL shareholders — alignment gesture.</li>
+<li><span class="tag t-calc">Calc</span> Debt-reduction use of proceeds (₹27,500 Cr → RJIL borrowings) improves the subsidiary balance sheet and cuts group interest cost.</li>
+</ul>
+</div>
+<div class="card">
+<h4 style="margin-top:0">Watch-outs</h4>
+<ul>
+<li><span class="tag t-view">View</span> <b>77.08% of FY26 revenue is related-party</b> (distributor = Reliance Retail) — the promoter can, in principle, shape economics across the group.</li>
+<li><span class="tag t-view">View</span> JPL's businesses overlap with Reliance Retail/JioMart/AirFiber (cross-sell + shared distribution) — arm's-length pricing must be watched every quarter.</li>
+<li><span class="tag t-fact">Fact</span> DRHP risk factors include promoter group's other interests, tariff-growth stall risk, and free-5G dilution — all carried in Section 9.</li>
+</ul>
+</div>
+</div>
+<p class="note">Score 7.0/10 (metadata): transparent issue structure and clean promoter intent (+), against related-party concentration and a promoter-controlled cap table (−).</p>
+</section>
+
+<section class="panel" id="tab2">
+<h2>2. Valuation — at the IPO Band</h2>
+<div class="viewbox"><div class="vh">Section 2 — The View (plain English)</div>
+<ul>
+<li class="imp">There is <b>no CMP</b>. The only official prices are the band <b>₹1,065–1,119</b>. At the band you pay <b>~31.7–33.3x FY26 EPS ₹33.6</b> (Calc), <b>~6.7–7.0x FY26 sales</b> (Calc), and <b>~15x FY26 EV/EBITDA</b> (broker notes, 15–16 Oct 2026).<span class="important">IMPORTANT</span></li>
+<li>Peer read: Bharti Airtel trades at <b>~39–41x P/E and ~15–16x EV/EBITDA</b> (broker notes). JPL is <b>cheaper on earnings (32–33x vs 39–41x)</b> but <b>~15–17% more expensive on EV/EBITDA</b> (Calc) — so "cheaper" depends on the lens; JPL's leverage-free-ish balance sheet (book net debt ₹9,539 Cr vs Airtel's much larger debt) explains part of the EV gap.</li>
+<li>On a sum-of-the-parts lens the band looks fair-to-fairly-priced rather than cheap: ₹1,000 ≈ 30x FY26 EPS, ₹1,119 ≈ 33.3x. The GMP of ~₹245 (~22%) would put the indicative price at ~₹1,364 = <b>~40.6x FY26 (Calc) — i.e. at/above Airtel multiples, no longer cheap</b>. That is the explicit reason the plan says <b>no chase above ₹1,119</b>.<span class="important">IMPORTANT</span></li>
+<li>Holdco discount question: none is being offered — the band already prices JPL standalone, and JPL <i>is</i> the operating holdco (it owns RJIL + digital assets). Do not add a "holdco discount" adjustment to the fair value; there is no parent-level discount to strip out.</li>
+<li>Buyback/precedent check: no buyback or OFS history to reference (first-time listing). Anchor allocation (20-Oct-2026) is the first real demand print — <span class="warn">VERIFY after 19:00 IST</span>.</li>
+</ul>
+</div>
+
+<h4>Band-implied multiples (all Calculations)</h4>
+<div class="tblwrap"><table>
+<tr><th>Metric</th><th>At floor ₹1,065</th><th>At cap ₹1,119</th><th>Basis / source</th></tr>
+<tr><td>P/E (FY26 EPS ₹33.6)</td><td>31.7x</td><td>33.3x</td><td style="text-align:left">Calc: price ÷ 33.6 · broker notes quote 31.7–33.3x</td></tr>
+<tr><td>P/E (FY25 EPS ₹28.6)</td><td>37.2x</td><td>39.1x</td><td style="text-align:left">Calc: price ÷ 28.6 (FY25 PAT ₹26,109 Cr ÷ ~913 Cr sh)</td></tr>
+<tr><td>P/S (FY26 revenue ₹1,46,885 Cr ÷ ~920 Cr sh)</td><td>~6.7x</td><td>~7.0x</td><td style="text-align:left">Calc: revenue per share ~₹159.7 × price</td></tr>
+<tr><td>EV/EBITDA (FY26 EBITDA ₹76,255 Cr)</td><td colspan="2">~15x</td><td style="text-align:left">broker notes 15–16 Oct 2026 (band-implied)</td></tr>
+<tr><td>Implied market cap</td><td>₹9.8 lakh Cr</td><td>₹10.3 lakh Cr</td><td style="text-align:left">14–20 Oct 2026 reports (Calc cross-check: ~920 Cr sh × band)</td></tr>
+<tr><td>FY26 dividend yield</td><td colspan="2">0%</td><td style="text-align:left">FY26 nil dividend declared to date <span class="warn">VERIFY ex-date status</span></td></tr>
+</table></div>
+
+<h4>Peer comparison (band-implied for JPL; market multiples for peers — 15–16 Oct 2026 broker notes)</h4>
+<div class="tblwrap"><table>
+<tr><th>Company</th><th>P/E (latest FY)</th><th>EV/EBITDA</th><th>EBITDA margin</th><th style="text-align:left">Note</th></tr>
+<tr><td><b>Jio Platforms (at band)</b></td><td><b>31.7–33.3x</b></td><td><b>~15x</b></td><td><b>51.9%</b></td><td style="text-align:left">FY26 basis; GMP-implied ~₹1,364 = ~40.6x FY26 (Calc)</td></tr>
+<tr><td>Bharti Airtel (India + group)</td><td>39–41x</td><td>15–16x</td><td>~55–56%</td><td style="text-align:left">listed peer, higher margin</td></tr>
+<tr><td>Vodafone Idea</td><td colspan="2">n.m. (loss-making / stressed)</td><td>~47%</td><td style="text-align:left">distressed peer, not a valuation anchor</td></tr>
+<tr><td>Tata Communications / Indus (if shown)</td><td colspan="3"><span class="warn">VERIFY — not in material used</span></td><td style="text-align:left">—</td></tr>
+</table></div>
+<p class="src">Peers selectable via BRLM's peer list in the final RHP — <span class="warn">VERIFY</span>. Nothing above is a target price: pre-IPO there is no market price to anchor a target on, so the band IS the reference.</p>
+
+<h4>Valuation call</h4>
+<div class="card">
+<ul>
+<li><span class="tag t-view">View</span> <b>Fair-to-attractive at the floor, fair at the cap</b>: 31.7x at ₹1,065 with Airtel at 39–41x gives ~18–19% earnings-multiple discount (Calc); at ₹1,119 the discount shrinks to ~16%.</li>
+<li><span class="tag t-view">View</span> <b>No chase rule:</b> aftermarket tranche only ≤ ~₹1,000 (≤30x FY26) — deliberately below the band floor so the post-listing entry is protected against GMP-driven opens.</li>
+<li><span class="tag t-fact">Fact</span> Fair-value watch bands: <b>≤ ₹1,000 = 30x FY26 (BUY zone)</b> · <b>₹1,065–1,119 = band (SUBSCRIBE / hold)</b> · <b>₹1,119–1,220 = hold, no add</b> · <b>&gt;₹1,364 (GMP-implied, ~40.6x) = clearly above Airtel — do not buy</b>.</li>
+</ul>
+</div>
+<p class="note">Score 6.0/10 (valuation): a fair band and a genuine peer discount, but a ~₹10 lakh Cr first-time issue with no discount for retail and an unofficial GMP 22% above the cap keeps this section "acceptable, not cheap".</p>
+</section>
+
+<section class="panel" id="tab3">
+<h2>3. Growth</h2>
+<div class="viewbox"><div class="vh">Section 3 — The View (plain English)</div>
+<ul>
+<li class="imp">Revenue growth: FY24 ₹1,09,558 Cr → FY25 ₹1,28,218 Cr (+17.0%) → FY26 ₹1,46,885 Cr (+14.6%); two-year CAGR <b>18.6%</b> (Calc). Q1 FY27 ₹39,173 Cr, +11.8% YoY — growth is <b>decelerating but still double-digit</b>.<span class="important">IMPORTANT</span></li>
+<li>The growth engine has three legs: (1) <b>subscriber additions</b> (533.3 m at Jun-2026, +8.9 m / +1.7% QoQ), (2) <b>ARPU</b> (₹206.2 → ₹214 → ₹215.6 across FY25→FY26→Q1 FY27 — only +0.7% QoQ, Calc), (3) <b>new lines of business</b> — fixed broadband (28.6 m), 5G (285 m subscribers, free so far), JioAirFiber, JioHotstar, JioPay, enterprise/cloud (JioCloud, JioBridge) and the Jio-BP fuel JV.</li>
+<li>Structural positives: ~60% share of India's wireless data traffic, 42.6% of fixed broadband, 50% of wireless broadband (RHP); data traffic itself keeps compounding with India's usage; every 1% of paid-5G conversion and each tariff round flows straight to ARPU.</li>
+<li class="imp">What could break it: <b>free 5G for 285 m subs dilutes ARPU</b> until monetisation starts; tariff increases are discretionary (Airtel/Vi set the pace) and the DRHP itself flags a possible stall in tariff growth; competition from Airtel 5G and Vi's ₹20,000 Cr equity infusion keeps pricing power in check; net adds are modest vs rivals' churn plays.<span class="important">IMPORTANT</span></li>
+<li class="imp"><b>What must be true for the growth case to hold (watch these):</b> ARPU ≥ ₹215 by Q2 FY27 · subscriber net adds staying positive · paid-5G rollout ≥ 2027 (management guide, from Nomura note) · fixed-broadband gross adds staying above ~1.5 m/quarter · related-party distributor revenue not rising as a share of revenue without an ARPU reason.<span class="important">IMPORTANT</span></li>
+</ul>
+</div>
+
+<h4>Financial trajectory (₹ Cr)</h4>
+<div class="tblwrap"><table>
+<tr><th>Metric</th><th>FY24</th><th>FY25</th><th>FY26</th><th>Q1 FY27 (Jun-26)</th></tr>
+<tr><td>Revenue from operations</td><td>1,09,558</td><td>1,28,218</td><td>1,46,885</td><td>39,173</td></tr>
+<tr><td>YoY growth</td><td>—</td><td>+17.0%</td><td>+14.6%</td><td>+11.8%</td></tr>
+<tr><td>EBITDA</td><td>~55,000 <span class="warn">V</span></td><td>~64,636</td><td>76,255</td><td>20,865 (53.3%)</td></tr>
+<tr><td>PAT (reported)</td><td>~21,422</td><td>26,109</td><td>30,049</td><td>7,764</td></tr>
+<tr><td>PAT YoY</td><td>—</td><td>+21.9%</td><td>+15.1%</td><td>+9.2%</td></tr>
+<tr><td>Subscribers (m)</td><td>~489 <span class="warn">V</span></td><td>~520 <span class="warn">V</span></td><td>524.4</td><td>533.3</td></tr>
+<tr><td>ARPU (₹/mth)</td><td>~197 <span class="warn">V</span></td><td>206.2</td><td>214.0</td><td>215.6</td></tr>
+</table></div>
+<p class="src"><span class="warn">V = VERIFY</span> where the exact figure was not confirmed in the material used (FY24/FY25 sub-lines and FY24 EBITDA/ARPU reconstructed from YoY comparisons — Calc). FY26 profit includes a <b>one-off ₹1,840.5 Cr pre-tax benefit</b> from extending network-asset useful life from 16 to 18 years (RHP/DRHP disclosure); stripping it out reduces FY26 pre-tax profit by ~₹1,840.5 Cr and after-tax profit by roughly ₹1,400–1,840 Cr depending on the tax treatment (Calc range) — <span class="warn">VERIFY exact post-tax figure and management's adjusted-basis commentary</span>.</p>
+
+<h4>Growth quality checks</h4>
+<div class="grid2">
+<div class="card">
+<h4 style="margin-top:0">Supporting the case</h4>
+<ul>
+<li><span class="tag t-calc">Calc</span> 2Y revenue CAGR 18.6%; EBITDA CAGR ~18.5%; PAT CAGR ~18.4% — <b>balanced compounding</b>, not bought with margin.</li>
+<li><span class="tag t-fact">Fact</span> Subscriber base still growing: +8.9 m in Q1 FY27 while Airtel's India net adds were flatter.</li>
+<li><span class="tag t-fact">Fact</span> 285 m free-5G users = the future paid-5G conversion pool; fixed broadband 28.6 m and growing on a market where Jio already holds 42.6% share.</li>
+</ul>
+</div>
+<div class="card">
+<h4 style="margin-top:0">What to watch / negatives</h4>
+<ul>
+<li><span class="tag t-calc">Calc</span> QoQ ARPU only +0.7% — tariff momentum has slowed; DRHP itself lists "stall in tariff growth" as a risk.</li>
+<li><span class="tag t-view">View</span> Revenue growth decelerating: 17.0% → 14.6% → 11.8% (YoY). Base effects and free 5G both bite.</li>
+<li><span class="tag t-fact">Fact</span> Related-party revenue (Reliance Retail distribution) = 77.08% of FY26 revenue — "growth" can also be inter-company mix, so read gross external ARPU/sub counts alongside it.</li>
+</ul>
+</div>
+</div>
+<p class="note">Score 7.0/10 (growth): durable double-digit compounding, massive data-leadership and three new growth legs — discounted for decelerating ARPU and the free-5G dilution window.</p>
+</section>
+
+<section class="panel" id="tab4">
+<h2>4. Profitability &amp; Efficiency</h2>
+<div class="viewbox"><div class="vh">Section 4 — The View (plain English)</div>
+<ul>
+<li class="imp">Margins are world-class: FY26 EBITDA margin <b>51.9%</b> (FY25 ~50.4%, Calc) rising to <b>53.3% in Q1 FY27</b>; net margin ~20.5% in FY26 (FY25 20.4%, FY24 19.6% — steady climb). Telecom with <b>51.9% EBITDA margins and 20.5% net margins</b> is a structurally profitable utility-plus-data business.<span class="important">IMPORTANT</span></li>
+<li>Profit trajectory: PAT ₹21,422 Cr (FY24) → ₹26,109 Cr (FY25, +21.9%) → ₹30,049 Cr (FY26, +15.1%) → ₹7,764 Cr (Q1 FY27, +9.2% YoY). Growth is good but <b>slowing at the PAT line</b> — partly the ₹1,840.5 Cr one-off already in FY26, partly competitive capex and free-5G costs.</li>
+<li class="imp">The one structural concern: <b>77.08% of FY26 revenue-from-operations runs through Reliance Retail as Jio's distributor</b> — an inter-company arm's-length pricing relationship the promoter controls on both sides. It does not change cash economics (cash still enters the group), but it means reported "revenue growth" is partly internal mix, and every pricing decision must be read with that in mind.<span class="important">IMPORTANT</span></li>
+<li>Efficiency: ROE/ROCE pre-IPO are distorted by the near-zero net-debt position and rising equity base post-issue — calculate them fresh at listing (FY26 reported ROE ~10–11% Calc on ₹30,049 Cr ÷ ~₹2.8 lakh Cr equity <span class="warn">VERIFY equity base</span>). Interest cover is effectively irrelevant on book net debt ₹9,539 Cr (Calc: EBITDA ÷ interest ≈ 8–10x+, VERIFY interest outgo).</li>
+</ul>
+</div>
+
+<h4>Margin ladder (₹ Cr unless stated)</h4>
+<div class="tblwrap"><table>
+<tr><th>Metric</th><th>FY24</th><th>FY25</th><th>FY26</th><th>Q1 FY27</th></tr>
+<tr><td>Revenue</td><td>1,09,558</td><td>1,28,218</td><td>1,46,885</td><td>39,173</td></tr>
+<tr><td>EBITDA</td><td>~55,000 <span class="warn">V</span></td><td>~64,636</td><td>76,255</td><td>20,865</td></tr>
+<tr><td>EBITDA margin</td><td>~50.2% <span class="warn">V</span></td><td>50.4%</td><td><b>51.9%</b></td><td><b>53.3%</b></td></tr>
+<tr><td>PAT</td><td>~21,422</td><td>26,109</td><td>30,049</td><td>7,764</td></tr>
+<tr><td>Net margin (Calc)</td><td>19.6%</td><td>20.4%</td><td>20.5%</td><td>19.8%</td></tr>
+<tr><td>One-off in profit</td><td>—</td><td>—</td><td>+₹1,840.5 Cr (asset-life change, pre-tax)</td><td>—</td></tr>
+<tr><td>Related-party revenue share</td><td><span class="warn">V</span></td><td><span class="warn">V</span></td><td><b>77.08%</b> (≈₹1,13,219 Cr, Calc)</td><td><span class="warn">V</span></td></tr>
+</table></div>
+
+<h4>Related-party revenue — the concentration lens</h4>
+<div class="card">
+<table>
+<tr><th>Item</th><th style="text-align:left">Detail</th></tr>
+<tr><td>Distributor</td><td style="text-align:left"><b>Reliance Retail Ventures Ltd (promoter group)</b> — sells Jio SIMs/devices/recharge plans; Jio also sells through JioMart, AirFiber and enterprise channels</td></tr>
+<tr><td>Scale (Fact)</td><td style="text-align:left"><b>77.08%</b> of FY26 revenue from operations came via related parties (RHP figure) — ≈ ₹1,13,219 Cr (Calc: 0.7708 × 1,46,885)</td></tr>
+<tr><td>Why it matters (View)</td><td style="text-align:left">Pricing, rebates and credit terms on that flow are negotiated inside one promoter group; a change in distributor terms can shift reported revenue and margin without any change in end-user ARPU</td></tr>
+<tr><td>What to monitor (View)</td><td style="text-align:left">Related-party share of revenue each quarter (must not rise without an ARPU/distribution reason); any RHP-defined "arm's-length policy" compliance disclosures; distributor credit period changes</td></tr>
+<tr><td>Net view (View)</td><td style="text-align:left">Not a fraud flag on its own — most groups route distribution internally — but it caps how much "external demand" you can read from the top line. <b>ARPU + subscriber counts are the truer demand signals.</b></td></tr>
+</table>
+</div>
+
+<h4>Peer profitability check (15–16 Oct 2026 broker notes)</h4>
+<div class="tblwrap"><table>
+<tr><th>Company</th><th>EBITDA margin</th><th>Net margin</th><th style="text-align:left">Comment</th></tr>
+<tr><td><b>Jio Platforms</b></td><td><b>51.9% (FY26)</b></td><td><b>20.5%</b></td><td style="text-align:left">53.3% in Q1 FY27 — best-in-class Indian telecom</td></tr>
+<tr><td>Bharti Airtel</td><td>~55–56%</td><td>~13–15%</td><td style="text-align:left">higher EBITDA margin but heavier debt interest drags net margin</td></tr>
+<tr><td>Vodafone Idea</td><td>~47%</td><td>negative/weak</td><td style="text-align:left">not comparable — survival case</td></tr>
+</table></div>
+<p class="src">Calc: JPL net margin 20.5% vs Airtel ~13–15% — JPL converts more of each rupee of revenue into bottom-line profit, part of which is the low-debt (low-interest) structure Section 5 covers.</p>
+<p class="note">Score 6.5/10 (profitability): elite margins and consistent PAT compounding, held back by the related-party revenue structure, the growth-unfriendly one-off in FY26, and slowing YoY PAT growth (+15.1% → +9.2%).</p>
+</section>
+
+<section class="panel" id="tab5">
+<h2>5. Balance Sheet Strength</h2>
+<div class="viewbox"><div class="vh">Section 5 — The View (plain English)</div>
+<ul>
+<li class="imp">Book leverage is low and falling: net debt <b>₹27,579 Cr (Mar-26) → ₹9,539 Cr (Jun-26)</b>; reported net leverage 0.36x FY26 EBITDA (Nomura view, 2026). Gross debt ₹61,372 Cr against ₹51,833 Cr cash &amp; securities (Calc gives ₹9,539 Cr — matches). The IPO's ₹27,500 Cr repayment goes into RJIL borrowings, pushing the group further towards <b>net debt-free</b> on the book measure.<span class="important">IMPORTANT</span></li>
+<li class="imp">But the honest leverage picture has two lenses: the <b>reported</b> book number (₹9,539 Cr ≈ 0.13x FY26 EBITDA, Calc, after the IPO even lower) versus <b>total economics including deferred spectrum payments and leases (Nomura) ≈ ₹1.4 lakh Cr ≈ ~1.8x FY26 EBITDA (Calc)</b>. Both are true — they answer different questions. Judge the balance sheet on <b>the wider lens</b> because spectrum dues are contractual obligations like debt.<span class="important">IMPORTANT</span></li>
+<li>Post-IPO effect (Calc, simplified): fresh equity ₹30,213 Cr less ₹27,500 Cr debt repayment ≈ <b>+₹2,713 Cr net cash to JPL</b>, plus the yearly interest saving of ₹2,000–2,500 Cr (7.3–9.1% implied cost on the repaid debt, Calc). That is the entire financial engineering purpose of this IPO.</li>
+<li>Asset quality: net fixed assets large (network) with the 16→18-year life extension already improving depreciation efficiency; current assets healthy (₹51,833 Cr cash/securities); contingent liabilities, guarantees, and lease liabilities are the items to read in the RHP — <span class="warn">VERIFY exact balances</span> (not all confirmed in the material used).</li>
+<li>Debt maturity / covenant position: <span class="warn">VERIFY — RHP term-loan and NCD maturity schedule not reproduced in the material used</span>. Nothing in the material suggests any near-term distress; the group has investment-grade access (RIL parent backing).</li>
+</ul>
+</div>
+
+<h4>Balance-sheet snapshot (₹ Cr)</h4>
+<div class="tblwrap"><table>
+<tr><th>Item</th><th>Mar-2026</th><th>Jun-2026 (Q1 FY27)</th><th style="text-align:left">Note</th></tr>
+<tr><td>Gross borrowings</td><td>~68,000 <span class="warn">V</span></td><td><b>61,372</b></td><td style="text-align:left">down ₹~6,600 Cr in the quarter (Calc from cash change + debt trend)</td></tr>
+<tr><td>Cash &amp; equivalents + securities</td><td>~40,000 <span class="warn">V</span></td><td><b>51,833</b></td><td style="text-align:left">includes current investments in liquid securities</td></tr>
+<tr><td><b>Net debt</b></td><td><b>27,579</b></td><td><b>9,539</b></td><td style="text-align:left">Calc: gross − cash · reported by broker notes</td></tr>
+<tr><td>Net debt / EBITDA (book)</td><td>0.43x</td><td><b>0.13x</b></td><td style="text-align:left">Calc: 27,579 &amp; 9,539 ÷ 76,255 · broker-reported 0.36x as of Jun-26 <span class="warn">V</span> basis</td></tr>
+<tr><td>Net debt / EBITDA (incl. spectrum + leases)</td><td colspan="2">≈ <b>1.8x</b> (≈₹1.4 lakh Cr)</td><td style="text-align:left">Nomura lens — the wider, stricter measure (Calc: 1.4 lakh ÷ 76,255)</td></tr>
+<tr><td>Interest cover (book)</td><td colspan="2">~8–10x <span class="warn">V</span></td><td style="text-align:left">Calc depends on exact finance cost — VERIFY</td></tr>
+<tr><td>Post-IPO pro-forma net cash (at cap)</td><td colspan="2">≈ <b>₹17,961 Cr net cash</b></td><td style="text-align:left">Calc (simplified): 9,539 − 27,500 = −17,961 Cr net debt ⇒ net cash ≈ ₹17,961 Cr; GCP spend of ~₹2,713 Cr washes out against the cash raised</td></tr>
+<tr><td>Use of proceeds to debt</td><td colspan="2"><b>₹27,500 Cr → RJIL borrowings</b></td><td style="text-align:left">~91% of cap-size issue (Calc) · interest saving ₹2,000–2,500 Cr/yr</td></tr>
+</table></div>
+<p class="src"><b>Pro-forma stance (Calc):</b> ₹27,500 Cr of the ~₹30,213 Cr at-cap proceeds repay RJIL borrowings; the ~₹2,713 Cr balance is general corporate purposes/fees. Book net debt of ₹9,539 Cr (Jun-26) less ₹27,500 Cr ⇒ pro-forma net cash of roughly <b>₹17,961 Cr</b> — i.e. management's stated goal of a <b>net-debt-free JPL on the book measure</b>. The wider Nomura lens (spectrum dues + leases ≈ ₹1.4 lakh Cr) still shows leverage after the issue. Exact post-issue pro-forma balance sheet <span class="warn">VERIFY against the RHP pro-forma statements</span> — never treat the Calculated figure as verified until read off the RHP.</p>
+
+<h4>Balance-sheet verdict points</h4>
+<div class="grid2">
+<div class="card">
+<h4 style="margin-top:0">Strengths</h4>
+<ul>
+<li><span class="tag t-fact">Fact</span> ₹51,833 Cr cash &amp; securities at Jun-2026 — liquid buffer larger than most of the market's market caps.</li>
+<li><span class="tag t-calc">Calc</span> Book net debt/EBITDA 0.13x (post-issue ~0x) — investment-grade balance sheet.</li>
+<li><span class="tag t-fact">Fact</span> IPO proceeds are earmarked to cut debt, not to fund losses or promoter exits — proceeds are self-liquidating on the interest line (₹2,000–2,500 Cr/yr saved).</li>
+</ul>
+</div>
+<div class="card">
+<h4 style="margin-top:0">Watch-outs</h4>
+<ul>
+<li><span class="tag t-view">View</span> Spectrum payment dues + lease liabilities make true leverage ~1.8x EBITDA (Nomura lens) — the headline 0.13x flatters.</li>
+<li><span class="tag t-view">View</span> Exact debt schedule, contingent liabilities and lease balances are <span class="warn">VERIFY</span> items from the RHP — read them before allotment.</li>
+<li><span class="tag t-fact">Fact</span> Capex remains heavy (₹34,184 Cr FY26) — sustaining networks + 5G + fibre keeps funding needs high even at zero book debt.</li>
+</ul>
+</div>
+</div>
+<p class="note">Score 7.5/10 (balance sheet): outstanding on the book measure and IPO-driven improvement ahead — deducted for the wider spectrum/lease leverage lens and unverified RHP detail.</p>
+</section>
+
+<section class="panel" id="tab6">
+<h2>6. Cash Flow Quality</h2>
+<div class="viewbox"><div class="vh">Section 6 — The View (plain English)</div>
+<ul>
+<li class="imp">This is the strongest section of the report: FY26 operating cash flow <b>₹77,556 Cr</b> (FY25 ₹42,958 Cr, FY24 ₹29,994 Cr) against capex of only ₹34,184 Cr — a <b>free cash flow of ₹43,372 Cr in FY26</b> alone (Calc), after ₹29,138 Cr (FY25) and ₹6,142 Cr (FY24). Three-year cumulative FCF ≈ <b>₹78,652 Cr</b> (Calc).<span class="important">IMPORTANT</span></li>
+<li>Conversion quality: OCF ÷ EBITDA = 106% (FY26), 106% (FY25), 102% (FY24) — <b>cash conversion above 100% every year</b>, i.e. profits are turning into cash, not into receivables. Depreciation add-back is the main bridge (huge network asset base). <span class="warn">VERIFY working-capital change line</span> if read from the RHP cash-flow statement directly.</li>
+<li>Capex intensity is falling sharply: capex 48.8% of sales (FY24) → 39.4% (FY25) → <b>23.3% (FY26)</b> (Calc) — the heavy 4G/5G build phase is easing exactly as free cash flow inflects positive. This is the classic "harvest phase" signature of a network business.</li>
+<li class="imp"><b>What must be true for cash quality to hold:</b> capex stays ≤ ~₹35,000–40,000 Cr a year while spectrum payments continue · OCF conversion stays ≥100% of EBITDA · the ₹27,500 Cr debt repayment actually happens from IPO proceeds (it does, by structure) · no large related-party receivable build-up (watch debtor days with 77% related-party revenue).<span class="important">IMPORTANT</span></li>
+<li>FCF is not "returnable" yet: FY26 dividend nil, and cash will first go to debt repayment and capex. Shareholder returns start only after net-debt-free status — management has guided to a progressive dividend/capital-return framework post-IPO <span class="warn">VERIFY exact policy in RHP</span>.</li>
+</ul>
+</div>
+
+<h4>Cash-flow ladder (₹ Cr)</h4>
+<div class="tblwrap"><table>
+<tr><th>Metric</th><th>FY24</th><th>FY25</th><th>FY26</th><th style="text-align:left">Note</th></tr>
+<tr><td>Operating cash flow (OCF)</td><td>29,994</td><td>42,958</td><td><b>77,556</b></td><td style="text-align:left">+80% YoY in FY26 (Calc)</td></tr>
+<tr><td>Capex</td><td>23,852</td><td>13,820</td><td>34,184</td><td style="text-align:left">FY26 includes spectrum/5G step-up</td></tr>
+<tr><td><b>Free cash flow (OCF − capex)</b></td><td>6,142</td><td>29,138</td><td><b>43,372</b></td><td style="text-align:left">Calc — cumulative 3-yr ≈ ₹78,652 Cr</td></tr>
+<tr><td>OCF ÷ EBITDA</td><td>102%</td><td>106%</td><td><b>106%</b></td><td style="text-align:left">Calc — cash conversion &gt;100% all three years</td></tr>
+<tr><td>Capex ÷ sales</td><td>48.8%</td><td>39.4%</td><td>23.3%</td><td style="text-align:left">Calc — intensity halving from peak</td></tr>
+<tr><td>FCF ÷ revenue</td><td>5.6%</td><td>22.7%</td><td><b>29.5%</b></td><td style="text-align:left">Calc</td></tr>
+</table></div>
+
+<h4>Cash-flow quality checks</h4>
+<div class="grid2">
+<div class="card">
+<h4 style="margin-top:0">Why this scores 8.5</h4>
+<ul>
+<li><span class="tag t-calc">Calc</span> Cumulative FCF +₹78,652 Cr over FY24–26 with OCF/EBITDA ≥102% every year — the rare telecom that funds itself and still grows.</li>
+<li><span class="tag t-fact">Fact</span> ₹27,500 Cr of IPO proceeds straight into debt repayment — self-liquidating use, then interest saving ₹2,000–2,500 Cr/yr adds to FCF (Calc range on implied 7.3–9.1% cost).</li>
+<li><span class="tag t-view">View</span> Falling capex intensity + rising margins = FCF inflection, not a one-quarter event; Q1 FY27 OCF trend <span class="warn">VERIFY from quarterly filing</span>.</li>
+</ul>
+</div>
+<div class="card">
+<h4 style="margin-top:0">What to watch</h4>
+<ul>
+<li><span class="tag t-fact">Fact</span> Capex ₹34,184 Cr still large (23.3% of sales) — spectrum auctions or a 5G capacity push could reverse the declining trend.</li>
+<li><span class="tag t-view">View</span> Related-party receivable risk: 77% of revenue through Reliance Retail — debtor days are the early-warning line.</li>
+<li><span class="tag t-fact">Fact</span> No dividend yet; capital return is post-debt-reduction — treat FCF as committed to capex + repayment for now.</li>
+</ul>
+</div>
+</div>
+<p class="note">Score 8.5/10 (cash flow): top-tier cash conversion, positive-and-growing FCF, capex rolling off from its peak — deducted only for auction/capex optionality and the unverified quarterly working-capital detail.</p>
+</section>
+
+<section class="panel" id="tab7">
+<h2>7. Shareholding &amp; Ownership — Pre-IPO Cap Table + Anchor Book</h2>
+<div class="viewbox"><div class="vh">Section 7 — The View (plain English)</div>
+<ul>
+<li class="imp">Pre-IPO cap table: <b>Reliance Industries ~66.4%</b>, other promoter-group entities the balance, and <b>no public shareholders yet</b> — JPL has never traded. Post-issue RIL falls to <b>~64.4%</b> (published; cross-checks to the ~920 Cr implied share count, Calc).<span class="important">IMPORTANT</span></li>
+<li>Free float is thin: after the issue, roughly <b>22–24%</b> sits with non-promoters (Calc), of which the IPO itself is the dominant block — <b>no promoter selling, no OFS</b>, so all the float is freshly created paper. RIL's remaining stake is subject to the standard 180-day IPO lock-in <span class="warn">VERIFY lock-in terms in RHP</span>.</li>
+<li class="imp">Two special pools that directly touch <b>you</b>: (1) the <b>₹2,500 Cr eligible-RIL-shareholder reservation</b> — record date 14-Oct-2026, max ₹2 lakh/application, shares credited 26-Oct-2026; the tracked portfolio's 22 Reliance Industries units make you eligible in principle (<span class="warn">VERIFY your demat holding on the record date</span>); (2) the ~5% employee quota with a small discount <span class="warn">VERIFY</span>.<span class="important">IMPORTANT</span></li>
+<li>Anchor book (20-Oct-2026, today): up to 60% of the issue can go to anchor/institutional investors on day zero, split QIB 50% / retail 50% within the anchor allocation. The anchor allotment list and subscription multiple are the first real demand print — <b>announce after 19:00 IST — <span class="warn">VERIFY</span></b>. Anchor price = final issue price, set 23-Oct-2026 (price discovery day).</li>
+<li>What this means for post-listing behaviour: a narrow float with a large promoter lock-in can produce <b>volatile early trading</b> (both ways), and index inclusion (Nifty 50 / Sensex, <span class="warn">VERIFY eligibility windows</span>) will force passive buying later. Neither changes the fundamentals — they change the <b>volatility you should expect in the first 10 sessions</b>.</li>
+</ul>
+</div>
+
+<h4>Pre-issue &amp; post-issue ownership</h4>
+<div class="tblwrap"><table>
+<tr><th>Holder</th><th>Pre-issue</th><th>Post-issue (est.)</th><th style="text-align:left">Notes</th></tr>
+<tr><td>Reliance Industries Ltd (promoter)</td><td>~66.4%</td><td>~64.4%</td><td style="text-align:left">published; locked 180 days post-listing <span class="warn">V terms</span></td></tr>
+<tr><td>Other promoter-group entities</td><td>~10–11% <span class="warn">V</span></td><td>~10–11% <span class="warn">V</span></td><td style="text-align:left">exact split <span class="warn">VERIFY from RHP cap table</span></td></tr>
+<tr><td>Employee quota (in IPO)</td><td>—</td><td>~0.5% (of ~5% reserved) <span class="warn">V</span></td><td style="text-align:left">employee reservation ~5% of issue <span class="warn">VERIFY</span></td></tr>
+<tr><td>Retail + NII + QIB (IPO + free float)</td><td>0%</td><td>~22–24%</td><td style="text-align:left">Calc: all public float is new; 35% retail / 18% NII / 50% QIB quota split <span class="warn">V</span></td></tr>
+<tr><td><b>Implied total shares post-issue</b></td><td colspan="2"><b>~920 Cr</b></td><td style="text-align:left">Calc: ₹9.8 lakh Cr implied mcap ÷ ₹1,065 floor; cross-checks 66.4% → 64.4%</td></tr>
+</table></div>
+
+<h4>IPO allocation &amp; reservation map (per RHP — exact percentages <span class="warn">VERIFY</span>)</h4>
+<div class="tblwrap"><table>
+<tr><th>Category</th><th>Share of issue</th><th>Who can apply</th><th style="text-align:left">Key rule</th></tr>
+<tr><td>QIB (qualified institutional buyers)</td><td>~50%</td><td>Mutual funds, FIs, insurers, banks, AMCs</td><td style="text-align:left">No discount; anchor portion carved from this</td></tr>
+<tr><td>NII / HNI (non-institutional)</td><td>~18%</td><td>Individuals/HUFs/partnerships above retail threshold</td><td style="text-align:left">Bids above ₹2 lakh land here</td></tr>
+<tr><td>Retail individual investors</td><td>~35%</td><td>Everyone (individuals up to ₹2 lakh)</td><td style="text-align:left">One lot per valid bid; floor price applies — no retail discount</td></tr>
+<tr><td>Employees</td><td>~5%</td><td>JPL/RJIL employees <span class="warn">V eligibility</span></td><td style="text-align:left">Small discount possible <span class="warn">V</span></td></tr>
+<tr><td>Eligible RIL shareholders</td><td>up to ₹2,500 Cr (₹ value)</td><td>Holders of Reliance Industries as of record date <b>14-Oct-2026</b></td><td style="text-align:left">Max ₹2 lakh/application; allotment by 26-Oct-2026; separate from retail quota</td></tr>
+<tr><td>Anchor investors</td><td>up to 60% of QIB portion <span class="warn">V</span></td><td>Institutions pre-allotted on 20-Oct-2026</td><td style="text-align:left">30-day lock-in for 50% of anchor book (standard rule) <span class="warn">V</span></td></tr>
+</table></div>
+<p class="src">Anchor book details, exact category percentages and lock-in clauses are RHP-controlled — treat every figure above marked <span class="warn">V</span> as pending verification against the final RHP (14-Oct-2026).</p>
+
+<h4>Holder-impact view</h4>
+<div class="grid2">
+<div class="card">
+<h4 style="margin-top:0">For an RIL shareholder (you)</h4>
+<ul>
+<li><span class="tag t-fact">Fact</span> You can bid in the ₹2,500 Cr reservation (cap ₹2 lakh) — a second, separate allotment path alongside retail.</li>
+<li><span class="tag t-calc">Calc</span> RIL value linkage: the IPO values the JPL stake inside RIL at roughly ₹481–506 Cr per 100 RIL shares at band ÷ ~1,353 Cr RIL shares ⇒ ~₹385–405 per RIL share of embedded JPL value (order-of-magnitude, <span class="warn">VERIFY exact RIL share count</span>).</li>
+<li><span class="tag t-view">View</span> Holding RIL is <i>not</i> a substitute for applying: RIL's own price will already re-rate toward the JPL implied value; the reservation lets you own JPL directly at the same band.</li>
+</ul>
+</div>
+<div class="card">
+<h4 style="margin-top:0">For the free float</h4>
+<ul>
+<li><span class="tag t-view">View</span> ~22–24% float with a locked promoter block = high expected volatility in the first 10 sessions; size any first tranche as if it can move ±10–15% around the band.</li>
+<li><span class="tag t-fact">Fact</span> Expected index inclusion post-listing (Nifty 50/Sensex eligibility <span class="warn">V</span>) creates later passive demand — a tailwind after the initial price discovery, not during it.</li>
+<li><span class="tag t-view">View</span> No promoter selling means no "smart money exiting" signal from the cap table — the negative would be dilution-plus-lockup supply later (180-day RIL lock-in expiry ≈ late-Apr-2027, <span class="warn">V</span>).</li>
+</ul>
+</div>
+</div>
+<p class="note">Score 7.5/10 (shareholding): clean promoter commitment (no OFS), shareholder reservation and index-inclusion potential against a thin free float, promoter control at ~64%, and unverified RHP cap-table/lock-in details.</p>
+</section>
+
+<section class="panel" id="tab8">
+<h2>8. News &amp; IPO Event Log</h2>
+<div class="viewbox"><div class="vh">Section 8 — The View (plain English)</div>
+<ul>
+<li class="imp">This is an <b>event-driven tab</b>: the next 10 days decide the entry. Sequence: <b>anchor allotment 20-Oct (today)</b> → bid opens <b>21-Oct</b> → closes <b>23-Oct (price discovered)</b> → allotment <b>~26-Oct</b> → listing <b>~28-Oct</b>. Every step below is dated and sourced; anything not yet published is <span class="warn">VERIFY</span>, not guessed.<span class="important">IMPORTANT</span></li>
+<li>Held views (unchanged until the listing week): SUBSCRIBE at ≤ ₹1,119 band, small size, RIL-quota eligible · no aftermarket chase above ₹1,119 · first real tranche ≤ ₹1,000 (≤30x FY26) after listing + 10 sessions (~11-Nov-2026) · GMP is unofficial noise.</li>
+<li>No material negative news found in the window used (14–20 Oct 2026 filings, press, broker notes). The recurring <span class="warn">VERIFY</span> items (BRLM list, exact quota split, anchor list, contingent liabilities) are document gaps, not events.</li>
+</ul>
+</div>
+
+<h4>IPO timeline — the next 10 sessions</h4>
+<div class="tblwrap"><table>
+<tr><th>Date</th><th style="text-align:left">Event</th><th style="text-align:left">Source</th></tr>
+<tr><td><b>19-Jun-2026</b></td><td style="text-align:left">DRHP filed with SEBI</td><td style="text-align:left">SEBI / JPL filing</td></tr>
+<tr><td><b>14-Oct-2026</b></td><td style="text-align:left">RHP published; price band fixed <b>₹1,065–1,119</b>; record date for RIL-shareholder reservation set (14-Oct-2026); IPO committee approval; pre-RHP press band ₹1,150–1,220 <b>superseded</b></td><td style="text-align:left">RHP · CNBC-TV18 / Business Standard 14-Oct-2026</td></tr>
+<tr><td><b>15–16-Oct-2026</b></td><td style="text-align:left">Broker notes publish: P/E 31.7–33.3x FY26, EV/EBITDA ~15x; Emkay, SBI Securities, Swastika, Bonanza — mostly positive-with-caution reads</td><td style="text-align:left">Broker notes (15–16 Oct 2026)</td></tr>
+<tr><td><b>15-Oct-2026</b></td><td style="text-align:left">Cap-table coverage: RIL 66.4% → ~64.4% post-issue; holdco framing</td><td style="text-align:left">Economic Times 15-Oct-2026</td></tr>
+<tr><td><b>19-Oct-2026</b></td><td style="text-align:left">Anchor investor bidding day (pre-issue)</td><td style="text-align:left">RHP timeline <span class="warn">V exact</span></td></tr>
+<tr><td><b>20-Oct-2026 (today)</b></td><td style="text-align:left"><b>Anchor allotment</b> announced (list + demand print, after 19:00 IST) · GMP ~₹245 (~22%) → indicative ₹1,364 · report built</td><td style="text-align:left">RHP · Economic Times GMP 20-Oct-2026 <span class="warn">anchor list V</span></td></tr>
+<tr><td><b>21-Oct-2026</b></td><td style="text-align:left"><b>IPO opens</b> — retail/NII/QIB/RIL-shareholder bidding begins; day-wise subscription data starts publishing</td><td style="text-align:left">RHP</td></tr>
+<tr><td><b>23-Oct-2026</b></td><td style="text-align:left"><b>IPO closes</b> — final price discovered within band; QIB anchor price set</td><td style="text-align:left">RHP</td></tr>
+<tr><td><b>~26-Oct-2026</b></td><td style="text-align:left">Basis of allotment finalised; RIL-reservation shares credited to eligible demats</td><td style="text-align:left">RHP <span class="warn">V exact date</span></td></tr>
+<tr><td><b>~28-Oct-2026</b></td><td style="text-align:left"><b>Listing expected on BSE + NSE</b> — first-ever market price; re-score verdict at listing week</td><td style="text-align:left">RHP / exchange timelines</td></tr>
+<tr><td><b>~Nov-2026</b></td><td style="text-align:left">Q2 FY27 results (first public quarter as a listed company); Nifty/Sensex index inclusion eligibility <span class="warn">V window</span></td><td style="text-align:left">Company / index calendar <span class="warn">V</span></td></tr>
+</table></div>
+
+<h4>Dated news &amp; research notes used</h4>
+<div class="tblwrap"><table>
+<tr><th>Date</th><th style="text-align:left">Item</th><th>Impact</th></tr>
+<tr><td>14-Oct-2026</td><td style="text-align:left">RHP + band ₹1,065–1,119; fresh issue ≤27 Cr shares; ₹27,500 Cr to RJIL debt; ₹2,500 Cr RIL-shareholder reservation</td><td><span class="pill p-g">Structural</span></td></tr>
+<tr><td>14-Oct-2026</td><td style="text-align:left">Press coverage of issue size ₹28,755–30,213 Cr — India's largest IPO ever (surpassing ₹28,870 Cr HDB Financial; ~8.4% above Hyundai India's ₹27,870 Cr, Calc)</td><td><span class="pill p-g">Positive</span></td></tr>
+<tr><td>15-Oct-2026</td><td style="text-align:left">ET cap-table story: RIL 66.4% → ~64.4%; JPL framed as the "Jio" holdco of RIL's digital + telecom stack</td><td><span class="pill p-y">Neutral</span></td></tr>
+<tr><td>15–16-Oct-2026</td><td style="text-align:left">Broker notes: ~31.7–33.3x FY26 P/E, ~15x EV/EBITDA; margins + cash flow praised; related-party 77% and free-5G ARPU dilution flagged as the watch items</td><td><span class="pill p-y">Mixed</span></td></tr>
+<tr><td>20-Oct-2026</td><td style="text-align:left">GMP ~₹245 (~22%) → indicative ₹1,364 (ET) — <b>unofficial grey market</b>, not a guaranteed listing price</td><td><span class="pill p-y">Ignore for thesis</span></td></tr>
+<tr><td>19-Jun-2026</td><td style="text-align:left">DRHP: risk factors — related-party concentration, tariff-growth stall risk, free-5G monetisation uncertainty, promoter group's other interests, spectrum/leverage lens</td><td><span class="pill p-r">Risk list</span></td></tr>
+</table></div>
+<p class="note">Event discipline: no position exists (pre-allotment), so "no change" is the correct standing state. The first action trigger is the bid window 21–23 Oct; the first re-score trigger is listing week (~28-Oct-2026). Day-wise subscription numbers (21–22 Oct) are the last pre-price datapoint — capture them before finalising any bid decision.</p>
+</section>
+
+<section class="panel" id="tab9">
+<h2>9. Verdict, Monitorables &amp; Journal</h2>
+<div class="viewbox"><div class="vh">Section 9 — The View (plain English)</div>
+<ul>
+<li class="imp"><b>Verdict: ACCUMULATE · composite 7.1/10 · IPO call + 12-month horizon.</b> In practice this splits into two decisions: (1) <b>SUBSCRIBE in the 21–23 Oct 2026 issue at ≤ ₹1,119</b> — one lot (12 sh ≈ ₹13,428 at cap) or your chosen size, using the RIL-shareholder reservation if your record-date demat confirms eligibility; (2) after listing, <b>no chase above ₹1,119</b> and buy the real first tranche only ≤ ₹1,000 (≤30x FY26) after listing + 10 sessions (~11-Nov-2026).<span class="important">IMPORTANT</span></li>
+<li>The bull case in one line: the dominant Indian telecom (533 m subs, 51.9% EBITDA margin) delivering <b>₹77,556 Cr operating cash flow against ₹34,184 Cr capex</b> at ~32–33x FY26 — below Bharti Airtel's 39–41x — with IPO proceeds removing ₹27,500 Cr of debt and ₹2,000–2,500 Cr of yearly interest.<span class="important">IMPORTANT</span></li>
+<li>The bear case in one line: <b>77% of revenue flows through promoter-owned Reliance Retail</b>, free 5G is diluting ARPU (+0.7% QoQ only), growth is decelerating (17.0% → 14.6% → 11.8%), true leverage incl. spectrum is ~1.8x EBITDA not 0.13x, and the GMP-implied ₹1,364 would price it at ~40.6x — at/above Airtel.<span class="important">IMPORTANT</span></li>
+<li>Score read: cash flow 8.5 and balance sheet 7.5 carry the report; valuation 6.0 is the anchor holding it back. Nothing scores below 6 — this is a quality asset at a fair price, not a bargain.</li>
+</ul>
+</div>
+
+<h4>Scorecard detail (0–10)</h4>
+<div class="tblwrap"><table>
+<tr><th>Section</th><th>Score</th><th style="text-align:left">Why (shortest form)</th></tr>
+<tr><td>1. Metadata &amp; Ownership</td><td>7.0</td><td style="text-align:left">Clean 100%-fresh issue + ₹2,500 Cr shareholder quota, promoter holding through — vs 64.4% promoter control and 77% related-party revenue</td></tr>
+<tr><td>2. Valuation</td><td>6.0</td><td style="text-align:left">31.7–33.3x vs Airtel 39–41x (discount), but ~15x EV/EBITDA at a ~15–17% premium and GMP-implied ~40.6x = no room to chase</td></tr>
+<tr><td>3. Growth</td><td>7.0</td><td style="text-align:left">18.6% 2Y revenue CAGR, subs +8.9 m QoQ, 3 growth legs (5G/fibre/digital) — vs decelerating growth and free-5G ARPU dilution</td></tr>
+<tr><td>4. Profitability &amp; Efficiency</td><td>6.5</td><td style="text-align:left">51.9% EBITDA / 20.5% net margin, best-in-class — vs related-party revenue structure and slowing PAT growth (+15.1% → +9.2%)</td></tr>
+<tr><td>5. Balance Sheet Strength</td><td>7.5</td><td style="text-align:left">₹51,833 Cr cash, book net debt ₹9,539 Cr → net-debt-free post-IPO — vs true leverage ~1.8x incl. spectrum/leases (Nomura lens)</td></tr>
+<tr><td>6. Cash Flow Quality</td><td>8.5</td><td style="text-align:left">OCF ₹77,556 Cr, FCF ₹43,372 Cr, conversion ≥102% every year, capex 48.8% → 23.3% of sales — only auction/capex optionality to watch</td></tr>
+<tr><td>7. Shareholding &amp; Ownership</td><td>7.5</td><td style="text-align:left">No promoter selling + RIL quota + index inclusion — vs thin ~22–24% float, locked promoter block, unverified RHP cap-table detail</td></tr>
+<tr><td><b>Composite</b></td><td><b>7.1</b></td><td style="text-align:left">50.0 ÷ 7 = 7.14 → 7.1 = <b>ACCUMULATE</b></td></tr>
+</table></div>
+
+<div class="grid2">
+<div class="card">
+<h4 style="margin-top:0">Bull case (what makes it work)</h4>
+<ul>
+<li><span class="tag t-fact">Fact</span> 533 m subscribers, ~60% of India's wireless data traffic, 42.6% fixed-broadband share — structural #1 in the data market.</li>
+<li><span class="tag t-fact">Fact</span> 51.9% EBITDA margin rising to 53.3% (Q1 FY27) with 106% OCF/EBITDA conversion — cash machine while capex intensity falls.</li>
+<li><span class="tag t-calc">Calc</span> Band P/E 31.7–33.3x vs Airtel 39–41x — ~16–19% earnings-multiple discount on a cleaner balance sheet.</li>
+<li><span class="tag t-fact">Fact</span> ₹27,500 Cr of proceeds to debt = interest saving ₹2,000–2,500 Cr/yr (implied 7.3–9.1% cost, Calc) straight into future FCF.</li>
+<li><span class="tag t-view">View</span> Paid-5G conversion (285 m free-5G users) + tariff rounds + fibre growth = three independent ARPU levers post-2027.</li>
+</ul>
+</div>
+<div class="card">
+<h4 style="margin-top:0">Bear case (what breaks it)</h4>
+<ul>
+<li><span class="tag t-fact">Fact</span> <b>77.08% of FY26 revenue is related-party</b> (Reliance Retail distributor) — promoter sits on both sides of most of the top line.</li>
+<li><span class="tag t-calc">Calc</span> Growth decelerating: 17.0% → 14.6% → 11.8% YoY; ARPU only +0.7% QoQ; DRHP itself flags tariff-growth stall risk.</li>
+<li><span class="tag t-view">View</span> Free 5G for 285 m subs dilutes ARPU until monetised (management guide: paid 5G from ~2027, Nomura note).</li>
+<li><span class="tag t-calc">Calc</span> GMP-implied ₹1,364 = ~40.6x FY26 — at/above Airtel; the "cheap at band" argument evaporates above ₹1,119.</li>
+<li><span class="tag t-fact">Fact</span> True leverage incl. spectrum + leases ≈ ₹1.4 lakh Cr ≈ ~1.8x EBITDA (Nomura lens) vs the flattering 0.13x book number.</li>
+</ul>
+</div>
+</div>
+
+<h4>Monitorables — what to check, and what it means if it breaks</h4>
+<div class="tblwrap"><table>
+<tr><th style="text-align:left">Metric</th><th>Current (dated)</th><th>Trigger level</th><th style="text-align:left">If it breaks — action</th></tr>
+<tr><td style="text-align:left">ARPU (₹/month)</td><td>₹215.6 (Q1 FY27)</td><td>&lt; ₹214 for a quarter</td><td style="text-align:left">Tariff thesis stalling — do not add after the first tranche; re-score growth ≤5.0 <span class="tag t-view">View</span></td></tr>
+<tr><td style="text-align:left">Subscriber net adds (m/Q)</td><td>+8.9 m (Q1 FY27)</td><td>≤ 0 for a quarter</td><td style="text-align:left">Share loss vs Airtel/Vi — cut verdict to HOLD/watchlist <span class="tag t-view">View</span></td></tr>
+<tr><td style="text-align:left">Related-party revenue share</td><td>77.08% (FY26)</td><td>&gt; 79% without an ARPU/distribution reason</td><td style="text-align:left">Demand read becomes unreliable — rely on ARPU/subs only; discount valuation 1–2 turns <span class="tag t-view">View</span></td></tr>
+<tr><td style="text-align:left">EBITDA margin</td><td>51.9% FY26 · 53.3% Q1</td><td>&lt; 50% for a quarter</td><td style="text-align:left">Free-5G/competition costs biting — re-score profitability ≤5.0 <span class="tag t-view">View</span></td></tr>
+<tr><td style="text-align:left">FCF (OCF − capex)</td><td>₹43,372 Cr (FY26)</td><td>capex &gt; ₹40,000 Cr p.a. or FCF &lt; ₹20,000 Cr FY27</td><td style="text-align:left">Harvest-phase thesis reverses — re-score cash flow ≤6.0, pause buying <span class="tag t-view">View</span></td></tr>
+<tr><td style="text-align:left">Post-IPO net debt (book)</td><td>₹9,539 Cr (Jun-26)</td><td>Net debt rising back above ₹25,000 Cr</td><td style="text-align:left">Proceeds/interest-saving thesis failing — re-score balance sheet ≤5.0 <span class="tag t-view">View</span></td></tr>
+<tr><td style="text-align:left">Listing price vs band</td><td>Pre-IPO (no CMP)</td><td>Lists &gt; ₹1,364 (GMP-implied, ~40.6x)</td><td style="text-align:left">No-buy zone — wait for ≤ ₹1,000 (≤30x FY26) <span class="tag t-view">View</span></td></tr>
+<tr><td style="text-align:left">Day-1/2 QIB subscription + anchor demand</td><td>Announced 20–22 Oct 2026</td><td>QIB &lt; 3x on 21–22 Oct</td><td style="text-align:left">Institutional softness — bid smaller or skip the issue; reassess at listing <span class="tag t-view">View</span></td></tr>
+</table></div>
+
+<div class="card">
+<h4 style="margin-top:0">Journal Entry #01 — Baseline (Pre-IPO) <span style="font-weight:400;color:var(--muted)"> · dated 20-Oct-2026</span></h4>
+<p><span class="tag t-fact">Facts</span> JPL filed its DRHP 19-Jun-2026 and its RHP on 14-Oct-2026 with a band of <b>₹1,065–1,119</b> (face ₹10), a <b>100% fresh issue of up to 27,00,00,000 shares</b> (~₹27,555–30,213 Cr — India's largest-ever IPO), opening <b>21-Oct-2026</b> and closing 23-Oct-2026, allotment ~26-Oct, listing expected ~28-Oct-2026 on BSE + NSE. <b>₹27,500 Cr of proceeds (~91%, Calc) repays RJIL borrowings</b>; up to <b>₹2,500 Cr is reserved for Reliance Industries shareholders</b> (record date 14-Oct-2026, cap ₹2 lakh); lot = 12 shares (₹12,780–13,428). FY26: revenue <b>₹1,46,885 Cr (+14.6%)</b>, EBITDA <b>₹76,255 Cr (51.9%)</b>, PAT <b>₹30,049 Cr (+15.1%)</b>, subscribers <b>524.4 m → 533.3 m at Jun-2026</b>, ARPU <b>₹215.6</b>, gross borrowings <b>₹61,372 Cr</b> less cash <b>₹51,833 Cr = net debt ₹9,539 Cr</b>. OCF FY26 <b>₹77,556 Cr</b> vs capex <b>₹34,184 Cr</b>. Related-party revenue = <b>77.08%</b> of FY26 revenue. Pre-issue promoter: <b>RIL ~66.4% → ~64.4%</b>. Anchor allotment due today (20-Oct-2026, list pending); GMP ~<b>₹245 (~22%)</b> → indicative ₹1,364 (ET, 20-Oct-2026, <b>unofficial</b>).</p>
+<p><span class="tag t-calc">Calcs</span> P/E at band = 1,065 ÷ 33.6 = <b>31.7x</b>, 1,119 ÷ 33.6 = <b>33.3x</b> (vs Airtel 39–41x ⇒ ~16–19% discount). P/S ≈ 6.7–7.0x FY26. Implied post-issue shares ≈ 920 Cr (9.8 lakh Cr ÷ 1,065). Issue size: 27.0 Cr shares × band = ₹28,755 Cr (floor) / ₹30,213 Cr (cap) (Calc) — matches published cap-size ₹30,213 Cr. 2Y CAGRs: revenue 18.6%, EBITDA ~18.5%, PAT ~18.4%. FCF: 6,142 / 29,138 / 43,372 Cr (cum +78,652); OCF/EBITDA 102/106/106%; capex/sales 48.8% → 23.3%. Net debt/EBITDA book 0.13x vs Nomura-lens ~1.8x (₹1.4 lakh Cr ÷ 76,255). Pro-forma post-IPO book net cash ≈ ₹17,961 Cr (9,539 − 27,500). Interest saving ₹2,000–2,500 Cr = 7.3–9.1% implied on repaid debt. GMP-implied ₹1,364 ÷ 33.6 = ~40.6x FY26. Composite 50.0 ÷ 7 = <b>7.1</b>.</p>
+<p><span class="tag t-mgmt">Mgmt / promoter actions</span> Mukesh Ambani remains CMD; use of proceeds framed as "towards net-debt-free JPL" with interest saving of ₹2,000–2,500 Cr (RHP/DRHP + 14-Oct-2026 press). No promoter selling in the issue. Free 5G continues for 285 m subscribers with paid-5G monetisation guided from ~2027 (Nomura note). Network-asset life extended 16 → 18 years (FY26 one-off ₹1,840.5 Cr pre-tax). Dividend nil for FY26; capital-return policy post-IPO <span class="warn">VERIFY in RHP</span>.</p>
+<p><span class="tag t-view">Interpretation</span> This is a rare profile: the cash-flow best-in-class of Indian telecom arriving at a first-time issue priced below its closest listed peer on earnings, while carrying the market's biggest related-party-revenue structure and a "two-lens" balance sheet (0.13x book vs ~1.8x including spectrum/leases). The band asks you to underwrite quality at ~32–33x; the aftermarket will ask whether you'll pay 40x on GMP euphoria — the answer written into this plan is <b>no</b>. The correct posture is: subscribe small at band (you're RIL-quota eligible), then let price come to you at ≤ ₹1,000 for the position that actually matters. The event ladder (anchor 20-Oct → close 23-Oct → listing ~28-Oct → Q2 FY27 ~Nov) means this verdict will be re-scored twice within 30 days — both re-scores are already scheduled in the plan.</p>
+<p><span class="tag t-view">Verdict now</span> <b>ACCUMULATE (7.1/10)</b> — SUBSCRIBE at ≤ ₹1,119 (21–23 Oct 2026, RIL-shareholder quota eligible, size = your decision, VERIFY record-date demat); no position exists today; no aftermarket chase above ₹1,119; first real tranche ≤ ₹1,000 (≤30x FY26) at listing + 10 sessions (~11-Nov-2026); GMP ~₹245 unofficial and ignored for sizing. <b>Next review: listing week (~28-Oct-2026) and Q2 FY27 (~Nov-2026, date VERIFY).</b></p>
+</div>
+
+<p class="note">All prices above are issue-band or GMP-implied figures with dates — <b>there is no CMP because JPL does not trade yet</b>. Scores are analyst judgement on the verified facts in Sections 1–8; the composite (7.1) is arithmetic (50.0 ÷ 7). This entry supersedes nothing (first entry) and is reviewed at the two dated triggers above.</p>
+</section>
+
+<section class="panel" id="tabT">
+<h2>Transactions — Jio Platforms Ltd (IPO)</h2>
+<div class="viewbox"><div class="vh">Transactions — The View (plain English)</div>
+<ul>
+<li class="imp">This stock is a <b>CANDIDATE</b> and pre-IPO: there are <b>no trades yet</b> in <code>Equity\Holding_stocks.xlsx</code> for JIO — zero units, zero rupees invested. Nothing here is estimated or placeholder; the log is genuinely empty, and no allotment can exist because the bid opens 21-Oct-2026.<span class="important">IMPORTANT</span></li>
+<li>The moment an IPO allotment or first buy is entered in Excel, this tab must be regenerated with <code>python Equity\code\write_html.py</code> so this tab, the hub Dashboard and the position card all agree — and at that point the portfolio status changes to HOLDING (header badge, tab0 card and hub chip get updated as a dated status change, never by editing old rows). Note: write_html.py currently skips JIO (no Holding_stocks rows yet).</li>
+<li>Until then, the Entry Plan card in the Dashboard tab is the governing document for this stock: SUBSCRIBE at ≤ ₹1,119 (21–23 Oct 2026, RIL-shareholder quota eligible — VERIFY record-date demat), no chase above ₹1,119, first real tranche ≤ ₹1,000 after listing + 10 sessions (~11-Nov-2026), application size left blank for you.</li>
+</ul>
+</div>
+<div class="kpis">
+<div class="kpi" data-explain="Units held = total shares still held, counted as buys minus sells across every trade in Holding_stocks.xlsx. For JIO this stays 0 until an IPO allotment or aftermarket buy is recorded — shares do not even exist in your demat before allotment (~26-Oct-2026)."><div class="l">Units held</div><div class="v">0</div><div class="n">0 trades logged · pre-IPO</div></div>
+<div class="kpi" data-explain="Average cost = total money invested in this stock divided by units held. It is what one share has effectively cost you across all buys. No position exists, so there is no average cost to show."><div class="l">Average cost</div><div class="v">—</div><div class="n">no position yet</div></div>
+<div class="kpi" data-explain="Invested = every rupee put into this stock, shown with its share of the total invested across all holdings. ₹0 until the IPO allotment or an aftermarket buy is recorded."><div class="l">Invested</div><div class="v">₹0</div><div class="n">0.0% of total invested</div></div>
+<div class="kpi" data-explain="Current value = units held times a market price. JPL has no market price yet — shares list ~28-Oct-2026 — so current value and P/L remain nil regardless of the issue band or GMP."><div class="l">Current value</div><div class="v">₹0</div><div class="n">P/L ₹0 (0%) · no CMP yet</div></div>
+</div>
+<div class="card">
+<h4>Trade log status <span class="tag t-fact">Fact</span></h4>
+<!--HOLD_TXN_START-->
+<p class="note"><b>No trades yet.</b> 0 buy transactions · 0 sell transactions · units held 0 · invested ₹0. JIO (Jio Platforms Ltd) is tracked as a CANDIDATE — a pre-IPO entry decision for the 21–23 Oct 2026 issue, not an existing position. An allotment (if applied for) is expected ~26-Oct-2026 with listing ~28-Oct-2026; record it here on receipt.</p>
+<!--HOLD_TXN_END-->
+</div>
+<p class="src">Source: Equity\Holding_stocks.xlsx (sheet Sheet1, table Shadow_Buy_sell) · recomputed by Equity\code\holdings_calc.py → code\data\holdings.json · no price basis applies (pre-IPO, no CMP). Personal position data; not investment advice.</p>
+</section>
+
+<section class="panel" id="tabG">
+<h2>Glossary — jargons, metrics &amp; acronyms (click any blue dotted term anywhere)</h2>
+<div class="viewbox"><div class="vh">How to use the glossary</div>
+<ul>
+<li>Every metric/jargon term in this report is linked — <b>click the blue dotted word</b> to see its plain-English meaning in a pop-up.</li>
+<li class="imp">New to reading reports? Start with: CMP, P/E, EBITDA, ROE, ROCE, CFO, FCF, FII/DII, D/E, Market Cap, Large Cap.<span class="important">IMPORTANT</span></li>
+<li>Shared glossary (<code>glossary.js</code>) — same definitions as the Stock Hub and every other stock page; add a term once and it appears everywhere.</li>
+<li><b>IPO-specific terms pending addition to glossary.js</b> <span class="warn">VERIFY</span>: IPO, RHP/DRHP, Price Band, Anchor Investor, GMP, Book Building, Allotment, Lock-in, QIB, NII, Fresh Issue / OFS, BRLM, Record Date, Holdco Discount, Free Float, SEBI Observation — these are explained inline in this report until the shared file carries them.</li>
+</ul>
+</div>
+<div class="card">
+<h4>All terms — definition, plain meaning, why it matters</h4>
+<div id="glossaryBody"><p class="note">Loading glossary… (requires JavaScript enabled)</p></div>
+</div>
+</section>
+
+<footer>
+  Jio Platforms Ltd (IPO) — independent pre-IPO research journal entry. Data: RHP/DRHP filings (14-Oct-2026 / 19-Jun-2026), RIL exchange filings, JPL FY26 annual report figures via dated press coverage, SEBI filings. GMP is unofficial. VERIFY = unavailable/unconfirmed. Not investment advice.
+</footer>
+
+</div>
+<script src="../../Equity/code/table_chart.js"></script>
+<script src="../shared/glossary.js"></script>
+<script>
+(function(){
+function show(id){
+ document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===id)});
+ document.querySelectorAll('.tabbtn').forEach(function(b){b.classList.toggle('on',b.dataset.t===id)});
+ window.scrollTo(0,0);
+}
+document.querySelectorAll('.tabbtn').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);try{history.replaceState(null,'','#'+b.dataset.t)}catch(e){}})});
+if(location.hash){try{var h=document.querySelector(location.hash+'.panel');if(h)show(location.hash.slice(1))}catch(e){}}
+document.getElementById('stockSel').addEventListener('change',function(){if(this.value){location.href=this.value}});
+})();
+</script>
+</body>
+</html>
