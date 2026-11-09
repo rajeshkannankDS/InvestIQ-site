@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stock Research Hub — Candidate Stocks</title>
+<style>
+:root{--bg:#0f1420;--panel:#161d2e;--panel2:#1c2438;--ink:#e8ecf5;--muted:#9aa7bd;--line:#2a3450;--acc:#4da3ff;--good:#2ecc8f;--warn:#f5b83d;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding:22px}
+header.rpt{background:linear-gradient(135deg,#101828,#1b2a4a);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:18px}
+header.rpt h1{margin:0 0 4px;font-size:27px}
+header.rpt .sub{color:var(--muted);font-size:14px}
+.badges{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{padding:4px 11px;border-radius:20px;font-size:12.5px;border:1px solid var(--line);background:var(--panel2)}
+.badge.buy{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.badge.risk{background:#3a1d1d;border-color:#7a3030;color:#ffb0b0}
+.badge.info{background:#123055;border-color:#24528f;color:#a8d1ff}
+.topnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;position:sticky;top:0;z-index:40;background:rgba(15,20,32,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:9px 12px;margin-bottom:16px}
+.topnav .lbl{font-size:12.4px;color:var(--muted);letter-spacing:.5px}
+.topnav select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13.4px;font-weight:600;cursor:pointer}
+.topnav a.home{color:var(--acc);font-size:13px;text-decoration:none;font-weight:600}
+h2{font-size:20px;margin:30px 0 6px;padding-bottom:7px;border-bottom:2px solid var(--line);color:#cfe1ff}
+h4{font-size:14.5px;margin:14px 0 6px;color:#a9c4ea}
+p{margin:8px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 6px;font-size:13.2px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+th{background:var(--panel2);color:#c6d6f0;font-weight:600;text-align:center}
+td:first-child,th:first-child{text-align:left;font-weight:600;color:#dbe6fa}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.tblwrap table{border:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 17px;margin:13px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:12px;font-weight:600}
+.p-g{background:#0d3a2c;color:#7ff0c3;border:1px solid #1c6b4f}
+.p-y{background:#3d3210;color:#ffd98a;border:1px solid #8d6a1e}
+.p-r{background:#3a1d1d;color:#ffb0b0;border:1px solid #7a3030}
+.note{font-size:12.4px;color:var(--muted);margin-top:6px}
+.src{font-size:12.2px;color:var(--muted)}
+.good{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+a{color:var(--acc)}
+/* stock cards */
+.stocks{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px;margin:16px 0}
+.scard{display:block;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:17px 18px;text-decoration:none;color:var(--ink);transition:transform .12s,border-color .12s;cursor:pointer}
+.scard:hover{transform:translateY(-3px);border-color:#4da3ff}
+.scard .nm{font-size:18px;font-weight:700;color:#cfe1ff}
+.scard .tk{font-size:12.3px;color:var(--muted);margin-top:1px}
+.scard .capb{display:inline-block;font-size:10.6px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-left:8px;vertical-align:2px;border:1px solid #2c5f9e;background:#123055;color:#a9d1ff}
+.stb{display:inline-block;font-size:10.6px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-left:6px;vertical-align:2px;border:1px solid}
+.stb.st-hold{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.stb.st-cand{background:#3d3210;border-color:#8d6a1e;color:#ffd98a}
+.scard .cmp{font-size:26px;font-weight:800;margin-top:10px}
+.scard .row{display:flex;justify-content:space-between;gap:10px;font-size:12.8px;color:var(--muted);margin-top:7px}
+.scard .dec{font-size:13.2px;color:#dbe6fa;background:rgba(255,255,255,.03);border-left:3px solid var(--acc);padding:7px 10px;border-radius:0 7px 7px 0;margin-top:11px}
+.scard .go{margin-top:11px;font-size:12.6px;color:var(--acc);font-weight:700;letter-spacing:.4px}
+.viewbox{border-left:4px solid var(--acc);background:rgba(77,163,255,.07);border-radius:0 9px 9px 0;padding:10px 15px;margin:10px 0 14px}
+.viewbox .vh{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8fc4ff;font-weight:700;margin-bottom:5px}
+.viewbox ul{margin:4px 0 2px 18px}.viewbox li{font-size:13.6px;margin:5px 0}
+.viewbox li.imp{color:#ffe6a3}.viewbox li.imp::marker{content:"★ "}
+.important{display:inline-block;background:#4a3708;color:#ffd98a;border:1px solid #8d6a1e;font-size:10.3px;font-weight:700;letter-spacing:.7px;padding:1px 7px;border-radius:4px;vertical-align:1.5px;margin-left:6px}
+.acc{border:1px solid var(--line);border-radius:11px;background:var(--panel);margin:13px 0;overflow:hidden}
+.acc-head{cursor:pointer;padding:12px 16px;background:var(--panel2);font-weight:700;font-size:14.5px;color:#cfe1ff;display:flex;gap:10px;align-items:center;flex-wrap:wrap;user-select:none}
+.acc-head:hover{background:#222c46}
+.acc-head .chev{color:var(--acc);width:15px;display:inline-block;transition:transform .15s}
+.acc-head .accmeta{margin-left:auto;font-size:12.2px;color:var(--muted);font-weight:400}
+.acc-body{display:none;padding:4px 14px 12px}
+.acc.open .acc-body{display:block}
+.tag{display:inline-block;font-size:10.6px;letter-spacing:.6px;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-right:6px;vertical-align:1.5px;border:1px solid}
+.t-fact{background:#123055;border-color:#2c5f9e;color:#a9d1ff}
+.t-view{background:#46340f;border-color:#8d6a1e;color:#ffd98a}
+.term{color:#7fc0ff;text-decoration:underline dotted;cursor:help}
+.term:hover{color:#bfe0ff}
+/* tabs */
+.tabbar{position:sticky;top:0;z-index:40;display:flex;flex-wrap:wrap;gap:6px;background:rgba(15,20,32,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:8px;margin-bottom:16px}
+.tabbtn{border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:12.6px;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;letter-spacing:.3px;text-decoration:none;display:inline-block}
+.tabbtn:hover{color:#cfe1ff;border-color:#3b5f96}
+.tabbtn.on{background:#123055;border-color:#2c66ad;color:#a9d1ff;box-shadow:0 0 0 1px #2c66ad}
+.panel{display:none;animation:fadein .25s ease}
+.panel.on{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+/* journal subtabs - inside the Journal panel (button label "4 · Journal"): same .tabbar/.tabbtn look, but not sticky
+   (the main tabbar above is the sticky one) */
+.subbar{position:static;z-index:auto}
+.jview{display:none}
+.jview.on{display:block;animation:fadein .25s ease}
+@media print{.jview{display:block!important}}
+/* KPI cards (portfolio dashboard) */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:13px 14px}
+.kpi .l{font-size:11.6px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.kpi .v{font-size:21px;font-weight:700;margin-top:3px}
+.kpi .n{font-size:11.6px;color:var(--muted);margin-top:2px}
+.kpi[data-explain]{cursor:pointer;transition:transform .12s,border-color .12s}
+.kpi[data-explain]:hover{border-color:#4da3ff;transform:translateY(-2px)}
+.kpi[data-explain]::after{content:"ⓘ what does this mean?";display:block;font-size:9.6px;color:#4da3ff;letter-spacing:.4px;margin-top:5px;text-transform:uppercase}
+.t-calc{background:#2a2140;border-color:#5a4a8a;color:#cbb8ff}
+.sel-lbl{font-size:12.4px;color:var(--muted);letter-spacing:.5px;margin-right:8px;font-weight:600}
+select.filter{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13.4px;font-weight:600;cursor:pointer}
+.txngrp{margin:16px 0 4px}
+.txngrp h4{margin:14px 0 4px}
+/* ---- premium portfolio dashboard (Dashboard tab) ---- */
+.dash-head{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap;margin:2px 0 15px}
+.dash-title{margin:0;font-size:25px;font-weight:800;letter-spacing:.2px;color:#f4f8ff}
+.dash-sub{font-size:13.4px;color:var(--muted);margin-top:3px}
+.dash-meta{display:flex;gap:8px;flex-wrap:wrap}
+.dash-chip{border:1px solid #2c66ad;background:#123055;color:#a9d1ff;font-size:12.2px;font-weight:600;padding:5px 13px;border-radius:15px;white-space:nowrap}
+.dash-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:0 0 16px}
+.dash-kpi{display:flex;gap:13px;align-items:center;min-width:0;background:linear-gradient(160deg,#141d33,#101728);border:1px solid #22345a;border-radius:13px;padding:15px 16px;transition:transform .12s,border-color .12s}
+.dash-kpi[data-explain]{cursor:pointer}
+.dash-kpi:hover{transform:translateY(-2px);border-color:#4da3ff}
+.dash-kpi.s-blue{border-color:#2c66ad}
+.dash-kpi.s-green{border-color:#1c6b4f}
+.dash-kpi.s-red{border-color:#7a3030}
+.dash-kpi.s-purple{border-color:#5a4a8a}
+.kpi-icon{flex:0 0 auto;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:21px;line-height:1}
+.kpi-info{min-width:0}
+.dash-kpi .kpi-label{font-size:12.3px;color:var(--muted);letter-spacing:.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dash-kpi .kpi-value{font-size:25px;font-weight:800;margin-top:2px;letter-spacing:.3px;white-space:nowrap}
+.kpi-value.c-blue{color:#8cc4ff}
+.kpi-value.c-green{color:#3ddfa5}
+.kpi-value.good{color:#3ddfa5}
+.kpi-value.bad{color:#ff6b85}
+.dash-kpi .kpi-sub{font-size:11.6px;color:var(--muted);margin-top:2px}
+@media(max-width:1000px){.dash-kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.dash-kpis{grid-template-columns:1fr}}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 16px}
+@media(max-width:1000px){.dash-grid{grid-template-columns:1fr}}
+.chart-box{background:linear-gradient(165deg,#141d33,#111827);border:1px solid #22345a;border-radius:13px;padding:15px 17px 15px;min-width:0}
+.chart-title{font-size:16px;font-weight:700;color:#d6e6ff}
+.chart-subtitle{font-size:12.2px;color:var(--muted);margin:2px 0 10px}
+.chart-body{display:flex;gap:14px;align-items:stretch}
+.chart-canvas{position:relative;flex:1 1 auto;min-width:0;height:300px}
+.chart-legend{flex:0 0 238px;display:flex;flex-direction:column;gap:7px;justify-content:center;font-size:12.2px}
+@media(max-width:780px){.chart-body{flex-direction:column}.chart-legend{flex:0 0 auto}}
+.cl-row{display:grid;grid-template-columns:12px minmax(0,1fr) 54px 92px;gap:8px;align-items:center;padding:3px 0}
+.cl-row+.cl-row{border-top:1px solid rgba(42,52,80,.55)}
+.cl-dot{width:11px;height:11px;border-radius:50%}
+.cl-name{color:#cddcf2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cl-pct{color:#e8ecf5;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.cl-amt{color:var(--muted);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.chart-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;text-align:center}
+.chart-center b{font-size:21px;font-weight:800;color:#f4f8ff}
+.chart-center span{font-size:11.4px;color:var(--muted);margin-top:2px}
+.chart-na{height:300px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--warn);font-size:13.4px;font-weight:600;padding:0 18px;background:rgba(245,184,61,.05);border:1px dashed #8d6a1e;border-radius:9px}
+.holdings-title{font-size:17px;font-weight:700;color:#d6e6ff;margin:4px 0 9px;border:0;padding:0}
+.pbar-wrap{display:flex;align-items:center;gap:9px;justify-content:flex-end}
+.pbar{flex:1 1 auto;min-width:70px;max-width:170px;height:11px;background:#0c1322;border:1px solid #26314c;border-radius:6px;overflow:hidden}
+.pbar-fill{height:100%;border-radius:5px;min-width:2px}
+.pbar-pct{min-width:46px;text-align:right;font-weight:700;color:#dbe6fa;font-variant-numeric:tabular-nums}
+/* sortable columns - Holdings Details table only */
+#holdingsTable th{cursor:pointer;user-select:none;white-space:nowrap}
+#holdingsTable th:hover{color:#8fd0ff}
+#holdingsTable th.sorted-asc::after{content:" \25B2";font-size:9px;color:#4da3ff}
+#holdingsTable th.sorted-desc::after{content:" \25BC";font-size:9px;color:#4da3ff}
+@media print{.chart-box,.dash-kpi{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+/* modal (used by glossary.js) */
+#modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(4,8,16,.72);padding:20px}
+#modal.on{display:flex;align-items:center;justify-content:center}
+.mbox{background:#141b2c;border:1px solid #2c66ad;border-radius:13px;max-width:640px;width:100%;max-height:82vh;overflow:auto;padding:20px 22px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.mbox .mt{font-size:16.5px;font-weight:700;color:#a9d1ff;margin-bottom:8px}
+.mbox .mb{font-size:14px;line-height:1.65;color:var(--ink)}
+.mbox .mb .why{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);color:#ffd98a;font-size:13.3px}
+.mbox .mclose{float:right;border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:7px;font-size:12px;padding:4px 10px;cursor:pointer}
+.mbox .mclose:hover{color:#fff;border-color:#4da3ff}
+.mgl{font-size:12.4px;color:var(--muted);margin-top:12px}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12.4px}
+@media print{body{background:#fff;color:#111}.scard,table,header.rpt,.card{background:#fff;color:#111;border-color:#bbb}th{background:#eee;color:#111}td{color:#111}h2,h4{color:#111}.topnav,.tabbar,#modal{display:none!important}.panel{display:block!important;page-break-before:always}.acc-body{display:block!important}.viewbox{background:#f4f8ff}.viewbox li{color:#111}.term{color:#0b5ca8}}
+</style>
+<style>
+.cat-badge{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#4da3ff;font-weight:700;margin-bottom:10px;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="rpt">
+  <h1>📈 Candidate Stocks</h1>
+  <div class="sub">Under analysis — no position, entry only per plan — 4 stocks · status: CANDIDATE</div>
+</header>
+
+<nav class="topnav">
+  <a class="home" href="Equity_Forge.html">🏠 All Categories</a>
+  <span class="lbl">GO TO STOCK ▸</span>
+  <select id="stockSel">
+<option value="">— select stock —</option>
+    <option value="OLECTRA_Research_Report_Oct2026.html">Olectra Greentech Ltd | S | C</option>
+    <option value="KAYNES_Research_Report_Oct2026.html">Kaynes Technology India Ltd | S | C</option>
+    <option value="BEL_Research_Report_Oct2026.html">Bharat Electronics Ltd | L | C</option>
+    <option value="JIO_Research_Report_Oct2026.html">Jio Platforms Ltd | L | C</option>
+  </select>
+</nav>
+
+<nav class="tabbar" id="tabbar" aria-label="Hub sections">
+  <button class="tabbtn on" data-t="tab0">1 · Stocks</button>
+  <button class="tabbtn" data-t="tabRank">2 · Rankings</button>
+  <button class="tabbtn" data-t="tabNews">3 · Key News</button>
+  <button class="tabbtn" data-t="tab1">4 · Journal</button>
+  <button class="tabbtn" data-t="tab4">7 · Glossary</button>
+</nav>
+
+<section class="panel on" id="tab0">
+<h2>1. Stock List — Candidate Stocks</h2>
+<div class="viewbox"><div class="vh">Candidate — The View</div>
+<ul>
+<li class="imp">4 stocks in this category · no position — under analysis</li>
+<li>Scores: <b>3 ACCUMULATE</b> · <b>1 WATCHLIST</b> · <b>0 AVOID</b></li>
+<li>Prices are the <b>05-Nov-2026 close</b>.</li>
+</ul>
+</div>
+  <div class="stocks">
+  <a class="scard" href="OLECTRA_Research_Report_Oct2026.html" data-code="OLECTRA" data-cap="S" data-status="C" data-score="6.1" data-verdict="ACCUMULATE">
+
+    <div class="nm">Olectra Greentech Ltd<span class="capb">Small Cap</span><span class="stb st-cand">CANDIDATE</span></div>
+
+    <div class="tk">NSE: OLECTRA · BSE: 532439 · Automobiles → Electric Buses</div>
+
+    <div class="cmp">₹1,050 <span style="font-size:13px" class="bad">−0.87%</span></div>
+
+    <div class="row"><span>P/E 48.6x · ROCE 21%</span><span>Mcap ₹8,620 Cr</span></div>
+
+    <div class="row"><span>Verdict</span><span><span class="pill p-g">ACCUMULATE</span> &nbsp;score <b>6.1</b>/10</span></div>
+
+    <div class="dec"><b>Decision (05-Nov-2026 run):</b> Re-affirmed 6.1 — CANDIDATE, <b>no position</b>. <b>Q2 FY27 date now fixed: board meets 09-Nov-2026</b> (intimation 04-Nov). CMP ₹1,050 is still <b>above the ₹950–1,000 first-tranche trigger</b> — wait for the band <i>and</i> the print. Buy only if Q2 confirms OPM ≥14%, interest ≤ ₹25 Cr/qtr, borrowings ≤ ~₹420 Cr, pledge nil (VERIFY) and a readable order book (VERIFY). Next review: Q2 FY27 print, 09-Nov-2026.</div>
+
+    <div class="go">Open full report →</div>
+
+  </a>
+  <a class="scard" href="KAYNES_Research_Report_Oct2026.html" data-code="KAYNES" data-cap="S" data-status="C" data-score="5.3" data-verdict="WATCHLIST">
+
+    <div class="nm">Kaynes Technology India Ltd<span class="capb">Small Cap</span><span class="stb st-cand">CANDIDATE</span></div>
+
+    <div class="tk">NSE: KAYNES · BSE: 543664 · Industrials → Electronics Manufacturing (EMS)</div>
+
+    <div class="cmp">₹3,292 <span style="font-size:13px" class="bad">−1.13%</span></div>
+
+    <div class="row"><span>P/E 63.8x · ROCE 12.7%</span><span>Mcap ₹22,166 Cr</span></div>
+
+    <div class="row"><span>Verdict</span><span><span class="pill p-y">WATCHLIST</span> &nbsp;score <b>5.3</b>/10</span></div>
+
+    <div class="dec"><b>Decision (05-Nov-2026 run):</b> Re-affirmed WATCHLIST 5.3 — the <b>04-Nov Entry Plan gate passed without a visible Q2 print: no board-outcome filing on Screener or the company investor page as of 05-Nov-2026 → <span class="warn">VERIFY</span></b>. News: wholly-owned Saudi subsidiary KAYNES ARABIA ELECTRONICS incorporated 02-Nov (not scored). CMP ₹3,292 is above the ₹2,950–3,050 trigger — <b>no entry</b>; conditions unchanged (OPM ≥16%, PAT not down YoY, CFO improving, debtor days &lt;120, order book ≥ ~₹8,900 Cr). Next review: as soon as the Q2 FY27 filing is confirmed, then the Dec-2026 run.</div>
+
+    <div class="go">Open full report →</div>
+
+  </a>
+  <a class="scard" href="BEL_Research_Report_Oct2026.html" data-code="BEL" data-cap="L" data-status="C" data-score="6.9" data-verdict="ACCUMULATE">
+
+    <div class="nm">Bharat Electronics Ltd<span class="capb">Large Cap</span><span class="stb st-cand">CANDIDATE</span></div>
+
+    <div class="tk">NSE: BEL · BSE: 500049 · Industrials → Aerospace &amp; Defence (defence electronics PSU)</div>
+
+    <div class="cmp">₹395 <span style="font-size:13px" class="bad">−0.73%</span></div>
+
+    <div class="row"><span>P/E 45.2x · ROCE 36.4%</span><span>Mcap ₹2.89 L Cr</span></div>
+
+    <div class="row"><span>Verdict</span><span><span class="pill p-g">ACCUMULATE</span> &nbsp;score <b>6.9</b>/10</span></div>
+
+    <div class="dec"><b>Decision (05-Nov-2026 run):</b> Re-affirmed 6.9 after the <b>30-Oct Q2 FY27 print — sales ₹7,328 Cr +27% YoY, OPM 28%, PAT ₹1,540 Cr +46%</b> (Screener, 05-Nov): two of the three Entry Plan gates pass (revenue ≈+12% ✓, EBITDA margin ≥26% ✓) but the scored question — order-inflow pace vs the ₹55,000 Cr FY27 target (₹7,400 Cr booked till mid-Oct, −53% YoY) and WC days — is still unconfirmed, and valuation stays 4.5. Plus ₹1,011 Cr of fresh orders since 13-Oct. CMP ₹395 is <b>above the ₹360–375 first-tranche band — do not initiate</b>; add-on band ₹335–350. Next review: Dec-2026 monthly run (fresh tranche only ≤ ₹375).</div>
+
+    <div class="go">Open full report →</div>
+
+  </a>
+  <a class="scard" href="JIO_Research_Report_Oct2026.html" data-code="JIO" data-cap="L" data-status="C" data-score="6.9" data-verdict="ACCUMULATE">
+
+    <div class="nm">Jio Platforms Ltd<span class="capb">Large Cap</span><span class="stb st-cand">CANDIDATE</span></div>
+
+    <div class="tk">NSE: JPL · BSE: 545004 · listed 28-Oct-2026 · Telecom &amp; Digital (Reliance group)</div>
+
+    <div class="cmp">₹1,417.80 <span style="font-size:13px" class="bad">−0.27%</span></div>
+
+    <div class="row"><span>42.2x FY26 at CMP vs band 31.7–33.3x</span><span>Mcap ~₹13.0 L Cr (Calc)</span></div>
+
+    <div class="row"><span>Verdict</span><span><span class="pill p-g">ACCUMULATE</span> &nbsp;score <b>6.9</b>/10</span></div>
+
+    <div class="dec"><b>Decision (05-Nov-2026 run, score trimmed):</b> <b>7.1 → 6.9 — listed 28-Oct-2026 at ₹1,358 (+21.4% over the ₹1,119 cap)</b>, day-1 close ₹1,417.50, CMP ₹1,417.80 (05-Nov, Yahoo JPL.NS; no Screener page yet → 404). The aftermarket scenario in the plan materialised: at 42.2x FY26 the <b>Valuation section drops 6.0 → 4.5</b> (band discount gone — now at/above Bharti Airtel's 39–41x). CANDIDATE, <b>no position</b>: the subscribe call ended with the 23-Oct issue close; <b>first tranche only at ≤ ₹1,000 (≤30x FY26) — do not chase</b> at ₹1,418. Next review: listing + 10 sessions (~11-Nov-2026) and the first post-listing quarterly (Nov-2026, <span class="warn">VERIFY</span>).</div>
+
+    <div class="go">Open full report →</div>
+
+  </a>
+</div>
+</section>
+<section class="panel" id="tabRank">
+<h2>2. Rankings — Candidate Stocks by verdict score</h2>
+<div class="viewbox"><div class="vh">Rankings — The View</div>
+<ul>
+<li class="imp">Ranked by composite score /10 from the 7-section scorecard.</li>
+<li>Two axes: score/verdict = "how good at this price?" · status = "do I own it?"</li>
+<li>Verdict bands: <b>8–10 excellent · 6–8 ACCUMULATE · 4–6 WATCHLIST · &lt;4 AVOID</b></li>
+</ul>
+</div>
+<div class="tblwrap"><table id="rankTable" data-vt="off">
+<tr><th>Rank</th><th style="text-align:left">Stock</th><th style="text-align:left">Cap</th><th>Status</th><th>Score</th><th>Verdict</th><th>CMP (latest close)</th><th style="text-align:left">Action per analysis</th></tr>
+<tbody id="rankBody"><tr><td colspan="8">Building the ranking… (requires JavaScript)</td></tr></tbody>
+</table></div>
+</section>
+<section class="panel" id="tabNews">
+<h2>3. Key News — Candidate Stocks</h2>
+<div class="tblwrap"><table>
+<tr><th>Date</th><th style="text-align:left">Stock</th><th style="text-align:left">Item</th><th style="text-align:left">Why it matters</th></tr>
+<tr><td colspan="4">News items for this category.</td></tr>
+</table></div>
+</section>
+<section class="panel" id="tab1">
+<nav class="tabbar subbar" id="journalSub" aria-label="Journal views">
+  <button class="tabbtn on" data-s="jMonthly">Monthly Updates</button>
+  <button class="tabbtn" data-s="jCMP">CMP Updates</button>
+</nav>
+<div class="jview on" id="jMonthly">
+<h2>4. Monthly Decision Log — Candidate Stocks</h2>
+<p class="note">Monthly run 05-Nov-2026 complete. Prices are the 05-Nov-2026 close.</p>
+</div>
+<div class="jview" id="jCMP">
+<h2>4b. CMP Updates — Candidate Stocks</h2>
+<p class="note">Monthly run 05-Nov-2026 complete. Prices are the 05-Nov-2026 close.</p>
+</div>
+</section>
+<section class="panel" id="tab4">
+<h2>7. Glossary — jargons, metrics & acronyms</h2>
+<div class="card">
+<h4>All terms — definition, plain meaning, why it matters</h4>
+<div id="glossaryBody"><p class="note">Loading glossary… (requires JavaScript enabled)</p></div>
+</div>
+</section>
+
+<footer>
+  Stock Research Hub — Candidate Stocks · Data: Screener.in (consolidated), exchange filings and company releases. Prices are 05-Nov-2026 closes. Not investment advice; verify flagged figures before acting.
+</footer>
+</div>
+<script src="../../Equity/code/chart.umd.min.js"></script>
+<script src="../../Equity/code/table_chart.js"></script>
+<script src="../shared/glossary.js"></script>
+<script>
+document.getElementById('stockSel').addEventListener('change',function(){if(this.value){location.href=this.value}});
+document.querySelectorAll('.acc-head').forEach(function(h){
+ h.addEventListener('click',function(e){
+  if(e.target.closest('.term'))return;
+  var box=document.getElementById(h.dataset.acc);
+  box.classList.toggle('open');
+  h.querySelector('.chev').textContent=box.classList.contains('open')?'▾':'▸';
+ });
+});
+/* ---- hub tabs ---- */
+ function show(id){
+ document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===id)});
+ document.querySelectorAll('.tabbtn[data-t]').forEach(function(b){b.classList.toggle('on',b.dataset.t===id)});
+ window.scrollTo(0,0);
+ if(id==='tab2'&&window.renderDash)window.renderDash();
+}
+document.querySelectorAll('.tabbtn[data-t]').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);try{history.replaceState(null,'','#'+b.dataset.t)}catch(e){}})});
+/* ---- journal subtabs (inside the Journal panel - button label "4 · Journal": Monthly Updates / CMP Updates) ---- */
+(function(){var bar=document.getElementById('journalSub');if(!bar)return;
+ bar.querySelectorAll('.tabbtn').forEach(function(b){b.addEventListener('click',function(){
+  var id=b.getAttribute('data-s');if(!id)return;
+  document.querySelectorAll('#tab1 .jview').forEach(function(v){v.classList.toggle('on',v.id===id)});
+  bar.querySelectorAll('.tabbtn').forEach(function(x){x.classList.toggle('on',x.getAttribute('data-s')===id)});
+ })});
+})();
+(function(){var h=location.hash.slice(1);if(!h)return;
+ if(h==='glossaryBody'||h==='tab4'){show('tab4');var el=document.getElementById('glossaryBody');if(el)setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'})},60);return}
+ var p=document.getElementById(h);if(p&&p.classList.contains('panel'))show(h);
+})();
+/* ---- transactions filter ---- */
+(function(){var sel=document.getElementById('txnFilter');if(!sel)return;
+ var total=0;document.querySelectorAll('.txngrp').forEach(function(g){total+=(+g.dataset.n||0)});
+ function apply(){var v=sel.value,n=0;
+  document.querySelectorAll('.txngrp').forEach(function(g){var on=(v==='all'||g.dataset.stock===v);g.style.display=on?'':'none';if(on)n+=(+g.dataset.n||0)});
+  var c=document.getElementById('txnCount');if(c)c.textContent='showing '+n+' of '+total+' trades'}
+ sel.addEventListener('change',apply);apply();
+})();
+/* ---- rankings table (tab 2 · Rankings) - built from the tab 1 · Stocks cards ---- */
+(function(){
+ var body=document.getElementById('rankBody'),bands=document.getElementById('bandBody');
+ if(!body)return;
+ var cards=document.querySelectorAll('#tab0 .scard'),rows=[],i;
+ function bandOf(v){v=(v||'').toUpperCase();
+  if(v.indexOf('AVOID')===0)return 'AVOID';
+  if(v.indexOf('WATCH')===0)return 'WATCHLIST';
+  if(v.indexOf('ACCU')===0)return 'ACCUMULATE';
+  return 'UNCLASSIFIED';}
+ function pillClass(v){var b=bandOf(v);return b==='ACCUMULATE'?'p-g':(b==='WATCHLIST'?'p-y':(b==='AVOID'?'p-r':''));}
+ function action(st,v){var b=bandOf(v);
+  if(b==='ACCUMULATE')return st==='H'?'Holding — continue the monthly buy / add tranches':'Candidate — entry only on the Entry-Plan trigger';
+  if(b==='WATCHLIST')return st==='H'?'Holding — hold only, no new buys':'Candidate — wait for the review trigger';
+  if(b==='AVOID')return st==='H'?'Holding — no new money (exit is a personal call)':'Candidate — drop from the list';
+  return '—';}
+ for(i=0;i<cards.length;i++){
+  var c=cards[i],nmEl=c.querySelector('.nm'),cmpEl=c.querySelector('.cmp'),sc=parseFloat(c.getAttribute('data-score'));
+  var name=(nmEl&&nmEl.firstChild&&nmEl.firstChild.nodeValue)?nmEl.firstChild.nodeValue.replace(/\s+$/,''):(c.getAttribute('data-code')||'');
+  var cmp=(cmpEl&&cmpEl.firstChild&&cmpEl.firstChild.nodeValue)?cmpEl.firstChild.nodeValue.replace(/\s+$/,''):'—';
+  rows.push({href:c.getAttribute('href')||'#',name:name,code:c.getAttribute('data-code')||'',
+   cap:c.getAttribute('data-cap')||'',st:c.getAttribute('data-status')||'',
+   score:(isNaN(sc)?0:sc),scoreTxt:(isNaN(sc)?'—':sc.toFixed(1)),
+   verdict:c.getAttribute('data-verdict')||'—',cmp:cmp});
+ }
+ rows.sort(function(a,b){return b.score-a.score});
+ var CAPS={S:'Small',M:'Mid',L:'Large'},STB={H:'<span class="stb st-hold">HOLDING</span>',C:'<span class="stb st-cand">CANDIDATE</span>'};
+ var html='';
+ for(i=0;i<rows.length;i++){
+  var r=rows[i];
+  html+='<tr><td><b>#'+(i+1)+'</b></td>'+
+   '<td style="text-align:left"><a href=\''+r.href+'\' style="color:inherit"><b>'+r.name+'</b></a> <span class="src">'+r.code+'</span></td>'+
+   '<td style="text-align:left">'+(CAPS[r.cap]||r.cap)+'</td>'+
+   '<td>'+(STB[r.st]||r.st)+'</td>'+
+   '<td><b>'+r.scoreTxt+'</b><span class="src">/10</span></td>'+
+   '<td><span class="pill '+pillClass(r.verdict)+'">'+r.verdict+'</span></td>'+
+   '<td>'+r.cmp+'</td>'+
+   '<td style="text-align:left">'+action(r.st,r.verdict)+'</td></tr>';
+ }
+ body.innerHTML=html;
+ if(bands){
+  var order=['ACCUMULATE','WATCHLIST','AVOID'],map={},bh='',j;
+  for(i=0;i<rows.length;i++){var key=bandOf(rows[i].verdict);if(!map[key])map[key]={n:0,H:0,C:0};map[key].n++;if(rows[i].st==='H')map[key].H++;else if(rows[i].st==='C')map[key].C++;}
+  for(j=0;j<order.length;j++){var k=order[j],e=map[k]||{n:0,H:0,C:0};
+   bh+='<tr><td style="text-align:left"><span class="pill '+pillClass(k)+'">'+k+'</span></td><td>'+e.n+'</td><td>'+e.H+'</td><td>'+e.C+'</td></tr>';}
+  bands.innerHTML=bh;
+ }
+})();
+</script>
+</body>
+</html>

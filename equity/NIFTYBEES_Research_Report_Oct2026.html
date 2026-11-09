@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nippon India ETF Nifty 50 BeES (NIFTYBEES) — ETF Research Journal | Oct 2026</title>
+<style>
+:root{--bg:#0f1420;--panel:#161d2e;--panel2:#1c2438;--ink:#e8ecf5;--muted:#9aa7bd;--line:#2a3450;--acc:#4da3ff;--good:#2ecc8f;--warn:#f5b83d;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:22px}
+header.rpt{background:linear-gradient(135deg,#101828,#1b2a4a);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:20px}
+header.rpt h1{margin:0 0 4px;font-size:27px}
+header.rpt .sub{color:var(--muted);font-size:14px}
+.badges{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{padding:4px 11px;border-radius:20px;font-size:12.5px;border:1px solid var(--line);background:var(--panel2)}
+.badge.buy{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.badge.risk{background:#3a1d1d;border-color:#7a3030;color:#ffb0b0}
+.badge.info{background:#123055;border-color:#24528f;color:#a8d1ff}
+h2{font-size:20px;margin:34px 0 6px;padding-bottom:7px;border-bottom:2px solid var(--line);color:#cfe1ff}
+h4{font-size:14.5px;margin:14px 0 6px;color:#a9c4ea}
+p{margin:8px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 6px;font-size:13.2px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+th{background:var(--panel2);color:#c6d6f0;font-weight:600;text-align:center}
+td:first-child,th:first-child{text-align:left;font-weight:600;color:#dbe6fa}
+tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.tblwrap table{border:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:13px 14px}
+.kpi .l{font-size:11.6px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.kpi .v{font-size:21px;font-weight:700;margin-top:3px}
+.kpi .n{font-size:11.6px;color:var(--muted);margin-top:2px}
+.good{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 17px;margin:13px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.tag{display:inline-block;font-size:10.6px;letter-spacing:.6px;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-right:6px;vertical-align:1.5px;border:1px solid}
+.t-fact{background:#123055;border-color:#2c5f9e;color:#a9d1ff}
+.t-calc{background:#2a2140;border-color:#5a4a8a;color:#cbb8ff}
+.t-mgmt{background:#14402e;border-color:#2c7a5a;color:#9df0cd}
+.t-view{background:#46340f;border-color:#8d6a1e;color:#ffd98a}
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:12px;font-weight:600}
+.p-g{background:#0d3a2c;color:#7ff0c3;border:1px solid #1c6b4f}
+.p-y{background:#3d3210;color:#ffd98a;border:1px solid #8d6a1e}
+.p-r{background:#3a1d1d;color:#ffb0b0;border:1px solid #7a3030}
+.note{font-size:12.4px;color:var(--muted);margin-top:6px}
+.src{font-size:12.2px;color:var(--muted)}
+.scorebar{height:9px;background:#0c111c;border-radius:6px;overflow:hidden;border:1px solid var(--line);min-width:110px}
+.scorebar>i{display:block;height:100%;background:linear-gradient(90deg,#4da3ff,#2ecc8f)}
+ul{margin:7px 0 7px 20px}li{margin:4px 0}
+.verdict-main{display:flex;flex-wrap:wrap;gap:16px;align-items:stretch}
+.verdict-big{flex:1 1 300px;background:linear-gradient(135deg,#1d2b16,#26360f);border:1px solid #4a7a2e;border-radius:12px;padding:18px}
+.verdict-big .h{font-size:26px;font-weight:800;color:#b9f0a3}
+a{color:var(--acc)}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12.4px}
+/* top nav + tabs */
+.topnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
+.topnav a.home{color:var(--acc);font-size:13px;text-decoration:none;font-weight:600}
+.topnav select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13.4px;font-weight:600;cursor:pointer}
+.tabbar{position:sticky;top:0;z-index:40;display:flex;flex-wrap:wrap;gap:6px;background:rgba(15,20,32,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:8px;margin-bottom:16px}
+.tabbtn{border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:12.6px;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;letter-spacing:.3px}
+.tabbtn:hover{color:#cfe1ff;border-color:#3b5f96}
+.tabbtn.on{background:#123055;border-color:#2c66ad;color:#a9d1ff;box-shadow:0 0 0 1px #2c66ad}
+.panel{display:none;animation:fadein .25s ease}
+.panel.on{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.viewbox{border-left:4px solid var(--acc);background:rgba(77,163,255,.07);border-radius:0 9px 9px 0;padding:10px 15px;margin:10px 0 14px}
+.viewbox .vh{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8fc4ff;font-weight:700;margin-bottom:5px}
+.viewbox ul{margin:4px 0 2px 18px}.viewbox li{font-size:13.6px;margin:5px 0}
+.viewbox li b{color:#dbe9ff}
+.viewbox li.imp{color:#ffe6a3}
+.viewbox li.imp::marker{content:"★ "}
+.important{display:inline-block;background:#4a3708;color:#ffd98a;border:1px solid #8d6a1e;font-size:10.3px;font-weight:700;letter-spacing:.7px;padding:1px 7px;border-radius:4px;vertical-align:1.5px;margin-left:6px}
+.kpi[data-explain]{cursor:pointer;transition:transform .12s,border-color .12s}
+.kpi[data-explain]:hover{border-color:#4da3ff;transform:translateY(-2px)}
+.kpi[data-explain]::after{content:"ⓘ what does this mean?";display:block;font-size:9.6px;color:#4da3ff;letter-spacing:.4px;margin-top:5px;text-transform:uppercase}
+.term{color:#7fc0ff;text-decoration:underline dotted;cursor:help}
+.term:hover{color:#bfe0ff}
+#modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(4,8,16,.72);padding:20px}
+#modal.on{display:flex;align-items:center;justify-content:center}
+.mbox{background:#141b2c;border:1px solid #2c66ad;border-radius:13px;max-width:640px;width:100%;max-height:82vh;overflow:auto;padding:20px 22px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.mbox .mt{font-size:16.5px;font-weight:700;color:#a9d1ff;margin-bottom:8px}
+.mbox .mb{font-size:14px;line-height:1.65;color:var(--ink)}
+.mbox .mb .why{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);color:#ffd98a;font-size:13.3px}
+.mbox .mclose{float:right;border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:7px;font-size:12px;padding:4px 10px;cursor:pointer}
+.mbox .mclose:hover{color:#fff;border-color:#4da3ff}
+.mgl{font-size:12.4px;color:var(--muted);margin-top:12px}
+@media print{body{background:#fff;color:#111}.wrap{max-width:none}header.rpt,.card,.kpi,table,.verdict-big{background:#fff;color:#111;border-color:#bbb}th{background:#eee;color:#111}td{color:#111}h2,h4{color:#111}.good{color:#087f4f}.warn{color:#9a6a00}.bad{color:#b00}.panel{display:block!important;page-break-before:always}.tabbar,#modal{display:none!important}.viewbox{background:#f4f8ff;color:#111}.viewbox li{color:#111}.term{color:#0b5ca8}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="rpt">
+  <h1>Nippon India ETF Nifty 50 BeES (NIFTYBEES) — ETF Deep-Dive Report</h1>
+  <div class="sub">ETF Research Journal &nbsp;•&nbsp; Entry #1 (Baseline Quarter) &nbsp;•&nbsp; Assessment as of <b>October 2026</b> (price data: <b>05-Nov-2026 close ₹279.36</b>; monthly run 05-Nov-2026)</div>
+  <div class="badges">
+    <span class="badge risk">Portfolio status: CANDIDATE — no position, under analysis</span>
+    <span class="badge risk">VERDICT: ACCUMULATE — composite 8.6/10 (cheapest, tightest-tracked Nifty 50 vehicle — phase in, never lump-sum)</span>
+    <span class="badge info">CMP ₹279.36 (05-Nov-2026 close) · +2.40% (day) · −11.5% 1Y</span>
+    <span class="badge info">ETF · Equity — tracks Nifty 50 TRI · AUM ₹65,179 Cr (30-Sep-2026)</span>
+    <span class="badge risk">52W ₹297.55 / ₹253.44 · −12.8% from 52W high</span>
+    <span class="badge">NSE: NIFTYBEES · BSE: 590103 · inception 28-Dec-2001</span>
+    <span class="badge info">BER 0.03% (31-Aug-2026) / 0.04% (TER, Sep-2026) · tracking error 0.02% (1Y)</span>
+    <span class="badge">55 holdings · top-10 52.28% · financials 36.18% (30-Sep-2026)</span>
+  </div>
+  <p class="note" style="margin-top:12px">Primary sources: Nippon India AMC ETF scheme page + abridged report (31-Aug-2026), AMFI/ET Money/Business Today factsheets (Sep-2026), stockanalysis.com holdings (30-Sep-2026) and Yahoo Finance daily closes (27-Oct-2026). An <b>ETF report scores the vehicle, not the index level</b> — every figure below carries its date; anything not confirmable from free sources is flagged <span class="warn">VERIFY</span> and never invented. Research journal entry — not investment advice.</p>
+</header>
+
+<nav class="topnav">
+  <a class="home" href="../InvestIQ.html">⌂ InvestIQ</a>&nbsp; <a class="home" href="Equity_Forge.html">⌂ Back to Stock Hub</a>
+  <select id="stockSel">
+    <option value="">— go to stock —</option>
+    <option value="Reliance_Research_Report_Sep2026.html">RELIANCE | L | H</option>
+    <option value="RACE_Research_Report_Sep2026.html">RACE | S | H</option>
+    <option value="HDFCBANK_Research_Report_Sep2026.html">HDFC BANK | L | H</option>
+    <option value="ITC_Research_Report_Sep2026.html">ITC | L | H</option>
+    <option value="CAPLIPOINT_Research_Report_Sep2026.html">CAPLIN POINT | S | H</option>
+    <option value="GANECOS_Research_Report_Sep2026.html">GANESHA ECOSPHERE | S | H</option>
+    <option value="TMPV_Research_Report_Sep2026.html">TATA MOTORS PV | L | H</option>
+    <option value="OLECTRA_Research_Report_Oct2026.html">OLECTRA | S | C</option>
+    <option value="KAYNES_Research_Report_Oct2026.html">KAYNES | S | C</option>
+    <option value="BEL_Research_Report_Oct2026.html">BEL | L | C</option>
+    <option value="JIO_Research_Report_Oct2026.html">JIO IPO | L | C</option>
+    <option value="NIFTYBEES_Research_Report_Oct2026.html" selected>NIFTYBEES | E | C</option>
+    <option value="GOLDIETF_Research_Report_Oct2026.html">ICICI GOLD | E | C</option>
+    <option value="SILVERBEES_Research_Report_Oct2026.html">SILVERBEES | E | C</option>
+    <option value="MON100_Research_Report_Oct2026.html">MON100 | E | C</option>
+  </select>
+</nav>
+
+<nav class="tabbar" id="tabbar" aria-label="Report sections">
+  <button class="tabbtn on" data-t="tab0">0 · Dashboard</button>
+  <button class="tabbtn" data-t="tab1">1 · Structure</button>
+  <button class="tabbtn" data-t="tab2">2 · NAV &amp; Tracking</button>
+  <button class="tabbtn" data-t="tab3">3 · Returns</button>
+  <button class="tabbtn" data-t="tab4">4 · Holdings</button>
+  <button class="tabbtn" data-t="tab5">5 · Risk &amp; Cost</button>
+  <button class="tabbtn" data-t="tab6">6 · News</button>
+  <button class="tabbtn" data-t="tab7">7 · Verdict &amp; Journal</button>
+  <button class="tabbtn" data-t="tabT">Transactions</button>
+  <button class="tabbtn" data-t="tabG">Glossary</button>
+</nav>
+
+<section class="panel on" id="tab0">
+<h2>0. Executive Dashboard — Oct 2026</h2>
+<div class="viewbox"><div class="vh">Section 0 — The View (plain English)</div>
+<ul>
+<li class="imp">One-line verdict: <b>ACCUMULATE (8.6/10) — the cheapest, most liquid and tightest-tracking way to own the whole Nifty 50: 0.03–0.04% a year, 0.02% tracking error, ₹65,179 Cr AUM and 24 years of live trading. There is no position today — build it in small monthly tranches at ₹259.49 (27-Oct-2026 close), not in one lump sum, because the index itself is −11.5% over one year.</b><span class="important">IMPORTANT</span></li>
+<li class="imp">Three numbers that decide everything: expense ratio <b>0.03–0.04%</b> (a tenth of most active funds), 1-year tracking error <b>0.02%</b> (the fund is the index), and 1-year price return <b>−11.5%</b> (the market, not the fund, is what you are betting on).<span class="important">IMPORTANT</span></li>
+<li>Price context: ₹259.49 (27-Oct-2026 close, +0.03% that day) sits only <b>+2.4% above the 52-week low of ₹253.44</b> (hit in March 2026) and −12.8% below the ₹297.55 high — the Nifty 50 itself is down about 12% year-to-date.</li>
+<li class="imp">Portfolio status is <b>CANDIDATE</b> — no units today. The Entry Plan card below carries the tranche rule and the buy-only-if conditions; the verdict decides <i>if/when to start</i>, never holding-management wording.<span class="important">IMPORTANT</span></li>
+<li>How to read this report: click any section tab above · click any blue info card for a plain-English meaning · click any blue dotted term for its glossary definition. Scores here use the <b>ETF scorecard</b> (7 ETF sections), which is not the company scorecard — an ETF's job is to replicate cheaply, not to grow earnings.</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Current Market Price — ₹259.49 on 27-Oct-2026 (+0.03% that day). The Nifty 50 BeES unit is priced at roughly 1/100th of the Nifty 50 index, so the index was near 25,949 at that close (Calc: 259.49 × 100). Source: Yahoo Finance daily close, 27-Oct-2026."><div class="l">CMP</div><div class="v">₹259.49</div><div class="n">27 Oct'26 close · +0.03% (day) · −11.5% 1Y</div></div>
+  <div class="kpi" data-explain="Assets under management ₹65,178.85 Cr at 30-Sep-2026 (AMFI via Business Today; Nippon AMC month-end ₹65,178.85 Cr, monthly average ₹66,345.76 Cr). One of the two largest ETFs in India — size means tight spreads and no closure risk."><div class="l">AUM</div><div class="v good">₹65,179 Cr</div><div class="n">30-Sep-2026 · monthly avg ₹66,346 Cr</div></div>
+  <div class="kpi" data-explain="Base Expense Ratio 0.03% as on 31-Aug-2026 (Nippon India abridged report); third-party factsheets show 0.04% TER (Business Today, Advisorkhoj 29-Sep-2026). Either way it is the cheapest equity ETF class in India — the category average is also 0.04%."><div class="l">Expense (BER / TER)</div><div class="v good">0.03–0.04%</div><div class="n">p.a. · cheapest equity ETF class</div></div>
+  <div class="kpi" data-explain="1-year annualised tracking error 0.02% (Nippon India, based on daily returns vs the Nifty 50 TRI). Tracking error measures how far the fund's daily return strays from the index — 0.02% is effectively perfect replication."><div class="l">Tracking Error (1Y)</div><div class="v good">0.02%</div><div class="n">vs Nifty 50 TRI · Nippon AMC</div></div>
+  <div class="kpi" data-explain="1-year price return −11.54% from 27-Oct-2025 to 27-Oct-2026 (Yahoo Finance closes). This is the Nifty 50's own drawdown, not a fund defect — a replication ETF cannot beat its index."><div class="l">1-Year Return</div><div class="v bad">−11.5%</div><div class="n">27-Oct-25 → 27-Oct-26 (Yahoo)</div></div>
+  <div class="kpi" data-explain="Year-to-date return −12.14% (first trading days of Jan-2026 to 27-Oct-2026, Yahoo Finance). The Nifty 50 fell hard in March 2026 (month-end ₹253.44) and has not recovered the January level of ₹286.73."><div class="l">YTD 2026</div><div class="v bad">−12.1%</div><div class="n">Jan-2026 → 27-Oct-2026</div></div>
+  <div class="kpi" data-explain="55 holdings, top-10 = 52.28% of the fund (stockanalysis.com, holdings as on 30-Sep-2026). HDFC Bank 10.38%, ICICI Bank 9.05%, Reliance 7.58%, Bharti Airtel 5.10%, L&T 4.20%. Financials alone are 36.18% of the index."><div class="l">Holdings</div><div class="v">55 · top-10 52%</div><div class="n">HDFC BANK 10.38% leads · 30-Sep-2026</div></div>
+  <div class="kpi" data-explain="Beta 0.97 and standard deviation 14.14% (Nippon AMC 36-month monthly rolling beta; ET Money standard deviation). A beta of ~1 means the ETF moves with the market — it adds no protection in a fall, only low-cost exposure."><div class="l">Beta / Std Dev</div><div class="v warn">0.97 · 14.1%</div><div class="n">36M monthly · market-like risk</div></div>
+  <div class="kpi" data-explain="NAV ₹259.5960 on 26-Oct-2026 (Nippon India AMC, +0.68% vs prior NAV). The 27-Oct NAV was not yet published when this report ran — the price above is the exchange close. NAV and market price normally differ by a few paise; a persistent gap would signal a premium/discount problem (none visible here)."><div class="l">NAV (latest)</div><div class="v">₹259.60</div><div class="n">26-Oct-2026 · +0.68% day</div></div>
+</div>
+
+<div class="card" style="border-color:#8d6a1e">
+<h4>Entry Plan (personal) — CANDIDATE, no position <span class="tag t-view">View</span> <span class="tag t-fact">Fact</span></h4>
+<p class="note" style="margin-top:0"><b>Status: CANDIDATE — this ETF is under analysis and there is NO POSITION today (zero units, zero trades in <code>Equity\Holding_stocks.xlsx</code>). The score verdict drives an entry decision (start when… / buy only if… / review date), never holding-management wording.</b> Tranche levels below are analyst judgement (<span class="tag t-view">View</span>) struck on verified prices and fund facts (<span class="tag t-fact">Fact</span>); the rupee size is left blank for you.</p>
+<table>
+<tr><th>Field</th><th style="text-align:left">Value</th></tr>
+<tr><td>Position today</td><td style="text-align:left"><span class="bad"><b>NO POSITION</b></span> — 0 units, 0 trades</td></tr>
+<tr><td>First tranche</td><td style="text-align:left">₹253–258 — i.e. at/below the ₹253.44 52-week low zone (Yahoo, 27-Oct-2026): the ETF is only 2.4% above it, so a first tranche can start <b>now-ish on a dip into that band</b>, not on a spike — <span class="tag t-view">View</span></td></tr>
+<tr><td>Add-on level</td><td style="text-align:left">₹240–248 (≈5–8% below CMP) on any further Nifty weakness; beyond that, add monthly regardless of level — cost averaging is the point of an index ETF — <span class="tag t-view">View</span></td></tr>
+<tr><td>Buy only if</td><td style="text-align:left">(1) you treat this as the portfolio's <b>core beta sleeve</b> and accept ~14% annualised volatility · (2) the overlap with existing HOLDINGS (~21% of the ETF is already held directly — HDFC BANK 10.38% + RELIANCE 7.58% + ITC 2.42% + TMPV 0.57%, 30-Sep-2026) is understood and accepted · (3) bought in <b>tranches of equal size across ≥3 months</b>, never as a lump sum into a −11.5% 1Y trend · (4) spread checked on the exchange before the order (bid-ask <span class="warn">VERIFY</span> — not in the free source)</td></tr>
+<tr><td>Do NOT buy if</td><td style="text-align:left">you need the money within 3 years, or you would panic-sell a 15–20% index drawdown, or you already plan equivalent single-stock exposure in HDFC BANK / RELIANCE / ITC (then this is duplication, not diversification)</td></tr>
+<tr><td>Intended first-tranche size</td><td style="text-align:left">Left blank for you <span class="warn">VERIFY</span> (not specified) — the plan page (<code>Portfolio_Plan.html</code>, planner-owned) sets allocation; this report only sets the entry rule</td></tr>
+<tr><td>Next review</td><td style="text-align:left"><b>Nov 2026 monthly run (28-Oct → 02-Nov)</b> — re-price, re-affirm score; nothing company-specific can move an index ETF between runs</td></tr>
+</table>
+<p class="note">Nothing above is an instruction to act: an index ETF's verdict is about cost, tracking and discipline — the score rates the vehicle, not whether the Nifty 50 is cheap. Re-score at every month-end cycle and append the next dated row to the hub's Monthly Log.</p>
+<p class="note"><a class="tabbtn" data-t="tabT" href="#tabT">→ Full transaction log (Transactions tab)</a></p>
+</div>
+
+<div class="verdict-main">
+  <div class="verdict-big">
+    <div style="font-size:12.5px;color:#d7f5c2;letter-spacing:1px">STANDALONE VERDICT (analyst view, Oct 2026)</div>
+    <div class="h">ACCUMULATE · 8.6/10 · 12M horizon</div>
+    <p style="margin-top:8px">NIFTYBEES is the reference low-cost beta vehicle in India: 0.03% base expense (31-Aug-2026), 0.02% one-year tracking error, ₹65,179 Cr AUM, 55 holdings replicating the Nifty 50 TRI, inception 28-Dec-2001 and nil exit load. Nothing about the fund is in doubt — the entire question is the entry discipline: the unit is −11.5% over one year, −12.1% YTD and only 2.4% above its 52-week low, so the score (8.6) describes an excellent <i>vehicle</i> while the plan refuses a lump sum into a falling index. Start with tranche 1 at ₹253–258, add at ₹240–248 and then simply buy monthly; remember ~21% of the fund duplicates holdings you already own.</p>
+    <p class="note">Entry triggers: first tranche ₹253–258 · add ₹240–248 · equal tranches over ≥3 months · overlap ~21% accepted · spread verified live · next review Nov 2026 monthly run.</p>
+  </div>
+  <div class="card" style="flex:1 1 330px;margin:0">
+    <h4 style="margin-top:0">ETF Section Scorecard (0–10)</h4>
+    <table>
+      <tr><th>Section</th><th>Score</th><th style="width:34%">Rating</th></tr>
+      <tr><td>1. Structure &amp; Sponsor</td><td>9.0</td><td><div class="scorebar"><i style="width:90%"></i></div></td></tr>
+      <tr><td>2. Cost (expense ratio)</td><td>10.0</td><td><div class="scorebar"><i style="width:100%"></i></div></td></tr>
+      <tr><td>3. Tracking Quality</td><td>9.5</td><td><div class="scorebar"><i style="width:95%"></i></div></td></tr>
+      <tr><td>4. Liquidity &amp; Spread</td><td>9.5</td><td><div class="scorebar"><i style="width:95%"></i></div></td></tr>
+      <tr><td>5. Returns vs Benchmark</td><td>9.0</td><td><div class="scorebar"><i style="width:90%"></i></div></td></tr>
+      <tr><td>6. Risk &amp; Volatility</td><td>5.5</td><td><div class="scorebar"><i style="width:55%"></i></div></td></tr>
+      <tr><td>7. Portfolio Fit</td><td>8.0</td><td><div class="scorebar"><i style="width:80%"></i></div></td></tr>
+      <tr><td><b>Composite</b></td><td><b>8.6</b></td><td><div class="scorebar"><i style="width:86%"></i></div></td></tr>
+    </table>
+    <p class="src">Rubric: 8–10 excellent · 6–8 accumulate · 4–6 watchlist · &lt;4 avoid. Composite 8.6 = ACCUMULATE (60.5 ÷ 7 ETF sections). Risk 5.5 is the index's own volatility (beta 0.97, −11.5% 1Y), not a fund flaw.</p>
+  </div>
+</div>
+</section>
+
+<section class="panel" id="tab1">
+<h2>1. ETF Structure &amp; Sponsor Metadata</h2>
+<div class="viewbox"><div class="vh">Section 1 — The View (plain English)</div>
+<ul>
+<li class="imp">The oldest and largest Nifty 50 ETF in India: launched <b>28-Dec-2001</b> (formerly Reliance ETF Nifty BeES), managed by Nippon India Mutual Fund, listed on NSE (NIFTYBEES) and BSE (590103). "BeES" = Benchmark Exchange Traded Scheme.<span class="important">IMPORTANT</span></li>
+<li class="imp">It is a <b>passive index fund in ETF clothing</b>: it holds the 50 Nifty constituents in index weights to track the <b>Nifty 50 Total Return</b> index (dividends included). Unit pricing is <b>1/100th of the index</b> — ₹259.49 ≈ index 25,949 ÷ 100 (Calc, 27-Oct-2026).<span class="important">IMPORTANT</span></li>
+<li>No promoter, no management discretion, no pledge, no balance sheet to analyse — the metadata questions that matter are cost, tracking, liquidity and size, which live in sections 2 and 5.</li>
+</ul>
+</div>
+<div class="tblwrap"><table>
+<tr><th>Field</th><th style="text-align:left">Value</th></tr>
+<tr><td>Scheme</td><td style="text-align:left">Nippon India ETF Nifty 50 BeES (formerly Nippon India ETF Nifty BeES / Reliance ETF Nifty BeES) <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Type</td><td style="text-align:left">Open-ended index scheme, listed as an ETF tracking the Nifty 50 Index <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Sponsor / AMC</td><td style="text-align:left">Nippon India Mutual Fund (Nippon Life India Asset Management) — total AMC AUM ₹7,86,545 Cr (30-Sep-2026) <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Inception</td><td style="text-align:left">28-Dec-2001 — 24 years 10 months old at this report <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Benchmark</td><td style="text-align:left">NIFTY 50 — Total Return variant (TRI) <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Exchange codes</td><td style="text-align:left">NSE: NIFTYBEES · BSE: 590103 · ISIN <span class="warn">VERIFY</span> (not published on the free scheme page) <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Pricing per unit</td><td style="text-align:left">1/100th of the index (Nippon AMC) <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Creation unit</td><td style="text-align:left">25,000 units on-exchange (≈₹68.6 lakh basket at the 31-Aug-2026 NAV of ₹274.58); the scheme page also quotes 50,000 units for direct-with-AMC creation <span class="tag t-fact">Fact</span> <span class="warn">VERIFY</span> (two figures published)</td></tr>
+<tr><td>Loads</td><td style="text-align:left">Entry load: Nil · Exit load: Nil (exchange trading only) <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Fund managers</td><td style="text-align:left">Himanshu Mange (Nippon AMC scheme page); Mehul Dama also credited in third-party factsheets <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Riskometer</td><td style="text-align:left">Very High (equity ETF — Business Today classification) <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Portfolio turnover</td><td style="text-align:left">0.09x (Nippon abridged, 31-Aug-2026) — the fund barely trades; 23–26% turnover quoted by third parties on a different basis <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Min. application</td><td style="text-align:left">1 unit on the exchange; ₹10,000 lumpsum / ₹1,000 top-up direct with the AMC (third-party factsheets) <span class="tag t-fact">Fact</span></td></tr>
+</table></div>
+<p class="src">Sources: etf.nipponindiaim.com scheme details page; Nippon India ETF abridged report as on 31-Aug-2026; Business Today / Advisorkhoj / SVS factsheets (Mar–Sep 2026). Conflicting figures are shown, not averaged.</p>
+</section>
+
+<section class="panel" id="tab2">
+<h2>2. NAV, Price &amp; Tracking Quality</h2>
+<div class="viewbox"><div class="vh">Section 2 — The View (plain English)</div>
+<ul>
+<li class="imp">Tracking is the whole job of an ETF — and this one does it about as well as physically possible: <b>0.02% one-year tracking error</b> against the Nifty 50 TRI (Nippon AMC, daily returns). In plain terms, over a year the fund and the index differ by about two basis points.<span class="important">IMPORTANT</span></li>
+<li class="imp">Price and NAV travel together: NAV ₹259.5960 (26-Oct-2026) vs exchange close ₹259.49 (27-Oct-2026) — different dates, no visible premium/discount problem. The 27-Oct NAV was not yet published at report time → <span class="warn">VERIFY</span> at next refresh.<span class="important">IMPORTANT</span></li>
+<li>Beta 0.97, Sharpe 0.11 and standard deviation 14.14% (36-month monthly basis, risk-free 6.55% MIBOR as on 31-Aug-2026): the fund moves with the market it tracks — no protection, no alpha, by design.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>NAV vs price <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Date</th><th>NAV</th><th>Close (Yahoo)</th></tr>
+<tr><td>31-Aug-2026</td><td>₹274.58</td><td>—</td></tr>
+<tr><td>26-Oct-2026</td><td>₹259.60</td><td>—</td></tr>
+<tr><td>27-Oct-2026</td><td>— <span class="src">(not yet out)</span></td><td>₹259.49</td></tr>
+</table>
+<p class="note">NAV source: Nippon India AMC (26-Oct-2026: ₹259.5960, +0.68% on the day). Close source: Yahoo Finance daily bar. A large persistent price-vs-NAV gap would signal index rebalance/liquidity trouble — not seen in the two dates above.</p>
+</div>
+<div class="card">
+<h4>Tracking &amp; risk measures <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Measure</th><th>Value</th><th>Source / date</th></tr>
+<tr><td>Tracking error (1Y)</td><td>0.02%</td><td>Nippon AMC, daily returns</td></tr>
+<tr><td>Tracking difference (1Y/3Y)</td><td>— <span class="warn">VERIFY</span></td><td>field published blank on free page</td></tr>
+<tr><td>Beta (36M monthly)</td><td>0.97</td><td>Nippon AMC, 31-Aug-2026</td></tr>
+<tr><td>Standard deviation</td><td>14.14%</td><td>ET Money (1Y)</td></tr>
+<tr><td>Sharpe ratio</td><td>0.11</td><td>Nippon AMC, 36M, rf 6.55%</td></tr>
+<tr><td>Alpha</td><td>−1.55</td><td>ET Money</td></tr>
+<tr><td>Portfolio P/E · P/B</td><td>18.28x · 4.85x</td><td>stockanalysis.com · SVS</td></tr>
+</table>
+<p class="note">Alpha −1.55 on a 0.04% fund is the expense drag plus sampling noise, not manager underperformance — no active manager is involved.</p>
+</div>
+</div>
+<p class="src">Sources: Nippon India AMC scheme page &amp; abridged report (31-Aug-2026); ET Money key indicators; stockanalysis.com (30-Sep-2026 portfolio P/E); SVS Securities factsheet (31-Mar-2026 P/B).</p>
+</section>
+
+<section class="panel" id="tab3">
+<h2>3. Returns — price history month by month</h2>
+<div class="viewbox"><div class="vh">Section 3 — The View (plain English)</div>
+<ul>
+<li class="imp">One-year return <b>−11.54%</b> and YTD <b>−12.14%</b> (Yahoo closes, 27-Oct-2025 → 27-Oct-2026): the Nifty 50 had a rough year — a March-2026 trough at ₹253.44, a summer recovery to ₹277.42 (July) and a slide back to ₹258.50 by September.<span class="important">IMPORTANT</span></li>
+<li>Longer history says why people still own it: <b>3Y CAGR ≈ 12.0%, 5Y ≈ 10.6%, since-inception ≈ 14.7%</b> (ET Money factsheet, 20-Mar-2026 — those figures are now ~7 months stale and will be re-pulled at the next monthly run <span class="warn">VERIFY</span>).</li>
+<li class="imp">An ETF never beats its index: its return = the Nifty 50 TRI minus ~0.04% a year minus a 0.02% tracking wobble. Judging this page on the −11.5% would be judging the market, not the fund.<span class="important">IMPORTANT</span></li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="1-year price return −11.54% (27-Oct-2025 close → 27-Oct-2026 close, Yahoo Finance). Absolute return over the last 12 months."><div class="l">1-Year</div><div class="v bad">−11.5%</div><div class="n">27-Oct-25 → 27-Oct-26</div></div>
+  <div class="kpi" data-explain="Year-to-date −12.14%: first trading days of Jan-2026 (₹286.73 at the January month-end base) to the 27-Oct-2026 close of ₹259.49."><div class="l">YTD 2026</div><div class="v bad">−12.1%</div><div class="n">Jan-2026 → 27-Oct-2026</div></div>
+  <div class="kpi" data-explain="3-year CAGR ≈ 12.04% and 5-year ≈ 10.63% (ET Money factsheet as on 20-Mar-2026). Re-pull at the Nov-2026 run — flagged VERIFY because the source date is 7 months old."><div class="l">3Y / 5Y CAGR</div><div class="v good">12.0% / 10.6%</div><div class="n">ET Money, 20-Mar-2026 · VERIFY</div></div>
+  <div class="kpi" data-explain="Since-inception CAGR ≈ 14.68% from 28-Dec-2001 to 20-Mar-2026 (ET Money) — about 25 years of Nifty 50 compounding including dividends."><div class="l">Since Inception</div><div class="v good">≈14.7%</div><div class="n">28-Dec-2001 → 20-Mar-2026</div></div>
+</div>
+<div class="tblwrap"><table>
+<tr><th>Month-end close</th><th>Oct'25</th><th>Nov'25</th><th>Dec'25</th><th>Jan'26</th><th>Feb'26</th><th>Mar'26</th><th>Apr'26</th><th>May'26</th><th>Jun'26</th><th>Jul'26</th><th>Aug'26</th><th>Sep'26</th><th>Oct'26*</th></tr>
+<tr><td>₹</td><td>291.08</td><td>296.49</td><td>295.31</td><td>286.73</td><td>285.29</td><td>253.44</td><td>272.01</td><td>267.78</td><td>271.82</td><td>277.42</td><td>274.87</td><td>258.50</td><td>259.49</td></tr>
+</table></div>
+<p class="src">* October 2026 = month-to-date, the 27-Oct-2026 close. All values: Yahoo Finance daily closes, last trading day of each month. 3Y/5Y/inception CAGRs: ET Money factsheet 20-Mar-2026 (stale → VERIFY at next run).</p>
+</section>
+
+<section class="panel" id="tab4">
+<h2>4. Underlying Holdings — what you actually own</h2>
+<div class="viewbox"><div class="vh">Section 4 — The View (plain English)</div>
+<ul>
+<li class="imp">You own <b>55 stocks in Nifty 50 weights</b> (30-Sep-2026): HDFC BANK 10.38%, ICICI BANK 9.05%, RELIANCE 7.58%, BHARTI AIRTEL 5.10%, L&amp;T 4.20%, SBI 3.79%, AXIS BANK 3.37%, INFY 3.35%, KOTAK BANK 2.93%, M&amp;M 2.52% — top-10 = 52.28%.<span class="important">IMPORTANT</span></li>
+<li class="imp">Overlap with your own HOLDINGS: <b>~21% of this ETF is already bought directly</b> — HDFC BANK 10.38% + RELIANCE 7.58% + ITC 2.42% + TMPV 0.57% (30-Sep-2026 weights). Buying NIFTYBEES therefore doubles down on names you own, while adding the other ~79% you don't.<span class="important">IMPORTANT</span></li>
+<li>Sector shape: <b>financials 36.18%</b> is the single biggest bet inside a "diversified" index — banks dominate Nifty 50 returns. Portfolio P/E 18.28x, P/B 4.85x (30-Sep-2026 / Mar-2026).</li>
+</ul>
+</div>
+<div class="tblwrap"><table>
+<tr><th>#</th><th style="text-align:left">Constituent</th><th>Weight</th><th style="text-align:left">In your portfolio?</th></tr>
+<tr><td>1</td><td style="text-align:left">HDFC Bank Ltd</td><td>10.38%</td><td style="text-align:left">Yes — HOLDING</td></tr>
+<tr><td>2</td><td style="text-align:left">ICICI Bank Ltd</td><td>9.05%</td><td style="text-align:left">No</td></tr>
+<tr><td>3</td><td style="text-align:left">Reliance Industries Ltd</td><td>7.58%</td><td style="text-align:left">Yes — HOLDING</td></tr>
+<tr><td>4</td><td style="text-align:left">Bharti Airtel Ltd</td><td>5.10%</td><td style="text-align:left">No</td></tr>
+<tr><td>5</td><td style="text-align:left">Larsen &amp; Toubro Ltd</td><td>4.20%</td><td style="text-align:left">No</td></tr>
+<tr><td>6</td><td style="text-align:left">State Bank of India</td><td>3.79%</td><td style="text-align:left">No</td></tr>
+<tr><td>7</td><td style="text-align:left">Axis Bank Ltd</td><td>3.37%</td><td style="text-align:left">No</td></tr>
+<tr><td>8</td><td style="text-align:left">Infosys Ltd</td><td>3.35%</td><td style="text-align:left">No</td></tr>
+<tr><td>9</td><td style="text-align:left">Kotak Mahindra Bank Ltd</td><td>2.93%</td><td style="text-align:left">No</td></tr>
+<tr><td>10</td><td style="text-align:left">Mahindra &amp; Mahindra Ltd</td><td>2.52%</td><td style="text-align:left">No</td></tr>
+<tr><td>—</td><td style="text-align:left">ITC Ltd (12th, 2.42%) · BEL (22nd, 1.33%) · TMPV (0.57%) — also held or candidate</td><td>4.32%</td><td style="text-align:left">Yes — partial overlap</td></tr>
+<tr><td></td><td style="text-align:left"><b>Total top-10 / all 55</b></td><td><b>52.28% / 100%</b></td><td style="text-align:left">~21% directly duplicated</td></tr>
+</table></div>
+<p class="src">Source: stockanalysis.com holdings for NSE:NIFTYBEES, updated 30-Sep-2026 (Finnhub), cross-checked against the Nifty 50 constituent list as on 30-09-2026 (HSBC AMC factsheet). Overlap % = sum of weights of stocks with HOLDING status in this repo (Calc: 10.38 + 7.58 + 2.42 + 0.57 = 20.95%).</p>
+</section>
+
+<section class="panel" id="tab5">
+<h2>5. Risk, Cost &amp; Liquidity</h2>
+<div class="viewbox"><div class="vh">Section 5 — The View (plain English)</div>
+<ul>
+<li class="imp">Cost is the one variable an investor controls — and here it is 0.03% (BER, 31-Aug-2026) / 0.04% (TER, Sep-2026) versus <b>0.42–0.60% for the gold, silver and Nasdaq ETFs</b> in this same report set. On ₹1 lakh, that is ₹30–40 a year versus ₹420–600.<span class="important">IMPORTANT</span></li>
+<li class="imp">The risk is 100% market risk: beta 0.97, standard deviation 14.14%, −11.5% over one year and −12.8% from the 52-week high. An ETF cannot protect you from the index — it only guarantees you own the index at the lowest available cost.<span class="important">IMPORTANT</span></li>
+<li>Liquidity: ₹65,179 Cr AUM, 25,000-unit creation basket and 24 years of continuous listing → spreads are normally tight, but the live bid-ask spread and average daily volume were not pulled for this baseline → <span class="warn">VERIFY</span> before a large order.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Cost comparison (same report set) <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th style="text-align:left">ETF</th><th>Expense</th><th>₹1 lakh/yr</th></tr>
+<tr><td style="text-align:left"><b>NIFTYBEES</b></td><td class="good">0.03–0.04%</td><td class="good">₹30–40</td></tr>
+<tr><td style="text-align:left">ICICI GOLD ETF</td><td>0.42% BER / 0.49% TER</td><td>₹420–490</td></tr>
+<tr><td style="text-align:left">NIPPON SILVER ETF</td><td>0.49% BER</td><td>₹490</td></tr>
+<tr><td style="text-align:left">MON100 (Nasdaq 100)</td><td>0.59–0.60%</td><td>₹590–600</td></tr>
+</table>
+<p class="note">Expense figures as published by each AMC / factsheet (Aug–Sep 2026); the ₹ column is a simple Calc (amount × rate). BER = Base Expense Ratio (SEBI Reg 66); TER = Total Expense Ratio including statutory costs.</p>
+</div>
+<div class="card">
+<h4>Risk register <span class="tag t-view">View</span></h4>
+<table>
+<tr><th style="text-align:left">Risk</th><th style="text-align:left">Assessment</th></tr>
+<tr><td style="text-align:left">Market drawdown</td><td style="text-align:left">High — beta 0.97; a 20–30% index fall will be matched (52W swing already ₹253–298)</td></tr>
+<tr><td style="text-align:left">Sector concentration</td><td style="text-align:left">Moderate — financials 36.18% of the index (30-Sep-2026)</td></tr>
+<tr><td style="text-align:left">Tracking / cost</td><td style="text-align:left">Negligible — 0.02% TE, 0.03% BER, 0.09x turnover</td></tr>
+<tr><td style="text-align:left">Liquidity / closure</td><td style="text-align:left">Negligible — ₹65,179 Cr AUM, 24-year listing, 25,000-unit basket <span class="warn">VERIFY</span> live spread</td></tr>
+<tr><td style="text-align:left">Manager / sponsor</td><td style="text-align:left">None — passive mandate, no discretion, no pledge concept</td></tr>
+<tr><td style="text-align:left">Overlap with own book</td><td style="text-align:left">Real — ~21% duplicates HDFC BANK / RELIANCE / ITC / TMPV (30-Sep-2026)</td></tr>
+</table>
+</div>
+</div>
+<p class="src">Sources: Nippon India abridged report (BER, TE, turnover — 31-Aug-2026); Business Today / Advisorkhoj (TER, category average — Sep-2026); ET Money (standard deviation, AUM); AMC factsheets of the other three ETFs for the cost table; Yahoo Finance closes for the 52-week range (27-Oct-2026).</p>
+</section>
+
+<section class="panel" id="tab6">
+<h2>6. News &amp; Dated Events (ETF)</h2>
+<div class="viewbox"><div class="vh">Section 6 — The View (plain English)</div>
+<ul>
+<li class="imp">An index ETF has no earnings calls, order books or promoter actions — its "news" is the index review cycle, the monthly portfolio/expense disclosures and the price itself. Nothing scheme-level moved this baseline.<span class="important">IMPORTANT</span></li>
+<li>The Nifty 50 is reviewed <b>semi-annually (March &amp; September)</b>; the constituent list as on 30-Sep-2026 is the one this fund now holds. Which names changed in the September review was not pulled for this baseline → <span class="warn">VERIFY</span> at the next run.</li>
+<li>No ETF in this report set can be re-rated by company news — only price, cost or a structure change can move these scores.</li>
+</ul>
+</div>
+<div class="tblwrap"><table>
+<tr><th>Date</th><th style="text-align:left">Item</th><th style="text-align:left">Why it matters</th></tr>
+<tr><td>27-Oct-2026</td><td style="text-align:left"><b>ETF report baseline published</b> — score 8.6 ACCUMULATE, status CANDIDATE, no position</td><td style="text-align:left">First dated entry for this instrument; future runs append, never rewrite.</td></tr>
+<tr><td>26-Oct-2026</td><td style="text-align:left">NAV ₹259.5960, +0.68% on the day (Nippon India AMC)</td><td style="text-align:left">Latest published NAV; the 27-Oct close (₹259.49) sits just below it — no premium/discount alarm.</td></tr>
+<tr><td>30-Sep-2026</td><td style="text-align:left">Month-end portfolio &amp; disclosures: 55 holdings, top-10 52.28%, financials 36.18%, AUM ₹65,178.85 Cr</td><td style="text-align:left">The data basis for sections 1, 4 and 5 of this report.</td></tr>
+<tr><td>Sep-2026</td><td style="text-align:left">Nifty 50 semi-annual index review effective (constituent list as on 30-09-2026) — specific adds/drops <span class="warn">VERIFY</span></td><td style="text-align:left">Index changes force the fund to trade (turnover 0.09x); immaterial to a 0.02% tracking error.</td></tr>
+<tr><td>31-Aug-2026</td><td style="text-align:left">Base Expense Ratio disclosed at 0.03%; tracking error 0.02%; Sharpe 0.11 (Nippon abridged report)</td><td style="text-align:left">The cost/tracking facts behind the 10.0 and 9.5 section scores.</td></tr>
+</table></div>
+<p class="src">Sources: Nippon India AMC scheme page and abridged report (31-Aug-2026); stockanalysis.com holdings (30-Sep-2026); Nifty 50 constituent list as on 30-09-2026 (HSBC AMC factsheet). No company-style filings exist for an ETF — absent items are not estimated.</p>
+</section>
+
+<section class="panel" id="tab7">
+<h2>7. Verdict &amp; Journal (as of Oct 2026)</h2>
+<div class="viewbox"><div class="vh">Section 7 — The View (plain English)</div>
+<ul>
+<li class="imp">Composite <b>8.6/10 → ACCUMULATE</b> (8–10 excellent band): cost 10.0 and tracking 9.5 carry it; structure 9.0, liquidity 9.5 and returns-vs-benchmark 9.0 confirm a best-in-class vehicle; risk 5.5 (market volatility) and portfolio fit 8.0 (21% overlap with your own holdings) are the only deductions.<span class="important">IMPORTANT</span></li>
+<li class="imp">Action for a CANDIDATE: <b>start with tranche 1 at ₹253–258</b> (the 52-week-low zone), add at ₹240–248, equal tranches across ≥3 months, never a lump sum into a −11.5% 1Y trend. No position exists today — this is entry language, not holding-management language.<span class="important">IMPORTANT</span></li>
+<li class="imp">Journal routine: <b>Entry #01 (27-Oct-2026)</b> below is the baseline. Next review: the Nov 2026 monthly run (28-Oct → 02-Nov), entry #02.<span class="important">IMPORTANT</span></li>
+</ul>
+</div>
+
+<div class="card">
+<h4>ETF scorecard detail <span class="tag t-view">View</span></h4>
+<div class="tblwrap"><table>
+<tr><th>#</th><th>Section</th><th>Verdict</th><th>Score</th><th style="text-align:left">Evidence</th></tr>
+<tr><td>1</td><td>Structure &amp; Sponsor</td><td><span class="pill p-g">SOLID</span></td><td>9.0</td><td style="text-align:left">Inception 28-Dec-2001 (24+ yrs), Nippon India AMC (₹7.87 L Cr total AUM), passive Nifty 50 TRI mandate, NSE+BSE listed, nil loads — ISIN and creation-unit figure <span class="warn">VERIFY</span></td></tr>
+<tr><td>2</td><td>Cost</td><td><span class="pill p-g">BEST-IN-CLASS</span></td><td>10.0</td><td style="text-align:left">BER 0.03% (31-Aug-2026) / TER 0.04% (Sep-2026) vs 0.42–0.60% for the other ETFs in this set; category average also 0.04%</td></tr>
+<tr><td>3</td><td>Tracking Quality</td><td><span class="pill p-g">EXCELLENT</span></td><td>9.5</td><td style="text-align:left">1Y tracking error 0.02% vs Nifty 50 TRI (Nippon, daily); beta 0.97; turnover 0.09x; tracking-difference field blank → deducted 0.5 (<span class="warn">VERIFY</span>)</td></tr>
+<tr><td>4</td><td>Liquidity &amp; Spread</td><td><span class="pill p-g">DEEP</span></td><td>9.5</td><td style="text-align:left">AUM ₹65,179 Cr (30-Sep-2026), 25,000-unit creation basket ≈₹68.6 lakh, 24-year listing; live spread/volume not pulled → −0.5 (<span class="warn">VERIFY</span>)</td></tr>
+<tr><td>5</td><td>Returns vs Benchmark</td><td><span class="pill p-g">ON INDEX</span></td><td>9.0</td><td style="text-align:left">Return = index minus ~0.04% p.a.; 3Y 12.0% / 5Y 10.6% / since-inception ~14.7% CAGR (ET Money, 20-Mar-2026 — stale <span class="warn">VERIFY</span>); 1Y −11.5% is the index, not the fund</td></tr>
+<tr><td>6</td><td>Risk &amp; Volatility</td><td><span class="pill p-y">MARKET RISK</span></td><td>5.5</td><td style="text-align:left">Beta 0.97, std dev 14.14%, Sharpe 0.11, −11.5% 1Y, −12.8% from 52W high, financials 36.18% — no downside protection by design</td></tr>
+<tr><td>7</td><td>Portfolio Fit</td><td><span class="pill p-y">USEFUL, OVERLAPPING</span></td><td>8.0</td><td style="text-align:left">Adds the ~79% of the market you don't own in one line; but ~21% duplicates HDFC BANK/RELIANCE/ITC/TMPV (30-Sep-2026) — position sizing belongs to the planner</td></tr>
+<tr><td></td><td><b>Composite</b></td><td><span class="pill p-g">ACCUMULATE</span></td><td><b>8.6</b></td><td style="text-align:left">60.5 ÷ 7 — excellent vehicle, disciplined entry required</td></tr>
+</table></div>
+</div>
+
+<div class="grid2">
+<div class="card">
+<h4>Bull case <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>Cheapest exposure possible:</b> 0.03% BER — ₹30 a year on ₹1 lakh for the whole 50-stock market, dividends included (TRI).</li>
+<li><b>Perfect replication:</b> 0.02% tracking error, beta 0.97, 0.09x turnover — the fund does exactly what it says.</li>
+<li><b>Scale and age:</b> ₹65,179 Cr AUM and 24 years of listing — closure, spread and counterparty worries are effectively nil.</li>
+<li><b>Price position:</b> only 2.4% above the 52-week low and −12.1% YTD — a phased starter gets a meaningfully cheaper index than buyers of a year ago.</li>
+<li><b>One-line diversification:</b> 55 stocks across financials, energy, IT, FMCG, autos and metals — the ~79% you don't already hold.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Bear case / Risks <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>It will fall with the market:</b> beta 0.97 — a repeat of a −25% Nifty year costs you −25%, with no active manager to hide behind.</li>
+<li><b>Index concentration:</b> financials 36.18%, top-10 52.28% (30-Sep-2026) — "diversified" still leans hard on banks.</li>
+<li><b>Overlap:</b> ~21% of the fund duplicates your existing HOLDINGS — buying it is partly buying what you already own.</li>
+<li><b>Trend:</b> −11.5% 1Y, −12.1% YTD, three losing months of the last five — the price is cheap <i>versus a year ago</i>, not in any absolute sense.</li>
+<li><b>Data gaps:</b> ISIN, live spread/volume and tracking difference are unpublished in the free sources → <span class="warn">VERIFY</span>.</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<h4>Monitorables — Nov 2026 checklist <span class="tag t-view">View</span></h4>
+<table>
+<tr><th>#</th><th>Indicator</th><th>What to check</th><th style="text-align:left">Green light</th><th style="text-align:left">Red light</th></tr>
+<tr><td>1</td><td>Price vs band</td><td>CMP ₹259.49 (27-Oct) vs tranche 1 at ₹253–258</td><td style="text-align:left">Tranche 1 fills on a dip into the band</td><td style="text-align:left">Chasing a rally above ₹275 with no tranche discipline</td></tr>
+<tr><td>2</td><td>Tracking error</td><td>vs 0.02% (31-Aug-2026)</td><td style="text-align:left">Stays ≤0.05%</td><td style="text-align:left">Any print above 0.10%</td></tr>
+<tr><td>3</td><td>Expense</td><td>vs BER 0.03% / TER 0.04%</td><td style="text-align:left">Unchanged</td><td style="text-align:left">Any increase above 0.05%</td></tr>
+<tr><td>4</td><td>AUM</td><td>vs ₹65,179 Cr (30-Sep-2026)</td><td style="text-align:left">Stable or growing</td><td style="text-align:left">Persistent shrinkage below ~₹50,000 Cr</td></tr>
+<tr><td>5</td><td>Index review</td><td>Nifty 50 March-2027 semi-annual review</td><td style="text-align:left">Turnover stays &lt;0.5x</td><td style="text-align:left">Tracking error rising after a rebalance</td></tr>
+<tr><td>6</td><td>Overlap</td><td>~21% duplication with HDFC BANK/RELIANCE/ITC/TMPV</td><td style="text-align:left">Allocation reviewed with the planner</td><td style="text-align:left">ETF + singles become the same concentrated bet</td></tr>
+</table>
+</div>
+
+<div class="card" style="border-style:dashed">
+<h4>Journal Entry #01 — Baseline <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span> <span class="tag t-view">View</span></h4>
+<p class="note" style="margin-bottom:8px"><b>Metadata:</b> instrument type ETF (index) · assessed <b>27-Oct-2026</b> · price basis <b>₹259.49 (27-Oct-2026 close, +0.03% day)</b> · prior entry: none (baseline) · hub log: 27-Oct-2026 rows added (Monthly + CMP) · status <b>CANDIDATE</b> (no position).</p>
+<p style="font-size:13.6px"><b>Facts:</b> CMP ₹259.49 (27-Oct-2026, +0.03% day); 52W ₹297.55/₹253.44 (−12.8% from high, +2.4% above low); 1Y −11.54%, YTD −12.14%; AUM ₹65,178.85 Cr (30-Sep-2026); BER 0.03% (31-Aug-2026), TER 0.04% (Sep-2026); tracking error 0.02% (1Y); NAV ₹259.5960 (26-Oct-2026); inception 28-Dec-2001; 55 holdings, top-10 52.28%, financials 36.18% (30-Sep-2026); beta 0.97, std dev 14.14%, Sharpe 0.11, turnover 0.09x; portfolio P/E 18.28x, P/B 4.85x; NSE NIFTYBEES / BSE 590103.<br>
+<b>Calculations:</b> price ≈ index/100 → Nifty 50 ≈ 25,949 at the 27-Oct close; cost per ₹1 lakh = ₹30–40/yr; overlap with HOLDINGS = 10.38 + 7.58 + 2.42 + 0.57 = <b>20.95%</b> (~21%); 52W distance = (259.49 − 297.55) ÷ 297.55 = −12.79%; above 52W low = (259.49 − 253.44) ÷ 253.44 = +2.39%; composite (9.0 + 10.0 + 9.5 + 9.5 + 9.0 + 5.5 + 8.0) ÷ 7 = 8.64 → <b>8.6</b>.<br>
+<b>Scheme facts:</b> Nippon India AMC scheme page + abridged report (31-Aug-2026: BER 0.03%, TE 0.02%, Sharpe 0.11, beta 0.97, turnover 0.09x, creation unit 25,000, pricing 1/100th of index); AMFI-sourced AUM ₹65,178.85 Cr (30-Sep-2026); holdings via stockanalysis.com (30-Sep-2026); prices via Yahoo Finance daily bars (27-Oct-2026); 3Y/5Y/inception CAGRs from ET Money factsheet (20-Mar-2026, stale → VERIFY).<br>
+<b>Interpretation:</b> the fund itself is close to flawless — the cheapest possible cost, near-zero tracking error, deep liquidity and 24 years of history — so the only judgement left is behavioural: a −11.5% one-year index invites either panic or a lump-sum mistake, and the plan answers both with fixed tranches (₹253–258, then ₹240–248, then monthly) plus an explicit warning that ~21% of what you buy is already in your book.<br>
+<b>Verdict:</b> <span class="pill p-g">ACCUMULATE</span> score <b>8.6/10</b> · stance: 0% position — start tranche 1 at ₹253–258, add ₹240–248, equal tranches over ≥3 months, spread verified live, overlap ~21% accepted · next review: Nov 2026 monthly run (28-Oct → 02-Nov), entry #02.</p>
+</div>
+</section>
+
+<section class="panel" id="tabT">
+<h2>Transactions — NIFTYBEES</h2>
+<div class="viewbox"><div class="vh">Transactions — The View (plain English)</div>
+<ul>
+<li class="imp">This ETF is a <b>CANDIDATE</b>: there are <b>no trades yet</b> in <code>Equity\Holding_stocks.xlsx</code> for NIFTYBEES — zero units, zero rupees invested. Nothing here is estimated or placeholder; the log is genuinely empty.<span class="important">IMPORTANT</span></li>
+<li>The moment a first buy is entered in Excel, this tab must be regenerated with <code>python Equity\code\write_html.py</code> (after adding the ticker to <code>holdings_calc.py</code>'s STOCK_MAP / HUB_ORDER / CMPS) so this tab, the hub Dashboard and the position card all agree — and at that point the portfolio status changes to HOLDING as a dated status change, never by editing old rows.</li>
+<li>Until then, the Entry Plan card in the Dashboard tab is the governing document: first tranche ₹253–258, add ₹240–248, equal tranches over ≥3 months, size left blank for you.</li>
+</ul>
+</div>
+<div class="kpis">
+<div class="kpi" data-explain="Units held = total ETF units still held, counted as buys minus sells across every trade in Holding_stocks.xlsx."><div class="l">Units held</div><div class="v">0</div><div class="n">0 trades logged</div></div>
+<div class="kpi" data-explain="Average cost = total money invested in this ETF divided by units held."><div class="l">Average cost</div><div class="v">—</div><div class="n">no position yet</div></div>
+<div class="kpi" data-explain="Invested = every rupee put into this ETF, shown with its share of the total invested across all holdings."><div class="l">Invested</div><div class="v">₹0</div><div class="n">0.0% of total invested</div></div>
+<div class="kpi" data-explain="Current value = units held times the 27-Oct-2026 close (₹259.49). P/L is that value minus the money invested."><div class="l">Current value</div><div class="v">₹0</div><div class="n">P/L ₹0 (0%)</div></div>
+</div>
+<div class="card">
+<h4>Trade log status <span class="tag t-fact">Fact</span></h4>
+<!--HOLD_TXN_START-->
+<p class="note"><b>No trades yet.</b> 0 buy transactions · 0 sell transactions · units held 0 · invested ₹0. NIFTYBEES is tracked as a CANDIDATE (baseline analysis complete, waiting for the entry tranche) — no position exists today.</p>
+<!--HOLD_TXN_END-->
+</div>
+<p class="src">Source: Equity\Holding_stocks.xlsx (sheet Sheet1, table Shadow_Buy_sell) · recomputed by Equity\code\holdings_calc.py → code\data\holdings.json · CMP dated 27-Oct-2026 close (₹259.49). Personal position data; not investment advice.</p>
+</section>
+
+<section class="panel" id="tabG">
+<h2>Glossary — jargons, metrics &amp; acronyms (click any blue dotted term anywhere)</h2>
+<div class="viewbox"><div class="vh">How to use the glossary</div>
+<ul>
+<li>Every metric/jargon term in this report is linked — <b>click the blue dotted word</b> to see its plain-English meaning in a pop-up.</li>
+<li class="imp">New to ETFs? Start with: ETF, NAV, Expense Ratio, Tracking Error, AUM, Benchmark, Index, Liquidity.<span class="important">IMPORTANT</span></li>
+<li>Shared glossary (<code>glossary.js</code>) — same definitions as the Stock Hub and every other page; add a term once and it appears everywhere.</li>
+</ul>
+</div>
+<div class="card">
+<h4>All terms — definition, plain meaning, why it matters</h4>
+<div id="glossaryBody"><p class="note">Loading glossary… (requires JavaScript enabled)</p></div>
+</div>
+</section>
+
+<footer>
+  Nippon India ETF Nifty 50 BeES — independent ETF research journal entry. Data: Nippon India AMC scheme page &amp; abridged report (31-Aug-2026), AMFI/ET Money/Business Today factsheets (Sep-2026), stockanalysis.com holdings (30-Sep-2026) and Yahoo Finance closes (27-Oct-2026). Figures flagged VERIFY are unavailable in the free source. Not investment advice.
+</footer>
+
+</div>
+<script src="../../Equity/code/table_chart.js"></script>
+<script src="../shared/glossary.js"></script>
+<script>
+(function(){
+function show(id){
+ document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===id)});
+ document.querySelectorAll('.tabbtn').forEach(function(b){b.classList.toggle('on',b.dataset.t===id)});
+ window.scrollTo(0,0);
+}
+document.querySelectorAll('.tabbtn').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);try{history.replaceState(null,'','#'+b.dataset.t)}catch(e){}})});
+if(location.hash){try{var h=document.querySelector(location.hash+'.panel');if(h)show(location.hash.slice(1))}catch(e){}}
+document.getElementById('stockSel').addEventListener('change',function(){if(this.value){location.href=this.value}});
+})();
+</script>
+</body>
+</html>

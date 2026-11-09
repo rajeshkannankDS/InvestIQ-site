@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motilal Oswal Nasdaq 100 ETF (MON100) — ETF Research Journal | Oct 2026</title>
+<style>
+:root{--bg:#0f1420;--panel:#161d2e;--panel2:#1c2438;--ink:#e8ecf5;--muted:#9aa7bd;--line:#2a3450;--acc:#4da3ff;--good:#2ecc8f;--warn:#f5b83d;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:22px}
+header.rpt{background:linear-gradient(135deg,#101828,#1b2a4a);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:20px}
+header.rpt h1{margin:0 0 4px;font-size:27px}
+header.rpt .sub{color:var(--muted);font-size:14px}
+.badges{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{padding:4px 11px;border-radius:20px;font-size:12.5px;border:1px solid var(--line);background:var(--panel2)}
+.badge.buy{background:#0d3a2c;border-color:#1c6b4f;color:#7ff0c3}
+.badge.risk{background:#3a1d1d;border-color:#7a3030;color:#ffb0b0}
+.badge.info{background:#123055;border-color:#24528f;color:#a8d1ff}
+h2{font-size:20px;margin:34px 0 6px;padding-bottom:7px;border-bottom:2px solid var(--line);color:#cfe1ff}
+h4{font-size:14.5px;margin:14px 0 6px;color:#a9c4ea}
+p{margin:8px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 6px;font-size:13.2px;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+th{background:var(--panel2);color:#c6d6f0;font-weight:600;text-align:center}
+td:first-child,th:first-child{text-align:left;font-weight:600;color:#dbe6fa}
+tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+.tblwrap table{border:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:13px 14px}
+.kpi .l{font-size:11.6px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.kpi .v{font-size:21px;font-weight:700;margin-top:3px}
+.kpi .n{font-size:11.6px;color:var(--muted);margin-top:2px}
+.good{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:15px 17px;margin:13px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.tag{display:inline-block;font-size:10.6px;letter-spacing:.6px;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-right:6px;vertical-align:1.5px;border:1px solid}
+.t-fact{background:#123055;border-color:#2c5f9e;color:#a9d1ff}
+.t-calc{background:#2a2140;border-color:#5a4a8a;color:#cbb8ff}
+.t-mgmt{background:#14402e;border-color:#2c7a5a;color:#9df0cd}
+.t-view{background:#46340f;border-color:#8d6a1e;color:#ffd98a}
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:12px;font-weight:600}
+.p-g{background:#0d3a2c;color:#7ff0c3;border:1px solid #1c6b4f}
+.p-y{background:#3d3210;color:#ffd98a;border:1px solid #8d6a1e}
+.p-r{background:#3a1d1d;color:#ffb0b0;border:1px solid #7a3030}
+.note{font-size:12.4px;color:var(--muted);margin-top:6px}
+.src{font-size:12.2px;color:var(--muted)}
+.scorebar{height:9px;background:#0c111c;border-radius:6px;overflow:hidden;border:1px solid var(--line);min-width:110px}
+.scorebar>i{display:block;height:100%;background:linear-gradient(90deg,#4da3ff,#2ecc8f)}
+ul{margin:7px 0 7px 20px}li{margin:4px 0}
+.verdict-main{display:flex;flex-wrap:wrap;gap:16px;align-items:stretch}
+.verdict-big{flex:1 1 300px;background:linear-gradient(135deg,#1d2b16,#26360f);border:1px solid #4a7a2e;border-radius:12px;padding:18px}
+.verdict-big .h{font-size:26px;font-weight:800;color:#b9f0a3}
+a{color:var(--acc)}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:12.4px}
+/* top nav + tabs */
+.topnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
+.topnav a.home{color:var(--acc);font-size:13px;text-decoration:none;font-weight:600}
+.topnav select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13.4px;font-weight:600;cursor:pointer}
+.tabbar{position:sticky;top:0;z-index:40;display:flex;flex-wrap:wrap;gap:6px;background:rgba(15,20,32,.96);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:8px;margin-bottom:16px}
+.tabbtn{border:1px solid var(--line);background:var(--panel2);color:var(--muted);font-size:12.6px;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;letter-spacing:.3px}
+.tabbtn:hover{color:#cfe1ff;border-color:#3b5f96}
+.tabbtn.on{background:#123055;border-color:#2c66ad;color:#a9d1ff;box-shadow:0 0 0 1px #2c66ad}
+.panel{display:none;animation:fadein .25s ease}
+.panel.on{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.viewbox{border-left:4px solid var(--acc);background:rgba(77,163,255,.07);border-radius:0 9px 9px 0;padding:10px 15px;margin:10px 0 14px}
+.viewbox .vh{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8fc4ff;font-weight:700;margin-bottom:5px}
+.viewbox ul{margin:4px 0 2px 18px}.viewbox li{font-size:13.6px;margin:5px 0}
+.viewbox li b{color:#dbe9ff}
+.viewbox li.imp{color:#ffe6a3}
+.viewbox li.imp::marker{content:"★ "}
+.important{display:inline-block;background:#4a3708;color:#ffd98a;border:1px solid #8d6a1e;font-size:10.3px;font-weight:700;letter-spacing:.7px;padding:1px 7px;border-radius:4px;vertical-align:1.5px;margin-left:6px}
+.kpi[data-explain]{cursor:pointer;transition:transform .12s,border-color .12s}
+.kpi[data-explain]:hover{border-color:#4da3ff;transform:translateY(-2px)}
+.kpi[data-explain]::after{content:"ⓘ what does this mean?";display:block;font-size:9.6px;color:#4da3ff;letter-spacing:.4px;margin-top:5px;text-transform:uppercase}
+.term{color:#7fc0ff;text-decoration:underline dotted;cursor:help}
+.term:hover{color:#bfe0ff}
+#modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(4,8,16,.72);padding:20px}
+#modal.on{display:flex;align-items:center;justify-content:center}
+.mbox{background:#141b2c;border:1px solid #2c66ad;border-radius:13px;max-width:640px;width:100%;max-height:82vh;overflow:auto;padding:20px 22px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.mbox .mt{font-size:16.5px;font-weight:700;color:#a9d1ff;margin-bottom:8px}
+.mbox .mb{font-size:14px;line-height:1.65;color:var(--ink)}
+.mbox .mb .why{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);color:#ffd98a;font-size:13.3px}
+.mbox .mclose{float:right;border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:7px;font-size:12px;padding:4px 10px;cursor:pointer}
+.mbox .mclose:hover{color:#fff;border-color:#4da3ff}
+.mgl{font-size:12.4px;color:var(--muted);margin-top:12px}
+@media print{body{background:#fff;color:#111}.wrap{max-width:none}header.rpt,.card,.kpi,table,.verdict-big{background:#fff;color:#111;border-color:#bbb}th{background:#eee;color:#111}td{color:#111}h2,h4{color:#111}.good{color:#087f4f}.warn{color:#9a6a00}.bad{color:#b00}.panel{display:block!important;page-break-before:always}.tabbar,#modal{display:none!important}.viewbox{background:#f4f8ff;color:#111}.viewbox li{color:#111}.term{color:#0b5ca8}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="rpt">
+  <h1>Motilal Oswal Nasdaq 100 ETF (MON100) — ETF Deep-Dive Report</h1>
+  <div class="sub">ETF Research Journal &nbsp;•&nbsp; Entry #1 (Baseline Quarter) &nbsp;•&nbsp; Assessment as of <b>October 2026</b> (price data: <b>05-Nov-2026 close ₹289.19</b>; monthly run 05-Nov-2026)</div>
+  <div class="badges">
+    <span class="badge risk">Portfolio status: CANDIDATE — no position, under analysis</span>
+    <span class="badge risk">VERDICT: ACCUMULATE — composite 7.1/10 (India's deepest Nasdaq-100 vehicle — but 0.59–0.60% TER, USD/INR risk and a 46.85% top-10 concentration)</span>
+    <span class="badge info">CMP ₹289.19 (05-Nov-2026 close) −1.02% (day) · +19.1% 1Y</span>
+    <span class="badge info">ETF · Equity (US large-cap tech) — tracks NASDAQ-100 TRI · AUM ₹14,359 Cr (30-Sep-2026)</span>
+    <span class="badge risk">52W ₹344.70 / ₹217.69 · −15.2% from 52W high</span>
+    <span class="badge">NSE: MON100 · BSE: 533385 · ISIN INF247L01AP3 · inception 29-Mar-2011</span>
+    <span class="badge info">BER 0.50% / TER 0.59–0.60% · tracking error disputed: 0.16–0.37% vs ET Money 1.21 <span class="warn">VERIFY</span></span>
+    <span class="badge">103 holdings · top-10 46.85% · P/E 28.5x · portfolio turnover 0.15x (30-Sep-2026)</span>
+  </div>
+  <p class="note" style="margin-top:12px">Primary sources: Motilal Oswal AMC scheme page + SID/KIM (May-2026) + Mar-2026 AMC presentation, AMFI/mfapi.in NAV (26-Oct-2026), stockanalysis.com holdings (30-Sep-2026), ET Money / Groww / sharpely / tickertape key indicators (Oct-2026) and Yahoo Finance daily closes (27-Oct-2026). An <b>ETF report scores the vehicle, not the index level</b> — every figure below carries its date; anything not confirmable from free sources is flagged <span class="warn">VERIFY</span> and never invented. Research journal entry — not investment advice.</p>
+</header>
+
+<nav class="topnav">
+  <a class="home" href="../InvestIQ.html">⌂ InvestIQ</a>&nbsp; <a class="home" href="Equity_Forge.html">⌂ Back to Stock Hub</a>
+  <select id="stockSel">
+    <option value="">— go to stock —</option>
+    <option value="Reliance_Research_Report_Sep2026.html">RELIANCE | L | H</option>
+    <option value="RACE_Research_Report_Sep2026.html">RACE | S | H</option>
+    <option value="HDFCBANK_Research_Report_Sep2026.html">HDFC BANK | L | H</option>
+    <option value="ITC_Research_Report_Sep2026.html">ITC | L | H</option>
+    <option value="CAPLIPOINT_Research_Report_Sep2026.html">CAPLIN POINT | S | H</option>
+    <option value="GANECOS_Research_Report_Sep2026.html">GANESHA ECOSPHERE | S | H</option>
+    <option value="TMPV_Research_Report_Sep2026.html">TATA MOTORS PV | L | H</option>
+    <option value="OLECTRA_Research_Report_Oct2026.html">OLECTRA | S | C</option>
+    <option value="KAYNES_Research_Report_Oct2026.html">KAYNES | S | C</option>
+    <option value="BEL_Research_Report_Oct2026.html">BEL | L | C</option>
+    <option value="JIO_Research_Report_Oct2026.html">JIO IPO | L | C</option>
+    <option value="NIFTYBEES_Research_Report_Oct2026.html">NIFTYBEES | E | C</option>
+    <option value="GOLDIETF_Research_Report_Oct2026.html">ICICI GOLD | E | C</option>
+    <option value="SILVERBEES_Research_Report_Oct2026.html">SILVERBEES | E | C</option>
+    <option value="MON100_Research_Report_Oct2026.html" selected>MON100 | E | C</option>
+  </select>
+</nav>
+
+<nav class="tabbar" id="tabbar" aria-label="Report sections">
+  <button class="tabbtn on" data-t="tab0">0 · Dashboard</button>
+  <button class="tabbtn" data-t="tab1">1 · Structure</button>
+  <button class="tabbtn" data-t="tab2">2 · NAV &amp; Tracking</button>
+  <button class="tabbtn" data-t="tab3">3 · Returns</button>
+  <button class="tabbtn" data-t="tab4">4 · Holdings</button>
+  <button class="tabbtn" data-t="tab5">5 · Risk &amp; Cost</button>
+  <button class="tabbtn" data-t="tab6">6 · News</button>
+  <button class="tabbtn" data-t="tab7">7 · Verdict &amp; Journal</button>
+  <button class="tabbtn" data-t="tabT">Transactions</button>
+  <button class="tabbtn" data-t="tabG">Glossary</button>
+</nav>
+
+<section class="panel on" id="tab0">
+<h2>0. Executive Dashboard — Oct 2026</h2>
+<div class="viewbox"><div class="vh">Section 0 — The View (plain English)</div>
+<ul>
+<li class="imp">One-line verdict: <b>ACCUMULATE (7.1/10) — the deepest, most liquid way to own the Nasdaq-100 in rupees: ₹14,359 Cr AUM, 103 US large-caps, 15 years of live trading, ~9 lakh shares a day. There is no position today — build it in small monthly tranches at ₹292.16 (27-Oct-2026 close), not in one lump sum, because you are buying US tech 15.2% below its September peak with a 0.60% fee and explicit USD/INR risk layered on top.</b><span class="important">IMPORTANT</span></li>
+<li class="imp">Three numbers that decide everything: total expense ratio <b>0.59–0.60%</b> (the most expensive in this report set — 15–20× NIFTYBEES), top-10 concentration <b>46.85%</b> with NVDA 8.36% + AAPL 7.38% + MSFT 5.78%, and 1-year price return <b>+19.11%</b> (the index plus rupee movement — not manager skill).<span class="important">IMPORTANT</span></li>
+<li>Price context: ₹292.16 (27-Oct-2026 close, +1.87% that day) sits <b>−15.2% below the ₹344.70 high of 08-Sep-2026</b> and +34.2% above the ₹217.69 low of 16-Mar-2026 — a strong +24.6% YTD that peaked in September and has given back some of it.</li>
+<li class="imp">Portfolio status is <b>CANDIDATE</b> — no units today. The Entry Plan card below carries the tranche rule and the buy-only-if conditions; the verdict decides <i>if/when to start</i>, never holding-management wording.<span class="important">IMPORTANT</span></li>
+<li>How to read this report: click any section tab above · click any blue info card for a plain-English meaning · click any blue dotted term for its glossary definition. Scores here use the <b>ETF scorecard</b> (7 ETF sections), which is not the company scorecard — an ETF's job is to replicate the index cheaply, not to pick stocks.</li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="Current Market Price — ₹292.16 on 27-Oct-2026 (+1.87% that day, Yahoo Finance close; Groww shows the same +1.87%, stockanalysis ₹292.78 on a slightly different close basis)."><div class="l">CMP</div><div class="v">₹292.16</div><div class="n">27 Oct'26 close · +1.87% (day) · +19.1% 1Y</div></div>
+  <div class="kpi" data-explain="Assets under management ₹14,359.05 Cr at 30-Sep-2026 (Motilal Oswal AMC scheme page); average asset size ₹13,832.40 Cr (AMFI factsheet frame). India's largest Nasdaq-100 exposure — deep enough for tight spreads."><div class="l">AUM</div><div class="v good">₹14,359 Cr</div><div class="n">30-Sep-2026 · avg ₹13,832 Cr</div></div>
+  <div class="kpi" data-explain="Base Expense Ratio 0.50% (nativeinvest, Oct-2026) and Total Expense Ratio 0.59–0.60% (mutualfundskaro as on 29-Sep-2026; ET Money; stockanalysis 0.59%). The most expensive of the four ETFs in this report set — cross-border replication costs more."><div class="l">Expense (BER / TER)</div><div class="v warn">0.50% / 0.60%</div><div class="n">p.a. · costliest in this set</div></div>
+  <div class="kpi" data-explain="Tracking error is DISPUTED across free sources: 0.16% (etfdesk, 21-Oct-26), 0.20% (sharpely, Groww), 0.26–0.37% (other trackers) versus 1.21 (ET Money, Oct-2026). The AMC site field shows 0.1 annualised. Cross-border ETFs have a genuine INR-hedging/time-zone lag, so treat the true figure as 0.2–0.4% and re-verify at the next run."><div class="l">Tracking Error (1Y)</div><div class="v warn">0.16–1.21%</div><div class="n">sources disagree · <span class="warn">VERIFY</span></div></div>
+  <div class="kpi" data-explain="1-year price return +19.11% from 27-Oct-2025 to 27-Oct-2026 (Yahoo Finance closes). Total return including dividends was +21.08% (stockanalysis). This is the Nasdaq-100 plus USD/INR movement — the ETF cannot beat its index."><div class="l">1-Year Return</div><div class="v good">+19.1%</div><div class="n">27-Oct-25 → 27-Oct-26 (Yahoo)</div></div>
+  <div class="kpi" data-explain="Year-to-date +24.57% (first trading days of Jan-2026 to 27-Oct-2026, Yahoo Finance). The big jump came in April 2026 (month-end ₹231.54 → ₹299.17, +29% in a month); the index then peaked at ₹344.70 on 08-Sep-2026."><div class="l">YTD 2026</div><div class="v good">+24.6%</div><div class="n">Jan-2026 → 27-Oct-2026</div></div>
+  <div class="kpi" data-explain="103 holdings, top-10 = 46.85% of the fund (stockanalysis.com, holdings as on 30-Sep-2026). NVIDIA 8.36%, Apple 7.38%, Microsoft 5.78%, Micron 5.04%, AMD 4.19%, Amazon 4.08%, Meta 3.27%, Alphabet (GOOGL+GOOG) 5.93%, Tesla 2.83%. Portfolio P/E 28.49x, forward P/E 20.82x."><div class="l">Holdings</div><div class="v">103 · top-10 47%</div><div class="n">NVDA 8.36% leads · 30-Sep-2026</div></div>
+  <div class="kpi" data-explain="Standard deviation 17.74% and Sharpe 1.42 (ET Money, Oct-2026); stockanalysis beta 0.65. US equity volatility plus USD/INR currency movement — the rupee return can differ from the Nasdaq return in either direction."><div class="l">Std Dev / Sharpe</div><div class="v warn">17.7% · 1.42</div><div class="n">beta 0.65 · includes FX risk</div></div>
+  <div class="kpi" data-explain="NAV ₹272.2682 on 26-Oct-2026 (AMFI via mfapi.in). The 27-Oct NAV was not yet published when this report ran — the price above is the exchange close. Because this is a cross-border ETF, compare price against the SAME-day iNAV (disclosed with a 15-second delay, currency-only) before any order."><div class="l">NAV (latest)</div><div class="v">₹272.27</div><div class="n">26-Oct-2026 · AMFI</div></div>
+</div>
+
+<div class="card" style="border-color:#8d6a1e">
+<h4>Entry Plan (personal) — CANDIDATE, no position <span class="tag t-view">View</span> <span class="tag t-fact">Fact</span></h4>
+<p class="note" style="margin-top:0"><b>Status: CANDIDATE — this ETF is under analysis and there is NO POSITION today (zero units, zero trades in <code>Equity\Holding_stocks.xlsx</code>). The score verdict drives an entry decision (start when… / buy only if… / review date), never holding-management wording.</b> Tranche levels below are analyst judgement (<span class="tag t-view">View</span>) struck on verified prices and fund facts (<span class="tag t-fact">Fact</span>); the rupee size is left blank for you.</p>
+<table>
+<tr><th>Field</th><th style="text-align:left">Value</th></tr>
+<tr><td>Position today</td><td style="text-align:left"><span class="bad"><b>NO POSITION</b></span> — 0 units, 0 trades</td></tr>
+<tr><td>First tranche</td><td style="text-align:left">₹278–290 — i.e. at/below the current ₹292.16 close and into the Jul-2026 shelf (₹305.18 month-end) / the Apr-2026 breakout (₹299.17): 15.2% off the September peak, so a first tranche can start <b>now-ish on a dip into that band</b>, not on a spike — <span class="tag t-view">View</span></td></tr>
+<tr><td>Add-on level</td><td style="text-align:left">₹255–270 (≈7–13% below CMP), i.e. back toward the Apr-2026 base; beyond that, add monthly regardless of level — cost averaging is the point of an index ETF — <span class="tag t-view">View</span></td></tr>
+<tr><td>Buy only if</td><td style="text-align:left">(1) you treat this as the portfolio's <b>global/US-tech satellite sleeve</b> (planner sets the cap) and accept ~18% annualised volatility · (2) the <b>USD/INR risk is understood</b> — a strengthening rupee cuts the rupee return even if the Nasdaq rises · (3) bought in <b>tranches of equal size across ≥3 months</b>, never as a lump sum after a +24.6% YTD · (4) the <b>same-day iNAV/premium is checked</b> before the order (cross-border ETFs can trade at a premium/discount — live spread <span class="warn">VERIFY</span>)</td></tr>
+<tr><td>Do NOT buy if</td><td style="text-align:left">you need the money within 3 years, or you would panic-sell a 30% US-tech drawdown, or you already plan equivalent direct US equity exposure via LRS/funds (then this is duplication, not diversification)</td></tr>
+<tr><td>Intended first-tranche size</td><td style="text-align:left">Left blank for you <span class="warn">VERIFY</span> (not specified) — the plan page (<code>Portfolio_Plan.html</code>, planner-owned) sets allocation; this report only sets the entry rule</td></tr>
+<tr><td>Next review</td><td style="text-align:left"><b>Nov 2026 monthly run (28-Oct → 02-Nov)</b> — re-price, re-affirm score, re-pull the disputed tracking-error figure</td></tr>
+</table>
+<p class="note">Nothing above is an instruction to act: an index ETF's verdict is about cost, tracking and discipline — the score rates the vehicle, not whether the Nasdaq-100 is cheap. Re-score at every month-end cycle and append the next dated row to the hub's Monthly Log.</p>
+<p class="note"><a class="tabbtn" data-t="tabT" href="#tabT">→ Full transaction log (Transactions tab)</a></p>
+</div>
+
+<div class="verdict-main">
+  <div class="verdict-big">
+    <div style="font-size:12.5px;color:#d7f5c2;letter-spacing:1px">STANDALONE VERDICT (analyst view, Oct 2026)</div>
+    <div class="h">ACCUMULATE · 7.1/10 · 12M horizon</div>
+    <p style="margin-top:8px">MON100 is India's reference Nasdaq-100 vehicle: ₹14,359 Cr AUM (30-Sep-2026), 103 holdings replicating the NASDAQ-100 TRI, inception 29-Mar-2011, ISIN-confirmed, NSE+BSE listed and the deepest volume among Indian Nasdaq ETFs. The deductions are real: TER 0.59–0.60% is the highest in this report set, tracking-error disclosure is contradictory across sources (0.16% to 1.21% — <span class="warn">VERIFY</span>), the top-10 is 46.85% and the return carries USD/INR risk that a Nifty holder never sees. The score (7.1) says a good vehicle at a fair-to-rich price: start with tranche 1 at ₹278–290, add at ₹255–270, equal tranches across ≥3 months, and check the same-day iNAV before every order.</p>
+    <p class="note">Entry triggers: first tranche ₹278–290 · add ₹255–270 · equal tranches over ≥3 months · same-day iNAV checked · FX risk accepted · next review Nov 2026 monthly run.</p>
+  </div>
+  <div class="card" style="flex:1 1 330px;margin:0">
+    <h4 style="margin-top:0">ETF Section Scorecard (0–10)</h4>
+    <table>
+      <tr><th>Section</th><th>Score</th><th style="width:34%">Rating</th></tr>
+      <tr><td>1. Structure &amp; Sponsor</td><td>8.0</td><td><div class="scorebar"><i style="width:80%"></i></div></td></tr>
+      <tr><td>2. Cost (expense ratio)</td><td>5.5</td><td><div class="scorebar"><i style="width:55%"></i></div></td></tr>
+      <tr><td>3. Tracking Quality</td><td>6.5</td><td><div class="scorebar"><i style="width:65%"></i></div></td></tr>
+      <tr><td>4. Liquidity &amp; Spread</td><td>8.0</td><td><div class="scorebar"><i style="width:80%"></i></div></td></tr>
+      <tr><td>5. Returns vs Benchmark</td><td>8.5</td><td><div class="scorebar"><i style="width:85%"></i></div></td></tr>
+      <tr><td>6. Risk &amp; Volatility</td><td>5.5</td><td><div class="scorebar"><i style="width:55%"></i></div></td></tr>
+      <tr><td>7. Portfolio Fit</td><td>7.5</td><td><div class="scorebar"><i style="width:75%"></i></div></td></tr>
+      <tr><td><b>Composite</b></td><td><b>7.1</b></td><td><div class="scorebar"><i style="width:71%"></i></div></td></tr>
+    </table>
+    <p class="src">Rubric: 8–10 excellent · 6–8 accumulate · 4–6 watchlist · &lt;4 avoid. Composite 7.1 = ACCUMULATE (49.5 ÷ 7 ETF sections). Cost 5.5 (0.60% TER) and tracking 6.5 (disputed TE) are the main deductions; returns-vs-benchmark 8.5 (funds track within ~1 pt of the index) and liquidity 8.0 carry it into the accumulate band.</p>
+  </div>
+</div>
+</section>
+
+<section class="panel" id="tab1">
+<h2>1. ETF Structure &amp; Sponsor Metadata</h2>
+<div class="viewbox"><div class="vh">Section 1 — The View (plain English)</div>
+<ul>
+<li class="imp">India's most established Nasdaq-100 wrapper: launched <b>29-Mar-2011</b> by Motilal Oswal Mutual Fund (Motilal Oswal Asset Management), listed on NSE (MON100) and BSE (533385), ISIN INF247L01AP3, AMFI scheme code 114984 — 15 years 7 months of live trading.<span class="important">IMPORTANT</span></li>
+<li class="imp">It is a <b>passive foreign-index fund in ETF clothing</b>: it buys the 100 Nasdaq-100 constituents (excluding financials) in index weights to track the <b>NASDAQ-100 Total Return Index in INR</b>, with Nifty 50 TRI as the secondary benchmark. Every rupee of return therefore = US share prices × USD/INR × (−0.60% fee).<span class="important">IMPORTANT</span></li>
+<li>No promoter, no balance sheet to analyse — the metadata questions that matter are cost, tracking, liquidity and currency, which live in sections 2 and 5. Two operational notes: international ETF iNAV is disclosed with a 15-second delay reflecting only currency movement from the previous day's NAV, and direct-with-AMC dealing is creation-size/₹25 Cr territory (market makers exempt) — retail trades on the exchange.</li>
+</ul>
+</div>
+<div class="tblwrap"><table>
+<tr><th>Field</th><th style="text-align:left">Value</th></tr>
+<tr><td>Scheme</td><td style="text-align:left">Motilal Oswal Nasdaq 100 ETF <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Type</td><td style="text-align:left">Open-ended scheme replicating/tracking the NASDAQ-100 Total Return Index <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Sponsor / AMC</td><td style="text-align:left">Motilal Oswal Asset Management Company Ltd (Motilal Oswal Mutual Fund) <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Inception</td><td style="text-align:left">29-Mar-2011 (date of allotment) — 15 years 7 months old at this report <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Benchmark</td><td style="text-align:left">Primary: NASDAQ-100 TRI · Secondary: Nifty 50 TRI (AMC scheme page, 30-Sep-2026) <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Exchange codes</td><td style="text-align:left">NSE: MON100 · BSE: 533385 · ISIN INF247L01AP3 · AMFI code 114984 <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Replication</td><td style="text-align:left">Physical, full replication of index constituents (stockanalysis: 103 holdings) <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Creation unit</td><td style="text-align:left">Direct-with-AMC transactions above ₹25 Cr in creation size (market makers/APs exempt); the exact unit count is printed only in the KIM's garbled table <span class="warn">VERIFY</span> · 1 unit minimum on the exchange <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Loads</td><td style="text-align:left">Entry load: Nil · Exit load: Nil (AMC scheme page; the Mar-2026 presentation also quotes a 1% exit load if redeemed within 15 days of allotment — presentation text is ambiguous, <span class="warn">VERIFY</span>) <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Fund managers</td><td style="text-align:left">Swapnil Mayekar (managing since 13-Oct-2025, SID) · Dishant Mehta (Associate Fund Manager &amp; Passive Dealer, co-managing passives since 15-Oct-2024) · Rakesh Shetty (debt component, per Mar-2026 presentation) <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Riskometer</td><td style="text-align:left">Very High (ET Money key indicators) <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Min. application</td><td style="text-align:left">Through stock exchange: 1 unit · Directly with the AMC: above ₹25 Cr in creation size (market makers exempt) <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>Portfolio turnover</td><td style="text-align:left">0.15x (AMC scheme page, 30-Sep-2026) — the fund barely trades <span class="tag t-fact">Fact</span></td></tr>
+<tr><td>iNAV</td><td style="text-align:left">Disclosed with a 15-second delay for international ETFs, reflecting only currency movement from the previous day's closing NAV (AMC ETF page) <span class="tag t-fact">Fact</span></td></tr>
+</table></div>
+<p class="src">Sources: Motilal Oswal AMC scheme page (motilaloswalmf.com) as on 30-Sep-2026; scheme SID (portal.amfiindia.com/spages/5337.pdf) and KIM dated 29-May-2026; Mar-2026 AMC presentation; stockanalysis.com (30-Sep-2026 holdings); Value Research fund-manager change notices (17-Oct-2024). Conflicting figures are shown, not averaged.</p>
+</section>
+
+<section class="panel" id="tab2">
+<h2>2. NAV, Price &amp; Tracking Quality</h2>
+<div class="viewbox"><div class="vh">Section 2 — The View (plain English)</div>
+<ul>
+<li class="imp">Tracking is the whole job of an ETF — and this is where MON100 is <b>hard to verify</b>: free sources disagree wildly on the 1-year tracking error — 0.16% (etfdesk, 21-Oct-2026), 0.20% (sharpely, Groww), 0.26–0.37% (other trackers) versus <b>1.21 (ET Money)</b>. Cross-border replication (INR shares of USD assets, market hours that don't overlap) genuinely creates lag, so the honest reading is "somewhere in 0.2–0.4%, one source says 1.21" → <span class="warn">VERIFY</span> at the next run.<span class="important">IMPORTANT</span></li>
+<li class="imp">The consistent number is <b>tracking difference</b>: −0.69% (1Y), −0.96% (3Y), −0.93% (5Y) (sharpely.in) and the AMC's own performance table (31-Mar-2026) shows the scheme trailing NASDAQ-100 TRI by about a point every period — 1Y 31.4% vs 32.4%, 3Y 26.8% vs 27.8%, 5Y 18.0% vs 18.9%, since-inception 22.3% vs 23.8%. Steady ~1pt lag ≈ the 0.60% fee plus FX friction.<span class="important">IMPORTANT</span></li>
+<li>Price and NAV: NAV ₹272.2682 (26-Oct-2026, AMFI) vs exchange close ₹292.16 (27-Oct-2026) — different dates across a US market day; for a cross-border ETF, always compare against the same-day iNAV before ordering. Beta 0.65, Sharpe 1.42, std dev 17.74% (ET Money, Oct-2026).</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>NAV vs price <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th>Date</th><th>NAV</th><th>Close (Yahoo)</th></tr>
+<tr><td>30-Sep-2026</td><td>— <span class="src">(not pulled)</span></td><td>₹321.08</td></tr>
+<tr><td>26-Oct-2026</td><td>₹272.2682</td><td>—</td></tr>
+<tr><td>27-Oct-2026</td><td>— <span class="src">(not yet out)</span></td><td>₹292.16</td></tr>
+</table>
+<p class="note">NAV source: AMFI via mfapi.in (26-Oct-2026). Close source: Yahoo Finance daily bar. A 30-Sep-2026 NAV was not pulled for this baseline → <span class="warn">VERIFY</span>. Because the underlying US market opens after NSE closes, a next-day close-vs-NAV gap is expected; a <b>persistent</b> same-day premium is the signal to watch, and the same-day iNAV (15-second delay) is the right comparison.</p>
+</div>
+<div class="card">
+<h4>Tracking &amp; risk measures <span class="tag t-fact">Fact</span></h4>
+<table>
+<tr><th>Measure</th><th>Value</th><th>Source / date</th></tr>
+<tr><td>Tracking error (1Y)</td><td>0.16 / 0.20 / 0.37 / 1.21</td><td>etfdesk · sharpely/Groww · nativeinvest · ET Money (Oct-26) <span class="warn">VERIFY</span></td></tr>
+<tr><td>Tracking difference (1Y)</td><td>−0.69%</td><td>sharpely.in, Oct-2026</td></tr>
+<tr><td>Tracking difference (3Y / 5Y)</td><td>−0.96% / −0.93%</td><td>sharpely.in, Oct-2026</td></tr>
+<tr><td>Scheme vs benchmark (1Y)</td><td>31.4% vs 32.4%</td><td>AMC SID, 31-Mar-2026</td></tr>
+<tr><td>Scheme vs benchmark (since inception)</td><td>22.3% vs 23.8%</td><td>AMC SID, 31-Mar-2026</td></tr>
+<tr><td>Beta</td><td>0.65</td><td>stockanalysis.com, Oct-2026</td></tr>
+<tr><td>Standard deviation</td><td>17.74%</td><td>ET Money, Oct-2026</td></tr>
+<tr><td>Sharpe ratio</td><td>1.42</td><td>ET Money, Oct-2026</td></tr>
+<tr><td>Expense (BER / TER)</td><td>0.50% / 0.59–0.60%</td><td>nativeinvest · mutualfundskaro (29-Sep-26)</td></tr>
+</table>
+<p class="note">A ~0.9pt annual lag on a 0.60% fund is fee plus the mechanical cost of holding USD assets from India (currency conversion, dividend withholding, time-zone repricing). No manager is trying to beat the Nasdaq-100; none can.</p>
+</div>
+</div>
+<p class="src">Sources: Motilal Oswal AMC scheme page and SID performance table (31-Mar-2026); sharpely.in / etfdesk.in / nativeinvest.in / ET Money / Groww key indicators (Oct-2026); AMFI NAV via mfapi.in (26-Oct-2026); Yahoo Finance closes (27-Oct-2026).</p>
+</section>
+
+<section class="panel" id="tab3">
+<h2>3. Returns — price history month by month</h2>
+<div class="viewbox"><div class="vh">Section 3 — The View (plain English)</div>
+<ul>
+<li class="imp">One-year return <b>+19.11%</b> and YTD <b>+24.57%</b> (Yahoo closes, 27-Oct-2025 → 27-Oct-2026): a strong year that had one violent month — April 2026 jumped from ₹231.54 to ₹299.17 month-end (+29%), then May ₹336.10, a peak of ₹344.70 on 08-Sep-2026 and a pullback to ₹292.16.<span class="important">IMPORTANT</span></li>
+<li>Longer history (AMC SID, 31-Mar-2026): <b>1Y 31.4%, 3Y 26.8%, 5Y 18.0%, 7Y 23.1%, since-inception 22.3%</b> versus NASDAQ-100 TRI's 32.4% / 27.8% / 18.9% / 24.1% / 23.8% — consistently about a point behind. Third parties report 1Y total return 21.08% and since-inception average 23.83% (stockanalysis) on slightly different dates.</li>
+<li class="imp">An ETF never beats its index: its return = the Nasdaq-100 TRI minus ~0.60% a year minus a small tracking wobble, all translated through USD/INR. Judging this page on the +19% would be judging the US market and the rupee, not the fund.<span class="important">IMPORTANT</span></li>
+</ul>
+</div>
+<div class="kpis">
+  <div class="kpi" data-explain="1-year price return +19.11% (27-Oct-2025 close ₹245.29 → 27-Oct-2026 close ₹292.16, Yahoo Finance). Total return including dividends was +21.08% (stockanalysis.com)."><div class="l">1-Year</div><div class="v good">+19.1%</div><div class="n">27-Oct-25 → 27-Oct-26</div></div>
+  <div class="kpi" data-explain="Year-to-date +24.57%: the 2026 base of ₹234.54 (first trading days of Jan-2026) to the 27-Oct-2026 close of ₹292.16. April 2026 alone added ~29% month-on-month."><div class="l">YTD 2026</div><div class="v good">+24.6%</div><div class="n">Jan-2026 → 27-Oct-2026</div></div>
+  <div class="kpi" data-explain="3-year CAGR 26.8% and 5-year 18.0% for the scheme versus the benchmark's 27.8% and 18.9% (Motilal Oswal SID performance table as on 31-Mar-2026 — now 7 months stale, re-pull at the next run)."><div class="l">3Y / 5Y CAGR</div><div class="v good">26.8% / 18.0%</div><div class="n">AMC SID, 31-Mar-2026 · <span class="warn">VERIFY</span></div></div>
+  <div class="kpi" data-explain="Since-inception CAGR 22.3% from 29-Mar-2011 to 31-Mar-2026 versus the benchmark's 23.8% — about 15 years of Nasdaq-100 compounding translated into rupees, roughly 1.5 points behind the index in total."><div class="l">Since Inception</div><div class="v good">22.3%</div><div class="n">29-Mar-11 → 31-Mar-26 · bench 23.8%</div></div>
+</div>
+<div class="tblwrap"><table>
+<tr><th>Month-end close</th><th>Oct'25</th><th>Nov'25</th><th>Dec'25</th><th>Jan'26</th><th>Feb'26</th><th>Mar'26</th><th>Apr'26</th><th>May'26</th><th>Jun'26</th><th>Jul'26</th><th>Aug'26</th><th>Sep'26</th><th>Oct'26*</th></tr>
+<tr><td>₹</td><td>244.55</td><td>231.75</td><td>231.63</td><td>230.56</td><td>225.19</td><td>231.54</td><td>299.17</td><td>336.10</td><td>325.72</td><td>305.18</td><td>332.20</td><td>321.08</td><td>292.16</td></tr>
+</table></div>
+<p class="src">* October 2026 = month-to-date, the 27-Oct-2026 close. All values: Yahoo Finance daily closes, last trading day of each month. 1Y/3Y/5Y/inception CAGRs: Motilal Oswal SID performance table (31-Mar-2026, NAV-based) — stale → VERIFY at next run.</p>
+</section>
+
+<section class="panel" id="tab4">
+<h2>4. Underlying Holdings — what you actually own</h2>
+<div class="viewbox"><div class="vh">Section 4 — The View (plain English)</div>
+<ul>
+<li class="imp">You own <b>103 US large-cap stocks</b> (30-Sep-2026): NVIDIA 8.36%, Apple 7.38%, Microsoft 5.78%, Micron 5.04%, AMD 4.19%, Amazon 4.08%, Meta 3.27%, Alphabet GOOGL 3.07% + GOOG 2.86%, Tesla 2.83% — <b>top-10 = 46.85%</b>. The Nasdaq-100 excludes financials, so this is a tech/growth-heavy basket by construction.<span class="important">IMPORTANT</span></li>
+<li class="imp">Overlap with your own HOLDINGS: <b>0%</b> — none of these US names sits in your Indian book, so buying MON100 adds genuinely new exposure (US technology and consumer platforms) rather than duplicating RELIANCE/HDFC BANK/ITC. That is the diversification argument.<span class="important">IMPORTANT</span></li>
+<li>Sector shape: technology dominates, with semiconductor concentration (NVDA + AMD + MU + AVGO + LRCX + AMAT + TXN + SNDK ≈ 26%+ of the index by these weights). Portfolio P/E 28.49x, forward P/E 20.82x (30-Sep-2026) — you are paying a growth multiple, not a value one.</li>
+</ul>
+</div>
+<div class="tblwrap"><table>
+<tr><th>#</th><th style="text-align:left">Constituent</th><th>Weight</th><th style="text-align:left">In your portfolio?</th></tr>
+<tr><td>1</td><td style="text-align:left">NVIDIA Corp</td><td>8.36%</td><td style="text-align:left">No</td></tr>
+<tr><td>2</td><td style="text-align:left">Apple Inc</td><td>7.38%</td><td style="text-align:left">No</td></tr>
+<tr><td>3</td><td style="text-align:left">Microsoft Corp</td><td>5.78%</td><td style="text-align:left">No</td></tr>
+<tr><td>4</td><td style="text-align:left">Micron Technology</td><td>5.04%</td><td style="text-align:left">No</td></tr>
+<tr><td>5</td><td style="text-align:left">Advanced Micro Devices</td><td>4.19%</td><td style="text-align:left">No</td></tr>
+<tr><td>6</td><td style="text-align:left">Amazon.com Inc</td><td>4.08%</td><td style="text-align:left">No</td></tr>
+<tr><td>7</td><td style="text-align:left">Meta Platforms</td><td>3.27%</td><td style="text-align:left">No</td></tr>
+<tr><td>8</td><td style="text-align:left">Alphabet Inc (GOOGL)</td><td>3.07%</td><td style="text-align:left">No</td></tr>
+<tr><td>9</td><td style="text-align:left">Alphabet Inc (GOOG)</td><td>2.86%</td><td style="text-align:left">No</td></tr>
+<tr><td>10</td><td style="text-align:left">Tesla Inc</td><td>2.83%</td><td style="text-align:left">No</td></tr>
+<tr><td>—</td><td style="text-align:left">SpaceX 2.71% · Intel 2.65% · Broadcom 2.54% · Walmart 2.12% … (ranks 11–25)</td><td>—</td><td style="text-align:left">No</td></tr>
+<tr><td></td><td style="text-align:left"><b>Total top-10 / all 103</b></td><td><b>46.85% / 100%</b></td><td style="text-align:left"><b>0% directly duplicated</b></td></tr>
+</table></div>
+<p class="src">Source: stockanalysis.com holdings for NSE:MON100, updated 30-Sep-2026 (Finnhub), top-25 list. Portfolio P/E 28.49x and forward P/E 20.82x from the same page. Overlap % = sum of weights of stocks with HOLDING status in this repo = 0.00%.</p>
+</section>
+
+<section class="panel" id="tab5">
+<h2>5. Risk, Cost &amp; Liquidity</h2>
+<div class="viewbox"><div class="vh">Section 5 — The View (plain English)</div>
+<ul>
+<li class="imp">Cost is the one variable an investor controls — and here it is the <b>highest in this report set: BER 0.50% / TER 0.59–0.60%</b> versus 0.03–0.04% for NIFTYBEES and 0.42–0.49% for the metals. On ₹1 lakh, that is ₹590–600 a year — the price of cross-border replication.<span class="important">IMPORTANT</span></li>
+<li class="imp">The risk is three-layered: <b>US equity risk</b> (std dev 17.74%, beta 0.65), <b>currency risk</b> (USD/INR — a rising rupee cuts your return even when the Nasdaq rises), and <b>concentration</b> (top-10 46.85%, semiconductors ~26%, P/E 28.49x). The −15.2% pullback from the 08-Sep-2026 peak shows all three can bite at once.<span class="important">IMPORTANT</span></li>
+<li>Liquidity: ₹14,359 Cr AUM (30-Sep-2026), average daily volume ~9.02 lakh shares (Groww, 1-month) and 5.74 lakh on the report day, 15-year listing → normally tight spreads, but the live bid-ask was not pulled → <span class="warn">VERIFY</span> before a large order, and check the same-day iNAV for premium/discount.</li>
+</ul>
+</div>
+<div class="grid2">
+<div class="card">
+<h4>Cost comparison (same report set) <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span></h4>
+<table>
+<tr><th style="text-align:left">ETF</th><th>Expense</th><th>₹1 lakh/yr</th></tr>
+<tr><td style="text-align:left">NIFTYBEES</td><td class="good">0.03–0.04%</td><td class="good">₹30–40</td></tr>
+<tr><td style="text-align:left">ICICI GOLD ETF</td><td>0.42% BER / 0.49% TER</td><td>₹420–490</td></tr>
+<tr><td style="text-align:left">NIPPON SILVER ETF</td><td>0.49% BER</td><td>₹490</td></tr>
+<tr><td style="text-align:left"><b>MON100 (Nasdaq 100)</b></td><td class="bad">0.50% BER / 0.59–0.60% TER</td><td class="bad">₹590–600</td></tr>
+</table>
+<p class="note">Expense figures as published by each AMC / factsheet (Aug–Sep 2026); the ₹ column is a simple Calc (amount × rate). BER = Base Expense Ratio (SEBI Reg 66); TER = Total Expense Ratio including statutory costs. MON100 is the costliest of the four — international replication, custody and FX handling cost more than holding Indian shares or bars.</p>
+</div>
+<div class="card">
+<h4>Risk register <span class="tag t-view">View</span></h4>
+<table>
+<tr><th style="text-align:left">Risk</th><th style="text-align:left">Assessment</th></tr>
+<tr><td style="text-align:left">US market drawdown</td><td style="text-align:left">High — std dev 17.74%; a 30% Nasdaq fall will be matched, with no manager to hide behind</td></tr>
+<tr><td style="text-align:left">Currency (USD/INR)</td><td style="text-align:left">Unique to this holding — a rupee rally mechanically cuts rupee returns</td></tr>
+<tr><td style="text-align:left">Concentration</td><td style="text-align:left">High — top-10 46.85%, semis ~26%, P/E 28.49x (30-Sep-2026); index excludes financials</td></tr>
+<tr><td style="text-align:left">Tracking / cost</td><td style="text-align:left">Moderate — TE disputed (0.16–1.21 <span class="warn">VERIFY</span>), TD −0.69% (1Y), TER 0.60%</td></tr>
+<tr><td style="text-align:left">Liquidity / closure</td><td style="text-align:left">Low risk — ₹14,359 Cr AUM, ~9 lakh shares/day, 15-year listing <span class="warn">VERIFY</span> live spread</td></tr>
+<tr><td style="text-align:left">Premium/discount</td><td style="text-align:left">Real for cross-border ETFs — check same-day iNAV (15-sec delay) before every order</td></tr>
+</table>
+</div>
+</div>
+<p class="src">Sources: Motilal Oswal AMC scheme page (AUM, turnover, iNAV policy — 30-Sep-2026); mutualfundskaro / stockanalysis / nativeinvest (expense, Oct-2026); ET Money (std dev, Sharpe, TE); sharpely.in (tracking difference); Yahoo Finance closes for the 52-week range (27-Oct-2026). AMC factsheets of the other three ETFs for the cost table.</p>
+</section>
+
+<section class="panel" id="tab6">
+<h2>6. News &amp; Dated Events (ETF)</h2>
+<div class="viewbox"><div class="vh">Section 6 — The View (plain English)</div>
+<ul>
+<li class="imp">An index ETF has no earnings calls, order books or promoter actions — its "news" is the index review cycle, the fund-manager/expense disclosures and the price itself. For MON100 the meaningful dated items are the <b>fund-manager roster (2024–2025)</b> and the <b>September-2026 price peak</b>.<span class="important">IMPORTANT</span></li>
+<li>The Nasdaq-100 is reviewed <b>quarterly (March, June, September, December)</b> — the constituent list as on 30-Sep-2026 (103 holdings) is the one this fund now holds. Which names changed in the September review was not pulled → <span class="warn">VERIFY</span> at the next run.</li>
+<li>No ETF in this report set can be re-rated by company news — only price, cost or a structure change can move these scores.</li>
+</ul>
+</div>
+<div class="tblwrap"><table>
+<tr><th>Date</th><th style="text-align:left">Item</th><th style="text-align:left">Why it matters</th></tr>
+<tr><td>27-Oct-2026</td><td style="text-align:left"><b>ETF report baseline published</b> — score 7.1 ACCUMULATE, status CANDIDATE, no position</td><td style="text-align:left">First dated entry for this instrument; future runs append, never rewrite.</td></tr>
+<tr><td>26-Oct-2026</td><td style="text-align:left">NAV ₹272.2682 (AMFI via mfapi.in)</td><td style="text-align:left">Latest published NAV; compare against the same-day iNAV before ordering (cross-border premium risk).</td></tr>
+<tr><td>08-Sep-2026</td><td style="text-align:left">52-week high ₹344.70 (Yahoo daily close)</td><td style="text-align:left">The peak of the 2026 run; the −15.2% pullback to ₹292.16 is measured from here.</td></tr>
+<tr><td>30-Sep-2026</td><td style="text-align:left">Month-end portfolio &amp; disclosures: 103 holdings, top-10 46.85%, P/E 28.49x, AUM ₹14,359.05 Cr, turnover 0.15x</td><td style="text-align:left">The data basis for sections 1, 4 and 5 of this report.</td></tr>
+<tr><td>13-Oct-2025</td><td style="text-align:left">Swapnil Mayekar managing the scheme since 13-Oct-2025 (SID); Dishant Mehta co-manages passives since 15-Oct-2024 (Value Research notice, 17-Oct-2024)</td><td style="text-align:left">Current manager roster — passive mandate, immaterial to replication but tracked as dated change.</td></tr>
+<tr><td>31-Mar-2026</td><td style="text-align:left">AMC performance table: scheme 31.4% vs NASDAQ-100 TRI 32.4% (1Y), 22.3% vs 23.8% since inception</td><td style="text-align:left">The ~1pt annual lag behind the index — the evidence for the 6.5 tracking score.</td></tr>
+</table></div>
+<p class="src">Sources: Motilal Oswal AMC scheme page and SID (30-Sep-2026 / 31-Mar-2026); Value Research fund-manager change notices (17-Oct-2024); AMFI NAV (26-Oct-2026); Yahoo Finance closes (27-Oct-2026). No company-style filings exist for an ETF — absent items are not estimated.</p>
+</section>
+
+<section class="panel" id="tab7">
+<h2>7. Verdict &amp; Journal (as of Oct 2026)</h2>
+<div class="viewbox"><div class="vh">Section 7 — The View (plain English)</div>
+<ul>
+<li class="imp">Composite <b>7.1/10 → ACCUMULATE</b> (6–8 accumulate band): returns-vs-benchmark 8.5 (the fund does what it says), structure 8.0 and liquidity 8.0 carry it; <b>cost 5.5</b> (0.60% TER, the priciest here) and <b>tracking 6.5</b> (disputed TE, ~1pt annual lag) are the deductions; risk 5.5 (US market + FX + concentration) and portfolio fit 7.5 (new exposure, but a satellite only) complete it.<span class="important">IMPORTANT</span></li>
+<li class="imp">Action for a CANDIDATE: <b>start with tranche 1 at ₹278–290</b> (at/below the current close), add at ₹255–270, equal tranches across ≥3 months, never a lump sum after a +24.6% YTD — and check the same-day iNAV before every order. No position exists today — this is entry language, not holding-management language.<span class="important">IMPORTANT</span></li>
+<li class="imp">Journal routine: <b>Entry #01 (27-Oct-2026)</b> below is the baseline. Next review: the Nov 2026 monthly run (28-Oct → 02-Nov), entry #02 — first task is resolving the tracking-error source conflict.<span class="important">IMPORTANT</span></li>
+</ul>
+</div>
+
+<div class="card">
+<h4>ETF scorecard detail <span class="tag t-view">View</span></h4>
+<div class="tblwrap"><table>
+<tr><th>#</th><th>Section</th><th>Verdict</th><th>Score</th><th style="text-align:left">Evidence</th></tr>
+<tr><td>1</td><td>Structure &amp; Sponsor</td><td><span class="pill p-g">SOLID</span></td><td>8.0</td><td style="text-align:left">Inception 29-Mar-2011 (15.6 yrs), Motilal Oswal AMC, passive NASDAQ-100 TRI mandate, NSE+BSE, ISIN confirmed, nil loads — deducted for the ambiguous 1%-within-15-days exit-load line and unconfirmed creation-unit count (<span class="warn">VERIFY</span>)</td></tr>
+<tr><td>2</td><td>Cost</td><td><span class="pill p-r">COSTLIEST IN SET</span></td><td>5.5</td><td style="text-align:left">BER 0.50% / TER 0.59–0.60% (29-Sep-2026) vs 0.03–0.04% NIFTYBEES and 0.42–0.49% metals; ₹590–600 per ₹1 lakh per year</td></tr>
+<tr><td>3</td><td>Tracking Quality</td><td><span class="pill p-y">DISPUTED</span></td><td>6.5</td><td style="text-align:left">TD −0.69% (1Y) / −0.96% (3Y) / −0.93% (5Y); scheme ≈1pt behind index every period (AMC SID, 31-Mar-26); TE sources 0.16–0.37% vs ET Money 1.21 → −1.5 and <span class="warn">VERIFY</span></td></tr>
+<tr><td>4</td><td>Liquidity &amp; Spread</td><td><span class="pill p-g">DEEP</span></td><td>8.0</td><td style="text-align:left">₹14,359 Cr AUM (30-Sep-2026), ~9.02 lakh shares avg daily volume (1M, Groww), 15-year listing, ISIN-confirmed; live spread not pulled → −0.5 (<span class="warn">VERIFY</span>)</td></tr>
+<tr><td>5</td><td>Returns vs Benchmark</td><td><span class="pill p-g">ON INDEX</span></td><td>8.5</td><td style="text-align:left">Return = Nasdaq-100 TRI minus ~0.60% p.a.; 1Y 31.4% vs 32.4%, 3Y 26.8% vs 27.8%, 5Y 18.0% vs 18.9%, SI 22.3% vs 23.8% (AMC, 31-Mar-26); 1Y price +19.11%, YTD +24.57% is the index + FX</td></tr>
+<tr><td>6</td><td>Risk &amp; Volatility</td><td><span class="pill p-y">MARKET + FX RISK</span></td><td>5.5</td><td style="text-align:left">Std dev 17.74%, beta 0.65, Sharpe 1.42, −15.2% from the 52W high, top-10 46.85%, P/E 28.49x, plus USD/INR exposure the other three ETFs don't have</td></tr>
+<tr><td>7</td><td>Portfolio Fit</td><td><span class="pill p-g">NEW EXPOSURE</span></td><td>7.5</td><td style="text-align:left">0% overlap with equity HOLDINGS — genuine US-tech diversification in one line; but a satellite (planner caps size), high concentration and FX risk cap it at 7.5</td></tr>
+<tr><td></td><td><b>Composite</b></td><td><span class="pill p-g">ACCUMULATE</span></td><td><b>7.1</b></td><td style="text-align:left">49.5 ÷ 7 — good vehicle, rich price, disciplined entry required</td></tr>
+</table></div>
+</div>
+
+<div class="grid2">
+<div class="card">
+<h4>Bull case <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>Deepest Nasdaq access in India:</b> ₹14,359 Cr AUM, ~9 lakh shares a day, 15-year listing — the reference vehicle for US-tech exposure in rupees.</li>
+<li><b>It tracks what it promises:</b> within ~1pt of NASDAQ-100 TRI every period for 15 years; 103 holdings, 0.15x turnover, no manager discretion.</li>
+<li><b>Price position:</b> 15.2% below the 08-Sep-2026 peak and +24.6% YTD — a phased starter buys a pullback in a strong trend.</li>
+<li><b>One-line global diversification:</b> 0% overlap with your Indian book — US platforms, semis and cloud names you cannot buy directly on NSE.</li>
+<li><b>Risk-adjusted record:</b> Sharpe 1.42 (ET Money, Oct-2026) — the best Sharpe in this report set.</li>
+</ul>
+</div>
+<div class="card">
+<h4>Bear case / Risks <span class="tag t-view">View</span></h4>
+<ul>
+<li><b>The priciest vehicle here:</b> 0.60% TER — 15–20× NIFTYBEES; on ₹5 lakh that's ₹3,000 a year before you make anything.</li>
+<li><b>Tracking disclosure is unreliable:</b> free sources range 0.16% to 1.21 for the same measure — you cannot currently confirm how well it tracks (<span class="warn">VERIFY</span>).</li>
+<li><b>Currency can eat the return:</b> USD/INR moves are added to (or subtract from) the Nasdaq return in rupee terms — a strong-rupee year can turn a US gain into a flat rupee outcome.</li>
+<li><b>Concentration:</b> top-10 46.85%, semiconductors ~26%, P/E 28.49x (30-Sep-2026) — a Nasdaq drawdown will be violent and tech-specific.</li>
+<li><b>Premium risk:</b> cross-border ETFs can trade away from NAV; the same-day iNAV check is mandatory, not optional.</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<h4>Monitorables — Nov 2026 checklist <span class="tag t-view">View</span></h4>
+<table>
+<tr><th>#</th><th>Indicator</th><th>What to check</th><th style="text-align:left">Green light</th><th style="text-align:left">Red light</th></tr>
+<tr><td>1</td><td>Price vs band</td><td>CMP ₹292.16 (27-Oct) vs tranche 1 at ₹278–290</td><td style="text-align:left">Tranche 1 fills on a dip into the band</td><td style="text-align:left">Chasing above ₹330 with no tranche discipline</td></tr>
+<tr><td>2</td><td>Tracking error</td><td>Resolve 0.16% vs 1.21% source conflict</td><td style="text-align:left">One authoritative figure ≤0.50%</td><td style="text-align:left">Confirmed print above 1.00%</td></tr>
+<tr><td>3</td><td>Expense</td><td>vs TER 0.59–0.60% / BER 0.50%</td><td style="text-align:left">Unchanged</td><td style="text-align:left">Any increase above 0.70%</td></tr>
+<tr><td>4</td><td>AUM</td><td>vs ₹14,359 Cr (30-Sep-2026)</td><td style="text-align:left">Stable or growing</td><td style="text-align:left">Persistent shrinkage below ~₹8,000 Cr</td></tr>
+<tr><td>5</td><td>Premium/iNAV</td><td>Close vs same-day iNAV before each order</td><td style="text-align:left">Within ~1% of iNAV</td><td style="text-align:left">Persistent &gt;2% premium</td></tr>
+<tr><td>6</td><td>Concentration</td><td>Top-10 vs 46.85% (30-Sep-2026)</td><td style="text-align:left">Stable ~45–50%</td><td style="text-align:left">Semi/top-10 concentration spiking above 55%</td></tr>
+</table>
+</div>
+
+<div class="card" style="border-style:dashed">
+<h4>Journal Entry #01 — Baseline <span class="tag t-fact">Fact</span> <span class="tag t-calc">Calc</span> <span class="tag t-view">View</span></h4>
+<p class="note" style="margin-bottom:8px"><b>Metadata:</b> instrument type ETF (equity, US index) · assessed <b>27-Oct-2026</b> · price basis <b>₹292.16 (27-Oct-2026 close, +1.87% day)</b> · prior entry: none (baseline) · hub log: 27-Oct-2026 rows added (Monthly + CMP) · status <b>CANDIDATE</b> (no position).</p>
+<p style="font-size:13.6px"><b>Facts:</b> CMP ₹292.16 (27-Oct-2026, +1.87% day); 52W ₹344.70/₹217.69 (−15.2% from high, +34.2% above low); 1Y +19.11%, YTD +24.57%; AUM ₹14,359.05 Cr (30-Sep-2026), avg ₹13,832.40 Cr; BER 0.50%, TER 0.59–0.60% (29-Sep-2026); tracking difference −0.69% (1Y), −0.96% (3Y), −0.93% (5Y); tracking error 0.16–0.37% (most sources) vs 1.21 (ET Money) → VERIFY; NAV ₹272.2682 (26-Oct-2026); inception 29-Mar-2011; 103 holdings, top-10 46.85%, P/E 28.49x, turnover 0.15x (30-Sep-2026); std dev 17.74%, Sharpe 1.42, beta 0.65; NSE MON100 / BSE 533385 / ISIN INF247L01AP3.<br>
+<b>Calculations:</b> cost per ₹1 lakh = ₹590–600/yr; overlap with HOLDINGS = 0.00% (no US constituents); 52W distance = (292.16 − 344.70) ÷ 344.70 = −15.24%; above 52W low = (292.16 − 217.69) ÷ 217.69 = +34.21%; benchmark lag (1Y, 31-Mar-26) = 31.4 − 32.4 = −1.0 pt; composite (8.0 + 5.5 + 6.5 + 8.0 + 8.5 + 5.5 + 7.5) ÷ 7 = 7.07 → <b>7.1</b>.<br>
+<b>Scheme facts:</b> Motilal Oswal AMC scheme page (AUM, turnover, iNAV policy, fund managers, 30-Sep-2026); SID/KIM (May-2026) and performance table (31-Mar-2026); holdings via stockanalysis.com (30-Sep-2026); key indicators via ET Money / Groww / sharpely / etfdesk / nativeinvest / mutualfundskaro (Oct-2026); AMFI NAV 26-Oct-2026; prices via Yahoo Finance daily bars (27-Oct-2026).<br>
+<b>Interpretation:</b> the vehicle is sound — deep liquidity, honest ~1pt annual lag, 15 years of history — but it is the priciest of the four ETFs (0.60% TER), its tracking-error disclosure is contradictory, and it stacks US-market, currency and concentration risk on top of each other. The score therefore lands at 7.1: worth owning as a satellite for global tech exposure, but only in fixed tranches (₹278–290, then ₹255–270) with an iNAV check before each order, and never as a substitute for the core Nifty sleeve.<br>
+<b>Verdict:</b> <span class="pill p-g">ACCUMULATE</span> score <b>7.1/10</b> · stance: 0% position — start tranche 1 at ₹278–290, add ₹255–270, equal tranches over ≥3 months, same-day iNAV verified, FX risk accepted · next review: Nov 2026 monthly run (28-Oct → 02-Nov), entry #02.</p>
+</div>
+</section>
+
+<section class="panel" id="tabT">
+<h2>Transactions — MON100</h2>
+<div class="viewbox"><div class="vh">Transactions — The View (plain English)</div>
+<ul>
+<li class="imp">This ETF is a <b>CANDIDATE</b>: there are <b>no trades yet</b> in <code>Equity\Holding_stocks.xlsx</code> for MON100 — zero units, zero rupees invested. Nothing here is estimated or placeholder; the log is genuinely empty.<span class="important">IMPORTANT</span></li>
+<li>The moment a first buy is entered in Excel, this tab must be regenerated with <code>python Equity\code\write_html.py</code> (after adding the ticker to <code>holdings_calc.py</code>'s STOCK_MAP / HUB_ORDER / CMPS) so this tab, the hub Dashboard and the position card all agree — and at that point the portfolio status changes to HOLDING as a dated status change, never by editing old rows.</li>
+<li>Until then, the Entry Plan card in the Dashboard tab is the governing document: first tranche ₹278–290, add ₹255–270, equal tranches over ≥3 months, same-day iNAV checked, size left blank for you.</li>
+</ul>
+</div>
+<div class="kpis">
+<div class="kpi" data-explain="Units held = total ETF units still held, counted as buys minus sells across every trade in Holding_stocks.xlsx."><div class="l">Units held</div><div class="v">0</div><div class="n">0 trades logged</div></div>
+<div class="kpi" data-explain="Average cost = total money invested in this ETF divided by units held."><div class="l">Average cost</div><div class="v">—</div><div class="n">no position yet</div></div>
+<div class="kpi" data-explain="Invested = every rupee put into this ETF, shown with its share of the total invested across all holdings."><div class="l">Invested</div><div class="v">₹0</div><div class="n">0.0% of total invested</div></div>
+<div class="kpi" data-explain="Current value = units held times the 27-Oct-2026 close (₹292.16). P/L is that value minus the money invested."><div class="l">Current value</div><div class="v">₹0</div><div class="n">P/L ₹0 (0%)</div></div>
+</div>
+<div class="card">
+<h4>Trade log status <span class="tag t-fact">Fact</span></h4>
+<!--HOLD_TXN_START-->
+<p class="note"><b>No trades yet.</b> 0 buy transactions · 0 sell transactions · units held 0 · invested ₹0. MON100 is tracked as a CANDIDATE (baseline analysis complete, waiting for the entry tranche) — no position exists today.</p>
+<!--HOLD_TXN_END-->
+</div>
+<p class="src">Source: Equity\Holding_stocks.xlsx (sheet Sheet1, table Shadow_Buy_sell) · recomputed by Equity\code\holdings_calc.py → code\data\holdings.json · CMP dated 27-Oct-2026 close (₹292.16). Personal position data; not investment advice.</p>
+</section>
+
+<section class="panel" id="tabG">
+<h2>Glossary — jargons, metrics &amp; acronyms (click any blue dotted term anywhere)</h2>
+<div class="viewbox"><div class="vh">How to use the glossary</div>
+<ul>
+<li>Every metric/jargon term in this report is linked — <b>click the blue dotted word</b> to see its plain-English meaning in a pop-up.</li>
+<li class="imp">New to ETFs? Start with: ETF, NAV, Expense Ratio, Tracking Error, Tracking Difference, AUM, Benchmark, iNAV, Currency Risk.<span class="important">IMPORTANT</span></li>
+<li>Shared glossary (<code>glossary.js</code>) — same definitions as the Stock Hub and every other page; add a term once and it appears everywhere.</li>
+</ul>
+</div>
+<div class="card">
+<h4>All terms — definition, plain meaning, why it matters</h4>
+<div id="glossaryBody"><p class="note">Loading glossary… (requires JavaScript enabled)</p></div>
+</div>
+</section>
+
+<footer>
+  Motilal Oswal Nasdaq 100 ETF — independent ETF research journal entry. Data: Motilal Oswal AMC scheme page &amp; SID/KIM (2026), performance table (31-Mar-2026), AMFI NAV (26-Oct-2026), stockanalysis.com holdings (30-Sep-2026), ET Money/Groww/sharpely key indicators (Oct-2026) and Yahoo Finance closes (27-Oct-2026). Figures flagged VERIFY are unavailable or conflicting in the free sources. Not investment advice.
+</footer>
+
+</div>
+<script src="../../Equity/code/table_chart.js"></script>
+<script src="../shared/glossary.js"></script>
+<script>
+(function(){
+function show(id){
+ document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===id)});
+ document.querySelectorAll('.tabbtn').forEach(function(b){b.classList.toggle('on',b.dataset.t===id)});
+ window.scrollTo(0,0);
+}
+document.querySelectorAll('.tabbtn').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);try{history.replaceState(null,'','#'+b.dataset.t)}catch(e){}})});
+if(location.hash){try{var h=document.querySelector(location.hash+'.panel');if(h)show(location.hash.slice(1))}catch(e){}}
+document.getElementById('stockSel').addEventListener('change',function(){if(this.value){location.href=this.value}});
+})();
+</script>
+</body>
+</html>
