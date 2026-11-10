@@ -166,6 +166,7 @@ footer{margin-left:230px;padding:26px 38px 60px;border-top:1px solid var(--line)
     <li><a href="#s12"><span class="n">12</span>Maturity Roadmap</a></li>
     <li><a href="#s13"><span class="n">13</span>Checklists</a></li>
     <li><a href="#s14"><span class="n">14</span>Control Architecture</a></li>
+    <li><a href="#manifest"><span class="n">M</span>Source manifest</a></li>
   </ol>
   <div class="legend">
     <b>Evidence labels</b><br>
@@ -179,42 +180,61 @@ footer{margin-left:230px;padding:26px 38px 60px;border-top:1px solid var(--line)
 <main>
 
 <h1>Invest IQ - Agent Architecture Handbook</h1>
-<p class="small"><b>Unpublished developer handbook</b> &middot; Second issue (reorganized into tabs) &middot; Generated <b>20-Oct-2026</b> (first issue the same day) &middot;
-Source of record: live repository inspection at <code>H:\Repositories\InvestIQ</code> on 20-Oct-2026.</p>
+<p class="small"><b>Unpublished developer handbook</b> &middot; Third issue &middot; Generated <b>10-Nov-2026</b> (second issue 20-Oct-2026; first issue the same day as the second) &middot;
+Source of record: live repository inspection at <code>H:\Repositories\InvestIQ</code> on 10-Nov-2026.</p>
 
 <div class="note">
-<h4>Header notice - second issue (reorganized), 20-Oct-2026</h4>
-<p>This is the <b>second issue</b> of the Agent Architecture Handbook, produced 20-Oct-2026 by
+<h4>Header notice - third issue, 10-Nov-2026</h4>
+<p>This is the <b>third issue</b> of the Agent Architecture Handbook, produced 10-Nov-2026 by
 <code>architecture-explorer</code> under a rule-10 Task hand-off from <code>agent-builder-governance</code>,
-after a successful, validated agent-system update (the tab-format mandate: the agent file was re-read with
-frontmatter <code>description</code> + <code>mode</code> only, six <code>## Layer 2 guardrails</code> headings
-in order, UTF-8 without BOM - compliance-checked 20-Oct-2026).</p>
-<p><b>What changed versus the first issue</b> (first issue generated earlier the same day, 20-Oct-2026):
-per the user's order of 20-Oct-2026 ("relook this file and organize the content - keeping the common
-content as it is; the respective contents can be made as tabs for better understanding"), the respective
-content is now grouped as tabs - section 4 (one tab per agent, default <code>invest-iq</code>), section 6
-(one tab per workflow), section 7 (tabs by data domain), section 8 (equity / mutual funds) and section 14
-(layer map / per-agent kits / precedence and change control). The common cross-cutting content (sections 1,
-2, 3, 5, 9, 10, 12, 13, plus this notice, the evidence-label legend and the source manifest) is preserved as
-ordinary page sections; only the folder layout's <code>others\</code> lines changed, because this run deleted
-the legacy guide. Every tab panel stays readable in sequence with JavaScript off; with JavaScript, a
-keyboard-accessible tab switcher (real buttons, visible focus, <code>aria-selected</code>) is used.</p>
-<p><b>Legacy guide:</b> per the user's order of 20-Oct-2026 ("delete all old architect guide files - this
-will be the only one"), <code>Developer_file\others\InvestIQ_Architecture_Guide.html</code> was deleted
-entirely on this run - a 3,310-byte deprecation stub at deletion time (the first-issue run had reduced the
-06-Oct-2026 full guide to that stub). It is never recreated in any form, so this handbook is now the only
-architecture document. This document is <b>not</b> published site content and is never mirrored into
-<code>APP\</code> by this run.</p>
+after a successful, validated agent-system update (report-naming convention: 11 lines across 4
+agent/skill files - <code>.opencode\skills\equity-analysis\SKILL.md</code>,
+<code>.opencode\skills\mutual-fund-analysis\SKILL.md</code>,
+<code>.opencode\skills\portfolio-planner\SKILL.md</code>,
+<code>.opencode\agent\mutual-fund-analyst.md</code> - grep-verified zero remaining
+<code>_Research_Report_MmmYYYY</code> / <code>_MF_Report_MmmYYYY</code>), with the user's explicit
+handbook-refresh approval recorded in the same hand-off ("update the handbook", 10-Nov-2026).</p>
+<p><b>What changed in this third issue</b> (source facts re-inspected 10-Nov-2026):</p>
+<ul>
+<li><b>(i) Report file names no longer carry a month.</b> All 28 report files lost the appended month
+(user order relayed in the hand-off: "the appended month is not required as it is confusing"): 15 equity
+pages are now <code>&lt;TICKER&gt;_Research_Report.html</code> (e.g. <code>Reliance_Research_Report.html</code>)
+and 13 MF pages are now <code>&lt;FUND&gt;_MF_Report.html</code> (e.g. <code>ABSLBOND_MF_Report.html</code>).
+<b>"Dated" is no longer a property of any file name</b> - dates live in page content and in append-only
+journal rows. <span class="tag g">Verified</span> (Developer_file\ and APP\ listings plus git log -
+rename commits <code>d8baf0a</code> and <code>0872c5a</code> "File rename", 10-Nov-2026 - no month-suffixed
+file remains anywhere under <code>Developer_file\</code> or <code>APP\</code>, checked 10-Nov-2026).</li>
+<li><b>(ii) The equity hub was restructured into category pages.</b> <code>Equity_Forge.html</code> is now a
+3-card category landing page; research content lives in three category sub-hubs
+(<code>Equity_Forge_Holding.html</code>, <code>Equity_Forge_Candidate.html</code>,
+<code>Equity_Forge_ETF.html</code>). <span class="tag g">Verified</span> (page contents 10-Nov-2026;
+<code>Equity\code\write_html.py</code> comment dates the landing-page change 07-Nov-2026; committed in
+<code>5fa1737</code> "Nov-2026 run + Equity hub restructure", 09-Nov-2026). Details in section 3.</li>
+<li><b>(iii) Counts and paths corrected</b> in section 3 (equity 20 files / 15 reports, sub-hubs added,
+<code>APP\ equity\ (20)</code>, the removed <code>Equity\Reports\</code> line dropped) and glossary byte
+sizes refreshed in section 7 (28,903 / 17,270 bytes, 10-Nov-2026).</li>
+</ul>
+<p><b>Legacy guide:</b> <code>Developer_file\others\InvestIQ_Architecture_Guide.html</code> stays
+<b>absent</b> - deleted 20-Oct-2026 by user order, re-checked absent 10-Nov-2026
+<span class="tag g">Verified</span>, never recreated in any form. This handbook is the only architecture
+document. One honest note: the approval-gated whole-tree publish mirrors everything under
+<code>Developer_file\</code>, so <code>APP\others\</code> currently holds a mirrored copy of the
+second-issue handbook from the 09-Nov-2026 publish <span class="tag g">Verified</span> (listing
+10-Nov-2026) - generated output, report-only, never touched by this run; the next approved publish will
+mirror this third issue instead <span class="tag b">Derived</span> (clear-then-mirror behaviour of
+<code>Equity\code\publish_active.ps1</code>, re-read 10-Nov-2026). This document is <b>not</b> published
+site content and is never mirrored into <code>APP\</code> by this run.</p>
 </div>
 
 <div class="note warn">
 <h4>Evidence-label legend</h4>
 <p>Every factual claim in this handbook carries one of four labels:
-<span class="tag g">Verified</span> = directly inspected this run (20-Oct-2026), with path;
+<span class="tag g">Verified</span> = directly inspected this run (10-Nov-2026), with path;
 <span class="tag b">Derived</span> = transparent conclusion from cited inspected files;
 <span class="tag y">VERIFY</span> = content fact needing user confirmation;
 <span class="tag v">Unverified</span> = runtime/tool/capability or unsupported claim.
-Supply-dates quoted inside agent/skill files (e.g. "06-Oct-2026") are recorded as the files state them.</p>
+Claims last inspected on 20-Oct-2026 keep that historical date unless re-verified on 10-Nov-2026;
+supply-dates quoted inside agent/skill files (e.g. "06-Oct-2026") are recorded as the files state them.</p>
 </div>
 
 <!-- ================================================================ -->
@@ -226,12 +246,12 @@ Supply-dates quoted inside agent/skill files (e.g. "06-Oct-2026") are recorded a
 <b>combines</b> returned results and <b>reports</b> one consolidated answer. It
 <b>never analyzes on its own</b> - it does not do equity research, MF research, planning, git or
 agent-file work by default <span class="tag g">Verified</span>
-(<code>.opencode\agent\invest-iq.md</code>, read 20-Oct-2026).</p>
+(<code>.opencode\agent\invest-iq.md</code>, re-read 10-Nov-2026).</p>
 <p>The ecosystem is a repository-local set of flat agent files under <code>.opencode\agent\</code>,
 three owned skills under <code>.opencode\skills\</code>, and a Layer 0 runtime rulebook at
 <code>governance\rules.md</code>. Content HTML lives under <code>Developer_file\</code> and reaches
 readers only through the approval-gated mirror into <code>APP\</code>
-<span class="tag g">Verified</span> (folder listings 20-Oct-2026).</p>
+<span class="tag g">Verified</span> (folder listings 10-Nov-2026).</p>
 </div>
 
 <h3>Agent families <span class="tag b">Derived</span> from the seven inspected agent files</h3>
@@ -269,8 +289,9 @@ the legend also sits in the left navigation.</p>
 <h2 id="s2">2. Organization</h2>
 
 <p>The live agent set is exactly seven files in <code>.opencode\agent\</code>
-<span class="tag g">Verified</span> (directory listing 20-Oct-2026). All seven use
-<code>mode: all</code> <span class="tag b">Derived</span> from the inspected frontmatter of each file.</p>
+<span class="tag g">Verified</span> (directory listing 10-Nov-2026). All seven use
+<code>mode: all</code> <span class="tag b">Derived</span> from the frontmatter re-read of each file on
+10-Nov-2026.</p>
 
 <div class="org" aria-label="Agent organization chart">
   <div class="node root">invest-iq<span class="role">parent / sole orchestrator (Layer 1)</span></div>
@@ -314,16 +335,16 @@ the legend also sits in the left navigation.</p>
 
 <div class="note">
 <p><b>Removals recorded by the files themselves:</b> <code>nexus-architect</code> was removed earlier
-(commit <code>9530a64</code>) and must not be recreated; the equity agent was renamed from
-<code>investment-research</code> on 04-Oct-2026 <span class="tag g">Verified</span>
-(<code>.opencode\agent\agent-builder-governance.md</code> Domain quick-reference; <code>equity-analyst.md</code>
-description, read 20-Oct-2026).</p>
+(commit <code>9530a64</code>, visible in git log 10-Nov-2026) and must not be recreated; the equity agent
+was renamed from <code>investment-research</code> on 04-Oct-2026 <span class="tag g">Verified</span>
+(<code>.opencode\agent\agent-builder-governance.md</code> Domain quick-reference and
+<code>equity-analyst.md</code> description, both re-read 10-Nov-2026).</p>
 </div>
 
 <!-- ================================================================ -->
 <h2 id="s3">3. Folder Layout</h2>
 
-<p>Only folders and files verified to exist on 20-Oct-2026 are listed
+<p>Only folders and files verified to exist on 10-Nov-2026 are listed
 <span class="tag g">Verified</span> (repo-root, <code>Developer_file\</code>,
 <code>APP\</code>, <code>Equity\</code>, <code>MutualFunds\</code>, <code>GitHub\</code>,
 <code>Orchestration\</code> and <code>Docs\</code> listings this run):</p>
@@ -337,34 +358,81 @@ description, read 20-Oct-2026).</p>
 │       equity-analysis\  mutual-fund-analysis\  portfolio-planner\
 ├── governance\
 │   └── rules.md               Layer 0 runtime rulebook (14 global rules + Tier A facts)
-├── opencode.json              default_agent: invest-iq (read-only evidence this run)
+├── opencode.json              default_agent: invest-iq (+ OneDrive APP publish allow-list)
+├── .gitignore
 ├── Developer_file\            SOURCE of every HTML page (only place pages are edited)
-│   ├── InvestIQ.html          main landing page
-│   ├── equity\                13 files: Equity_Forge.html (hub), Portfolio_Plan.html,
-│   │                          11 dated *_Research_Report.html pages
-│   ├── mutual_fund\           14 files: MF_Forge.html (hub) + 13 dated *_MF_Report.html
+│   ├── InvestIQ.html          main landing page (two buttons -> equity + MF hubs)
+│   ├── equity\                20 files: Equity_Forge.html (3-card category landing) +
+│   │                          Equity_Forge_Holding.html, Equity_Forge_Candidate.html,
+│   │                          Equity_Forge_ETF.html (category sub-hubs) +
+│   │                          Portfolio_Plan.html + 15 *_Research_Report.html pages
+│   │                          (report file names carry NO month - see note below)
+│   ├── mutual_fund\           14 files: MF_Forge.html (hub) + 13 *_MF_Report.html
 │   ├── others\                InvestIQ_Agent_Architecture_Handbook.html (this document)
 │   │                          [legacy InvestIQ_Architecture_Guide.html DELETED 20-Oct-2026
-│   │                           - not present; the handbook is the only architecture file]
-│   └── shared\                glossary.js (single shared glossary copy)
+│   │                           - still absent on 10-Nov-2026; never recreated]
+│   └── shared\                glossary.js (single shared glossary copy, 28,903 bytes)
 ├── APP\                       PUBLISHED mirror of Developer_file\ (generated; hand-edit forbidden)
-│   ├── InvestIQ.html  equity\ (10)  mutual_fund\ (14)  others\  shared\
+│   └── InvestIQ.html  equity\ (20)  mutual_fund\ (14)  others\  shared\
 ├── Equity\                    equity data home
-│   ├── Holding_stocks.xlsx    holdings/transactions workbook (user-edited)
-│   ├── code\                  canonical scripts: publish_active.ps1, qa_check.py,
-│   │                          holdings_calc.py, write_html.py, data\ (JSON), JS libs
-│   ├── Reports\               (present, empty this run)
-│   └── *.xlsx                 research workbooks / backups
+│   ├── Holding_stocks.xlsx    holdings/transactions workbook (user-edited, 10,721 bytes)
+│   └── code\                  canonical scripts: publish_active.ps1, qa_check.py,
+│                              holdings_calc.py, write_html.py, data\ (JSON), JS libs
+│                              (33 files this run; no Reports\, no archive\, no other
+│                              workbooks - all verified absent 10-Nov-2026)
 ├── MutualFunds\               MF data home
 │   ├── MF_Holdings.xlsx       MF holdings workbook (on-disk name; see note in section 7)
 │   ├── README.md
-│   ├── code\                  mf_holdings_calc.py, mf_write_html.py, mf_report_build.py,
-│   │                          qa_mf_check.py, glossary_mf.js
-│   └── data\                  dossier_*.json, mf_holdings.json, pull artefacts
+│   ├── code\                  5 files: mf_holdings_calc.py, mf_write_html.py,
+│   │                          mf_report_build.py, qa_mf_check.py, glossary_mf.js
+│   └── data\                  large working set (437 files): dossier_*.json (13),
+│                              mf_holdings.json, pull artefacts
 ├── GitHub\                    README.md (reserved placeholder, owned by github-agent)
 ├── Orchestration\             publish.ps1 + qa.ps1 (thin wrappers) + README.md
-└── Docs\                      EMPTY as of 20-Oct-2026 (count 0; emptied 06-Oct-2026
-                               by user decision - recreation needs explicit approval)</code></pre>
+└── Docs\                      EMPTY (0 files, re-verified 10-Nov-2026; emptied
+                               06-Oct-2026 by user decision - recreation needs approval)</code></pre>
+
+<h3>Category-hub restructure (new in this issue) <span class="tag g">Verified</span> (page contents 10-Nov-2026)</h3>
+<div class="grid">
+<div class="card">
+<h4><code>Equity_Forge.html</code> - 3-card landing only</h4>
+<p>Three category cards (HOLDING / CANDIDATE / ETF) with a GO-TO dropdown linking the three
+sub-hubs; no stock cards, no report options, no journal here. The page records the current run
+("Monthly run <b>05-Nov-2026</b> complete: <b>15</b> tracked names across 3 categories -
+7 HOLDING, 8 CANDIDATE of which ETF 4"). <code>Equity\code\write_html.py</code> comments that
+"<code>Equity_Forge.html</code> became the 3-card category landing page on 07-Nov-2026"
+<span class="tag g">Verified</span> (script re-read 10-Nov-2026); committed in
+<code>5fa1737</code>, 09-Nov-2026.</p>
+</div>
+<div class="card">
+<h4>Three category sub-hubs</h4>
+<p><code>Equity_Forge_Holding.html</code> - 7 stocks (RELIANCE, RACE, HDFCBANK, ITC, CAPLIPOINT,
+GANECOS, TMPV); <code>Equity_Forge_Candidate.html</code> - 4 (OLECTRA, KAYNES, BEL, JIO);
+<code>Equity_Forge_ETF.html</code> - 4 (NIFTYBEES, GOLDIETF, SILVERBEES, MON100; cap field
+<code>E</code>). Each sub-hub carries stock cards, a GO-TO <code>#stockSel</code> dropdown of its
+category, rankings, key news, an append-only Journal and the Glossary tab
+<span class="tag g">Verified</span> (option/card/tab counts this run: Holding 7 options + 7 cards
++ 7 tabs; Candidate and ETF 4 + 4 + 5 each).</p>
+</div>
+<div class="card">
+<h4>Generated blocks and scripts</h4>
+<p>The <b>Dashboard</b> and <b>Transactions</b> generated tabs exist only in
+<code>Equity_Forge_Holding.html</code> (marker blocks, e.g. <code>HOLD_DASH_START</code>)
+- <code>Equity\code\write_html.py</code> targets it as <code>HUB</code> and rewrites the holding
+hub's dashboard + transactions plus every report's <code>tabT</code>/position card in one pass
+<span class="tag g">Verified</span> (script greps 10-Nov-2026). Report pages keep their own
+<code>#stockSel</code> dropdowns; <code>MF_Forge.html</code> remains the single MF hub
+(#fundSel, 13 fund cards, 13 ranking rows, 13 news groups) <span class="tag g">Verified</span>
+(counts this run).</p>
+</div>
+</div>
+<div class="note warn">
+<p><b>Root-level working artefacts observed this run</b> <span class="tag g">Verified</span>
+(listing 10-Nov-2026): <code>.idea\</code> (4 IDE files), <code>reliance_screener.html</code> and
+<code>test_css.css</code> at the repo root (both last written 06-Nov-2026). They are not part of the
+site structure; Layer 0 rule 10 puts agent HTML only under <code>Developer_file\</code>. Reported as
+observed state only - this run takes no action and edits nothing outside the handbook.</p>
+</div>
 
 <p><b>Principle line:</b> <b>agents = brains</b> (what each specialist is and may do),
 <b>skills = playbooks</b> (how-to conventions for exactly one owning agent),
@@ -375,8 +443,16 @@ description, read 20-Oct-2026).</p>
 
 <!-- ================================================================ -->
 <h2 id="s4">4. Agent Cards</h2>
-<p>One card per agent file in <code>.opencode\agent\</code>. Content strictly from each
-agent's own file, read 20-Oct-2026 <span class="tag g">Verified</span>.</p>
+<p>One card per agent file in <code>.opencode\agent\</code>. Content strictly from each agent's own file
+<span class="tag g">Verified</span>. Re-check basis for this issue (10-Nov-2026): <code>invest-iq</code>,
+<code>equity-analyst</code>, <code>portfolio-planner</code>, <code>github-agent</code> and
+<code>agent-builder-governance</code> re-read in full; <code>mutual-fund-analyst</code> and
+<code>architecture-explorer</code> re-checked by frontmatter/guardrail scan, targeted greps of the quoted
+lines, and <code>git diff</code> (the only <code>.opencode</code> change since the 21-Oct-2026 commits is
+the 11-line report-naming update <span class="tag b">Derived</span> from <code>git diff d550a43..HEAD</code>,
+read-only, 10-Nov-2026). All seven files: frontmatter <code>description</code> + <code>mode</code> only,
+<code>mode: all</code>, six <code>## Layer 2 guardrails</code> &rarr; <code>###</code> headings once each
+in order <span class="tag g">Verified</span> (scan 10-Nov-2026).</p>
 <p class="jsnote">Seven tabs, default <code>invest-iq</code>; with JavaScript off all seven cards read in sequence below.</p>
 
 <div class="tabs" data-tabs>
@@ -405,10 +481,10 @@ agent's own file, read 20-Oct-2026 <span class="tag g">Verified</span>.</p>
 <h3>equity-analyst <span class="tag b">work</span></h3>
 <table class="kv">
 <tr><td>Purpose / Trigger</td><td>Equity research site owner. Triggered by stock research, quarterly results, valuation, technicals, risk, report building, hub/glossary/dropdown work, the monthly journal run, ad-hoc CMP/P&amp;L/holdings refresh (price-only, any time), Screener pulls, verdict scoring, publishing equity pages.</td></tr>
-<tr><td>Reads</td><td><code>Developer_file\</code>, <code>Equity\code\</code>, <code>Equity\Reports\</code>, <code>Equity\Holding_stocks.xlsx</code>, Screener consolidated pages, own skill.</td></tr>
-<tr><td>Writes</td><td><code>Developer_file\InvestIQ.html</code>, <code>Developer_file\equity\*</code> (hub, reports, other equity pages), <code>Developer_file\shared\glossary.js</code> (single designated writer), scripts/data under <code>Equity\code\</code>.</td></tr>
+<tr><td>Reads</td><td><code>Developer_file\</code>, <code>Equity\code\</code>, <code>Equity\Holding_stocks.xlsx</code>, Screener consolidated pages, own skill. (The agent file also names <code>Equity\Reports\</code>, but that folder no longer exists - verified absent 10-Nov-2026; stale reference reported to governance, not edited here.)</td></tr>
+<tr><td>Writes</td><td><code>Developer_file\InvestIQ.html</code>, <code>Developer_file\equity\*</code> (the 3-card landing, the three category sub-hubs, reports, other equity pages), <code>Developer_file\shared\glossary.js</code> (single designated writer), scripts/data under <code>Equity\code\</code>.</td></tr>
 <tr><td>Never</td><td><code>Portfolio_Plan.html</code> (planner's), <code>Developer_file\others\*</code>, <code>Developer_file\mutual_fund\*</code>, <code>APP\</code> hand-edits, <code>MutualFunds\</code>, <code>GitHub\</code>, <code>.opencode\</code>, <code>Docs\</code>, <code>governance\</code>, <code>.git\</code>.</td></tr>
-<tr><td>Key duties</td><td>10-section reports, 7 scored sections, composite /10, dated append-only journal, HOLDING/CANDIDATE status model, monthly cycle (28th&rarr;2nd), Task C price-only refresh, QA before done, approval-gated publish via <code>publish_active.ps1</code>.</td></tr>
+<tr><td>Key duties</td><td>10-section reports, 7 scored sections, composite /10, dated append-only journal, HOLDING/CANDIDATE status model, monthly cycle (28th&rarr;2nd), Task C price-only refresh, QA before done, approval-gated publish via <code>publish_active.ps1</code>; registers new stocks in the correct category sub-hub plus every GO-TO dropdown (coded options).</td></tr>
 </table>
 </div>
 
@@ -428,7 +504,7 @@ agent's own file, read 20-Oct-2026 <span class="tag g">Verified</span>.</p>
 <table class="kv">
 <tr><td>Purpose / Trigger</td><td>MF research site owner. Any mutual-fund task: fund reports, NAV/performance/benchmark analysis, peer and index comparison, 6-month momentum, Value Research pulls, MF hub/cards/badges, MF holdings/SIP transactions, monthly MF run, ad-hoc NAV refresh, MF verdict scoring, publishing MF pages.</td></tr>
 <tr><td>Reads</td><td><code>Developer_file\mutual_fund\*</code>, <code>MutualFunds\*</code>, Value Research Online fund pages, <code>Developer_file\</code> (main page / shared assets), own skill, any file needed as evidence.</td></tr>
-<tr><td>Writes</td><td><code>Developer_file\mutual_fund\*</code> (hub + reports), <code>MutualFunds\*</code> (workbook, <code>code\</code>, <code>data\</code>, <code>glossary_mf.js</code>; new subfolders approval-gated), own skill.</td></tr>
+<tr><td>Writes</td><td><code>Developer_file\mutual_fund\*</code> (hub + <code>&lt;FUND&gt;_MF_Report.html</code> reports - month-less file names since the 09/10-Nov-2026 rename), <code>MutualFunds\*</code> (workbook, <code>code\</code>, <code>data\</code>, <code>glossary_mf.js</code>; new subfolders approval-gated), own skill.</td></tr>
 <tr><td>Never</td><td><code>Developer_file\equity\*</code>, <code>Developer_file\others\*</code>, <code>Developer_file\shared\glossary.js</code>, <code>APP\</code> hand-edits, <code>Equity\</code> content, <code>GitHub\</code>, <code>.opencode\</code>, agent/skill edits (routes to governance), git.</td></tr>
 <tr><td>Key duties</td><td>14-tab shell, 9 scored sections, composite /10, three-verdict framework (Fund Quality / SIP Outcome / Investor Action; supplied 09-Oct-2026), mandatory peer rules (tabP) and 6M momentum (tabR), monthly Task B with peer RE-PICK, Task C price-only NAV refresh, append-only journal, QA, approval-gated publish.</td></tr>
 </table>
@@ -448,15 +524,16 @@ agent's own file, read 20-Oct-2026 <span class="tag g">Verified</span>.</p>
 <div class="panel" role="tabpanel" id="s4-architecture-explorer" aria-labelledby="btn-s4-architecture-explorer" tabindex="0">
 <h3>architecture-explorer <span class="tag b">meta</span></h3>
 <table class="kv">
-<tr><td>Purpose / Trigger</td><td>Documents the real architecture in this handbook (tabbed, second issue 20-Oct-2026) and deletes the legacy architecture guide entirely - the handbook is the only architecture document. Only triggers: a rule-10 Task hand-off from <code>agent-builder-governance</code> after a successful, validated agent-system update, or that agent's explicit regeneration/validation request. Never self-invoked; never routed by a user request.</td></tr>
+<tr><td>Purpose / Trigger</td><td>Documents the real architecture in this handbook (tabbed; third issue 10-Nov-2026) and holds the legacy-guide deletion duty (already performed 20-Oct-2026) - the handbook is the only architecture document. Only triggers: a rule-10 Task hand-off from <code>agent-builder-governance</code> after a successful, validated agent-system update with the user's approval, or that agent's explicit regeneration/validation request. Never self-invoked; never routed by a user request.</td></tr>
 <tr><td>Reads</td><td>The whole repository as evidence, read-only.</td></tr>
 <tr><td>Writes</td><td>Creates/replaces exactly one file: <code>Developer_file\others\InvestIQ_Agent_Architecture_Handbook.html</code>. Delete-only on the legacy path <code>Developer_file\others\InvestIQ_Architecture_Guide.html</code> (deleted 20-Oct-2026; never recreated in any form).</td></tr>
 <tr><td>Never</td><td>Agent/skill/config/documentation files, <code>APP\</code>, git mutations, any write outside the handbook (the legacy path is delete-only, never recreated), invoking other agents, triggering further Tasks or recursive refreshes.</td></tr>
 <tr><td>Key duties</td><td>Independent evidence labelling (Verified / Derived / VERIFY / Unverified), handbook generation/validation per the mandated tabbed format, one-time legacy-guide deletion, item-by-item self-validation, honest Task result.</td></tr>
 </table>
 <p class="small"><span class="tag g">Verified</span> (<code>.opencode\agent\architecture-explorer.md</code>,
-re-read 20-Oct-2026 in this second-issue run - frontmatter <code>description</code> + <code>mode</code> only,
-six <code>## Layer 2 guardrails</code> headings in order, UTF-8 without BOM).</p>
+re-checked 10-Nov-2026 in this third-issue run - frontmatter <code>description</code> + <code>mode</code>
+only, six <code>### Layer 2 guardrails</code> headings in order, format specification and tab
+organization present; this run is itself the demonstrated Task invocation).</p>
 </div>
 
 <div class="panel" role="tabpanel" id="s4-github-agent" aria-labelledby="btn-s4-github-agent" tabindex="0">
@@ -476,7 +553,7 @@ six <code>## Layer 2 guardrails</code> headings in order, UTF-8 without BOM).</p
 <h2 id="s5">5. Routing Table</h2>
 
 <p>Derived from <code>invest-iq</code>'s own routing table
-<span class="tag b">Derived</span> (<code>.opencode\agent\invest-iq.md</code>, read 20-Oct-2026;
+<span class="tag b">Derived</span> (<code>.opencode\agent\invest-iq.md</code>, re-read 10-Nov-2026;
 availability dates quoted as the file records them).</p>
 
 <table>
@@ -502,8 +579,9 @@ before routing; it never guesses and never silently splits work across owners
 <p>Architecture-handbook work (row 6) is <b>not routed by <code>invest-iq</code></b>. Only
 <code>agent-builder-governance</code> may invoke <code>architecture-explorer</code>, only via the
 runtime Task facility, only after a successful validated agent-system update <b>and</b> the user's
-explicit approval (governance rule 10; user approval recorded 20-Oct-2026)
-<span class="tag g">Verified</span> (both agent files, read 20-Oct-2026).</p>
+explicit approval (governance rule 10; approvals recorded 20-Oct-2026 and 10-Nov-2026)
+<span class="tag g">Verified</span> (both agent files re-read 10-Nov-2026; this run is the resulting
+Task hand-off).</p>
 </div>
 
 <!-- ================================================================ -->
@@ -529,11 +607,14 @@ explicit approval (governance rule 10; user approval recorded 20-Oct-2026)
   <span class="step">Append dated row(s) (monthly + CMP Updates)</span><span class="arr">&rarr;</span>
   <span class="step">Apply status changes (H&harr;C)</span><span class="arr">&rarr;</span>
   <span class="step">Update holdings numbers</span><span class="arr">&rarr;</span>
-  <span class="step">Update hub cards/badges</span><span class="arr">&rarr;</span>
+  <span class="step">Update category-hub cards/badges</span><span class="arr">&rarr;</span>
   <span class="step">QA</span><span class="arr">&rarr;</span>
   <span class="step">Ask publish &rarr; mirror</span>
 </div>
-<p class="small"><span class="tag g">Verified</span> (<code>equity-analysis\SKILL.md</code> Task B; archive step removed 04-Oct-2026, never recreated). Append-only journal; never edit old rows.</p>
+<p class="small"><span class="tag g">Verified</span> (<code>equity-analysis\SKILL.md</code> Task B steps
+re-grepped 10-Nov-2026; archive step removed 04-Oct-2026, never recreated). Append-only journal; never
+edit old rows. Since the 07-Nov-2026 restructure the hub cards/rows live in the three category sub-hubs
+<span class="tag b">Derived</span> (sub-hub contents, 10-Nov-2026).</p>
 </div>
 
 <div class="panel" role="tabpanel" id="s6-mf-monthly" aria-labelledby="btn-s6-mf-monthly" tabindex="0">
@@ -548,7 +629,8 @@ explicit approval (governance rule 10; user approval recorded 20-Oct-2026)
   <span class="step">Holdings refresh</span><span class="arr">&rarr;</span>
   <span class="step">Cards/badges &rarr; QA &rarr; publish gate</span>
 </div>
-<p class="small"><span class="tag g">Verified</span> (<code>mutual-fund-analysis\SKILL.md</code> Task B). Peers are never carried over stale.</p>
+<p class="small"><span class="tag g">Verified</span> (<code>mutual-fund-analysis\SKILL.md</code> Task B,
+re-grepped 10-Nov-2026). Peers are never carried over stale.</p>
 </div>
 
 <div class="panel" role="tabpanel" id="s6-adhoc-refresh" aria-labelledby="btn-s6-adhoc-refresh" tabindex="0">
@@ -563,7 +645,9 @@ explicit approval (governance rule 10; user approval recorded 20-Oct-2026)
   <span class="step">Equity: append CMP rows; MF: no timeline row</span><span class="arr">&rarr;</span>
   <span class="step">QA &rarr; optional publish gate</span>
 </div>
-<p class="small"><span class="tag g">Verified</span> (equity skill Task C; MF skill Task C). No re-score, no valuation re-extraction, no Monthly Updates row.</p>
+<p class="small"><span class="tag g">Verified</span> (equity skill Task C and MF skill Task C, re-grepped
+10-Nov-2026; <code>write_html.py</code>/<code>holdings_calc.py</code> present 10-Nov-2026). No re-score,
+no valuation re-extraction, no Monthly Updates row.</p>
 </div>
 
 <div class="panel" role="tabpanel" id="s6-onboarding" aria-labelledby="btn-s6-onboarding" tabindex="0">
@@ -575,11 +659,17 @@ explicit approval (governance rule 10; user approval recorded 20-Oct-2026)
   <span class="step">Fill all sections (MF: + tabP + tabR)</span><span class="arr">&rarr;</span>
   <span class="step">Score &rarr; composite &rarr; verdict &rarr; decision line</span><span class="arr">&rarr;</span>
   <span class="step">QA</span><span class="arr">&rarr;</span>
-  <span class="step">Register in hub + all dropdowns (coded options)</span><span class="arr">&rarr;</span>
+  <span class="step">Register in category sub-hub + all GO-TO dropdowns (coded options)</span><span class="arr">&rarr;</span>
   <span class="step">Wire holdings flow (if HOLDING)</span><span class="arr">&rarr;</span>
   <span class="step">Publish gate</span>
 </div>
-<p class="small"><span class="tag g">Verified</span> (equity skill Task A; MF skill Task A). Badges are JS-computed from option codes - never hardcoded.</p>
+<p class="small"><span class="tag g">Verified</span> (equity skill Task A and MF skill Task A steps,
+re-grepped 10-Nov-2026; sub-hub option/card targets verified 10-Nov-2026). Badges are JS-computed from
+option codes - never hardcoded. <b>Known doc-vs-reality gap:</b> the equity skill's step 8 still says
+"Register in <code>Developer_file\equity\Equity_Forge.html</code>", but since the 07-Nov-2026 restructure
+the stock cards, <code>#stockSel</code> options and journal timelines live in the three category sub-hubs
+<span class="tag g">Verified</span> (landing page has zero report options, 10-Nov-2026). The skill/agent-file
+update belongs to <code>agent-builder-governance</code> and was <b>not</b> made by this run.</p>
 </div>
 
 <div class="panel" role="tabpanel" id="s6-publish" aria-labelledby="btn-s6-publish" tabindex="0">
@@ -592,7 +682,11 @@ explicit approval (governance rule 10; user approval recorded 20-Oct-2026)
   <span class="step">Script clears each APP target, mirrors byte-for-byte (repo APP\ + OneDrive APP\)</span><span class="arr">&rarr;</span>
   <span class="step">Success = exit 0 / "PUBLISH OK"; report any LOCKED line</span>
 </div>
-<p class="small"><span class="tag g">Verified</span> (all three content skills' publish sections; <code>opencode.json</code> OneDrive allow-list read 20-Oct-2026; clear-then-mirror lines re-read in <code>Equity\code\publish_active.ps1</code> 20-Oct-2026). <code>APP\</code> is never hand-edited; no path rewriting (same tree depth).</p>
+<p class="small"><span class="tag g">Verified</span> (all three content skills' publish sections;
+<code>opencode.json</code> OneDrive allow-list re-read 10-Nov-2026; clear-then-mirror lines re-read in
+<code>Equity\code\publish_active.ps1</code> 10-Nov-2026; <code>Orchestration\publish.ps1</code> wrapper
+re-read 10-Nov-2026). <code>APP\</code> is never hand-edited; no path rewriting (same tree depth); one
+publish mirrors the whole tree, including this handbook's <code>others\</code> folder.</p>
 </div>
 
 <div class="panel" role="tabpanel" id="s6-agent-change" aria-labelledby="btn-s6-agent-change" tabindex="0">
@@ -605,7 +699,9 @@ explicit approval (governance rule 10; user approval recorded 20-Oct-2026)
   <span class="step">Remind: restart opencode before it loads</span><span class="arr">&rarr;</span>
   <span class="step">Rule 10: ask user to refresh handbook &rarr; Task-invokes <code>architecture-explorer</code></span>
 </div>
-<p class="small"><span class="tag g">Verified</span> (governance rules 5-7, 10; Layer 0 rules 3, 13). This run is the product of the final step.</p>
+<p class="small"><span class="tag g">Verified</span> (governance rules 5-7 and 10 re-read 10-Nov-2026;
+Layer 0 rules 3, 13). Both the 20-Oct-2026 and the 10-Nov-2026 handbook runs are products of the final
+step.</p>
 </div>
 
 <div class="panel" role="tabpanel" id="s6-quick-question" aria-labelledby="btn-s6-quick-question" tabindex="0">
@@ -645,7 +741,7 @@ explicit approval (governance rule 10; user approval recorded 20-Oct-2026)
 <table>
 <tr><th>Workbook</th><th>Owner flow</th><th>Structure as recorded / observed</th></tr>
 <tr>
-  <td><code>Equity\Holding_stocks.xlsx</code> <span class="tag g">Verified</span> (exists, 10,721 bytes, 03-Oct-2026)</td>
+  <td><code>Equity\Holding_stocks.xlsx</code> <span class="tag g">Verified</span> (exists, 10,721 bytes, re-verified 10-Nov-2026)</td>
   <td><code>equity-analyst</code></td>
   <td><b>Sheet1</b> = trade log (Excel table <code>Shadow_Buy_sell</code>: Date, Type, Stock, Buy/Sell, Quantity, Price, Invested); <b>Calc</b> sheet = live SUMIFS/COUNTIF rollups per stock + TOTAL; rebuilt with <code>holdings_calc.py --write-calc</code> <span class="tag g">Verified</span> (skill text; workbook not opened this run - tab names as the skill records them).</td>
 </tr>
@@ -658,9 +754,9 @@ explicit approval (governance rule 10; user approval recorded 20-Oct-2026)
 </ul>
 <h4>Glossary and generated data</h4>
 <ul>
-<li><code>Developer_file\shared\glossary.js</code> <span class="tag g">Verified</span> (exists, 28,755 bytes, 20-Oct-2026) - single shared copy, single designated writer <code>equity-analyst</code>; relocated out of <code>Equity\code\</code> 07-Oct-2026 by user decision; <code>Equity\code\glossary.js</code> deleted the same day - never recreated.</li>
-<li>Generated JSON: <code>Equity\code\data\holdings.json</code> and per-stock Screener JSON
-<span class="tag g">Verified</span> (listings this run). Never hand-edit generated marker-delimited blocks.</li>
+<li><code>Developer_file\shared\glossary.js</code> <span class="tag g">Verified</span> (exists, 28,903 bytes, 10-Nov-2026 - 28,755 bytes on 20-Oct-2026, so it grew with site edits; same single-copy role) - single shared copy, single designated writer <code>equity-analyst</code>; relocated out of <code>Equity\code\</code> 07-Oct-2026 by user decision; <code>Equity\code\glossary.js</code> deleted the same day - never recreated.</li>
+<li>Generated JSON: <code>Equity\code\data\holdings.json</code> (3,085 bytes) and per-stock Screener JSON
+<span class="tag g">Verified</span> (listings 10-Nov-2026). Never hand-edit generated marker-delimited blocks.</li>
 </ul>
 </div>
 
@@ -670,7 +766,7 @@ explicit approval (governance rule 10; user approval recorded 20-Oct-2026)
 <table>
 <tr><th>Workbook</th><th>Owner flow</th><th>Structure as recorded / observed</th></tr>
 <tr>
-  <td><code>MutualFunds\MF_Holdings.xlsx</code> <span class="tag g">Verified</span> (exists on disk this run)</td>
+  <td><code>MutualFunds\MF_Holdings.xlsx</code> <span class="tag g">Verified</span> (exists on disk, 19,081 bytes, 10-Nov-2026)</td>
   <td><code>mutual-fund-analyst</code></td>
   <td>The MF skill names the workbook <code>MutualFunds\Holding_MFs.xlsx</code>; the on-disk file is <code>MF_Holdings.xlsx</code>. Flow as recorded: Sheet1 trade/SIP log + Calc sheet, scripts <code>mf_holdings_calc.py</code> / <code>mf_write_html.py</code> (on-disk names; skill records <code>holdings_calc.py</code>/<code>write_html.py</code>). Filename/flag alignment <span class="tag y">VERIFY</span> with the user.</td>
 </tr>
@@ -684,9 +780,8 @@ expense ratio, category listings; every figure source + date, every NAV dated
 
 <h4>Glossary and generated data</h4>
 <ul>
-<li><code>MutualFunds\code\glossary_mf.js</code> <span class="tag g">Verified</span> (exists, 17,143 bytes, 08-Oct-2026) - owned by <code>mutual-fund-analyst</code>; MF pages load it as <code>../../MutualFunds/code/glossary_mf.js</code>. Known open item: glossary resolves in repo <code>APP\</code> but not in the OneDrive target (recorded 20-Oct-2026 in the MF skill) <span class="tag y">VERIFY</span> fix choice.</li>
-<li>Generated JSON: <code>MutualFunds\data\mf_holdings.json</code>, <code>dossier_*.json</code>, report meta/scores
-<span class="tag g">Verified</span> (listings this run). Never hand-edit generated marker-delimited blocks.</li>
+<li><code>MutualFunds\code\glossary_mf.js</code> <span class="tag g">Verified</span> (exists, 17,270 bytes, 10-Nov-2026 - 17,143 bytes on 08-Oct-2026) - owned by <code>mutual-fund-analyst</code>; MF pages load it as <code>../../MutualFunds/code/glossary_mf.js</code>. Known open item: glossary resolves in repo <code>APP\</code> but not in the OneDrive target (recorded 20-Oct-2026 in the MF skill; still recorded there on re-grep 10-Nov-2026) <span class="tag y">VERIFY</span> fix choice.</li>
+<li>Generated JSON: <code>MutualFunds\data\mf_holdings.json</code>, <code>dossier_*.json</code> (13 of them), report meta/scores, pull artefacts - a large working set of <b>437 files</b> <span class="tag g">Verified</span> (listing 10-Nov-2026). Never hand-edit generated marker-delimited blocks.</li>
 </ul>
 </div>
 
@@ -694,12 +789,12 @@ expense ratio, category listings; every figure source + date, every NAV dated
 <h3>Publish and tooling</h3>
 <h4>Publish mirroring mechanism</h4>
 
-<p><span class="tag g">Verified</span> (<code>Orchestration\publish.ps1</code> + <code>Orchestration\qa.ps1</code> wrappers and canonical <code>Equity\code\publish_active.ps1</code> / <code>qa_check.py</code> present this run; mechanics per all three skills; clear-then-mirror lines re-read in <code>Equity\code\publish_active.ps1</code> 20-Oct-2026). One publish clears and mirrors the whole <code>Developer_file\</code> tree byte-for-byte into repo <code>APP\</code> and the OneDrive <code>APP\</code> folder; success = exit 0 / <code>PUBLISH OK -&gt; &lt;dir&gt;</code>; <code>LOCKED</code> failures are reported verbatim. <code>APP\</code> is generated output, never hand-edited (Layer 0 rule 10).</p>
+<p><span class="tag g">Verified</span> (<code>Orchestration\publish.ps1</code> + <code>Orchestration\qa.ps1</code> wrappers re-read in full 10-Nov-2026 (both forward to the canonical scripts) and canonical <code>Equity\code\publish_active.ps1</code> / <code>qa_check.py</code> present 10-Nov-2026; mechanics per all three skills; clear-then-mirror lines re-read in <code>Equity\code\publish_active.ps1</code> 10-Nov-2026). One publish clears and mirrors the whole <code>Developer_file\</code> tree byte-for-byte into repo <code>APP\</code> and the OneDrive <code>APP\</code> folder; success = exit 0 / <code>PUBLISH OK -&gt; &lt;dir&gt;</code>; <code>LOCKED</code> failures are reported verbatim. <code>APP\</code> is generated output, never hand-edited (Layer 0 rule 10).</p>
 <h4>Tooling inventory</h4>
 <ul>
-<li>Canonical scripts live under <code>Equity\code\</code> (<code>publish_active.ps1</code>, <code>qa_check.py</code>, <code>holdings_calc.py</code>, <code>write_html.py</code>, <code>data\</code>, JS libs) and <code>MutualFunds\code\</code> (<code>mf_holdings_calc.py</code>, <code>mf_write_html.py</code>, <code>mf_report_build.py</code>, <code>qa_mf_check.py</code>, <code>glossary_mf.js</code>) <span class="tag g">Verified</span> (listings 20-Oct-2026).</li>
-<li>Thin wrappers <code>Orchestration\publish.ps1</code> + <code>Orchestration\qa.ps1</code> (+ <code>README.md</code>) <span class="tag g">Verified</span> (listing 20-Oct-2026).</li>
-<li>Because the publish script <b>clears each <code>APP\</code> target before mirroring</b> <span class="tag g">Verified</span> (<code>Equity\code\publish_active.ps1</code>, clear-first lines re-read 20-Oct-2026), files removed from <code>Developer_file\</code> do not linger in <code>APP\</code> after the next approved publish - which is how the stale legacy copy noted in the source manifest will be purged.</li>
+<li>Canonical scripts live under <code>Equity\code\</code> (<code>publish_active.ps1</code>, <code>qa_check.py</code>, <code>holdings_calc.py</code>, <code>write_html.py</code>, <code>data\</code>, JS libs - 33 files this run) and <code>MutualFunds\code\</code> (<code>mf_holdings_calc.py</code>, <code>mf_write_html.py</code>, <code>mf_report_build.py</code>, <code>qa_mf_check.py</code>, <code>glossary_mf.js</code> - exactly 5 files) <span class="tag g">Verified</span> (listings 10-Nov-2026).</li>
+<li>Thin wrappers <code>Orchestration\publish.ps1</code> + <code>Orchestration\qa.ps1</code> (+ <code>README.md</code>) <span class="tag g">Verified</span> (contents re-read 10-Nov-2026).</li>
+<li>Because the publish script <b>clears each <code>APP\</code> target before mirroring</b> <span class="tag g">Verified</span> (<code>Equity\code\publish_active.ps1</code>, clear-first lines re-read 10-Nov-2026), files removed from <code>Developer_file\</code> do not linger in <code>APP\</code> after the next approved publish. This has already happened once: the stale legacy-guide copy that lingered in <code>APP\others\</code> after 20-Oct-2026 is <b>absent</b> now <span class="tag g">Verified</span> (10-Nov-2026), purged by a later clear-then-mirror publish; <code>APP\others\</code> instead holds the second-issue handbook mirror from the 09-Nov-2026 publish <span class="tag g">Verified</span> (listing 10-Nov-2026).</li>
 </ul>
 </div>
 </div><!-- /.tabs section 7 -->
@@ -715,7 +810,7 @@ expense ratio, category listings; every figure source + date, every NAV dated
 </div>
 
 <div class="panel" role="tabpanel" id="s8-equity" aria-labelledby="btn-s8-equity" tabindex="0">
-<h3>8.1 Equity status/verdict model <span class="tag g">Verified</span> (equity skill; <code>equity-analyst.md</code>)</h3>
+<h3>8.1 Equity status/verdict model <span class="tag g">Verified</span> (equity skill rubric + <code>equity-analyst.md</code>, both re-grepped 10-Nov-2026)</h3>
 <div class="grid">
 <div class="card">
 <h4>Verdict axis (scorecard)</h4>
@@ -737,12 +832,14 @@ expense ratio, category listings; every figure source + date, every NAV dated
 <p><code>WATCHLIST</code> is never a status. Codes: <code>NAME | CAP | STATUS</code> (e.g. <code>ITC | L | H</code>); badges JS-computed.</p>
 </div>
 </div>
-<p class="small">Baseline prices 01-Oct-2026 close; every price carries its date
-<span class="tag g">Verified</span> (equity skill). The two axes are independent - a HOLDING can be AVOID, a CANDIDATE can be ACCUMULATE.</p>
+<p class="small">Baseline prices 01-Oct-2026 close (as the skill records it); the site's current dated
+close on the hub pages is <b>05-Nov-2026</b> <span class="tag g">Verified</span> (landing + sub-hub
+contents, 10-Nov-2026); every price carries its date <span class="tag g">Verified</span> (equity skill).
+The two axes are independent - a HOLDING can be AVOID, a CANDIDATE can be ACCUMULATE.</p>
 </div>
 
 <div class="panel" role="tabpanel" id="s8-mutual-funds" aria-labelledby="btn-s8-mutual-funds" tabindex="0">
-<h3>8.2 MF three-verdict framework (supplied 09-Oct-2026) <span class="tag g">Verified</span> (MF skill "Verdict framework"; <code>mutual-fund-analyst.md</code>)</h3>
+<h3>8.2 MF three-verdict framework (supplied 09-Oct-2026) <span class="tag g">Verified</span> (MF skill "Verdict framework" sections re-read 10-Nov-2026; <code>mutual-fund-analyst.md</code>)</h3>
 <p>Three separate cards, displayed near the top, <b>never merged into one score</b>:</p>
 <table>
 <tr><th>Verdict</th><th>Question</th><th>Content as recorded</th></tr>
@@ -752,16 +849,18 @@ expense ratio, category listings; every figure source + date, every NAV dated
 </table>
 <div class="note">
 <p><b>Supply-dates recorded by the repo:</b> MF rules supplied <b>06-Oct-2026</b> (eleven verbatim rules incl. nine-section scorecard, peer rules, Tasks A/B/C); three-verdict framework supplied <b>09-Oct-2026</b>; dashboard-readability redesign brief approved <b>20-Oct-2026</b> (decision strip first on tab0: Investor Action tile largest, then Fund Quality, then SIP Outcome; composite kept only as one small secondary line <code>Secondary - composite n.n/10 (BAND)</code> - open item resolved 20-Oct-2026; hub chips with Investor Action most prominent; one colour language green/amber/red)
-<span class="tag g">Verified</span> (MF skill, sections dated as quoted).</p>
+<span class="tag g">Verified</span> (MF skill, sections dated as quoted; whole block re-read
+10-Nov-2026).</p>
 </div>
 <p class="small">Legacy MF section scorecard (nine scored sections, composite /10, same four bands as equity) stays as section evidence, never the single merged headline verdict
-<span class="tag g">Verified</span> (MF skill scorecard + relationship-to-composite sections).</p>
+<span class="tag g">Verified</span> (MF skill scorecard + relationship-to-composite sections,
+re-grepped 10-Nov-2026).</p>
 </div>
 </div><!-- /.tabs section 8 -->
 
 <!-- ================================================================ -->
 <h2 id="s9">9. Ground Rules</h2>
-<p>Distilled from Layer 0 <span class="tag g">Verified</span> (<code>governance\rules.md</code>, read 20-Oct-2026; 14 global rules + Tier A facts):</p>
+<p>Distilled from Layer 0 <span class="tag g">Verified</span> (<code>governance\rules.md</code>, re-read in full 10-Nov-2026; 14 global rules + Tier A facts):</p>
 <ol>
 <li><b>Layer 0 first</b> - read the rulebook before acting; it wins on overlap (agent files may only narrow).</li>
 <li><b><code>invest-iq</code> is the only orchestrator</b> - routing/delegation belong to it alone; specialists never re-route each other's work.</li>
@@ -789,7 +888,7 @@ expense ratio, category listings; every figure source + date, every NAV dated
 <li><b>File-based handoffs</b> - hub pages, marker-delimited generated blocks and dated journal rows are the integration surface; no hidden shared memory <span class="tag b">Derived</span> (skills).</li>
 <li><b>Explicit routing table</b> - one source of truth in <code>invest-iq.md</code>, never routed from documentation <span class="tag g">Verified</span>.</li>
 <li><b>Approval gates at the moment of the gate</b> - publish/git/config/structure changes stop and ask; nothing mutates silently <span class="tag g">Verified</span> (Layer 0 rule 7).</li>
-<li><b>Owned skills</b> - playbooks live next to their owner; no cross-agent improvisation <span class="tag g">Verified</span> (3 skills, 3 owners).</li>
+<li><b>Owned skills</b> - playbooks live next to their owner; no cross-agent improvisation <span class="tag g">Verified</span> (3 skills, 3 owners, listing 10-Nov-2026).</li>
 <li><b>Append-only dated journals</b> - history is immutable; several runs per month coexist <span class="tag g">Verified</span> (equity + MF skills).</li>
 <li><b>Scripted QA</b> - <code>qa_check.py</code> target PASS before any publish claim <span class="tag g">Verified</span> (skills + script present).</li>
 </ul>
@@ -804,6 +903,7 @@ expense ratio, category listings; every figure source + date, every NAV dated
 <li><b>No change log</b> - agent/rules-pack edits without re-read, restart reminder or record <span class="tag g">Verified</span> prohibition (rules 7, 13).</li>
 <li><b>Hand-editing <code>APP\</code></b> or publishing without a fresh yes <span class="tag g">Verified</span> prohibition (rule 10).</li>
 <li><b>Reading <code>Docs\</code> for routing/identity</b> - documentation drift becoming runtime truth <span class="tag g">Verified</span> prohibition (rule 11).</li>
+<li><b>Skill/agent text drifting from page reality</b> - after the 07-Nov-2026 category-hub restructure and the 09/10-Nov-2026 month-less rename, some skill/agent lines still name the single hub, a deleted <code>Equity\Reports\</code> folder or month-suffixed patterns (observed 10-Nov-2026; reported to governance, never edited here) <span class="tag g">Verified</span>.</li>
 </ul>
 </div>
 </div>
@@ -832,6 +932,7 @@ as live. Each item's status is stated explicitly.</p>
 <ul>
 <li><span class="tag v">Proposal - not implemented</span> Automate the Screener price pull end-to-end into the Task C config update (today <code>cmp_pull.py</code> exists under <code>Equity\code\</code> but the skill still prescribes manual price-date fixes - automation level <span class="tag y">VERIFY</span>).</li>
 <li><span class="tag v">Proposal - not implemented</span> Decide whether the CMP Updates journal grows unbounded; a dated archiving rule would need new user rules (archive folder was removed 04-Oct-2026 - do not recreate without asking).</li>
+<li><span class="tag v">Proposal - reported, not implemented</span> Bring the equity skill/agent references in line with the 07-Nov-2026 category-hub restructure and the month-less rename (registration step, <code>Equity\Reports\</code>, folder-shape block, and skill line 164's "all 8 report pages" - stale now that reports sit in three sub-hubs) - observed stale on 10-Nov-2026 and routed to <code>agent-builder-governance</code>; this run edited none of those files.</li>
 </ul>
 </div>
 </details>
@@ -872,7 +973,8 @@ as live. Each item's status is stated explicitly.</p>
 <div class="inner">
 <ul>
 <li><span class="tag g">Done 20-Oct-2026</span> First issue (earlier the same day): replace the legacy full guide with this handbook + a deprecation stub.</li>
-<li><span class="tag g">Done 20-Oct-2026</span> Second issue (this run): reorganize the handbook into tabs (sections 4, 6, 7, 8, 14) per the user order of 20-Oct-2026 with common content preserved, and delete the legacy guide entirely - the handbook is now the only architecture file.</li>
+<li><span class="tag g">Done 20-Oct-2026</span> Second issue: reorganize the handbook into tabs (sections 4, 6, 7, 8, 14) per the user order of 20-Oct-2026 with common content preserved, and delete the legacy guide entirely - the handbook is now the only architecture file.</li>
+<li><span class="tag g">Done 10-Nov-2026</span> Third issue (this run): refresh to the 10-Nov-2026 repository state - month-less report naming, the equity category-hub restructure, corrected counts/paths, refreshed glossary sizes, rebuilt source manifest; legacy guide re-checked absent (not recreated); one file written, nothing else.</li>
 <li><span class="tag v">Proposal - not implemented</span> Validation-only re-runs (no regeneration) after metadata-only agent changes, at governance's explicit request.</li>
 </ul>
 </div>
@@ -897,13 +999,13 @@ as live. Each item's status is stated explicitly.</p>
 
 <!-- ================================================================ -->
 <h2 id="s12">12. Maturity Roadmap</h2>
-<p>Current verified state marked from evidence inspected 20-Oct-2026; later levels are proposals only.</p>
+<p>Current verified state marked from evidence inspected 10-Nov-2026; later levels are proposals only.</p>
 <table>
 <tr><th>Level</th><th>Stage</th><th>State</th><th>Evidence</th></tr>
 <tr><td>1</td><td>Single-user scripts + pages</td><td><span class="tag g">Reached (historical)</span></td><td>Canonical Python/PowerShell tooling under <code>Equity\code\</code> <span class="tag g">Verified</span>.</td></tr>
-<tr><td>2</td><td>Documented conventions</td><td><span class="tag g">Reached</span></td><td>Three owned SKILL.md playbooks + Layer 0 rulebook <span class="tag g">Verified</span>.</td></tr>
-<tr><td>3</td><td>Multi-agent runtime with routing</td><td><span class="tag g">Current verified state</span></td><td>7 agent files, all <code>mode: all</code>; routing table in <code>invest-iq.md</code>; <code>default_agent: invest-iq</code> in <code>opencode.json</code> <span class="tag g">Verified</span> (files 20-Oct-2026). Task invocability of some agents remains <span class="tag v">Unverified</span> until restart + discovery.</td></tr>
-<tr><td>4</td><td>Governed change lifecycle</td><td><span class="tag g">Reached</span></td><td>Governance agent with rules 4-7 + rule 10; approval gates; this handbook refresh is its first full-cycle product <span class="tag g">Verified</span>.</td></tr>
+<tr><td>2</td><td>Documented conventions</td><td><span class="tag g">Reached</span></td><td>Three owned SKILL.md playbooks + Layer 0 rulebook <span class="tag g">Verified</span> (listings 10-Nov-2026).</td></tr>
+<tr><td>3</td><td>Multi-agent runtime with routing</td><td><span class="tag g">Current verified state</span></td><td>7 agent files, all <code>mode: all</code>; routing table in <code>invest-iq.md</code>; <code>default_agent: invest-iq</code> in <code>opencode.json</code> <span class="tag g">Verified</span> (files re-read 10-Nov-2026). Task-invocability evidence: <code>architecture-explorer</code> delegations completed 20-Oct-2026 and 10-Nov-2026 (this run); probes recorded in <code>invest-iq.md</code> for <code>github-agent</code>/<code>portfolio-planner</code> (04-Oct-2026) and <code>mutual-fund-analyst</code> (08-Oct-2026); a full seven-agent discovery test remains <span class="tag v">Unverified</span> per <code>invest-iq.md</code>.</td></tr>
+<tr><td>4</td><td>Governed change lifecycle</td><td><span class="tag g">Reached</span></td><td>Governance agent with rules 4-7 + rule 10; approval gates; two full handbook cycles completed (20-Oct-2026 and 10-Nov-2026), each with a validated update, an approval ask and a Task hand-off <span class="tag g">Verified</span>.</td></tr>
 <tr><td>5</td><td>Calibrated verdicts + shared assets</td><td><span class="tag y">In progress / proposed</span></td><td>MF bands provisional; <code>shared\skills\</code> does not exist; OneDrive glossary gap open <span class="tag y">VERIFY</span> items above.</td></tr>
 <tr><td>6</td><td>Automated pipelines with independent review</td><td><span class="tag v">Proposed only</span></td><td>Idea-bank items (automation, re-audit calendar, second-pass QA) - nothing approved.</td></tr>
 </table>
@@ -932,9 +1034,9 @@ as live. Each item's status is stated explicitly.</p>
 <h3>13.3 Handbook-refresh checklist (for governance's rule-10 hand-off) <span class="tag b">Derived</span> (this agent's file)</h3>
 <ul>
 <li>[ ] Upstream update <b>succeeded</b> and applicable compliance checks passed - otherwise do not refresh</li>
-<li>[ ] User's explicit approval obtained (20-Oct-2026 precedent: "invoke architecture-explorer and proceed"; tab-format + legacy-deletion orders recorded 20-Oct-2026)</li>
-<li>[ ] Task invocation actually returned in this session - never claim a hand-off that did not run</li>
-<li>[ ] <code>architecture-explorer</code> inspects live evidence, regenerates/validates the tabbed handbook, deletes the legacy guide if it still exists (deleted 20-Oct-2026, never recreated), and returns an item-by-item validation result</li>
+<li>[ ] User's explicit approval obtained (20-Oct-2026 precedent: "invoke architecture-explorer and proceed"; 10-Nov-2026 precedent: "update the handbook" after the month-less-naming update)</li>
+<li>[ ] Task invocation actually returned in this session - never claim a hand-off that did not run (returns recorded 20-Oct-2026 and 10-Nov-2026)</li>
+<li>[ ] <code>architecture-explorer</code> inspects live evidence, regenerates/validates the tabbed handbook, deletes the legacy guide if it still exists (deleted 20-Oct-2026, re-checked absent 10-Nov-2026, never recreated), and returns an item-by-item validation result</li>
 <li>[ ] Governance validates the returned result and reports the system update separately from the handbook refresh</li>
 <li>[ ] Handbook generation alone never re-triggers this lifecycle (no recursion)</li>
 </ul>
@@ -955,10 +1057,10 @@ as live. Each item's status is stated explicitly.</p>
 <h4>Layered model</h4>
 <table>
 <tr><th>Layer</th><th>Artifact</th><th>Controls</th><th>Evidence</th></tr>
-<tr><td><b>Layer 0</b> - global rules</td><td><code>governance\rules.md</code></td><td>14 runtime rules + Tier A facts binding every agent and skill; precedence above agent files</td><td><span class="tag g">Verified</span> (file read 20-Oct-2026)</td></tr>
+<tr><td><b>Layer 0</b> - global rules</td><td><code>governance\rules.md</code></td><td>14 runtime rules + Tier A facts binding every agent and skill; precedence above agent files</td><td><span class="tag g">Verified</span> (file re-read 10-Nov-2026)</td></tr>
 <tr><td><b>Layer 1</b> - orchestrator</td><td><code>.opencode\agent\invest-iq.md</code></td><td>Routing table, delegation mechanics, tone, summary format; only orchestrator</td><td><span class="tag g">Verified</span></td></tr>
-<tr><td><b>Layer 2</b> - specialists</td><td>Each other agent file, incl. its <code>## Layer 2 guardrails</code> section</td><td>Responsibility, triggers, routing boundaries, data access, tool use, output format, domain boundaries, error handling - may narrow, never widen Layer 0</td><td><span class="tag g">Verified</span> (all six guardrail headings present in every one of the seven agent files, re-scanned 20-Oct-2026)</td></tr>
-<tr><td><b>Layer 3</b> - shared skills</td><td><code>shared\skills\</code></td><td><b>None exist.</b> Each skill is owned by exactly one agent. Creating <code>shared\skills\</code> (and its discovery configuration) requires explicit user approval (Layer 0 rule 12)</td><td><span class="tag g">Verified</span> absence (skills listing: 3 owned skills only)</td></tr>
+<tr><td><b>Layer 2</b> - specialists</td><td>Each other agent file, incl. its <code>## Layer 2 guardrails</code> section</td><td>Responsibility, triggers, routing boundaries, data access, tool use, output format, domain boundaries, error handling - may narrow, never widen Layer 0</td><td><span class="tag g">Verified</span> (all six <code>###</code> guardrail headings present once each, in order, in every one of the seven agent files, re-scanned 10-Nov-2026)</td></tr>
+<tr><td><b>Layer 3</b> - shared skills</td><td><code>shared\skills\</code></td><td><b>None exist.</b> Each skill is owned by exactly one agent. Creating <code>shared\skills\</code> (and its discovery configuration) requires explicit user approval (Layer 0 rule 12)</td><td><span class="tag g">Verified</span> absence (skills listing 10-Nov-2026: 3 owned skills only)</td></tr>
 <tr><td><b>Layer 4</b> - data/tool guardrails</td><td>Write-permission matrix (precedence &amp; change-control tab) + approved external sources</td><td>Who may write what; Screener.in (equities) and Value Research Online (MF) as the approved data sources; approval gates on publish/git/config/structure</td><td><span class="tag g">Verified</span> (agent files + skills + Layer 0)</td></tr>
 </table>
 
@@ -979,11 +1081,11 @@ as live. Each item's status is stated explicitly.</p>
 <code>invest-iq.md</code>), its own Layer 2 instruction file with a <code>## Layer 2 guardrails</code>
 section, its owned skill (work specialists only), and its write scope
 <span class="tag g">Verified</span> (guardrail-heading scan of all seven files in <code>.opencode\agent\</code>,
-20-Oct-2026; skills listing 20-Oct-2026).</p>
+10-Nov-2026; skills listing 10-Nov-2026).</p>
 <p>The six fixed Layer 2 guardrail headings, present in this order in every agent file:
 <code>Inheritance - Layer 0 and Layer 1</code>, <code>Data access</code>, <code>Tool use</code>,
 <code>Output format</code>, <code>Domain boundaries</code>, <code>Error handling</code>
-<span class="tag g">Verified</span> (same scan, 20-Oct-2026).</p>
+<span class="tag g">Verified</span> (same scan, 10-Nov-2026).</p>
 <table>
 <tr><th>Agent</th><th>Layer 2 file</th><th>Guardrail section</th><th>Owned skill</th><th>Sole-write scope (short)</th></tr>
 <tr><td><code>invest-iq</code></td><td><code>.opencode\agent\invest-iq.md</code></td><td>all six headings present</td><td>none (Layer 1)</td><td>own instruction file + documentation files the user explicitly asks it to create</td></tr>
@@ -991,11 +1093,13 @@ section, its owned skill (work specialists only), and its write scope
 <tr><td><code>portfolio-planner</code></td><td><code>.opencode\agent\portfolio-planner.md</code></td><td>all six headings present</td><td><code>portfolio-planner</code></td><td><code>Developer_file\equity\Portfolio_Plan.html</code> only (+ own skill)</td></tr>
 <tr><td><code>mutual-fund-analyst</code></td><td><code>.opencode\agent\mutual-fund-analyst.md</code></td><td>all six headings present</td><td><code>mutual-fund-analysis</code></td><td><code>Developer_file\mutual_fund\*</code>, <code>MutualFunds\*</code>, own skill</td></tr>
 <tr><td><code>agent-builder-governance</code></td><td><code>.opencode\agent\agent-builder-governance.md</code></td><td>all six headings present</td><td>none</td><td>every agent file, every skill, <code>governance\rules.md</code></td></tr>
-<tr><td><code>architecture-explorer</code></td><td><code>.opencode\agent\architecture-explorer.md</code> (re-read this run)</td><td>all six headings present</td><td>none</td><td>this handbook only; legacy guide path delete-only, never recreated</td></tr>
+<tr><td><code>architecture-explorer</code></td><td><code>.opencode\agent\architecture-explorer.md</code> (re-checked this run)</td><td>all six headings present</td><td>none</td><td>this handbook only; legacy guide path delete-only, never recreated</td></tr>
 <tr><td><code>github-agent</code></td><td><code>.opencode\agent\github-agent.md</code></td><td>all six headings present</td><td>none</td><td><code>GitHub\README.md</code> + approval-gated git mutations</td></tr>
 </table>
 <p class="small">Write scopes are shortened from each agent file's Data access / Tool use guardrails
-<span class="tag b">Derived</span> (agent files read 20-Oct-2026).</p>
+<span class="tag b">Derived</span> (five agent files re-read in full 10-Nov-2026;
+<code>mutual-fund-analyst.md</code> and <code>architecture-explorer.md</code> re-checked by scan, targeted
+greps and git diff 10-Nov-2026).</p>
 </div>
 
 <div class="panel" role="tabpanel" id="s14-precedence" aria-labelledby="btn-s14-precedence" tabindex="0">
@@ -1017,7 +1121,7 @@ section, its owned skill (work specialists only), and its write scope
 <tr><td>Skills <code>.opencode\skills\*</code></td><td><code>agent-builder-governance</code></td><td>Body from user-supplied rules or the official spec - never invented</td></tr>
 <tr><td><code>governance\rules.md</code></td><td><code>agent-builder-governance</code></td><td>Layer 0 edits are governance's scope</td></tr>
 <tr><td><code>opencode.json</code></td><td>the user (approval-gated)</td><td>No agent edits it without explicit user approval; restart after any change</td></tr>
-<tr><td><code>Developer_file\InvestIQ.html</code>, <code>equity\*</code> (except plan), <code>shared\glossary.js</code></td><td><code>equity-analyst</code></td><td>Planner owns only <code>Portfolio_Plan.html</code></td></tr>
+<tr><td><code>Developer_file\InvestIQ.html</code>, <code>equity\*</code> (except plan), <code>shared\glossary.js</code></td><td><code>equity-analyst</code></td><td>Planner owns only <code>Portfolio_Plan.html</code>; <code>equity\*</code> includes the three category sub-hubs since 07-Nov-2026</td></tr>
 <tr><td><code>Developer_file\equity\Portfolio_Plan.html</code></td><td><code>portfolio-planner</code></td><td>Exactly one content file</td></tr>
 <tr><td><code>Developer_file\mutual_fund\*</code>, <code>MutualFunds\*</code></td><td><code>mutual-fund-analyst</code></td><td>New subfolders approval-gated</td></tr>
 <tr><td><code>Developer_file\others\InvestIQ_Agent_Architecture_Handbook.html</code></td><td><code>architecture-explorer</code></td><td>Only on a governance Task hand-off; the legacy guide path <code>InvestIQ_Architecture_Guide.html</code> is delete-only - deleted 20-Oct-2026, never recreated</td></tr>
@@ -1037,31 +1141,40 @@ proven from files alone (e.g. Task invocability after a restart), the label is
 </div>
 
 <!-- ================================================================ -->
-<h2 id="manifest">Source manifest (files inspected this run, 20-Oct-2026)</h2>
-<p class="small dim">Inspection basis: the first-issue run of 20-Oct-2026 (source facts carried forward unchanged) plus this reorganization run of 20-Oct-2026 (agent-file re-read, folder/data re-checks, guardrail-heading scan, publish-script re-read, legacy-guide deletion) <span class="tag b">Derived</span> from both runs' tool results, same date.</p>
+<h2 id="manifest">Source manifest (files inspected this run, 10-Nov-2026)</h2>
+<p class="small dim">Inspection basis: this third-issue run of 10-Nov-2026 - full reads of Layer 0 and
+five agent files, structure/targeted checks of the remaining two agent files and all three skills, folder
+and byte-count listings across the repository, page-structure greps of the hubs and sub-hubs, publish-script
+and wrapper re-reads, and read-only git log/diff evidence
+<span class="tag b">Derived</span> from those tool results, all dated 10-Nov-2026. Facts last checked on
+20-Oct-2026 that were not re-inspected keep their original dates elsewhere in this handbook.</p>
 <table>
 <tr><th>#</th><th>Path</th><th>Role in this handbook</th></tr>
-<tr><td>1</td><td><code>governance\rules.md</code></td><td>Layer 0 ground rules, precedence, Tier A facts (sections 9, 14)</td></tr>
-<tr><td>2</td><td><code>.opencode\agent\invest-iq.md</code></td><td>Overview, organization, routing table, delegation (sections 1, 2, 5, 6)</td></tr>
-<tr><td>3</td><td><code>.opencode\agent\equity-analyst.md</code></td><td>Agent card, verdict model, workflows (sections 4, 6, 8)</td></tr>
-<tr><td>4</td><td><code>.opencode\agent\mutual-fund-analyst.md</code></td><td>Agent card, three-verdict framework (sections 4, 8)</td></tr>
-<tr><td>5</td><td><code>.opencode\agent\portfolio-planner.md</code></td><td>Agent card, rules pack v0 (sections 4, 11)</td></tr>
-<tr><td>6</td><td><code>.opencode\agent\agent-builder-governance.md</code></td><td>Meta-agent card, rule-10 lifecycle, audit procedure (sections 4, 6, 13, 14)</td></tr>
-<tr><td>7</td><td><code>.opencode\agent\architecture-explorer.md</code></td><td>This agent's mandate (re-read in this second-issue run), write boundary, tabbed format contract (sections 4, 13, 14)</td></tr>
-<tr><td>8</td><td><code>.opencode\agent\github-agent.md</code></td><td>Repository agent card (section 4)</td></tr>
-<tr><td>9</td><td><code>.opencode\skills\equity-analysis\SKILL.md</code></td><td>Equity workflows, holdings flow, QA/publish (sections 6, 7, 8, 13)</td></tr>
-<tr><td>10</td><td><code>.opencode\skills\mutual-fund-analysis\SKILL.md</code></td><td>MF rules 06-Oct-2026, verdict framework 09-Oct-2026 / 20-Oct-2026, Tasks A/B/C (sections 6, 7, 8)</td></tr>
-<tr><td>11</td><td><code>.opencode\skills\portfolio-planner\SKILL.md</code></td><td>Rules pack, Flows C/P/R (sections 4, 6, 11)</td></tr>
-<tr><td>12</td><td><code>opencode.json</code></td><td>Default agent + OneDrive publish allow-list (sections 7, 14)</td></tr>
-<tr><td>13</td><td><code>Developer_file\</code> tree listing (recursive)</td><td>Folder layout, page inventory (section 3)</td></tr>
-<tr><td>14</td><td><code>Developer_file\others\InvestIQ_Architecture_Guide.html</code></td><td>Legacy guide: inspected then deleted this run - 3,310-byte deprecation stub last written 20-Oct-2026 (originally the 82,129-byte full guide dated 06-Oct-2026); the path must stay absent (header notice, section 3, footer)</td></tr>
-<tr><td>15</td><td><code>APP\</code> tree listing (+ <code>APP\others\</code> re-listed this run)</td><td>Published-mirror state; stale legacy copy re-confirmed present (82,129 bytes, 06-Oct-2026) - report only, <code>APP\</code> never touched by this run; purged by the next approval-gated publish (section 7, footer)</td></tr>
-<tr><td>16</td><td><code>Equity\</code> + <code>Equity\code\</code> + <code>Equity\code\data\</code> listings</td><td>Holdings workbook, canonical scripts, generated JSON (sections 3, 7)</td></tr>
-<tr><td>17</td><td><code>MutualFunds\</code> recursive listing</td><td>MF workbook (<code>MF_Holdings.xlsx</code>), scripts, glossary, data (sections 3, 7)</td></tr>
-<tr><td>18</td><td><code>GitHub\</code>, <code>Orchestration\</code>, <code>Docs\</code> listings</td><td>Placeholders, wrappers, empty-docs fact (sections 3, 7, 9)</td></tr>
-<tr><td>19</td><td><code>Developer_file\shared\glossary.js</code>, <code>MutualFunds\code\glossary_mf.js</code> (existence + size + dates)</td><td>Glossary integration facts (section 7)</td></tr>
-<tr><td>20</td><td><code>Equity\code\publish_active.ps1</code> (clear-then-mirror lines re-read this run)</td><td>Publish clears each <code>APP\</code> target before mirroring - basis for the stale-copy purge statement (sections 6, 7)</td></tr>
-<tr><td>21</td><td><code>.opencode\agent\*.md</code> guardrail-heading scan (all seven files, this run)</td><td>Six <code>## Layer 2 guardrails</code> subheadings present in order in every agent file (sections 4, 14)</td></tr>
+<tr><td>1</td><td><code>governance\rules.md</code></td><td>Layer 0 ground rules (14 global rules + Tier A facts), precedence (sections 9, 14) - full read 10-Nov-2026</td></tr>
+<tr><td>2</td><td><code>.opencode\agent\invest-iq.md</code></td><td>Overview, organization, routing table, delegation (sections 1, 2, 4, 5, 6) - full read 10-Nov-2026</td></tr>
+<tr><td>3</td><td><code>.opencode\agent\equity-analyst.md</code></td><td>Agent card, equity duties, stale <code>Equity\Reports\</code> reference (sections 4, 6, 10) - full read 10-Nov-2026</td></tr>
+<tr><td>4</td><td><code>.opencode\agent\portfolio-planner.md</code></td><td>Agent card, rules pack, Flows C/P/R (sections 4, 11, 14) - full read 10-Nov-2026</td></tr>
+<tr><td>5</td><td><code>.opencode\agent\github-agent.md</code></td><td>Repository agent card (sections 4, 14) - full read 10-Nov-2026</td></tr>
+<tr><td>6</td><td><code>.opencode\agent\agent-builder-governance.md</code></td><td>Meta-agent card, rule-10 lifecycle, audit procedure (sections 4, 6, 13, 14) - full read 10-Nov-2026</td></tr>
+<tr><td>7</td><td><code>.opencode\agent\mutual-fund-analyst.md</code></td><td>MF agent card incl. month-less <code>&lt;FUND&gt;_MF_Report.html</code> naming (sections 4, 8) - frontmatter/guardrail scan + quoted-line greps + git diff 10-Nov-2026</td></tr>
+<tr><td>8</td><td><code>.opencode\agent\architecture-explorer.md</code></td><td>This agent's mandate, write boundary, tabbed format contract (sections 4, 13, 14) - structure scan 10-Nov-2026; this run is its execution</td></tr>
+<tr><td>9</td><td><code>.opencode\skills\equity-analysis\SKILL.md</code></td><td>Equity workflows, holdings flow, QA/publish, rubric (sections 6, 7, 8, 13); line 164 "all 8 report pages" noted stale (sections 10, 11) - targeted greps 10-Nov-2026</td></tr>
+<tr><td>10</td><td><code>.opencode\skills\mutual-fund-analysis\SKILL.md</code></td><td>MF rules 06-Oct-2026, three-verdict framework 09-Oct-2026 / 20-Oct-2026, Tasks A/B/C, OneDrive glossary open item (sections 6, 7, 8) - verdict sections re-read + greps 10-Nov-2026</td></tr>
+<tr><td>11</td><td><code>.opencode\skills\portfolio-planner\SKILL.md</code></td><td>Rules pack v0 numbers, Flows C/P/R (sections 4, 6, 11) - targeted greps 10-Nov-2026</td></tr>
+<tr><td>12</td><td><code>opencode.json</code></td><td>Default agent + OneDrive publish allow-list (sections 7, 14) - full read 10-Nov-2026</td></tr>
+<tr><td>13</td><td><code>Developer_file\</code> tree listing (recursive) + per-folder counts</td><td>Folder layout, page inventory, month-less naming check (header, sections 3, 7) - 10-Nov-2026</td></tr>
+<tr><td>14</td><td><code>Developer_file\equity\</code> listing (20 files) + <code>Equity_Forge.html</code> and the three sub-hubs (structure greps)</td><td>Category landing + sub-hub split, tabs, options, cards, dated close (sections 3, 6, 7, 8) - 10-Nov-2026</td></tr>
+<tr><td>15</td><td><code>Developer_file\mutual_fund\MF_Forge.html</code></td><td>Single MF hub: #fundSel 13 options, 13 fund cards, 13 ranking rows, 13 news groups (sections 3, 7) - counts 10-Nov-2026</td></tr>
+<tr><td>16</td><td><code>Developer_file\others\InvestIQ_Architecture_Guide.html</code></td><td>Legacy guide: existence re-checked 10-Nov-2026 - ABSENT (deleted 20-Oct-2026, not recreated; this run performed no deletion because nothing was there)</td></tr>
+<tr><td>17</td><td><code>APP\</code> tree listing</td><td>Published-mirror state: equity 20, mutual_fund 14, no month-suffixed files anywhere, <code>APP\others\</code> holds the second-issue handbook copy (09-Nov-2026 publish) and no legacy guide - report only, <code>APP\</code> never touched (header, sections 3, 7)</td></tr>
+<tr><td>18</td><td><code>Equity\</code> + <code>Equity\code\</code> listings (33 files) + absence checks for <code>Reports\</code>, <code>archive\</code>, <code>Annual Reports</code></td><td>Holdings workbook, canonical scripts, removed-folder facts (sections 3, 4, 7) - 10-Nov-2026</td></tr>
+<tr><td>19</td><td><code>Equity\code\write_html.py</code>, <code>Equity\code\qa_check.py</code> (targeted greps)</td><td><code>HUB = Equity_Forge_Holding.html</code>, 07-Nov-2026 landing-page comment, month-less <code>*_Research_Report.html</code> glob, QA targets (sections 3, 6, 7) - 10-Nov-2026</td></tr>
+<tr><td>20</td><td><code>Equity\code\publish_active.ps1</code> (clear-first lines) + <code>Orchestration\publish.ps1</code> / <code>qa.ps1</code> (full reads)</td><td>Publish clears each <code>APP\</code> target before mirroring; thin wrappers forward to the canonical scripts (sections 6, 7) - 10-Nov-2026</td></tr>
+<tr><td>21</td><td><code>MutualFunds\</code> listing (<code>MF_Holdings.xlsx</code> 19,081 bytes; <code>code\</code> 5 files; <code>data\</code> 437 files incl. 13 <code>dossier_*.json</code> + <code>mf_holdings.json</code>)</td><td>MF workbook, scripts, glossary, data scale (sections 3, 7) - 10-Nov-2026</td></tr>
+<tr><td>22</td><td><code>GitHub\</code>, <code>Orchestration\</code>, <code>Docs\</code> listings</td><td>1 / 3 / 0 files - placeholder, wrappers, empty-docs fact (sections 3, 7, 9) - 10-Nov-2026</td></tr>
+<tr><td>23</td><td><code>Developer_file\shared\glossary.js</code> (28,903 bytes), <code>MutualFunds\code\glossary_mf.js</code> (17,270 bytes)</td><td>Glossary integration facts and refreshed sizes (sections 3, 7) - 10-Nov-2026</td></tr>
+<tr><td>24</td><td>Report-page topnav greps (<code>ITC_Research_Report.html</code>, <code>NIFTYBEES_Research_Report.html</code>) + <code>Developer_file\InvestIQ.html</code> entry links</td><td>GO-TO dropdowns carry month-less coded options; main page links both hubs (sections 6, 7) - 10-Nov-2026</td></tr>
+<tr><td>25</td><td>Read-only git evidence: <code>git log</code> / <code>git diff d550a43..HEAD</code></td><td>Rename commits <code>d8baf0a</code> + <code>0872c5a</code> (10-Nov-2026), restructure commit <code>5fa1737</code> (09-Nov-2026), removal commit <code>9530a64</code>, and the 11-line <code>.opencode</code> naming change (header notice, sections 2, 4) - no git mutation performed</td></tr>
 </table>
 
 </main>
@@ -1069,16 +1182,18 @@ proven from files alone (e.g. Task invocability after a restart), the label is
 <footer>
 <p><b>Unpublished developer handbook.</b> Not financial advice. Not published site content - this
 document is never mirrored into <code>APP\</code> by this run and is not part of the investment site.</p>
-<p><b>Write scope of this run (second issue, 20-Oct-2026):</b> exactly two file operations - the
-<code>Developer_file\others\InvestIQ_Agent_Architecture_Handbook.html</code> file was replaced (reorganized
-into tabs; its first issue was generated earlier the same day) and
-<code>Developer_file\others\InvestIQ_Architecture_Guide.html</code> was deleted entirely (3,310-byte
-deprecation stub; never recreated). No agent file, skill, configuration, data workbook, <code>APP\</code>
-file, <code>Docs\</code> file, git state or any other repository file was modified - this handbook modifies
-none of its sources. Generated by <code>architecture-explorer</code> under a rule-10 Task hand-off from
-<code>agent-builder-governance</code> with the user's explicit orders of 20-Oct-2026.</p>
+<p><b>Write scope of this run (third issue, 10-Nov-2026):</b> exactly one file operation - the
+<code>Developer_file\others\InvestIQ_Agent_Architecture_Handbook.html</code> file was replaced in place (refreshed
+against live evidence after the 10-Nov-2026 month-less-naming update and the 09-Nov-2026 equity category-hub
+restructure). The legacy <code>Developer_file\others\InvestIQ_Architecture_Guide.html</code> was re-checked absent
+(this run deleted nothing - it was already gone on 20-Oct-2026 - and it was not recreated). No agent file, skill,
+configuration, data workbook, <code>APP\</code> file, <code>Docs\</code> file, git state or any other repository file was
+modified - this handbook modifies none of its sources. Generated by <code>architecture-explorer</code> under a
+rule-10 Task hand-off from <code>agent-builder-governance</code> with the user's explicit approval of
+10-Nov-2026.</p>
 <p class="dim">Evidence labels: Verified / Derived / VERIFY / Unverified - legend in the left
-navigation and section 1. Generation date: 20-Oct-2026 (second issue, reorganized into tabs).</p>
+navigation and section 1. Generation date: 10-Nov-2026 (third issue; second issue 20-Oct-2026 reorganized the
+document into tabs).</p>
 </footer>
 
 <script>
